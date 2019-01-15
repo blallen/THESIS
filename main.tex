@@ -31,6 +31,7 @@
 %% some PDF conversions mess up the ligatures.  -LB, 1/22/2014
 \usepackage{cmap}
 \usepackage[T1]{fontenc}
+\usepackage{graphicx}
 \pagestyle{plain}
 
 %% This bit allows you to either specify only the files which you wish to
@@ -41,6 +42,86 @@
 %% process all files:}
 %% \def\all{all}
 %% \ifx\files\all \typeout{Including all files.} \else \typeout{Including only \files.} \includeonly{\files} \fi
+
+%% aliases
+%% CMS Standard
+\newcommand{\de}{\ensuremath{^\circ}}
+\newcommand{\ten}[1]{\ensuremath{\times \text{10}^\text{#1}}}
+\newcommand{\unit}[1]{\ensuremath{\text{\,#1}}\xspace}
+\newcommand{\mum}{\ensuremath{\,\mu\text{m}}\xspace}
+\newcommand{\micron}{\ensuremath{\,\mu\text{m}}\xspace}
+\newcommand{\cm}{\ensuremath{\,\text{cm}}\xspace}
+\newcommand{\mm}{\ensuremath{\,\text{mm}}\xspace}
+\newcommand{\mus}{\ensuremath{\,\mu\text{s}}\xspace}
+\newcommand{\keV}{\ensuremath{\,\text{ke\hspace{-.08em}V}}\xspace}
+\newcommand{\MeV}{\ensuremath{\,\text{Me\hspace{-.08em}V}}\xspace}
+\newcommand{\MeVns}{\ensuremath{\text{Me\hspace{-.08em}V}}\xspace} % no leading thinspace
+\newcommand{\GeV}{\ensuremath{\,\text{Ge\hspace{-.08em}V}}\xspace}
+\newcommand{\GeVns}{\ensuremath{\text{Ge\hspace{-.08em}V}}\xspace} % no leading thinspace
+\newcommand{\gev}{\GeV}
+\newcommand{\TeV}{\ensuremath{\,\text{Te\hspace{-.08em}V}}\xspace}
+\newcommand{\TeVns}{\ensuremath{\text{Te\hspace{-.08em}V}}\xspace} % no leading thinspace
+\newcommand{\PeV}{\ensuremath{\,\text{Pe\hspace{-.08em}V}}\xspace}
+\newcommand{\keVc}{\ensuremath{{\,\text{ke\hspace{-.08em}V\hspace{-0.16em}/\hspace{-0.08em}}c}}\xspace}
+\newcommand{\MeVc}{\ensuremath{{\,\text{Me\hspace{-.08em}V\hspace{-0.16em}/\hspace{-0.08em}}c}}\xspace}
+\newcommand{\GeVc}{\ensuremath{{\,\text{Ge\hspace{-.08em}V\hspace{-0.16em}/\hspace{-0.08em}}c}}\xspace}
+\newcommand{\GeVcns}{\ensuremath{{\text{Ge\hspace{-.08em}V\hspace{-0.16em}/\hspace{-0.08em}}c}}\xspace} % no leading thinspace
+\newcommand{\TeVc}{\ensuremath{{\,\text{Te\hspace{-.08em}V\hspace{-0.16em}/\hspace{-0.08em}}c}}\xspace}
+\newcommand{\keVcc}{\ensuremath{{\,\text{ke\hspace{-.08em}V\hspace{-0.16em}/\hspace{-0.08em}}c^\text{2}}}\xspace}
+\newcommand{\MeVcc}{\ensuremath{{\,\text{Me\hspace{-.08em}V\hspace{-0.16em}/\hspace{-0.08em}}c^\text{2}}}\xspace}
+\newcommand{\GeVcc}{\ensuremath{{\,\text{Ge\hspace{-.08em}V\hspace{-0.16em}/\hspace{-0.08em}}c^\text{2}}}\xspace}
+\newcommand{\GeVccns}{\ensuremath{{\text{Ge\hspace{-.08em}V\hspace{-0.16em}/\hspace{-0.08em}}c^\text{2}}}\xspace} % no leading thinspace
+\newcommand{\TeVcc}{\ensuremath{{\,\text{Te\hspace{-.08em}V\hspace{-0.16em}/\hspace{-0.08em}}c^\text{2}}}\xspace}
+
+\newcommand{\abinv} {\mbox{\ensuremath{\,\text{ab}^{-1}}}\xspace}
+\newcommand{\fbinv} {\mbox{\ensuremath{\,\text{fb}^{-1}}}\xspace}
+\newcommand{\pbinv} {\mbox{\ensuremath{\,\text{pb}^{-1}}}\xspace}
+\newcommand{\nbinv} {\mbox{\ensuremath{\,\text{nb}^{-1}}}\xspace}
+\newcommand{\mubinv} {\ensuremath{\,\mu\text{b}^{-1}}\xspace}
+\newcommand{\mbinv} {\ensuremath{\,\text{mb}^{-1}}\xspace}
+\newcommand{\percms}{\ensuremath{\,\text{cm}^{-2}\,\text{s}^{-1}}\xspace}
+\newcommand{\lumi}{\ensuremath{\mathcal{L}}\xspace}
+\newcommand{\Lumi}{\ensuremath{\mathcal{L}}\xspace}%both upper and lower
+
+\newcommand{\pt}{\ensuremath{p_{\mathrm{T}}}\xspace}
+\newcommand{\et}{\ensuremath{E_{\mathrm{T}}}\xspace}
+\newcommand{\mT}{\ensuremath{m_{\mathrm{T}}}\xspace}
+\newcommand{\HT}{\ensuremath{H_{\mathrm{T}}}\xspace}
+\newcommand{\ETm}{\ensuremath{E_{\mathrm{T}}^{\text{miss}}}\xspace}
+\newcommand{\ptmiss}{\ensuremath{\pt^\text{miss}}\xspace}
+\newcommand{\ptvec}{\ensuremath{{\vec p}_{\mathrm{T}}}\xspace}
+\newcommand{\ptvecmiss}{\ensuremath{{\vec p}_{\mathrm{T}}^{\kern1pt\text{miss}}}\xspace}
+
+\newcommand{\ttbar}{\ensuremath{{\cmsSymbolFace{t}\overline{\cmsSymbolFace{t}}}}\xspace} % t-tbar
+\newcommand{\cPgg}{\ensuremath{\gamma}} % gamma
+\newcommand{\PZ}{\ensuremath{{Z}}}
+\newcommand{\PW}{\ensuremath{{W}}}
+\newcommand{\Pe}{\ensuremath{{e}}}
+\newcommand{\Pgm}{\ensuremath{{\mu}}}
+
+
+%% from EXO-16-053
+\newcommand{\NZg}[1][]{\ensuremath{N^{\PZ\Pgg}_{#1}}}
+\newcommand{\NWg}[1][]{\ensuremath{N^{\PW\Pgg}_{#1}}}
+\newcommand{\RZll}[1][]{\ensuremath{R^{\PZ\Pgg}_{\ell\ell\Pgg#1}}}
+\newcommand{\RZee}[1][]{\ensuremath{R^{\PZ\Pgg}_{\Pe\Pe\Pgg#1}}}
+\newcommand{\RZmm}[1][]{\ensuremath{R^{\PZ\Pgg}_{\Pgm\Pgm\Pgg#1}}}
+\newcommand{\RWl}[1][]{\ensuremath{R^{\PW\Pgg}_{\ell\Pgg#1}}}
+\newcommand{\RWe}[1][]{\ensuremath{R^{\PW\Pgg}_{\Pe\Pgg#1}}}
+\newcommand{\RWm}[1][]{\ensuremath{R^{\PW\Pgg}_{\Pgm\Pgg#1}}}
+\newcommand{\fZW}[1][]{\ensuremath{f^{\PZ\Pgg}_{\PW\Pgg#1}}}
+\newcommand{\Tll}[1][]{\ensuremath{T_{\ell\ell\Pgg#1}}}
+\newcommand{\Tl}[1][]{\ensuremath{T_{\ell\Pgg#1}}}
+\newcommand{\TK}[1][]{\ensuremath{T_{K#1}}}
+
+\newcommand{\ETg}{\ensuremath{E_{\mathrm{T}}^{\Pgg}}\xspace}
+
+\newcommand{\zinvg}{\ensuremath{\PZ(\to\PGn\PAGn){+}\Pgg}}
+\newcommand{\zllg}{\ensuremath{\PZ(\to\ell\overline{\ell}){+}\Pgg}}
+\newcommand{\wlng}{\ensuremath{\PW(\to\ell\PGn){+}\Pgg}}
+\newcommand{\vg}{\ensuremath{\mathrm{V}{+}\Pgg}}
+\newcommand{\gj}{\ensuremath{\Pgg{+}\text{jets}}}
+\newcommand{\ttg}{\mbox{\ttbar\hspace{-0.3em}\Pgg}\xspace}
 
 \begin{document}
 
@@ -55,7 +136,7 @@
 \include{motivation}
 \include{detector}
 \include{reconstruction}
-\include{analysis}
+\include{Analysis/analysis}
 \include{impact}
 \include{conclusion}
 %% \appendix

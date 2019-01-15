@@ -1,0 +1,74 @@
+\chapter{The Monophoton Analysis}
+
+The main event.
+
+\section{Event Selection}
+
+\section{Irreducible backgrounds}
+
+\begin{figure}[htbp]
+  \centering
+    \includegraphics[width=0.49\textwidth]{Analysis/Figures/RZee.pdf}
+    \includegraphics[width=0.49\textwidth]{Analysis/Figures/RZmm.pdf}
+    \caption{
+      Transfer factors \RZee\ (left) and \RZmm\ (right). 
+      The uncertainty bands in green (inner) and orange (outer) show the systematic uncertainty, and the combination of systematic and statistical uncertainty arising from limited MC sample size, respectively. 
+      The systematic uncertainties considered are the uncertainties in the data-to-simulation correction factors $\rho$ for the lepton identification efficiencies.
+    }
+    \label{fig:tf_z}
+\end{figure}
+
+Using the transfer factor \RZll, the total estimated event yield \Tll\ in each dilepton control region in the $i^\mathrm{th}$ bin of the \ETg\ distribution can be expressed as
+\begin{equation}
+  \Tll[,i] = \frac{\NZg[i]}{\RZll[,i]} + b_{\ell\ell\Pgg,i},
+\end{equation}
+where \NZg\ is the number of \zinvg\ events in the combined signal regions and $b_{\ell\ell\Pgg}$ is the predicted contribution from other background sources in the dilepton control region, namely \ttg, VV\Pgg, and misidentified hadrons. 
+The subscript $i$ indicates that the quantities are evaluated in bin $i$ of the \ETg distribution.
+
+\begin{figure}[htbp]
+  \centering
+    \includegraphics[width=0.49\textwidth]{Analysis/Figures/RWe.pdf}
+    \includegraphics[width=0.49\textwidth]{Analysis/Figures/RWm.pdf}
+    \caption{
+      Transfer factors \RWe\ (left) and \RWm\ (right). 
+      The uncertainty bands in green (inner) and orange (outer) show the systematic uncertainty, and the combination of systematic and statistical uncertainty arising from limited MC sample size, respectively. 
+      The systematic uncertainties considered are the uncertainties in the data-to-simulation correction factors $\rho$ for the lepton identification efficiencies.
+    }
+    \label{fig:tf_w}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+    \includegraphics[width=0.49\textwidth]{Analysis/Figures/fZW.pdf}
+    \caption{
+      Transfer factor \fZW. 
+      The uncertainty bands in green (inner) and orange (outer) show the systematic uncertainty, and the combination of systematic and statistical uncertainty arising from limited MC sample size, respectively. 
+      The systematic uncertainties considered are the uncertainties from higher-order theoretical corrections.
+    }
+    \label{fig:tf_wz}
+\end{figure}
+
+Using \RWl\ and \fZW, the total estimated event yield \Tl\ in each single-lepton control region in the $i$th bin of the \ETg\ distribution can be expressed as
+\begin{equation}
+  \Tl[,i] = \frac{\NZg[i]}{\RWl[,i]\fZW[,i]} + b_{\ell\Pgg,i},
+\end{equation}
+where $b_{\ell\Pgg}$ is the predicted contribution from other background sources in the single-lepton regions, namely misidentified electrons and hadrons and other minor SM processes.
+
+\section{Misidentified backgrounds}
+
+\subsection{Electrons}
+
+\subsection{Hadrons}
+
+\section{Non-collision backgrounds}
+
+\subsection{Spikes}
+
+\subsection{Beam halo}
+
+\section{Statistical Interpretation}
+
+\section{Results}
+
+
+
