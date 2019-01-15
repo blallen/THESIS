@@ -1,0 +1,13 @@
+.DS_Store
+
+## LaTeX Stuff ##
+#################
+*.aux
+*.lof
+*.log
+*.lot
+*.toc
+
+## Emacs stuff ##
+#################
+*~
