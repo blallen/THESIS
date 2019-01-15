@@ -32,6 +32,8 @@
 \usepackage{cmap}
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{xspace}
 \pagestyle{plain}
 
 %% This bit allows you to either specify only the files which you wish to
@@ -92,15 +94,19 @@
 \newcommand{\ptvec}{\ensuremath{{\vec p}_{\mathrm{T}}}\xspace}
 \newcommand{\ptvecmiss}{\ensuremath{{\vec p}_{\mathrm{T}}^{\kern1pt\text{miss}}}\xspace}
 
-\newcommand{\ttbar}{\ensuremath{{\cmsSymbolFace{t}\overline{\cmsSymbolFace{t}}}}\xspace} % t-tbar
-\newcommand{\cPgg}{\ensuremath{\gamma}} % gamma
-\newcommand{\PZ}{\ensuremath{{Z}}}
-\newcommand{\PW}{\ensuremath{{W}}}
-\newcommand{\Pe}{\ensuremath{{e}}}
-\newcommand{\Pgm}{\ensuremath{{\mu}}}
+\newcommand{\ttbar}{\ensuremath{{t}\overline{{t}}}\xspace} 
+\newcommand{\Pgg}{\ensuremath{\gamma}\xspace}
+\newcommand{\PZ}{\ensuremath{{Z}}\xspace}
+\newcommand{\PW}{\ensuremath{{W}}\xspace}
+\newcommand{\Pe}{\ensuremath{{e}}\xspace}
+\newcommand{\Pgm}{\ensuremath{{\mu}}\xspace}
+\newcommand{\PGn}{\ensuremath{\nu}\xspace}
+\newcommand{\PAGn}{\ensuremath{\overline{\nu}}\xspace}
+\newcommand{\Pq}{\ensuremath{{q}}\xspace}
 
 
 %% from EXO-16-053
+\newcommand{\nhalo}[1][]{\ensuremath{n^{\text{halo}}_{K#1}}}
 \newcommand{\NZg}[1][]{\ensuremath{N^{\PZ\Pgg}_{#1}}}
 \newcommand{\NWg}[1][]{\ensuremath{N^{\PW\Pgg}_{#1}}}
 \newcommand{\RZll}[1][]{\ensuremath{R^{\PZ\Pgg}_{\ell\ell\Pgg#1}}}
@@ -121,7 +127,14 @@
 \newcommand{\wlng}{\ensuremath{\PW(\to\ell\PGn){+}\Pgg}}
 \newcommand{\vg}{\ensuremath{\mathrm{V}{+}\Pgg}}
 \newcommand{\gj}{\ensuremath{\Pgg{+}\text{jets}}}
-\newcommand{\ttg}{\mbox{\ttbar\hspace{-0.3em}\Pgg}\xspace}
+\newcommand{\ttg}{\ensuremath{\ttbar\Pgg}\xspace}
+
+\newcommand{\mdm}{\ensuremath{m_{\text{DM}}}}
+\newcommand{\mmed}{\ensuremath{M_{\text{med}}}}
+\newcommand{\gDM}{\ensuremath{\text{\usefont{OT1}{cmr}{m}{it}g}_{\text{DM}}}}
+\newcommand{\gq}{\ensuremath{\text{\usefont{OT1}{cmr}{m}{it}g}_{\Pq}}}
+
+\newcommand{\CL}{CL\xspace}
 
 \begin{document}
 
@@ -132,13 +145,13 @@
 % \include{signature}
 \pagestyle{plain}
 \include{contents}
-\include{intro}
-\include{motivation}
-\include{detector}
-\include{reconstruction}
+\include{Intro/intro}
+\include{Motivation/motivation}
+\include{Detector/detector}
+\include{Reconstruction/reconstruction}
 \include{Analysis/analysis}
-\include{impact}
-\include{conclusion}
+\include{Impact/impact}
+\include{Conclusion/conclusion}
 %% \appendix
 %% \include{appa}
 %% \include{appb}
