@@ -25,7 +25,7 @@
 %% Page Intentionally Left Blank'', use the ``leftblank'' option, as
 %% above. 
 
-\documentclass[12pt,viii,twoside]{mitthesis}
+\documentclass[12pt,vi,twoside]{mitthesis}
 \usepackage{lgrind}
 %% These have been added at the request of the MIT Libraries, because
 %% some PDF conversions mess up the ligatures.  -LB, 1/22/2014
@@ -47,6 +47,8 @@
 
 %% aliases
 %% CMS Standard
+\newcommand {\ie}{\mbox{i.e.}\xspace}
+
 \newcommand{\de}{\ensuremath{^\circ}}
 \newcommand{\ten}[1]{\ensuremath{\times \text{10}^\text{#1}}}
 \newcommand{\unit}[1]{\ensuremath{\text{\,#1}}\xspace}
@@ -124,8 +126,12 @@
 \newcommand{\TK}[1][]{\ensuremath{T_{K#1}}}
 
 \newcommand{\ETg}{\ensuremath{E_{\mathrm{T}}^{\Pgg}}\xspace}
-\newcommand{\sieie}{\ensuremath{\sigma_{i\eta i\eta}} }
-\newcommand{\sipip}{\ensuremath{\sigma_{i\phi i\phi}} }
+\newcommand{\sieie}{\ensuremath{\sigma_{i\eta i\eta}}}
+\newcommand{\sipip}{\ensuremath{\sigma_{i\phi i\phi}}}
+\newcommand{\ICH}{\ensuremath{I_{\text{CH}}}}
+\newcommand{\ICHmax}{\ensuremath{I_{\text{CH}}^{\text{max}}}}
+\newcommand{\INH}{\ensuremath{I_{\text{NH}}}}
+\newcommand{\Ig}{\ensuremath{I_{\Pgg}}}
 
 \newcommand{\zinvg}{\ensuremath{\PZ(\to\PGn\PAGn){+}\Pgg}}
 \newcommand{\zllg}{\ensuremath{\PZ(\to\ell\overline{\ell}){+}\Pgg}}
@@ -133,11 +139,15 @@
 \newcommand{\vg}{\ensuremath{\mathrm{V}{+}\Pgg}}
 \newcommand{\gj}{\ensuremath{\Pgg{+}\text{jets}}}
 \newcommand{\ttg}{\ensuremath{\ttbar\Pgg}\xspace}
+\newcommand{\Zee}{\ensuremath{\PZ\rightarrow\Pe\Pe}}
+\newcommand{\wj}{\ensuremath{\PW{+}\text{jets}}}
 
 \newcommand{\mdm}{\ensuremath{m_{\text{DM}}}}
 \newcommand{\mmed}{\ensuremath{M_{\text{med}}}}
 \newcommand{\gDM}{\ensuremath{\text{\usefont{OT1}{cmr}{m}{it}g}_{\text{DM}}}}
 \newcommand{\gq}{\ensuremath{\text{\usefont{OT1}{cmr}{m}{it}g}_{\Pq}}}
+
+\newcommand{\egamma}{\Pe/\Pgg}
 
 \newcommand{\CL}{CL\xspace}
 
@@ -152,8 +162,8 @@
 \include{contents}
 % \include{Intro/intro}
 % \include{Motivation/motivation}
-\include{Detector/detector}
-\include{Reconstruction/reconstruction}
+% \include{Detector/detector}
+% \include{Reconstruction/reconstruction}
 \include{Calibration/calibration}
 \include{Analysis/analysis}
 \include{Impact/impact}
