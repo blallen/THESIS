@@ -57,22 +57,46 @@ Using \RWl\ and \fZW, the total estimated event yield \Tl\ in each single-lepton
 \end{equation}
 where $b_{\ell\Pgg}$ is the predicted contribution from other background sources in the single-lepton regions, namely misidentified electrons and hadrons and other minor SM processes.
 
-\section{Misidentified backgrounds}
-\label{sec:misidentified}
+\subsection{Higher-order corrections to \vg\ differential cross sections}
+\label{sec:theory_uncertainties}
 
-\subsection{Electrons}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.48\linewidth]{Analysis/Figures/ewkcorr_zg.pdf} \\
+  \includegraphics[width=0.48\linewidth]{Analysis/Figures/ewkcorr_wgplus.pdf}
+  \includegraphics[width=0.48\linewidth]{Analysis/Figures/ewkcorr_wgminus.pdf}
+  \caption{
+    Electroweak NLO cross section corrections as a function of photon \PT for \zinvg\ (top), $\PW^{+}+\Pgg$ (bottom left), and $\PW^{-}+\Pgg$ (bottom right) processes, overlaid with uncertainty bands. 
+    See text for descriptions of the individual components of the uncertainty.
+    The uncertainty due to \Pgg-induced production is negligible in \zinvg\ production.
+  }
+  \label{fig:ewk_correction}
+\end{figure}
+
+We apply the correction factors shown in Fig.~\ref{fig:ewk_correction}, which are combinations of Sudakov suppression factors and photon-induced enhancements, and are provided by the authors of Ref.~\cite{Denner:2015fca} in addition to the NNLO QCD correction.
+
+\begin{figure}[htbp]
+  \centering
+    \includegraphics[width=0.45\textwidth]{Analysis/Figures/tf_syst_zg.pdf}
+    \includegraphics[width=0.45\textwidth]{Analysis/Figures/tf_syst_wg.pdf}
+    \caption{
+      Systematic uncertainty in the transfer factors for \zinvg\ (left) and \wlng\ (right). The last bin includes all events with $\ETg > 1000\GeV$.
+    }
+    \label{fig:tf_syst}
+\end{figure}
+
+Figure~\ref{fig:tf_syst} shows the effect of systematic uncertainty in the ratio between the \zinvg\ and \wlng\ processes with respect to nominal value for ${\PZ\Pgg}$ and ${\PW\Pgg}$ respectively.
+
+\section{Misidentified electrons}
 \label{sec:efake}
 
-\subsection{Hadrons}
+\section{Misidentified hadrons}
 \label{sec:hfake}
 
-\section{Non-collision backgrounds}
-\label{non-collision}
-
-\subsection{Spikes}
+\section{Spikes}
 \label{sec:spikes}
 
-\subsection{Beam halo}
+\section{Beam halo}
 \label{sec:beam_halo}
 
 The splitting of the signal region can be thought of as a two-bin fit. 
@@ -88,6 +112,12 @@ Using the notation introduced in Section~\ref{sec:irreducible}, the total estima
 \end{aligned}
 \end{equation}
 where $b_{K,i}$ is the total contribution to bin $i$ of region $K$ from electron and hadron misidentification, ECAL spikes, and other minor SM background processes.
+
+\section{Other minor SM background processes}
+\label{sec:minorsm}
+The SM \ttg, VV\Pgg, \zllg, $\PW\to\ell\PGn$, and \gj\ processes are minor ($\sim$10\%) background processes in the signal region. 
+Although \zllg\ and \gj\ do not involve high-\PT invisible particles, the former can exhibit large \met when the leptons fail to be reconstructed, and the latter when jet energy is severely mismeasured. 
+The estimates for all five processes are taken from \MGvATNLO simulations at LO in QCD and can be found in Tables~\ref{tab:yield_mask_horizontal} and~\ref{tab:yield_mask_vertical}.
 
 \section{Statistical Interpretation}
 \label{sec:interpretation}
