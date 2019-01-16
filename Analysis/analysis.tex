@@ -90,6 +90,42 @@ Figure~\ref{fig:tf_syst} shows the effect of systematic uncertainty in the ratio
 \section{Misidentified electrons}
 \label{sec:efake}
 
+Figure~\ref{fig:efake_fits} shows the six fits performed on \Pe\Pe\ and \Pe\Pgg\ in bins of probe $\pt$, from which the $R_{\Pe}$ factor used for the estimation of the electron misidentification background is derived. 
+The $R_{\Pe}$ factor is computed as the ratio of the integral of the signal template function between 81\GeV and 101\GeV.
+
+%%% these fils have charged PF veto included, need to swap out
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[width=0.48\linewidth]{Analysis/Figures/fit_data_ee_pt_175_200.pdf}
+    \includegraphics[width=0.48\linewidth]{Analysis/Figures/fit_data_eg_pt_175_200.pdf}
+    \includegraphics[width=0.48\linewidth]{Analysis/Figures/fit_data_ee_pt_200_250.pdf}
+    \includegraphics[width=0.48\linewidth]{Analysis/Figures/fit_data_eg_pt_200_250.pdf}
+    \includegraphics[width=0.48\linewidth]{Analysis/Figures/fit_data_ee_pt_250_6500.pdf}
+    \includegraphics[width=0.48\linewidth]{Analysis/Figures/fit_data_eg_pt_250_6500.pdf}
+    \caption{
+      Fits to the mass distributions for \Pe\Pe\ (left) and \Pe\Pgg\ (right) selections, in bins of probe $\pt$: $175 < \pt < 200\GeV$ (top), $200 < \pt < 250\GeV$ (middle), $\pt > 250\GeV$ (bottom). 
+      The blue solid line represents the full fit model, and the green dashed line its background component.
+    }
+    \label{fig:efake_fits}
+  \end{center}
+\end{figure}
+
+The proxy sample for the background estimation is obtained by identical event selection as that described in Sec.~\ref{subsec:selection}, but with the pixel-seed veto inverted on the photon candidate object.
+
+Figure~\ref{fig:efake_frate} shows the derived $R_{\Pe}$ factor as a function of \ETg. 
+The electron proxy sample is reweighted by $R_{\Pe}$ depending on the \PT of the electron object.
+
+%%% this file has charged PF veto included, need to swap out
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[width=0.48\linewidth]{Analysis/Figures/frate_data_ptalt.pdf} 
+    \caption{
+      Electron to photon fake rate $R_{\Pe}$.
+    }
+    \label{fig:efake_frate}
+  \end{center}
+\end{figure}
+
 \section{Misidentified hadrons}
 \label{sec:hfake}
 
@@ -98,6 +134,21 @@ Figure~\ref{fig:tf_syst} shows the effect of systematic uncertainty in the ratio
 
 \section{Beam halo}
 \label{sec:beam_halo}
+
+Figure~\ref{fig:halophi} shows the $\phi$ distribution of the halo showers obtained from the single photon data set, requiring $\ETg > 175\GeV$ and $\MET > 170\GeV$. 
+Here, halo showers are defined as photon objects that fail the MIP total energy cut in events where beam halo MET filter (one component of the ``MET filters'' mentioned in Section~\ref{subsec:selection}). 
+The distribution is shifted and folded to make the peaking behavior clear. 
+The resulting variable on the horizontal axis is named $\phi'$.
+
+\begin{figure}[tbp]
+  \begin{center}
+    \includegraphics[width=0.45\textwidth]{Analysis/Figures/haloPhiFolded.pdf}
+    \caption{
+      Folded $\phi'$ distribution of the halo sample.
+    }
+    \label{fig:halophi}
+  \end{center}
+\end{figure}
 
 The splitting of the signal region can be thought of as a two-bin fit. 
 Collision processes occupy the relative fractions of phase space in the horizontal ($H$) and vertical ($V$) signal regions, $C_{H} = 1/\pi$ and $C_{V} = (\pi-1)/\pi$, respectively. 
