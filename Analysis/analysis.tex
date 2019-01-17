@@ -85,13 +85,30 @@ We apply the correction factors shown in Fig.~\ref{fig:ewk_correction}, which ar
     \label{fig:tf_syst}
 \end{figure}
 
-Figure~\ref{fig:tf_syst} shows the effect of systematic uncertainty in the ratio between the \zinvg\ and \wlng\ processes with respect to nominal value for ${\PZ\Pgg}$ and ${\PW\Pgg}$ respectively.
+Figure~\ref{fig:tf_syst} shows the effect of systematic uncertainty in the ratio between the \zinvg\ and \wlng\ processes with respect to nominal value for \PZ\Pgg\ and \PW\Pgg\ respectively.
 
 \section{Misidentified electrons}
 \label{sec:efake}
 
+An electron can be misidentified as a photon if the association of tracks or track seeds to the supercluster in ECAL fails in the reconstruction step. 
+The production of a single \PW\ boson decaying to an electron and a neutrino is a high-rate process, and it mimicks the photon plus \met\ signature if the electron is misidentified.
+
+The rate at which this misidentification occurs is proportional to the inefficiency $1 - \epsilon_{\Pe}^{\text{track}}$ of the tracking, defined over the electrons passing the photon identification criteria described in Sec.~\ref{subsec:objects} except the electron veto. 
+This partial identification is denoted as \Pe\Pgg\ ID in the following.  
+If one assumes that the kinematic and other critical properties of the electron plus \met\ events are unaffected by the electron misidentification, it is possible to model the electron misidentification background by taking a proxy sample with well-identified electrons and scaling this sample by $R_{\Pe} = (1 - \epsilon_{\Pe}^{\text{track}}) / \epsilon_{\Pe}^{\text{track}}$.
+
+The ``tag-and-probe'' method described in Section~\ref{subsec:idsf} with appropriate changes is used to measure the efficiency corresponding to the factor $R_{\Pe}$ in data.
+
+The first such change is that the sample is split into \Pe\Pgg\ and \Pe\Pe\ categories depending on whether the probe passes or fails the electron veto requirement. 
+Probes in both categories must also pass the \Pe\Pgg\ ID.
+Denoting the area of the peak in each cateogry  $N_{\Pe\Pgg}$ and $N_{\Pe\Pe}$, respectively, the ratio $N_{\Pe\Pgg} / N_{\Pe\Pe}$ is equal to $R_{\Pe}$ up to minor systematic corrections.
+
+The second such change is in the background model used in the TP fits. 
+The backgrounds to the \Pe\Pgg\ fit consist of processes with actual electron and photon in the final state, such as \PW\Pgg\ and \Zee\ with a hard radiation off one of the electrons.
+Because of this, we scale the mass distrubition of the $\Pgm+\Pgg$ sample by the ratio of electron-probe to muon-probe events taken from MC to account for the different rates of FSR and bremsstrahlung between muons and electrons.
+As an alternative template to assess the systematic effect introduced by the choice of the background template, the unscaled mass distribution is also tested.
+
 Figure~\ref{fig:efake_fits} shows the six fits performed on \Pe\Pe\ and \Pe\Pgg\ in bins of probe $\pt$, from which the $R_{\Pe}$ factor used for the estimation of the electron misidentification background is derived. 
-The $R_{\Pe}$ factor is computed as the ratio of the integral of the signal template function between 81\GeV and 101\GeV.
 
 %%% these fils have charged PF veto included, need to swap out
 \begin{figure}[htbp]
@@ -111,6 +128,8 @@ The $R_{\Pe}$ factor is computed as the ratio of the integral of the signal temp
 \end{figure}
 
 The proxy sample for the background estimation is obtained by identical event selection as that described in Sec.~\ref{subsec:selection}, but with the pixel-seed veto inverted on the photon candidate object.
+
+%%% Systematic uncertainties in this method to estimate the electron misidentification background can be categorized to those related to the TP fit (described in Section~\ref{subsec:idsf}) and those related to the applicability of the $R_{\Pe}$ factor.
 
 Figure~\ref{fig:efake_frate} shows the derived $R_{\Pe}$ factor as a function of \ETg. 
 The electron proxy sample is reweighted by $R_{\Pe}$ depending on the \pt\ of the electron object.
