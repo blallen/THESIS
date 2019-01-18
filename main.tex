@@ -25,7 +25,7 @@
 %% Page Intentionally Left Blank'', use the ``leftblank'' option, as
 %% above. 
 
-\documentclass[12pt,vi,twoside]{mitthesis}
+\documentclass[12pt,twoside]{mitthesis}
 \usepackage{lgrind}
 %% These have been added at the request of the MIT Libraries, because
 %% some PDF conversions mess up the ligatures.  -LB, 1/22/2014
@@ -34,6 +34,7 @@
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{xspace}
+\usepackage{hyperref}
 \pagestyle{plain}
 
 %% This bit allows you to either specify only the files which you wish to
@@ -88,7 +89,7 @@
 \newcommand{\Lumi}{\ensuremath{\mathcal{L}}\xspace}%both upper and lower
 
 \newcommand{\pt}{\ensuremath{p_{\mathrm{T}}}\xspace}
-\newcommand{\et}{\ensuremath{E_{\mathrm{T}}}\xspace}
+\newcommand{\ET}{\ensuremath{E_{\mathrm{T}}}\xspace}
 \newcommand{\mt}{\ensuremath{m_{\mathrm{T}}}\xspace}
 \newcommand{\HT}{\ensuremath{H_{\mathrm{T}}}\xspace}
 \newcommand{\met}{\ensuremath{E_{\mathrm{T}}^{\text{miss}}}\xspace}
@@ -111,6 +112,28 @@
 \newcommand{\MGvATNLO}{\MADGRAPH{}5\_a\MCATNLO}
 
 %% from EXO-16-053
+
+\newcommand{\ETg}{\ensuremath{E_{\mathrm{T}}^{\Pgg}}\xspace}
+\newcommand{\sieie}{\ensuremath{\sigma_{i\eta i\eta}}}
+\newcommand{\sipip}{\ensuremath{\sigma_{i\phi i\phi}}}
+\newcommand{\ICH}{\ensuremath{I_{\text{CH}}}}
+\newcommand{\ICHmax}{\ensuremath{I_{\text{CH}}^{\text{max}}}}
+\newcommand{\INH}{\ensuremath{I_{\text{NH}}}}
+\newcommand{\Ig}{\ensuremath{I_{\Pgg}}}
+\newcommand{\emip}{\ensuremath{E_{\mathrm{MIP}}}}
+\newcommand{\tseed}{\ensuremath{t_{\mathrm{seed}}}}
+
+\newcommand{\gmet}{\Pgg+\met}
+\newcommand{\zinvg}{\ensuremath{\PZ(\to\PGn\PAGn){+}\Pgg}}
+\newcommand{\zllg}{\ensuremath{\PZ(\to\ell\overline{\ell}){+}\Pgg}}
+\newcommand{\wlng}{\ensuremath{\PW(\to\ell\PGn){+}\Pgg}}
+\newcommand{\vg}{\ensuremath{\mathrm{V}{+}\Pgg}}
+\newcommand{\gj}{\ensuremath{\Pgg{+}\text{jets}}}
+\newcommand{\ttg}{\ensuremath{\ttbar\Pgg}\xspace}
+\newcommand{\Zee}{\ensuremath{\PZ\rightarrow\Pe\Pe}}
+\newcommand{\wj}{\ensuremath{\PW{+}\text{jets}}}
+\newcommand{\zj}{\ensuremath{\PZ{+}\text{jets}}}
+
 \newcommand{\nhalo}[1][]{\ensuremath{n^{\text{halo}}_{K#1}}}
 \newcommand{\NZg}[1][]{\ensuremath{N^{\PZ\Pgg}_{#1}}}
 \newcommand{\NWg}[1][]{\ensuremath{N^{\PW\Pgg}_{#1}}}
@@ -124,24 +147,6 @@
 \newcommand{\Tll}[1][]{\ensuremath{T_{\ell\ell\Pgg#1}}}
 \newcommand{\Tl}[1][]{\ensuremath{T_{\ell\Pgg#1}}}
 \newcommand{\TK}[1][]{\ensuremath{T_{K#1}}}
-
-\newcommand{\ETg}{\ensuremath{E_{\mathrm{T}}^{\Pgg}}\xspace}
-\newcommand{\sieie}{\ensuremath{\sigma_{i\eta i\eta}}}
-\newcommand{\sipip}{\ensuremath{\sigma_{i\phi i\phi}}}
-\newcommand{\ICH}{\ensuremath{I_{\text{CH}}}}
-\newcommand{\ICHmax}{\ensuremath{I_{\text{CH}}^{\text{max}}}}
-\newcommand{\INH}{\ensuremath{I_{\text{NH}}}}
-\newcommand{\Ig}{\ensuremath{I_{\Pgg}}}
-
-\newcommand{\zinvg}{\ensuremath{\PZ(\to\PGn\PAGn){+}\Pgg}}
-\newcommand{\zllg}{\ensuremath{\PZ(\to\ell\overline{\ell}){+}\Pgg}}
-\newcommand{\wlng}{\ensuremath{\PW(\to\ell\PGn){+}\Pgg}}
-\newcommand{\vg}{\ensuremath{\mathrm{V}{+}\Pgg}}
-\newcommand{\gj}{\ensuremath{\Pgg{+}\text{jets}}}
-\newcommand{\ttg}{\ensuremath{\ttbar\Pgg}\xspace}
-\newcommand{\Zee}{\ensuremath{\PZ\rightarrow\Pe\Pe}}
-\newcommand{\wj}{\ensuremath{\PW{+}\text{jets}}}
-\newcommand{\zj}{\ensuremath{\PZ{+}\text{jets}}}
 
 \newcommand{\mdm}{\ensuremath{m_{\text{DM}}}}
 \newcommand{\mmed}{\ensuremath{M_{\text{med}}}}
@@ -166,7 +171,7 @@
 % \include{Intro/intro}
 % \include{Motivation/motivation}
 % \include{Detector/detector}
-% \include{Reconstruction/reconstruction}
+\include{Reconstruction/reconstruction}
 \include{Calibration/calibration}
 \include{Analysis/analysis}
 \include{Impact/impact}

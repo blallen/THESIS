@@ -93,7 +93,7 @@ Figure~\ref{fig:tf_syst} shows the effect of systematic uncertainty in the ratio
 An electron can be misidentified as a photon if the association of tracks or track seeds to the supercluster in ECAL fails in the reconstruction step. 
 The production of a single \PW\ boson decaying to an electron and a neutrino is a high-rate process, and it mimicks the photon plus \met\ signature if the electron is misidentified.
 
-The rate at which this misidentification occurs is proportional to the inefficiency $1 - \epsilon_{\Pe}^{\text{track}}$ of the tracking, defined over the electrons passing the photon identification criteria described in Sec.~\ref{subsec:objects} except the electron veto. 
+The rate at which this misidentification occurs is proportional to the inefficiency $1 - \epsilon_{\Pe}^{\text{track}}$ of the tracking, defined over the electrons passing the photon identification criteria described in Sec.~\ref{sec:photons} except the electron veto. 
 This partial identification is denoted as \Pe\Pgg\ ID in the following.  
 If one assumes that the kinematic and other critical properties of the electron plus \met\ events are unaffected by the electron misidentification, it is possible to model the electron misidentification background by taking a proxy sample with well-identified electrons and scaling this sample by $R_{\Pe} = (1 - \epsilon_{\Pe}^{\text{track}}) / \epsilon_{\Pe}^{\text{track}}$.
 
@@ -150,7 +150,7 @@ The electron proxy sample is reweighted by $R_{\Pe}$ depending on the \pt\ of th
 
 The estimation of hadron misidentification background proceeds in multiple steps. 
 First, the fraction of hadronic objects within a pool of photon candidate objects in the photon plus jet control region is measured. 
-This measurement is described in detail in Section~\ref{subsec:pixelveto}.
+This measurement is described in detail in Section~\ref{subsec:pvsf}.
 Figure~\ref{fig:impurity-compsb} and Table~\ref{tab:hfake-impurity-systs} show the final impurity and associated uncertainties as a function of \pt. 
 
 \begin{table}[htbp]
@@ -171,7 +171,7 @@ Figure~\ref{fig:impurity-compsb} and Table~\ref{tab:hfake-impurity-systs} show t
 \end{figure}
 
 Following this measurement, another control sample is formed where the photon in the photon plus jet sample is replaced by a hadronic proxy object. 
-The hadronic proxy object is a reconstructed photon object which pass the photon ID described in Section~\ref{subsec:objects} with the execption of failing at least one of the following cuts: 
+The hadronic proxy object is a reconstructed photon object which pass the photon ID described in Section~\ref{sec:photons} with the execption of failing at least one of the following cuts: 
 \begin{itemize}
 \item $\sieie < 0.01022$
 \item PF Charged Hadron isolation $< 0.441$ GeV .
