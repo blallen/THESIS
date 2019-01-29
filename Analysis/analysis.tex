@@ -64,6 +64,27 @@ The recoil vector of this region is $\vec{U} = \ptvecmiss + \sum\ptvec^{\ell}$ a
 \section{Irreducible backgrounds}
 \label{sec:irreducible}
 
+\subsection{Simulation of \vg\ Processes}
+\label{subsec:vgmc}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.48\linewidth]{Analysis/Figures/ewkcorr_zg.pdf} \\
+  \includegraphics[width=0.48\linewidth]{Analysis/Figures/ewkcorr_wgplus.pdf}
+  \includegraphics[width=0.48\linewidth]{Analysis/Figures/ewkcorr_wgminus.pdf}
+  \caption{
+    Electroweak NLO cross section corrections as a function of photon \pt\ for \zinvg\ (top), $\PW^{+}+\Pgg$ (bottom left), and $\PW^{-}+\Pgg$ (bottom right) processes, overlaid with uncertainty bands. 
+    See text for descriptions of the individual components of the uncertainty.
+    The uncertainty due to \Pgg-induced production is negligible in \zinvg\ production.
+  }
+  \label{fig:ewk_correction}
+\end{figure}
+
+We apply the correction factors shown in Fig.~\ref{fig:ewk_correction}, which are combinations of Sudakov suppression factors and photon-induced enhancements, and are provided by the authors of Ref.~\cite{Denner:2015fca} in addition to the NNLO QCD correction.
+
+\subsection{Data-driven Control Regions}
+\label{subsec:control_regions}
+
 Contributions from the \zinvg\ and \wlng\ processes are estimated using observed data in four mutually exclusive single-electron, single-muon, dielectron, and dimuon control regions defined in Section~\ref{sec:event_selection}. 
 The ratios between the expected yields of these processes are constrained by MC simulations of \vg\ processes. This background estimation method exploits cancellation of some of the systematic uncertainties, both experimental and theoretical, in the ratios of the photon \ETg\ distributions of \vg\ processes, from here on referred to as ``transfer factors''.
  
@@ -83,12 +104,23 @@ Figure~\ref{fig:tf_z} shows the transfer factor \RZee\ (\RZmm) between the diele
     \label{fig:tf_z}
 \end{figure}
 
+For increasing \ETg, the \PZ\ boson in a \zllg\ event tends to emerge with lower rapidity, and hence so do its decay products. 
+As a consequence, the charged leptons are more likely to fall within the inner tracker acceptance, which increases the dilepton control region selection efficiency of these events. 
+In contrast, the signal region selection efficiency of \zinvg\ events is unafected by the rapidity of the final state neutrinos, as long as the observed \met\ has the appropriate magnitude and azimuthal direction. 
+This causes the distinctive drop in the ratio \RZll\ with increasing \ETg.
+
 Using the transfer factor \RZll, the total estimated event yield \Tll\ in each dilepton control region in the $i^\mathrm{th}$ bin of the \ETg\ distribution can be expressed as
 \begin{equation}
   \Tll[,i] = \frac{\NZg[i]}{\RZll[,i]} + b_{\ell\ell\Pgg,i},
 \end{equation}
 where \NZg\ is the number of \zinvg\ events in the combined signal regions and $b_{\ell\ell\Pgg}$ is the predicted contribution from other background sources in the dilepton control region, namely \ttg, VV\Pgg, and misidentified hadrons. 
 The subscript $i$ indicates that the quantities are evaluated in bin $i$ of the \ETg\ distribution.
+
+Similar considerations apply to events arising from \wlng\ processes. 
+A large fraction of such events are rejected by the electron and muon vetoes in the signal region selection and end up in the control regions instead. 
+However, hadronic tau events and events where the leptons are out of the reconstruction acceptance will remain in the signal region, on top of the vetoes having imperfect efficiencies. 
+In the ratio of these two classes of events, denoted \RWl, the only uncertainties that remain non-negligible are those associated with the lepton identification efficiency and the MC statistical uncertainty.
+Figure~\ref{fig:tf_w} shows the transfer factor \RWe\ (\RWm) between the single-electron (single-muon) control region and the combined signal regions, for which the numerator is the estimated \wlng\ yield in the combined signal regions, and the denominator is the estimated \wlng\ yield in the relevant control region. 
 
 \begin{figure}[htbp]
   \centering
@@ -102,8 +134,23 @@ The subscript $i$ indicates that the quantities are evaluated in bin $i$ of the 
     \label{fig:tf_w}
 \end{figure}
 
-A large fraction of such events are rejected by the electron and muon vetoes in the event selection. 
-However, hadronic tau events and events where the leptons are out of the reconstruction acceptance will remain, and the vetoes themselves have imperfect efficiencies. 
+The ratio \RWl\ decreases with increasing \ETg\ in a similar manner to \RZll. The underlying logic is the same; e.g., that the signal region selection efficiency is unaffected by \ETg\ while the control region acceptances increase with increasing \ETg\ due to increased lepton efficiency resulting from lower \PW\ rapidity. 
+
+Finally, to benefit further from the larger statistical power that the single-lepton control samples provides, an additional transfer factor $\fZW = \NZg / \NWg$ is defined to connect the \zinvg\ and \wlng\ background yields in the signal regions, where the quantity $\NWg$ is the number of \wlng\ events in the combined signal regions. 
+When calculating the ratio \fZW, all experimental uncertainties associated with the data-to-simulation correction factors $\rho$ cancel since both processes result in very similar event configurations. 
+The main uncertainties in \fZW\ are those from higher-order theoretical corrections, discussed in Section~\ref{subsec:vgmc}. Figure~\ref{fig:tf_syst} shows the effect of each systematic uncertainty in \fZW\ with respects to its central value.
+
+\begin{figure}[htbp]
+  \centering
+    \includegraphics[width=0.45\textwidth]{Analysis/Figures/tf_syst_zg.pdf}
+    \includegraphics[width=0.45\textwidth]{Analysis/Figures/tf_syst_wg.pdf}
+    \caption{
+      Systematic uncertainty in the transfer factors for \zinvg\ (left) and \wlng\ (right). The last bin includes all events with $\ETg > 1000\GeV$.
+    }
+    \label{fig:tf_syst}
+\end{figure}
+
+The ratio \fZW\ rises rather than falls with increasing \ETg\ because \wlng\ events have a lower rather than higher signal region selection efficiency if the charged lepton falls within the tracker acceptance while the \zinvg\ efficiency is independent of \ETg. Figure~\ref{fig:tf_wz} shows the transfer factor \fZW\ between the \zinvg\ and \wlng\ processes in the combined signal region.
 
 
 \begin{figure}[htbp]
@@ -122,36 +169,6 @@ Using \RWl\ and \fZW, the total estimated event yield \Tl\ in each single-lepton
   \Tl[,i] = \frac{\NZg[i]}{\RWl[,i]\fZW[,i]} + b_{\ell\Pgg,i},
 \end{equation}
 where $b_{\ell\Pgg}$ is the predicted contribution from other background sources in the single-lepton regions, namely misidentified electrons and hadrons and other minor SM processes.
-
-\subsection{Higher-order corrections to \vg\ differential cross sections}
-\label{sec:theory_uncertainties}
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.48\linewidth]{Analysis/Figures/ewkcorr_zg.pdf} \\
-  \includegraphics[width=0.48\linewidth]{Analysis/Figures/ewkcorr_wgplus.pdf}
-  \includegraphics[width=0.48\linewidth]{Analysis/Figures/ewkcorr_wgminus.pdf}
-  \caption{
-    Electroweak NLO cross section corrections as a function of photon \pt\ for \zinvg\ (top), $\PW^{+}+\Pgg$ (bottom left), and $\PW^{-}+\Pgg$ (bottom right) processes, overlaid with uncertainty bands. 
-    See text for descriptions of the individual components of the uncertainty.
-    The uncertainty due to \Pgg-induced production is negligible in \zinvg\ production.
-  }
-  \label{fig:ewk_correction}
-\end{figure}
-
-We apply the correction factors shown in Fig.~\ref{fig:ewk_correction}, which are combinations of Sudakov suppression factors and photon-induced enhancements, and are provided by the authors of Ref.~\cite{Denner:2015fca} in addition to the NNLO QCD correction.
-
-\begin{figure}[htbp]
-  \centering
-    \includegraphics[width=0.45\textwidth]{Analysis/Figures/tf_syst_zg.pdf}
-    \includegraphics[width=0.45\textwidth]{Analysis/Figures/tf_syst_wg.pdf}
-    \caption{
-      Systematic uncertainty in the transfer factors for \zinvg\ (left) and \wlng\ (right). The last bin includes all events with $\ETg > 1000\GeV$.
-    }
-    \label{fig:tf_syst}
-\end{figure}
-
-Figure~\ref{fig:tf_syst} shows the effect of systematic uncertainty in the ratio between the \zinvg\ and \wlng\ processes with respect to nominal value for \PZ\Pgg\ and \PW\Pgg\ respectively.
 
 \section{Misidentified electrons}
 \label{sec:efake}
