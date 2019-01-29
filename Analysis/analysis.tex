@@ -458,6 +458,9 @@ Using the notation introduced in Section~\ref{sec:irreducible}, the total estima
 \end{equation}
 where $b_{K,i}$ is the total contribution to bin $i$ of region $K$ from electron and hadron misidentification, ECAL spikes, and other minor SM background processes.
 
+\section{Spikes}
+\label{sec:spikes}
+
 \section{Statistical Interpretation}
 \label{sec:interpretation}
 
@@ -493,10 +496,6 @@ following the notation introduced in Section~\ref{sec:irreducible}, and where $\
 Systematic uncertainties are treated as nuisance parameters in the fit and are represented by
 $\vec{\theta}$.
 Each quantity $Q_{j}$ with a nominal value $\overline{Q}_{j}$ and a standard deviation of the systematic uncertainty $\sigma_{j}$ appears in the likelihood function as $\overline{Q}_{j}\exp(\sigma_{j}\theta_{j})$.
-
-\section{Spikes}
-\label{sec:spikes}
-
 
 \section{Results}
 \label{sec:results}
@@ -604,6 +603,10 @@ approach detailed in Ref.~\cite{CMS-NOTE-2017-001} to reinterpret the results fo
 \subsection{Limits}
 \label{subsec:limits}
 
+No significant excess of events beyond the SM expectation is observed. 
+Upper limits are determined for the production cross section of the new-physics processes mentioned in Section~\ref{sec:introduction}. 
+For each model, a 95\% confidence level (\CL) upper limit is obtained utilizing the asymptotic \CLs\ criterion~\cite{Junk:1999kv,Read:2002hq,Cowan:2010js}, using a test statistic based on the negative logarithm of the likelihood in Section~\ref{sec:interpretation}.
+
 \begin{figure}[htbp]
   \centering
    \includegraphics[width=0.48\linewidth]{Analysis/Figures/limits_vector.pdf}
@@ -621,3 +624,7 @@ The solid black (dashed red) curves are the observed (expected) contours of $\mu
 The $\sigma_{\text{theory}}$ hypothesis is excluded at 95\% \CL\ or above in the region with $\mu_{95} < 1$. 
 The uncertainty in the expected upper limit includes the experimental uncertainties. 
 For the simplified DM LO models considered, mediator masses up to 950\GeV are excluded for values of \mdm\ less than 1\GeV.
+
+The results for vector and axial-vector mediators are compared to constraints
+from the observed cosmological relic density of DM as determined from measurements of the cosmic microwave background by the Planck satellite experiment~\cite{Ade:2015xua}.
+The expected DM abundance is estimated, separately for each model, using the thermal freeze-out mechanism implemented in the {\sc MadDM}~\cite{Backovic:2013dpa} framework and  compared to the observed cold DM density $\Omega_c h^2=0.12$~\cite{Ade:2015xua}, where $\Omega_c$ is the DM relic abundance and $h$ is the dimensionless Hubble constant.
