@@ -67,20 +67,118 @@ The recoil vector of this region is $\vec{U} = \ptvecmiss + \sum\ptvec^{\ell}$ a
 \subsection{Simulation of \vg\ Processes}
 \label{subsec:vgmc}
 
+The \zinvg\ and \wlng\ background contributions are modeled using MC simulations.
+Samples generated at the leading order (LO) in QCD by \MADGRAPH5 with up to two additional partons and a generator-level requirement of $\ETg > 130\GeV$ are employed for this purpose.
+
+A study using a privately generated aMC@NLO sample with high \ETg\ threshold confirms that the predicted kinematic distributions would not change drastically by using the NLO sample. 
+Figures~\ref{fig:zg_nlo_lo} and \ref{fig:wg_nlo_lo} show the comparisons of the private aMC@NLO samples and the \MADGRAPH5 samples used for the background estimation in the key kinematic distributions.
+
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.48\linewidth]{Analysis/Figures/ewkcorr_zg.pdf} \\
-  \includegraphics[width=0.48\linewidth]{Analysis/Figures/ewkcorr_wgplus.pdf}
-  \includegraphics[width=0.48\linewidth]{Analysis/Figures/ewkcorr_wgminus.pdf}
+  \includegraphics[width=0.32\linewidth]{Analysis/Figures/kfactor/ZG_ptg.pdf}
+  \includegraphics[width=0.32\linewidth]{Analysis/Figures/kfactor/ZG_etag.pdf}
+  \includegraphics[width=0.32\linewidth]{Analysis/Figures/kfactor/ZG_met.pdf}
   \caption{
-    Electroweak NLO cross section corrections as a function of photon \pt\ for \zinvg\ (top), $\PW^{+}+\Pgg$ (bottom left), and $\PW^{-}+\Pgg$ (bottom right) processes, overlaid with uncertainty bands. 
+    Distributions of \ETg\ (left), $\eta^{\Pgg}$ (middle), and $\pt^{\PZ}$ (right) in \zinvg\ process from the private aMC@NLO sample (blue) and the LO sample used for background prediction (red) along with the NLO / LO ratios.
+  }
+  \label{fig:zg_nlo_lo}
+\end{figure}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.32\linewidth]{Analysis/Figures/kfactor/WG_ptg.pdf}
+  \includegraphics[width=0.32\linewidth]{Analysis/Figures/kfactor/WG_etag.pdf}
+  \includegraphics[width=0.32\linewidth]{Analysis/Figures/kfactor/WG_met.pdf}
+  \caption{
+    Distributions of \ETg\ (top left), $\eta^{\Pgg}$ (top right), and $\pt^{\PW}$ (bottom left) in \wlng\ process from the private aMC@NLO sample (blue) and the LO sample used for background prediction (red) along with the NLO / LO ratios.
+  }
+  \label{fig:wg_nlo_lo}
+\end{figure}
+
+To approximate the QCD higher-order effects, \zinvg\ and \wlng\ events are reweighted with \ETg\ by the factors given in Tab.~\ref{tab:zg_kfactors}. 
+These factors are the ratios of QCD next-to-next-to leading order (NNLO) differential cross sections calculated by Grazzini et al.~\cite{Bozzi:2010xn} to the LO cross sections given in the centrally produced samples. 
+(Note that the denominator cross section includes contributions from processes with up to two additional partons, and is therefore not a LO cross section in the strict sense of the word. V\Pgg\ k-factors found in literature can be $\gg 1$ at high \ETg, if the denominator only accounts for the cross section of $\Pq\Paq\rightarrow\mathrm{V}\Pgg$ process.)
+
+\begin{table}
+  \begin{center}
+    \caption{NNLO / LO correction factors for \zinvg\ and \wlng\ samples.}
+    \label{tab:zg_kfactors}
+    \begin{tabular}{| l | r | r |}
+      \hline
+      \PTg range (GeV) & \zinvg & \wlng \\
+      \hline
+      \hline
+      $[175, 190]$ & 1.44 & 1.40 \\
+      \hline
+      $[190, 250]$ & 1.41 & 1.37 \\
+      \hline
+      $[250, 400]$ & 1.35 & 1.31 \\
+      \hline
+      $[400, 700]$ & 1.29 & 1.26 \\
+      \hline
+      $[700, \inf]$ & 1.15 & 1.15 \\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
+Additionally, higher-order electroweak correction factors are also applied as a function of \ETg. 
+Out of various electroweak higher-order effects, ones that can give sizeable
+($\gg\mathcal{O}(\alpha)$) corrections to the cross section are Sudakov suppression at high boson \pt\ and potentially the addition of photon-induced scattering processes~\cite{Denner:2014bna,Denner:2015fca}. 
+We apply the correction factors shown in Figure~\ref{fig:ewk_correction}, which are combinations of Sudakov suppression factors and photon-induced enhancements, and are provided by the authors of Ref.~\cite{Denner:2015fca} in addition to the NNLO QCD correction.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.32\linewidth]{Analysis/Figures/ewkcorr/zg.pdf}
+  \includegraphics[width=0.32\linewidth]{Analysis/Figures/ewkcorr/wgplus.pdf}
+  \includegraphics[width=0.32\linewidth]{Analysis/Figures/ewkcorr/wgminus.pdf}
+  \caption{
+    Electroweak NLO cross section corrections as a function of photon \pt\ for \zinvg\ (left), $\PW^{+}+\Pgg$ (middle), and $\PW^{-}+\Pgg$ (right) processes, overlaid with uncertainty bands. 
     See text for descriptions of the individual components of the uncertainty.
     The uncertainty due to \Pgg-induced production is negligible in \zinvg\ production.
   }
   \label{fig:ewk_correction}
 \end{figure}
 
-We apply the correction factors shown in Fig.~\ref{fig:ewk_correction}, which are combinations of Sudakov suppression factors and photon-induced enhancements, and are provided by the authors of Ref.~\cite{Denner:2015fca} in addition to the NNLO QCD correction.
+The differential cross section after the full higher-order corrections is therefore denoted as
+\begin{equation}
+  d\sigma^{\text{NNLO QCD}+\text{NLO EW}} = d\sigma^{\text{LO}} k^{\text{NNLO QCD}} (1 + \kappa^{\text{EW Sudakov}} + \kappa^{\text{EW} \Pq\Pgg}),
+\end{equation*}
+where $k^{\text{NNLO QCD}} = d\sigma^{\text{NNLO QCD}} / d\sigma^{\text{LO}}$, and the two $\kappa$ terms are the Sudakov suppression and photon-induced enhancement components of the electroweak
+correction, respectively.
+
+Furthermore, subtle differences between simulation and observation in the reconstruction and identification efficiencies for various particle candidates are accounted for with the set of selection efficiency correction factors $\rho$. 
+The value of an individual $\rho$ typically lies within a few percent of unity. 
+Further details on the measurement and values of various $\rho$ are found in Chapter~\ref{chap:calibration}.
+
+Four sources of systematic uncertainties considered for \ETg\ distribution ratios of the \vg\ processes are higher-order QCD corrections, higher-order EWK corrections, choice of PDF set, and data-to-simulation correction factors $\rho$. 
+The four uncertainties are all considered as correlated between the \ETg\ bins.
+
+The higher-order QCD renormalization and factorization scale uncertainties on the NNLO cross sections are assessed by varying the respective scales by factor 2 and 0.5 during the cross section computation. 
+These uncertainties are between 7-8\%, varying bin by bin, and are considered uncorrelated in the ratio between the \zinvg\ and \wlng\ processes.
+
+Theoretical uncertainties on the electroweak corrections are not well understood to date.  
+We estimate the magnitude of the uncertainty on $\kappa^{\text{EW Sudakov}}$ and $\kappa^{\text{EW} \Pq\Pgg}$ to be $(\kappa^{\text{EW Sudakov}})^2$ and $\kappa^{\text{EW} \Pq\Pgg}$, \ie, square of the correction for Sudakov suppression and the 100\% of the correction itself for the photon-induced enhancement. 
+The choice of using the square of $\kappa^{\text{EW Sudakov}}$ is motivated by the fact that fully resummed leading-log Sudakov suppression is an exponential of $\kappa^{\text{EW Sudakov}}$.
+
+For the Sudakov suppression, which is the dominant term in the electroweak correction, we further consider two types of systematic variations, inspired by ref.~\cite{Lindert:2017olm}, which provides a prescription for electroweak correction uncertainties for $\mathrm{V}+\text{jets}$ processes. 
+In this paper, electroweak correction as a function of the boson \pt\ is varied in overall scale and in slope. 
+The slope variation is realized by selecting a point in the boson \pt\ spectrum and letting the shift in correction cross over at the point (see Figure~\ref{fig:ewk_correction_cartoon}). 
+Following this prescription, we let the Sudakov suppression vary in overall scale and in slope, where we choose our crossover point for the slope variation to be at $\ETg=590\GeV$.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[height=0.3\linewidth]{Analysis/Figures/ewkcorr/scale.pdf}
+  \includegraphics[height=0.3\linewidth]{Analysis/Figures/ewkcorr/shape.pdf}
+  \caption{
+    Electroweak correction variation scheme to cover the scale (left) and shape (right) uncertainties.
+  }
+  \label{fig:ewk_correction_cartoon}
+\end{figure}
+
+The PDF uncertainty is evaluated by varying the weight of each event using the weights provided in the NNPDF set, and taking the standard deviation of the resulting \ETg\ distributions. 
+This uncertainty is considered fully correlated in the ratio between the \zinvg\ and \wlng\ processes, \ie, the variation of the ratio is bounded by the ratios of the upward and downward variations.
+
+Finally, data-to-simulation correction factors $\rho$ for the lepton identification efficiencies have associated uncertainties that do not cancel when taking ratios between regions defined by different lepton selection requirements.
 
 \subsection{Data-driven Control Regions}
 \label{subsec:control_regions}
@@ -138,7 +236,7 @@ The ratio \RWl\ decreases with increasing \ETg\ in a similar manner to \RZll. Th
 
 Finally, to benefit further from the larger statistical power that the single-lepton control samples provides, an additional transfer factor $\fZW = \NZg / \NWg$ is defined to connect the \zinvg\ and \wlng\ background yields in the signal regions, where the quantity $\NWg$ is the number of \wlng\ events in the combined signal regions. 
 When calculating the ratio \fZW, all experimental uncertainties associated with the data-to-simulation correction factors $\rho$ cancel since both processes result in very similar event configurations. 
-The main uncertainties in \fZW\ are those from higher-order theoretical corrections, discussed in Section~\ref{subsec:vgmc}. Figure~\ref{fig:tf_syst} shows the effect of each systematic uncertainty in \fZW\ with respects to its central value.
+The main uncertainties in \fZW\ are those from higher-order theoretical corrections, discussed in Section~\ref{subsec:vgmc}. Figure~\ref{fig:tf_syst} shows the effect of each systematic uncertainty in \fZW\ with respects to its nominal value for \zinvg\ and \wlng\ respectively.
 
 \begin{figure}[htbp]
   \centering
