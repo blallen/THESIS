@@ -1,7 +1,28 @@
 \chapter{The Monophoton Analysis}
 \label{chap:analysis}
 
-The main event.
+There are multiple distinct sources of SM background to this analysis. 
+The most significant of them are the irreducible backgrounds, which are the associated production of a high-energy \Pgg\ with either a \PZ\ boson that subsequently decays to a pair of neutrinos or a \PW\ boson that decays to a charged lepton and a neutrino. 
+These two processes are denoted as \zinvg\ and \wlng, respectively, and together they account for approximately 70\% of the SM background, with 50\% from the former and 20\% from the latter.
+The total irreducible background rate is estimated using simultaneous fits to the signal and control regions defined in Section~\ref{sec:event_selection} and the details of the modeling are given in Section~\ref{sec:irreducible}.
+
+Less significant but non-negligible backgrounds arise from events where the candidate photon object is a misidentified electron (Section~\ref{sec:efake}) or electromagnetic shower caused by hadrons (Section~\ref{sec:hfake}). 
+The background events from electron misidentification are mostly \PW\ boson production ($\PW\rightarrow \Pe\Pgn$), whereas those from hadron misidentification can be due to multiple sources such as $\PZ(\rightarrow\Pgn\Pgn)+\text{jets}$ and QCD multijet with grossly mismeasured jet energy. 
+Misidentification itself is rare, but all of the above processes have high cross sections. 
+Since object misidentification rates depend on subtle details of the detector, the MC simulation cannot be expected to model it reliably. 
+Therefore, data-driven techniques are employed to estimate the contributions from these background events.
+
+After the full selection described in Section~\ref{sec:event_selection}, the SM \gj, \ttg, VV\Pgg, \zllg, and $\PW\to\ell\PGn$ processes are minor ($\sim$10\%) background processes in the signal region. 
+These processes, collectively denoted as minor SM backgrounds, can contribute in the signal region if the jet energy is severely mismeasured or the leptons fail to be reconstructed resulting in large \met in the signal region. 
+However, the \met is typically aligned with the photon or one of the jets in such cases, and therefore various selections on the kinematic relations between the \met, photons, and jets are used to reduce these backgrounds to a manageable rate. 
+The estimates for all five processes are taken from \MGvATNLO simulations at LO in QCD and can be found in Tables~\ref{tab:yield_mask_horizontal} and~\ref{tab:yield_mask_vertical}.
+
+Finally, apparent large energy deposits in ECAL from non-collision processes can mimic \gmet\  events and therefore need to be controlled. 
+Known sources of such background include bremsstrahlung of beam halo or cosmic ray muons and anomalous ECAL energy deposits resulting from the interaction of particles in the ECAL photodetectors referred to as ``ECAL spikes''. 
+These processes are described in detail in Sections~\ref{sec:beam_halo} and~\ref{sec:spikes}, respectively.
+
+All background processes except for the two irreducible ones and beam halo are given absolute estimates from data-driven methods or MC cross section calculations. 
+The estimates of the contributions from \zinvg, \wlng, and beam halo processes are allowed to float in the final fit to data performed to extract the potential signal contribution described in Section~\ref{sec:interpretation}.
 
 \section{Event Selection}
 \label{sec:event_selection}
@@ -43,6 +64,13 @@ The recoil vector of this region is $\vec{U} = \ptvecmiss + \sum\ptvec^{\ell}$ a
 \section{Irreducible backgrounds}
 \label{sec:irreducible}
 
+Contributions from the \zinvg\ and \wlng\ processes are estimated using observed data in four mutually exclusive single-electron, single-muon, dielectron, and dimuon control regions defined in Section~\ref{sec:event_selection}. 
+The ratios between the expected yields of these processes are constrained by MC simulations of \vg\ processes. This background estimation method exploits cancellation of some of the systematic uncertainties, both experimental and theoretical, in the ratios of the photon \ETg\ distributions of \vg\ processes, from here on referred to as ``transfer factors''.
+ 
+For example, in the transfer factor between the \zinvg\ and \zllg\ processes, denoted \RZll, the uncertainties due to photon energy calibration, jet energy resolution, and higher-order QCD effects are significantly reduced compared to when such effects are considered for individual processes. 
+The only uncertainties in the transfer factor \RZll\ that do not largely cancel are those on lepton identification efficiency and the statistical uncertainty due to the limited MC sample size. 
+Figure~\ref{fig:tf_z} shows the transfer factor \RZee\ (\RZmm) between the dielectron (dimuon) control region and the combined signal regions, for which the numerator is the expected \zinvg\ yield in the combined signal regions and the denominator is the expected \zllg\ yield in the relevant control region.
+
 \begin{figure}[htbp]
   \centering
     \includegraphics[width=0.49\textwidth]{Analysis/Figures/RZee.pdf}
@@ -73,6 +101,10 @@ The subscript $i$ indicates that the quantities are evaluated in bin $i$ of the 
     }
     \label{fig:tf_w}
 \end{figure}
+
+A large fraction of such events are rejected by the electron and muon vetoes in the event selection. 
+However, hadronic tau events and events where the leptons are out of the reconstruction acceptance will remain, and the vetoes themselves have imperfect efficiencies. 
+
 
 \begin{figure}[htbp]
   \centering
@@ -279,9 +311,6 @@ Figure~\ref{fig:hadronFakePurity} shows the resulting shapes from moving the sha
   \end{center}
 \end{figure}
 
-\section{Spikes}
-\label{sec:spikes}
-
 \section{Beam halo}
 \label{sec:beam_halo}
 
@@ -313,12 +342,6 @@ Using the notation introduced in Section~\ref{sec:irreducible}, the total estima
 \end{aligned}
 \end{equation}
 where $b_{K,i}$ is the total contribution to bin $i$ of region $K$ from electron and hadron misidentification, ECAL spikes, and other minor SM background processes.
-
-\section{Other minor SM background processes}
-\label{sec:minorsm}
-The SM \ttg, VV\Pgg, \zllg, $\PW\to\ell\PGn$, and \gj\ processes are minor ($\sim$10\%) background processes in the signal region. 
-Although \zllg\ and \gj\ do not involve high-\pt\ invisible particles, the former can exhibit large \met\ when the leptons fail to be reconstructed, and the latter when jet energy is severely mismeasured. 
-The estimates for all five processes are taken from \MGvATNLO simulations at LO in QCD and can be found in Tables~\ref{tab:yield_mask_horizontal} and~\ref{tab:yield_mask_vertical}.
 
 \section{Statistical Interpretation}
 \label{sec:interpretation}
@@ -355,6 +378,10 @@ following the notation introduced in Section~\ref{sec:irreducible}, and where $\
 Systematic uncertainties are treated as nuisance parameters in the fit and are represented by
 $\vec{\theta}$.
 Each quantity $Q_{j}$ with a nominal value $\overline{Q}_{j}$ and a standard deviation of the systematic uncertainty $\sigma_{j}$ appears in the likelihood function as $\overline{Q}_{j}\exp(\sigma_{j}\theta_{j})$.
+
+\section{Spikes}
+\label{sec:spikes}
+
 
 \section{Results}
 \label{sec:results}
