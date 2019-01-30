@@ -1,20 +1,18 @@
 \chapter{Calibration}
 \label{chap:calibration}
 
-How good is the reconstruction.
+Differences between data and MC efficiencies for various selections have to be corrected to achieve accurate signal and background predictions. 
+Efficiencies of individual components are measured on data and applied to the MC.
 
 \section{Trigger Efficiency}
 
 \section{Photon Identification Efficiency}
 \label{sec:photoneff}
 
-When measuring the photon efficiency scale factor, we split the photon ID described in
-Section~\ref{sec:photons} into two parts, which we call the \egamma\ portion and the \Pgg\
-portion. 
+When measuring the photon efficiency scale factor, we split the photon ID described in Section~\ref{sec:photons} into two parts, which we call the \egamma\ portion and the \Pgg-specific portion. 
 The \egamma\ portion of the ID consists of the H/E, \sieie, and PF isolation cuts and is measured using the ``tag-and-probe'' (TP) method as these variables have similar efficiencies for physical electrons and photons. 
-The \Pgg\ portion of the ID consists of the pixel seed veto.
-We measure the efficiency of \Pgg\ portion on a sample of physical photons using a \sieie\
-template fit method.
+The \Pgg-specific portion of the ID consists of the pixel seed veto and non-collision rejection cuts.
+We measure the efficiency of \Pgg-specific portion on a sample of physical photons using a \sieie\ template fit method.
 
 We perform both efficiency estimates as a function of \pt\ with the binning [175,200], [200,250], [250,300], [300,350], [350,400] and [400,$\infty$). 
 This binning was chosen based on the number of available events in data for the failing probes fit in the TP method and the background template for the \sieie\ fits.
@@ -174,7 +172,6 @@ Going back to our original fit function and replacing $h_{b}$ with $h_{b}^{\text
 which converges to the original fit function if $S' = 0$, \ie, if there is no photon contamination in the sideband. 
 Note that $f$ is still the only free parameter for this new function as $S'$ only depends on $f$ and $r_{\text{sb}} / r_{\text{sig}}$ is set constant in the fit (see discussion of systematics for more detail).
 
-
 There are four main sources of systematic uncertainty for this measurement. 
 The first comes from the sideband choice, as the relative rates of different types of fake photons varies with \ICH. 
 The second comes from the true photon \ICH\ shape, as this is used to determine the normalization of true photons in the sideband. 
@@ -202,8 +199,7 @@ Figure~\ref{fig:impurity-sideband} shows fits using the three sidebands for the 
   \label{fig:impurity-sideband}
 \end{figure}
 
-To measure the uncertainty due to the \ICH\ shape, we look at the \ICH\ for electrons in
-\Zee\ events in both data and MC. 
+To measure the uncertainty due to the \ICH\ shape, we look at the \ICH\ for electrons in \Zee\ events in both data and MC. 
 Using these distributions, we obtain a data/MC scale factor which we apply to the MC true photon \ICH\ distribution to obtain a scaled MC distribution. 
 This process is shown in Figure~\ref{fig:impurity-chiso}. 
 Then, we recount the photons using this new distribution and take the difference in the values obtained using the raw MC and scaled MC distributions as a systematic uncertainty.
@@ -216,8 +212,7 @@ Then, we recount the photons using this new distribution and take the difference
   \caption{
     Top left: \ICH\ distributions of electrons in data and MC in \Zee\ events.
     Top right: data/MC scale factor obtained from the electron \ICH\ distributions.
-    Bottom: \ICH\ distributions of the MC photon objects used to estimate the amount of photon contamination in the background
-    template, before and after applying the data/MC scale factor.
+    Bottom: \ICH\ distributions of the MC photon objects used to estimate the amount of photon contamination in the background template, before and after applying the data/MC scale factor.
   }
   \label{fig:impurity-chiso}
 \end{figure}
@@ -306,6 +301,66 @@ As there is no significant trend in the scale factor as a function of \pt\, we a
   \end{center}
 \end{figure}
 
-\section{Lepton Scale Factors}
+\section{Lepton Efficiency}
+\label{sec:lepton_eff}
 
-\section{Jet Energy Scale}
+\section{Pileup Reweighting}
+\label{sec:puweight}
+
+The distribution of the number of pileup interactions inserted into MC events differ from the true pileup distribution, estimated from the measurement of instantaneous luminosity, beam intensity of each proton bunch, and the total cross section of proton inelastic scattering (69.2 $\textrm{mb}^{-1}$).
+
+Figure~\ref{fig:pudist} shows the pileup distributions in data and MC and their ratio. 
+Each simulation event has its weight multiplied by the value of the ratio evaluated at the number of true pileup interaction injected into the event.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.48\linewidth]{Calibration/Figures/PUMoriond17.pdf}
+  \caption{
+    The pileup distributions in data and MC.
+  }
+  \label{fig:pudist}
+\end{figure}
+
+\section{Lepton Veto Efficiency (Events with ``Fake Leptons'')}
+\label{sec:fake_lepton_veto}
+The lepton veto requirement in the signal region has a non-unity efficiency over events that do not have genuine leptons, because particles such as pions and protons can mimic leptons (become ``fake leptons'') and cause the event to be rejected. 
+To measure the possible difference between data and MC of this lepton veto efficiency, we compare dimuon events in data and MC. 
+In a high-purity \Zmm\  sample with the dimuon mass close to $M_{\PZ}$, events with a genuine third lepton is negligibly rare, and therefore the efficiency loss from rejecting events with a third lepton is dominantly due to fake leptons.
+
+For this measurement, collision events are taken from the SingleMuon data set and the MC events from a mixture of DY, \ttbar, \PW\PW, \PW\PZ, and \PZ\PZ\ samples. 
+We require two muons passing the ``tight'' identification working point defined in Section~\ref{sec:muons} with the mass between 61 and 121\GeV. 
+These events are then checked for additional electron or muon objects passing the loose selection criteria defined in Sections~\ref{sec:electrons} or~\ref{sec:muons}, respectively. 
+The efficiency is inspected as a function of number of vertices, number of jets, and $H_{\mathrm{T}}$ in the event, and in all cases data and MC are consistent as shown in Figure~\ref{fig:leptonveto_efficiencies}.
+
+\begin{figure}[tbph]
+ \centering
+  \includegraphics[width=7.5cm,height=7cm]{Calibration/Figures/leptonveto_eff_npv.pdf}
+  \includegraphics[width=7.5cm,height=7cm]{Calibration/Figures/leptonveto_eff_njet.pdf}
+  \includegraphics[width=7.5cm,height=7cm]{Calibration/Figures/leptonveto_eff_ht.pdf}
+  \includegraphics[width=7.5cm,height=7cm]{Calibration/Figures/leptonveto_eff_incl.pdf}
+  \caption{
+    Lepton veto efficiencies and data/MC scale factors as functions of $N_{\text{vtx}}$, $N_{\text{jet}}$, and $H_{\mathrm{T}}$, and the corresponding inclusive values. 
+    While dimuon and \zinvg\ samples have significantly different efficiencies, data and MC agree well within dimuon samples, giving scale factors consisten with 1 almost everywhere. 
+    This is true even when additionally requiring a high-\pt\ jet in the event, as seen in the inclusive efficiency plot. 
+    Thus, the difference between \zinvg\ and dimuon efficiencies itself is taken as the uncertainty.
+  }
+ \label{fig:leptonveto_efficiencies}
+\end{figure}
+
+
+It should be noted, however, that the absolute lepton veto efficiency in MC dimuon sample is significantly different from that of the \zinvg\ sample, which more closely features the properties of the signal candidate sample. 
+The full difference in the efficiencies between the dimuon and \zinvg\ samples is tentatively taken as the systematic uncertainty in the lepton veto scale factor, which is therefore $1.00 \pm 0.02$.
+
+\section{Lepton Veto Efficiency (Events with ``Real Leptons'')}
+\label{sec:real_lepton_veto}
+Additionally, a small fraction of events with real leptons pass the lepton veto due to the leptons failing the loose ID requirements. 
+This effect is most relevant for \wlng\ events in the signal region and for \zllg\ events in the single lepton control regions. 
+We account for this effect in the following way:
+
+Using the data and MC efficiencies from Section~\ref{sec:lepton_eff} for the loose IDs, we compute a scalefactor $\text{SF}_{\text{veto}} = (1. - \epsilon_{\text{data}}) / (1. - \epsilon_{\text{MC}})$ and apply  this to MC events with a reconstructed lepton that fails the loose ID. 
+If there are multiple such  leptons in an event, we apply this scalefactor only for the hardest muon and electron. 
+We apply a flat 1\% (5\%) uncertainty for the muon (electron) efficiencies. 
+
+The veto scale factors for electrons (muons) range from 0.55 to 1.38 (0.34 to 73.5) with uncertainties  ranging from 0.15 to 1.46 (2.7 to 126.8). 
+All scale factors are consistent with unity within the uncertainties. 
+After applying the scale factors, the final MC yields for \wlng\ in the signal  region and \zllg\ in the single lepton control regions change by less than 0.5\%.
