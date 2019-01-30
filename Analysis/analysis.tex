@@ -216,9 +216,54 @@ The subscript $i$ indicates that the quantities are evaluated in bin $i$ of the 
 
 Similar considerations apply to events arising from \wlng\ processes. 
 A large fraction of such events are rejected by the electron and muon vetoes in the signal region selection and end up in the control regions instead. 
-However, hadronic tau events and events where the leptons are out of the reconstruction acceptance will remain in the signal region, on top of the vetoes having imperfect efficiencies. 
+However, hadronic tau events and events where the leptons are out of acceptance or fail to be reconstructed will remain in the signal region, on top of the vetoes having imperfect efficiencies. 
 In the ratio of these two classes of events, denoted \RWl, the only uncertainties that remain non-negligible are those associated with the lepton identification efficiency and the MC statistical uncertainty.
+
+Table~\ref{tab:wg_breakdown} gives the breakdown of the \wlng\ background passing the full event selection for the signal region, categorized by the lepton flavor and, for the case of electrons and muons, the lepton pseudorapidity at the parton-level. 
+From this breakdown, one sees that events where the \PW\ boson decays to a \Pgt\ and a neutrino constitutes approximately 60\% of the \wlng\ background. 
+The remaining 40\% of the \wlng\ background comes from events where \PW\ boson decays to a \Pgm\ or \Pe\ and a neutrino.
+Events containing an electron are more likely to be within the detector acceptance, while those with a muon are more likely to be out of acceptance.
+For the in-acceptance background ($|\eta| < 2.5$), the identification efficiency, which is lower for electrons than for muons, which translates to a larger background contribution from the electrons. 
+Meanwhile, the \met requirement explains the behavior of the out-of-acceptance background ($\abs\eta > 2.5$).
+A large fraction of electrons that are out of tracker acceptance are still captured by the calorimeters, while out-of-acceptance muons directly contribute to missing momentum leading to a larger background contribution from muons.
+% Conversely, by requiring large \met, the muon $\eta$ distribution is highly skewed towards the edge of acceptance, driving the overall muon reconstruction efficiency in the sample lower and thereby making the background contributions from electrons and muons closer to each other. 
+
+\begin{table}[tbp]
+  \begin{center}
+    \caption{
+      The breakdown of simulated $\PW+\Pgg$ events passing the full event selection. 
+      Events are categorized in the \PW\ decay mode. 
+      Events with \Pe\Pgn\ and \Pgm\Pgn\ final states are further divided into those where the lepton was roughly within acceptance ($|\eta| < 2.5$) but failed the lepton veto, and those where the lepton was out of acceptance ($|\eta| > 2.5$). 
+      For each \PW\ decay mode, the fraction out of total generated ($A\times\epsilon$) is shown.
+    }
+    \label{tab:wg_breakdown}
+    \begin{tabular}{| l r | r r |}
+      \hline
+      \multicolumn{2}{| c |}{Subprocess} & \multicolumn{2}{| c |}{$A\times\epsilon \times 10^{3}$} \\
+      \hline
+      \hline
+      \multicolumn{2}{| l |}{$\PW\rightarrow\Pe\Pgn + \Pgg$} & 1.68 & \\
+      \hline
+       & $|\eta^{\Pe}| < 2.5$ & & 1.35 \\
+      \hline
+       & $|\eta^{\Pe}| > 2.5$ & & 0.32 \\
+      \hline
+      \multicolumn{2}{| l |}{$\PW\rightarrow\Pgm\Pgn + \Pgg$} & 1.83 & \\
+      \hline
+       & $|\eta^{\Pgm}| < 2.5$ & & 0.74 \\
+      \hline
+       & $|\eta^{\Pgm}| > 2.5$ & & 1.08 \\
+      \hline
+      \multicolumn{2}{| l |}{$\PW\rightarrow\Pgt\Pgn + \Pgg$} & 5.03 & \\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
+
 Figure~\ref{fig:tf_w} shows the transfer factor \RWe\ (\RWm) between the single-electron (single-muon) control region and the combined signal regions, for which the numerator is the estimated \wlng\ yield in the combined signal regions, and the denominator is the estimated \wlng\ yield in the relevant control region. 
+The ratio \RWl\ decreases with increasing \ETg\ in a similar manner to \RZll.
+The underlying logic is the same; e.g., that the signal region selection efficiency is unaffected by \ETg\ while the control region acceptances increase with increasing \ETg\ due to increased lepton efficiency resulting from lower \PW\ rapidity. 
 
 \begin{figure}[htbp]
   \centering
@@ -231,8 +276,6 @@ Figure~\ref{fig:tf_w} shows the transfer factor \RWe\ (\RWm) between the single-
     }
     \label{fig:tf_w}
 \end{figure}
-
-The ratio \RWl\ decreases with increasing \ETg\ in a similar manner to \RZll. The underlying logic is the same; e.g., that the signal region selection efficiency is unaffected by \ETg\ while the control region acceptances increase with increasing \ETg\ due to increased lepton efficiency resulting from lower \PW\ rapidity. 
 
 Finally, to benefit further from the larger statistical power that the single-lepton control samples provides, an additional transfer factor $\fZW = \NZg / \NWg$ is defined to connect the \zinvg\ and \wlng\ background yields in the signal regions, where the quantity $\NWg$ is the number of \wlng\ events in the combined signal regions. 
 When calculating the ratio \fZW, all experimental uncertainties associated with the data-to-simulation correction factors $\rho$ cancel since both processes result in very similar event configurations. 
