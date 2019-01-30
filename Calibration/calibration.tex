@@ -5,6 +5,55 @@ Differences between data and MC efficiencies for various selections have to be c
 Efficiencies of individual components are measured on data and applied to the MC.
 
 \section{Trigger Efficiency}
+\label{sec:triggereff}
+
+
+
+The candidate events were recorded with the HLT\_Photon165\_HE10 trigger.
+The high-level trigger algorithm is relatively simple, with only a requirement of at least one \egamma\ object, reconstructed only around a L1 jet or egamma object, with $\ET > 165\GeV$ and $H/E < 0.1$, where transverse energy \ET is defined as the reconstructed energy deposit in the calorimeter cluster multiplied by the sine of the polar angle of the position of the cluster measured from the center of the detector. 
+The variable $H/E$ is the ratio of the energy deposit in the HCAL to that in the ECAL for a single calorimetric shower. 
+Only the HCAL deposit in the tower behind the center of the ECAL energy deposit is considered.
+
+Because the trigger decisions both in the L1T and HLT are based on the existence of a single object in the event, their efficiency can be measured by looking for trigger objects that match the candidate photon object in an appropriate data set. 
+Trigger objects are the four-momenta of the objects reconstructed at the trigger level that are relevant for making trigger decisions. 
+The match is defined by $\dR = \sqrt{\deta^2 + \dphi^2}$ between the two objects being less than a threshold. 
+For the offline photon object, a line that connects the detector origin and the cluster position was used to define its direction.
+
+The trigger efficiency measurement is performed on the SingleMuon data set, exploiting events mostly from leptonic \ttbar\ (\Pe\Pgm) topology. 
+Events with a candidate-quality photon without electron veto requirement (see Section~\ref{sec:photons}) and a muon object that passes the ``tight''
+identifictaion requirement defined in Section~\ref{sec:muons} and matches the trigger object of the HLT\_IsoMu24 or HLT\_IsoTkMu24 triggers are used. 
+The matching rate of the photon object and the trigger object is the trigger efficiency. 
+Figure~\ref{fig:hlt_eff} shows the L1+HLT combined efficiency as a function of the photon \ET. 
+It can be seen that the trigger is fully efficient for $\ET > 175\GeV$.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.48\linewidth]{Calibration/Figures/photon_elmu_sph165abs_ptzoom.pdf}
+  \caption{
+    Efficiency turn-on of HLT\_Photon165\_HE10 for photons passing the candidate selection, measured using \Pgm + \egamma events from the SingleMuon data set. 
+    Red vertical line corresponds to $\ET = 175\GeV.$
+  }
+  \label{fig:hlt_eff}
+\end{figure}
+
+For the first period of data taking, the HLT\_Photon165\_HE10 trigger was seeded only by an isolated egamma L1 trigger. 
+This L1 seed becomes inefficient at high \ET\ due to a misconfiguration in the $H/E$ computation algorithm. 
+The effect is visible when plotting the efficiency for a wide \ET\ range (Figure~\ref{fig:l1_eff} left). 
+To mitigate the effect, in the later periods, the trigger was seeded by the logical OR of SingleEG40 and SingleJet level-1 triggers. 
+SingleJet triggers with multiple \pt\ threshold are combined. 
+Even with this addition, the measured trigger efficiency is not 100\% at the plateau, but is flat with respect to \ET\ (Figure~\ref{fig:l1_eff} right). 
+In principle, the efficiency should be applied to all simulation-based background estimate whose normalization is fixed by theoretical calculation of the cross section. However, as discussed in Chapter~\ref{chap:analysis}, the dominant background in the analysis are given floating normalization that is fit to observed data, and the only simulation-based background processes with absolute normalization are those that contribute at $\mathcal{O}(1)$\%, with large systematic uncertainties. 
+Therefore we deem the slight discrepancy of the trigger efficiency from unity as irrelevant.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.48\linewidth]{Calibration/Figures/photon_elmuBCD_l1eg40_ptwide.pdf}
+  \includegraphics[width=0.48\linewidth]{Calibration/Figures/photon_elmu_l1all_ptwide.pdf}
+  \caption{
+    Efficiency of L1 seed for the signal trigger in periods B and C (left) and the full data set (right).
+  }
+  \label{fig:l1_eff}
+\end{figure}
 
 \section{Photon Identification Efficiency}
 \label{sec:photoneff}
@@ -346,7 +395,6 @@ The efficiency is inspected as a function of number of vertices, number of jets,
   }
  \label{fig:leptonveto_efficiencies}
 \end{figure}
-
 
 It should be noted, however, that the absolute lepton veto efficiency in MC dimuon sample is significantly different from that of the \zinvg\ sample, which more closely features the properties of the signal candidate sample. 
 The full difference in the efficiencies between the dimuon and \zinvg\ samples is tentatively taken as the systematic uncertainty in the lepton veto scale factor, which is therefore $1.00 \pm 0.02$.
