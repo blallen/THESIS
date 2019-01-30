@@ -105,17 +105,123 @@ Lower bounds for \sieie\ and \sipip\ as well as the requirement on the cluster s
 \section{Missing Transverse Energy}
 \label{sec:met}
 
-\section{ECAL barrel spikes phenomenology}
+\section{Beam Halo Phenomenology}
+\label{sec:halo}
+
+Bremsstrahlung photons emitted by beam halo muons in the ECAL volume generate a physical EM shower in the ECAL crystals. 
+Large deposits energy are rare, but the rate of beam halo penetration during the 2016 run was substantial. 
+The characteristic features of a shower caused by a halo particle include coincident hits in the barrel muon system and a ``trail'' of low-energy clusters in ECAL along the particle trajectory. 
+The beam halo MET filter described in Section~\ref{sec:met} exploits the former, while the \emip\ variable described in Section~\ref{sec:photons} captures the latter.
+
+\begin{figure}[tbp]
+  \begin{center}
+    \includegraphics[width=0.6\textwidth]{Reconstruction/Figures/halo/halophi.pdf}
+    \caption{
+      The \phig\ distribution of the halo-like showers, tagged in multiple ways. 
+      Histograms are normalized to unity.
+      The cyan histogram is the \phig\ distribution after applying photon identification selections except for the shower shape. 
+      It can be seen that the \phig\ distribution is highly stable against the listed identification selections.
+    }
+    \label{fig:halophi}
+  \end{center}
+\end{figure}
+
+\begin{figure}[tbp]
+  \begin{center}
+    \includegraphics[width=0.6\textwidth]{Reconstruction/Figures/halo/bkgphi.pdf}
+    \caption{
+      The \phig\ distribution from \zinvg\ MC simulation.
+    }
+    \label{fig:bkgphi}
+  \end{center}
+\end{figure}
+
+Because beam halo particles are produced through complex LHC machine effects, it is natural that the observed distribution of the halo showers is not
+symmetric in the azimuthal angle in the detector coordinates.
+Figure~\ref{fig:halophi} is a \phig\ distribution of the halo showers obtained from the Single Photon data set, requiring $\met > 140\GeV$. 
+Here, halo showers are defined as those that fail the MIP-tagging and in the event tagged by the CSC beam halo tagger. 
+On the other hand reconstructed shower from all other sources are symmetric in \phig\, as demonstrated in Fig.~\ref{fig:bkgphi}. 
+
+\begin{figure}[tbp]
+  \begin{center}
+    \includegraphics[width=0.7\textwidth]{Reconstruction/Figures/halo/halo_eta.pdf}
+    \includegraphics[width=0.45\textwidth]{Reconstruction/Figures/halo/halo_shape_etalow.pdf}
+    \includegraphics[width=0.45\textwidth]{Reconstruction/Figures/halo/halo_shape_etahigh.pdf}
+    \caption{
+      Top: $\eta$ distribution of the halo-like showers with $|\phi| < \pi/2$ and $|\phi| > \pi/2$.
+      Bottom: shift in the $\eta$ distribution of the halo-like showers with respect to the requirement on \sieie.
+    }
+    \label{fig:halo_eta}
+  \end{center}
+\end{figure}
+
+For the distribution of Fig.~\ref{fig:halophi} to be a valid template for halo showers, it must be first confirmed that its shape is invariant under photon selection requirements. 
+However, further study of the \phig\ distribution of the halo showers indicates that the relative strength of the two prominent peaks in the distribution may change under the \sieie\ selection requirement.  
+To explain this phenomenon, one needs to look at the the \etag\ distribution of the shower populations near $\phig \sim 0$ and $\phig \sim \pi$, shown in the top portion of Figure~\ref{fig:halo_eta}. 
+Meanwhile, halo showers tend to have narrower shape in the $\eta$ direction when occurring at high $\eta$, due to the projective geometry of the ECAL crystals, visible in the bottom portion of Figure~\ref{fig:halo_eta} bottom). 
+Combining the two observations, the conclusion is that the stringent requirement on the narrowness of the shower in the photon selection will preferentially reduce the $\phi \sim 0$ population.
+
+\begin{figure}[tbp]
+  \begin{center}
+    \includegraphics[width=0.45\textwidth]{Reconstruction/Figures/halo/haloPhiFolded.pdf}
+    \caption{
+      Folded $\phi'$ distribution of the halo sample.
+    }
+    \label{fig:halo_template}
+  \end{center}
+\end{figure}
+
+Nevertheless, the invariance under photon selection is recovered by folding the \phig\ distribution such that the two peaks of the halo showers coincide.
+To match the positions of the peaks in the halo template, the distribution is shifted by 0.005 and then folded along 0. 
+The new angular variable $\phi'$
+\begin{equation}
+  \phi' := \left|\left[\left[\phig + 0.005\right]_{-\pi}^{\pi} - \frac{\pi}{2}\right]_{-\pi}^{\pi}\right| - \frac{\pi}{2},
+\end{equation}
+where $[\cdot]_{\pi}^{\pi}$ signifies casting the content into range $[-\pi,\pi]$,
+exhibits a unimodal distribution for the halo template, as shown in Fig.~\ref{fig:halo_template}.
+
+\begin{figure}[tbp]
+  \begin{center}
+    \includegraphics[width=0.45\textwidth]{Reconstruction/Figures/halo/halo_sieie.pdf}
+    \includegraphics[width=0.45\textwidth]{Reconstruction/Figures/halo/halo_sieie_log.pdf}
+    \caption{
+      The \sieie distribution of the beam halo control sample and a reference distribution from truth-matched MC photons. 
+      Left: linear scale, Right: log scale. 
+      There is a small peak at $\sieie \sim 0.01$ in the beam halo control sample, which is not visible in linear-scale.
+    }
+    \label{fig:halo_sieie}
+  \end{center}
+\end{figure}
+
+The contribution of real photons into the halo control sample is negligible.
+This is confirmed from the \sieie\ distribution of the halo control sample and the correlation between \sieie\ and \emip\ in a MC true-photon sample.
+The \sieie\ distribution of the halo control sample features a small peak at $\sieie \sim 0.01$, which can be attributed to contributions from true photons, as the photon \sieie distribution overlaid in Figure~\ref{fig:halo_sieie} suggests. 
+However, the contribution of true photons diminishes rapidly with increasing \sieie. 
+Additionally, Figure~\ref{fig:sieie_mip_corr} illustrates that the shape of the true-photon \sieie does not change significantly with respect to \emip. 
+From these two observations, we can see that there are is only a negligible number of true photons in the halo control sample.
+
+\begin{figure}[tbp]
+  \begin{center}
+    \includegraphics[width=0.45\textwidth]{Reconstruction/Figures/halo/sieie_mip_corr.pdf}
+    \includegraphics[width=0.45\textwidth]{Reconstruction/Figures/halo/sieie_mip_prof.pdf}
+    \caption{
+      Correlation between \sieie and \emip\ in truth-matched MC photons. 
+      Left: \Emip-\sieie distribution.
+      Right: average \emip\ in bins of \sieie.
+    }
+    \label{fig:sieie_mip_corr}
+  \end{center}
+\end{figure}
+
+While the peaking behavior is a robust feature of the halo showers, their rate is not easily predictable. 
+Therefore, the contribution from beam halo processes is estimated by a direct fit to the observed data during the signal extraction process, described in Section~\ref{sec:halo_estimate}
+
+\section{ECAL Barrel Spikes Phenomenology}
 \label{sec:spikes}
 
 Noise in the photodetector or the detector electronics can result in spurious photon signals. 
 Most of the time, such spurious signal is filtered out by multiple layers of protection, starting from the so-called ``spike killer'' algorithm at the level-1 trigger~\cite{CMS_AN_2010-357}. 
 Nevertheless, in rare cases, noise in a single ECAL channel coincides with pileup or other energy deposit in the nearby crystals and appear as a high-energy photon cluster.
-
-The origin of ECAL spikes is believed to be interactions of neutrons and other hadronic particles (collectively called neutral hadrons hereafter) with the photocathode material of the ECAL avalanche photo diodes (APD). 
-Nuclear fission at the APD surface then causes a large electron avalanche, which is mistaken as a large photon yield scintillation in the ECAL crystal. 
-Evidences supporting this hypothesis is documented in Ref.~\cite{CMS_AN_2010-357}. 
-In Figure~\ref{fig:spike_lumi_scaling}, scaling of the rate of spikes with the instantaneous luminosity is confirmed, up to much higher luminosity values than was observed at the time when Ref.~\cite{CMS_AN_2010-357} was written.
 
 \begin{figure}[tbp]
   \begin{center}
@@ -127,16 +233,17 @@ In Figure~\ref{fig:spike_lumi_scaling}, scaling of the rate of spikes with the i
   \end{center}
 \end{figure}
 
+The origin of ECAL spikes is believed to be interactions of neutrons and other hadronic particles (collectively called neutral hadrons hereafter) with the photocathode material of the ECAL avalanche photo diodes (APD). 
+Nuclear fission at the APD surface then causes a large electron avalanche, which is mistaken as a large photon yield scintillation in the ECAL crystal. 
+Evidences supporting this hypothesis is documented in Ref.~\cite{CMS_AN_2010-357}. 
+In Figure~\ref{fig:spike_lumi_scaling}, scaling of the rate of spikes with the instantaneous luminosity is confirmed, up to much higher luminosity values than was observed at the time when Ref.~\cite{CMS_AN_2010-357} was written.
+
 A known feature of such spurious photon clusters is that the recorded pulse shape of the seed crystal, \ie, the channel with the noise, is not what is expected from a real electromagnetic shower in ECAL. 
 In particular, this translates to a distinctive early rec hit time distribution, since the rec hit time is extracted from a fit to the pulse shape assuming a normal pulse.
 
 In the normal CMS data reconstruction, rec hits that are tagged as spike-like are ignored in clustering. 
 Rec hits are tagged as spikes if there is very little energy deposit recorded in the surrounding crystals, or if the reconstructed time is out of an allowed window.
 Identical algorithms are employed in the HLT and offline reconstructions.
-
-To study an unbiased spike sample, ECAL DIGI samples stored in the SingleMuon AOD datasets are reconstructed into ECAL clusters with no spike cleaning applied. 
-DIGIs associated with the standard and ``uncleaned'' photon objects are stored in AOD, and ones for the uncleaned photons is rich in spike-like hits. 
-Figure~\ref{fig:showershape_map} shows how narrow clusters are cleaned away in the normal reconstruction.
 
 \begin{figure}[tbp]
   \begin{center}
@@ -149,10 +256,9 @@ Figure~\ref{fig:showershape_map} shows how narrow clusters are cleaned away in t
   \end{center}
 \end{figure}
 
-Figure~\ref{fig:spike_distributions} shows the spacial and temporal distributions of the rec hits seeding narrow ($\sieie < 0.001$) clusters. 
-The spacial distribution appears mostly random, indicating that there is no single source of spike-like rec hits. 
-The two highest peaks in the time distribution at $t \sim -15\ns$ and $t \sim 10\ns$ are characteristic of pulse shapes, which rise faster than the pulse from the normal scintillation. 
-The second peak is understood to come from the next bunch crossing.
+To study an unbiased spike sample, ECAL DIGI samples stored in the SingleMuon AOD datasets are reconstructed into ECAL clusters with no spike cleaning applied. 
+DIGIs associated with the standard and ``uncleaned'' photon objects are stored in AOD, and ones for the uncleaned photons is rich in spike-like hits. 
+Figure~\ref{fig:showershape_map} shows how narrow clusters are cleaned away in the normal reconstruction.
 
 \begin{figure}[tbp]
   \begin{center}
@@ -165,8 +271,10 @@ The second peak is understood to come from the next bunch crossing.
   \end{center}
 \end{figure}
 
-The small peak at $t\sim 0$ in the time distribution of Fig.~\ref{fig:spike_distributions} is due to actual ``physical'' clusters that happened to have a very narrow cluster shape. 
-By processing the \gj\ MC simulation events through this special reconstruction, we see that about 0.5\% of ECAL clusters from prompt photons have $\sieie < 0.001$ as shown in Figure~\ref{fig:sieie_mc}.
+Figure~\ref{fig:spike_distributions} shows the spacial and temporal distributions of the rec hits seeding narrow ($\sieie < 0.001$) clusters. 
+The spacial distribution appears mostly random, indicating that there is no single source of spike-like rec hits. 
+The two highest peaks in the time distribution at $t \sim -15\ns$ and $t \sim 10\ns$ are characteristic of pulse shapes, which rise faster than the pulse from the normal scintillation. 
+The second peak is understood to come from the next bunch crossing.
 
 \begin{figure}[tbp]
   \begin{center}
@@ -178,18 +286,8 @@ By processing the \gj\ MC simulation events through this special reconstruction,
   \end{center}
 \end{figure}
 
-To understand the time distribution, one can investigate the original DIGI samples from which rec hits are made. 
-At each event readout, a single ECAL channel outputs 10 ADC signals corresponding to a sampling of the analog pulse output of multi-gain preamplifier (MGPA) in range $t_{0} - 125\ns < t < t_{0} + 100\ns$, where $t_{0}$ is the time of the triggering bunch crossing. 
-These 10 signal points can be described well by the formula
-
-\begin{equation} \label{eqn:pulse_shape}
-  f(t) = A \left(1 - \frac{t - \tau}{\alpha\beta}\right)^{\alpha} \exp \left(-\frac{t-\tau}{\beta}\right).
-\end{equation}
-
-In the formula, parameters $A$ and $\tau$ correspond to the pulse amplitude and peak time, whereas $\alpha$ and $\beta$ control the shape of the pulse. 
-Figure~\ref{fig:pulse_examples} illustrates various observed pulse shapes fit with the above formula with all parameters floating. 
-A $\chi^{2}$ fit is employed using the average noise amplitude of each MGPA channel as the errors on the data points. 
-The noise is measured in ECAL calibration cycles in the inter-fill period and is recorded in the conditions database.
+The small peak at $t\sim 0$ in the time distribution of Fig.~\ref{fig:spike_distributions} is due to actual ``physical'' clusters that happened to have a very narrow cluster shape. 
+By processing the \gj\ MC simulation events through this special reconstruction, we see that about 0.5\% of ECAL clusters from prompt photons have $\sieie < 0.001$ as shown in Figure~\ref{fig:sieie_mc}.
 
 \begin{figure}[tbp]
   \begin{center}
@@ -202,10 +300,13 @@ The noise is measured in ECAL calibration cycles in the inter-fill period and is
   \end{center}
 \end{figure}
 
-In the $\alpha$--$\beta$ parameter space, seed rec hits of wide clusters concentrate around $(\alpha, \beta) \sim (1.1, 1.7)$, while spike-like hits populate the region $\alpha < 0.9$ as shown in Figure~\ref{fig:spike_alphabeta}.
-In fact, the pulse amplitude distribution of narrow-cluster seeds with $\alpha > 0.9$ is unlike that of the narrow-cluster seeds with $\alpha < 0.9$, and resembles the amplitude distribution of wide-cluster seeds shown in Figure~\ref{fig:spike_amplitudes}.
-This suggests that the population $\alpha > 0.9$ correspond to the clusters of physical, prompt photons.
-It then follows that spike hits can be regarded to exclusively have sharp pulse shapes.
+To understand the time distribution, one can investigate the original DIGI samples from which rec hits are made. 
+At each event readout, a single ECAL channel outputs 10 ADC signals corresponding to a sampling of the analog pulse output of multi-gain preamplifier (MGPA) in range $t_{0} - 125\ns < t < t_{0} + 100\ns$, where $t_{0}$ is the time of the triggering bunch crossing. 
+These 10 signal points can be described well by the formula
+
+\begin{equation} \label{eqn:pulse_shape}
+  f(t) = A \left(1 - \frac{t - \tau}{\alpha\beta}\right)^{\alpha} \exp \left(-\frac{t-\tau}{\beta}\right).
+\end{equation}
 
 \begin{figure}[tbp]
   \begin{center}
@@ -217,6 +318,11 @@ It then follows that spike hits can be regarded to exclusively have sharp pulse 
     \label{fig:spike_alphabeta}
   \end{center}
 \end{figure}
+
+In the formula, parameters $A$ and $\tau$ correspond to the pulse amplitude and peak time, whereas $\alpha$ and $\beta$ control the shape of the pulse. 
+Figure~\ref{fig:pulse_examples} illustrates various observed pulse shapes fit with the above formula with all parameters floating. 
+A $\chi^{2}$ fit is employed using the average noise amplitude of each MGPA channel as the errors on the data points. 
+The noise is measured in ECAL calibration cycles in the inter-fill period and is recorded in the conditions database.
 
 \begin{figure}[tbp]
   \begin{center}
@@ -230,14 +336,7 @@ It then follows that spike hits can be regarded to exclusively have sharp pulse 
   \end{center}
 \end{figure}
 
-\iffalse
-\section{Non-collision signatures}
-
-Things that don't come from protons.
-
-\subsection{Beam halo}
-
-\subsection{ECAL Spikes}
-
-\subsection{Fake MET}
-\fi
+In the $\alpha$--$\beta$ parameter space, seed rec hits of wide clusters concentrate around $(\alpha, \beta) \sim (1.1, 1.7)$, while spike-like hits populate the region $\alpha < 0.9$ as shown in Figure~\ref{fig:spike_alphabeta}.
+In fact, the pulse amplitude distribution of narrow-cluster seeds with $\alpha > 0.9$ is unlike that of the narrow-cluster seeds with $\alpha < 0.9$, and resembles the amplitude distribution of wide-cluster seeds shown in Figure~\ref{fig:spike_amplitudes}.
+This suggests that the population $\alpha > 0.9$ correspond to the clusters of physical, prompt photons.
+It then follows that spike hits can be regarded to exclusively have sharp pulse shapes.

@@ -19,7 +19,7 @@ The estimates for all five processes are taken from \MGvATNLO simulations at LO 
 
 Finally, apparent large energy deposits in ECAL from non-collision processes can mimic \gmet\  events and therefore need to be controlled. 
 Known sources of such background include bremsstrahlung of beam halo or cosmic ray muons and anomalous ECAL energy deposits resulting from the interaction of particles in the ECAL photodetectors referred to as ``ECAL spikes''. 
-These processes are described in detail in Sections~\ref{sec:beam_halo} and~\ref{sec:spikes}, respectively.
+These processes are described in detail in Sections~\ref{sec:halo_estimate} and~\ref{sec:spikes}, respectively.
 
 All background processes except for the two irreducible ones and beam halo are given absolute estimates from data-driven methods or MC cross section calculations. 
 The estimates of the contributions from \zinvg, \wlng, and beam halo processes are allowed to float in the final fit to data performed to extract the potential signal contribution described in Section~\ref{sec:interpretation}.
@@ -46,7 +46,7 @@ Only jets with $\pt > 30\GeV$ and $\abs{\eta} < 5$ are considered in the \minDph
 In the \gj\ process, rare pathological mismeasurement of \ETg\ can also lead to large \met. 
 For this reason, the candidate photon \ptvec\ and \ptvecmiss\ must be separated by more than 0.5 radians. 
 Another SM process to be rejected is \wlng, for which events are vetoed if they contain an electron or a muon with $\pt > 10\GeV$ that is separated from the photon by $\dR > 0.5$.
-Furthermore, using features described in Section~\ref{sec:beam_halo}, the signal region is split into two parts according to $\phi$ to constrain the beam halo normalization. 
+Furthermore, using features described in Section~\ref{sec:halo_estimate}, the signal region is split into two parts according to $\phi$ to constrain the beam halo normalization. 
 The region defined by $\abs{\sin(\phi)} < \sin(0.5)$ is called the horizontal region, and its complement in $\phi$ is called the vertical region.
 
 The residual contributions from the \wlng\ process, where the lepton could not be identified or was out of the detector acceptance, are modeled by fitting to observed data, as described in Section~\ref{sec:irreducible}. 
@@ -470,27 +470,15 @@ Figure~\ref{fig:hadronFakePurity} shows the resulting shapes from moving the sha
 \end{figure}
 
 \section{Beam halo}
-\label{sec:beam_halo}
+\label{sec:halo_estimate}
 
-Figure~\ref{fig:halophi} shows the $\phi$ distribution of the halo showers obtained from the single photon data set, requiring $\ETg > 175\GeV$ and $\met > 170\GeV$. 
-Here, halo showers are defined as photon objects that fail the MIP total energy cut in events where beam halo MET filter (one component of the ``MET filters'' mentioned in Section~\ref{sec:met}). 
-The distribution is shifted and folded to make the peaking behavior clear. 
-The resulting variable on the horizontal axis is named $\phi'$.
+Based on the beam halo features discussed in Section~\ref{sec:halo}, a two-template fit to the $\phi'$ distribution of the photons in the candidate sample, where the templates are that of the halo shower and a uniform distribution, accurately estimates the amount of beam halo background present in the signal region. 
+For this analysis, the splitting of the signal region functions in a similar manner, enabling us to determine the beam halo contribution during the signal extraction procedure.
 
-\begin{figure}[tbp]
-  \begin{center}
-    \includegraphics[width=0.45\textwidth]{Analysis/Figures/haloPhiFolded.pdf}
-    \caption{
-      Folded $\phi'$ distribution of the halo sample.
-    }
-    \label{fig:halophi}
-  \end{center}
-\end{figure}
-
-The splitting of the signal region can be thought of as a two-bin fit. 
-Collision processes occupy the relative fractions of phase space in the horizontal ($H$) and vertical ($V$) signal regions, $C_{H} = 1/\pi$ and $C_{V} = (\pi-1)/\pi$, respectively. 
+In the horizontal ($H$) and vertical ($V$) signal regions, collision processes occupy the relative fractions of phase space $C_{H} = 1/\pi$ and $C_{V} = (\pi-1)/\pi$, respectively. 
 The corresponding fractions for beam halo events are determined by selecting a halo-enriched sample where the halo identification is inverted. 
-Thus, a fit of the two signal regions provides an estimate of the overall normalization of the beam halo background, denoted $h$. 
+Thus, a fit of the two signal regions provides an estimate of the overall normalization of the beam halo background, denoted $h$.
+ 
 The \ETg\ dependence of the halo background is encoded in \nhalo[,i], the unit-normalized beam halo prediction in the $i^\mathrm{th}$ bin of the signal region $K \in \{H,V\}$.
 Using the notation introduced in Section~\ref{sec:irreducible}, the total estimated background \TK\ in the two signal regions are
 \begin{equation}
