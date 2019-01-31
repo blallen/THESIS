@@ -94,8 +94,39 @@ Lower bounds for \sieie\ and \sipip\ as well as the requirement on the cluster s
 \section{Electrons}
 \label{sec:electrons}
 
+Electrons must have $\pt^{\Pe} > 10\GeV$ and $\abs{\eta^{\Pe}} < 2.5$ to be considered.
+Additionally, electrons must pass further cuts on the following observables:
+\begin{itemize}
+  \item the \sieie\ of the corresponding SC,
+  \item the \deta\ and \dphi\ between the SC seed crystal and the GSF track at the PV,
+  \item $H/E$ of the corresponding ECAL and HCAL towers,
+  \item the relative combined PF Isolation $(\ICH + \INH + \Ig) / \pt^{\Pe}$,
+  \item the difference in energy measured in the tracker and the calorimeter $\abs{1/E - 1/p}$,
+  \item the number of missing hits in the inner tracker,
+  \item and the existence of a pair of tracks originating at a displaced vertex, indicting photon conversion.
+\end{itemize}
+The exact values of the cuts are tuned based on whether the electron is in the barrel or the endcap and to give desired signal efficiencies and background acceptance.
+The loose ID is tuned to 90\% signal efficiency and 0.5\% background acceptance, while the tight ID is tuned to 70\% signal efficiency and 0.1\% background acceptance.
+
 \section{Muons}
 \label{sec:muons}
+
+Muons must have $\pt^{\Pgm} > 10\GeV$ and $\abs{\eta^{\Pgm}} < 2.5$ to be considered.
+The veto muon ID is simply the requirement that a PF muon also be a Global muon, e.g., that the muon is linked between a muon signature from the inner tracker and the outer muon chambers.
+The loose muon ID adds the requirement that the relative combined PF Isolation $(\ICH + \INH + \Ig) / \pt^{\Pgm}$ must be less than 0.25.
+In order for a muon to pass the tight ID, it must satisfy the following additional requirements:
+\begin{itemize}
+   \item $\pt^{\Pgm} > 30\GeV$
+   \item Relative combined PF Isolation $(\ICH + \INH + \Ig) / \pt^{\Pgm} < 0.15$ . 
+   \item $\chi^2$/ndof of the global-muon track fit < 10,
+   \item At least one muon-chamber hit included in the global-muon track fit,
+   \item Muon segments in at least two muon stations,
+   \item The corresponding racker track has transverse impact parameter $d_0 < 2\mm$ with respects to the primary vertex,
+   \item The longitudinal distance of the tracker track with respects to the primary vertex is $d_z < 5\mm$,
+   \item At least one pixel hit,
+   \item and more than five tracker layers with hits.
+
+\end{itemize}
 
 \section{Hadrons and jets}
 \label{sec:jets}

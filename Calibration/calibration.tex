@@ -1,13 +1,11 @@
 \chapter{Calibration}
 \label{chap:calibration}
 
-Differences between data and MC efficiencies for various selections have to be corrected to achieve accurate signal and background predictions. 
-Efficiencies of individual components are measured on data and applied to the MC.
+The differences between data and MC efficiencies for various object selections have to be corrected to achieve accurate signal and background predictions.
+The efficiencies of individual object selections are measured in data and applied to the MC.
 
 \section{Trigger Efficiency}
 \label{sec:triggereff}
-
-
 
 The candidate events were recorded with the HLT\_Photon165\_HE10 trigger.
 The high-level trigger algorithm is relatively simple, with only a requirement of at least one \egamma\ object, reconstructed only around a L1 jet or egamma object, with $\ET > 165\GeV$ and $H/E < 0.1$, where transverse energy \ET is defined as the reconstructed energy deposit in the calorimeter cluster multiplied by the sine of the polar angle of the position of the cluster measured from the center of the detector. 
@@ -352,6 +350,13 @@ As there is no significant trend in the scale factor as a function of \pt\, we a
 
 \section{Lepton Efficiency}
 \label{sec:lepton_eff}
+
+The electron and muon efficiencies are measured using a similar method to the ``tag-and-probe'' method described in Section~\ref{subsec:idsf}.
+For these measurements, the tag object is an electron (muon) object passing the tight ID described in Section~\ref{sec:electrons} (Section~\ref{sec:muons}) and matched to a SingleElectron (SingleMuon) trigger while the probe object is an PF electron (muon) without any ID applied.
+The passing (failing) categories are defined by events with probes passing (failing) the ID definition in question (see Sections~\ref{sec:electrons} and~\ref{sec:muons} for details).
+The electron (muon) scale factors are approximately unity with a flat 2\% (1\%) systematic uncertainty.
+
+
 
 \section{Pileup Reweighting}
 \label{sec:puweight}
