@@ -105,6 +105,36 @@ Lower bounds for \sieie\ and \sipip\ as well as the requirement on the cluster s
 \section{Missing Transverse Energy}
 \label{sec:met}
 
+\subsection{ECAL gain-switch effect}
+\label{subsec:gainswitch}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.48\linewidth]{Reconstruction/Figures/gsfix/evdisp_before.pdf}
+  \includegraphics[width=0.48\linewidth]{Reconstruction/Figures/gsfix/evdisp_after.pdf}
+  \caption{
+    Two event displays comparing the same event, reconstructed without (left) and with (right) the fix for ECAL gain-switch effect.
+  }
+  \label{fig:eventdisplay_gsfix}
+\end{figure}
+
+The ``multi-fit'' algorithm for ECAL hit reconstruction was found to have an unexpected behavior when there is a large energy deposit onto a single ECAL crystal, such that the electronic signal converted at the frontend electronics is sourced partially from channels of the preamplifier with lower gains (6 or 1) than the default (12) channel. 
+In the most dramatic cases, pulse misreconstruction would result in underestimation by hundreds of \GeV of photon \pt. 
+This effect is mitigated in the reprocessed data set used for this analysis by identifying ECAL clusters whose seed crystal hit had a switch of gains, and performing an alternative pulse reconstruction when possible.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.48\linewidth]{Reconstruction/Figures/gsfix/movements.pdf}
+  \caption{
+    The change in reconstructed photon \pt\ and \met\ for events in the bin $\dphigmet < 0.05$ of the distribution in Figure~\ref{fig:dphigmet_beforegsfix}. 
+    Each arrow represents a single event, the the tail (head) of the arrow corresponding to (\ETg, \met) coordinates in the datasets without (with) the fix for the gain-switch problem.
+  }
+  \label{fig:ptshift_gsfix}
+\end{figure}
+
+The gain-switch problem affected the analyses documented in this thesis, since large underestimation of the energy of a photon in an otherwise typical \gj\ event would introduce large missing transverse momentum to the event, typical collinear to the affect photon.. 
+Figures~\ref{fig:eventdisplay_gsfix} and \ref{fig:ptshift_gsfix} are the visualization of how the new dataset changes the reconstructed photon energy and \met.
+
 \section{Beam Halo Phenomenology}
 \label{sec:halo}
 
