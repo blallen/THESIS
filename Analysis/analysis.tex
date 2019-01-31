@@ -7,12 +7,12 @@ These two processes are denoted as \zinvg\ and \wlng, respectively, and together
 The total irreducible background rate is estimated using simultaneous fits to the signal and control regions defined in Section~\ref{sec:event_selection} and the details of the modeling are given in Section~\ref{sec:irreducible}.
 
 Less significant but non-negligible backgrounds arise from events where the candidate photon object is a misidentified electron (Section~\ref{sec:efake}) or electromagnetic shower caused by hadrons (Section~\ref{sec:hfake}). 
-The background events from electron misidentification are mostly \PW\ boson production ($\PW\rightarrow \Pe\Pgn$), whereas those from hadron misidentification can be due to multiple sources such as $\PZ(\rightarrow\Pgn\Pgn)+\text{jets}$ and QCD multijet with grossly mismeasured jet energy. 
+The background events from electron misidentification are mostly \PW\ boson production ($\PW\rightarrow \Pe\Pgn$), whereas those from hadron misidentification can be due to multiple sources such as $\PZ(\rightarrow\Pgn\Pgn)+\text{jets}$ and QCD multijets with grossly mismeasured jet energy. 
 Misidentification itself is rare, but all of the above processes have high cross sections. 
 Since object misidentification rates depend on subtle details of the detector, the MC simulation cannot be expected to model it reliably. 
 Therefore, data-driven techniques are employed to estimate the contributions from these background events.
 
-After the full selection described in Section~\ref{sec:event_selection}, the SM \gj, \ttg, VV\Pgg, \zllg, and $\PW\to\ell\PGn$ processes are minor ($\sim$10\%) background processes in the signal region. 
+After the full selection described in Section~\ref{sec:event_selection}, the SM \gj, \ttg, VV\Pgg, \zllg, and $\PW\to\ell\Pgn$ processes are minor ($\sim$10\%) background processes in the signal region. 
 These processes, collectively denoted as minor SM backgrounds, can contribute in the signal region if the jet energy is severely mismeasured or the leptons fail to be reconstructed resulting in large \met in the signal region. 
 However, the \met is typically aligned with the photon or one of the jets in such cases, and therefore various selections on the kinematic relations between the \met, photons, and jets are used to reduce these backgrounds to a manageable rate. 
 The estimates for all five processes are taken from \MGvATNLO simulations at LO in QCD and can be found in Tables~\ref{tab:yield_mask_horizontal} and~\ref{tab:yield_mask_vertical}.
@@ -41,8 +41,8 @@ From the recorded data, events are selected by requiring $\met > 170\GeV$ and at
 Events with a high-\pt\ photon and large \met\ are subjected to further requirements to suppress SM background processes that feature a genuine high-energy photon, but not a significant amount of \met.
 One such SM process is \gj, where an apparent large \met\ is often the result of a mismeasured jet energy.
 In contrast to signal processes, \met is typically smaller than \ETg\ in these events, so requiring the ratio of \ETg\ to \met to be less than 1.4 rejects this background effectively with little effect on signal efficiency. 
-Events are also rejected if the minimum opening angle between \ptvecmiss\ and the directions of the four highest \pt\ jets, \minDphiMETj, is less than 0.5. 
-Only jets with $\pt > 30\GeV$ and $\abs{\eta} < 5$ are considered in the \minDphiMETj\ calculation. 
+Events are also rejected if the minimum opening angle between \ptvecmiss\ and the directions of the four highest \pt\ jets, \mindphijmet, is less than 0.5. 
+Only jets with $\pt > 30\GeV$ and $\abs{\eta} < 5$ are considered in the \mindphijmet\ calculation. 
 In the \gj\ process, rare pathological mismeasurement of \ETg\ can also lead to large \met. 
 For this reason, the candidate photon \ptvec\ and \ptvecmiss\ must be separated by more than 0.5 radians. 
 Another SM process to be rejected is \wlng, for which events are vetoed if they contain an electron or a muon with $\pt > 10\GeV$ that is separated from the photon by $\dR > 0.5$.
@@ -75,9 +75,9 @@ Figures~\ref{fig:zg_nlo_lo} and \ref{fig:wg_nlo_lo} show the comparisons of the 
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.32\linewidth]{Analysis/Figures/kfactor/ZG_ptg.pdf}
-  \includegraphics[width=0.32\linewidth]{Analysis/Figures/kfactor/ZG_etag.pdf}
-  \includegraphics[width=0.32\linewidth]{Analysis/Figures/kfactor/ZG_met.pdf}
+  \includegraphics[width=0.32\textwidth]{Analysis/Figures/kfactor/ZG_ptg.pdf}
+  \includegraphics[width=0.32\textwidth]{Analysis/Figures/kfactor/ZG_etag.pdf}
+  \includegraphics[width=0.32\textwidth]{Analysis/Figures/kfactor/ZG_met.pdf}
   \caption{
     Distributions of \ETg\ (left), $\eta^{\Pgg}$ (middle), and $\pt^{\PZ}$ (right) in \zinvg\ process from the private aMC@NLO sample (blue) and the LO sample used for background prediction (red) along with the NLO / LO ratios.
   }
@@ -85,9 +85,9 @@ Figures~\ref{fig:zg_nlo_lo} and \ref{fig:wg_nlo_lo} show the comparisons of the 
 \end{figure}
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.32\linewidth]{Analysis/Figures/kfactor/WG_ptg.pdf}
-  \includegraphics[width=0.32\linewidth]{Analysis/Figures/kfactor/WG_etag.pdf}
-  \includegraphics[width=0.32\linewidth]{Analysis/Figures/kfactor/WG_met.pdf}
+  \includegraphics[width=0.32\textwidth]{Analysis/Figures/kfactor/WG_ptg.pdf}
+  \includegraphics[width=0.32\textwidth]{Analysis/Figures/kfactor/WG_etag.pdf}
+  \includegraphics[width=0.32\textwidth]{Analysis/Figures/kfactor/WG_met.pdf}
   \caption{
     Distributions of \ETg\ (top left), $\eta^{\Pgg}$ (top right), and $\pt^{\PW}$ (bottom left) in \wlng\ process from the private aMC@NLO sample (blue) and the LO sample used for background prediction (red) along with the NLO / LO ratios.
   }
@@ -128,9 +128,9 @@ We apply the correction factors shown in Figure~\ref{fig:ewk_correction}, which 
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.32\linewidth]{Analysis/Figures/ewkcorr/zg.pdf}
-  \includegraphics[width=0.32\linewidth]{Analysis/Figures/ewkcorr/wgplus.pdf}
-  \includegraphics[width=0.32\linewidth]{Analysis/Figures/ewkcorr/wgminus.pdf}
+  \includegraphics[width=0.32\textwidth]{Analysis/Figures/ewkcorr/zg.pdf}
+  \includegraphics[width=0.32\textwidth]{Analysis/Figures/ewkcorr/wgplus.pdf}
+  \includegraphics[width=0.32\textwidth]{Analysis/Figures/ewkcorr/wgminus.pdf}
   \caption{
     Electroweak NLO cross section corrections as a function of photon \pt\ for \zinvg\ (left), $\PW^{+}+\Pgg$ (middle), and $\PW^{-}+\Pgg$ (right) processes, overlaid with uncertainty bands. 
     See text for descriptions of the individual components of the uncertainty.
@@ -167,8 +167,8 @@ Following this prescription, we let the Sudakov suppression vary in overall scal
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[height=0.3\linewidth]{Analysis/Figures/ewkcorr/scale.pdf}
-  \includegraphics[height=0.3\linewidth]{Analysis/Figures/ewkcorr/shape.pdf}
+  \includegraphics[height=0.3\textwidth]{Analysis/Figures/ewkcorr/scale.pdf}
+  \includegraphics[height=0.3\textwidth]{Analysis/Figures/ewkcorr/shape.pdf}
   \caption{
     Electroweak correction variation scheme to cover the scale (left) and shape (right) uncertainties.
   }
@@ -283,8 +283,8 @@ The main uncertainties in \fZW\ are those from higher-order theoretical correcti
 
 \begin{figure}[htbp]
   \centering
-    \includegraphics[width=0.45\textwidth]{Analysis/Figures/tf_syst_zg.pdf}
-    \includegraphics[width=0.45\textwidth]{Analysis/Figures/tf_syst_wg.pdf}
+    \includegraphics[width=0.49\textwidth]{Analysis/Figures/tf_syst_zg.pdf}
+    \includegraphics[width=0.49\textwidth]{Analysis/Figures/tf_syst_wg.pdf}
     \caption{
       Systematic uncertainty in the transfer factors for \zinvg\ (left) and \wlng\ (right). The last bin includes all events with $\ETg > 1000\GeV$.
     }
@@ -337,12 +337,12 @@ Figure~\ref{fig:efake_fits} shows the six fits performed on \Pe\Pe\ and \Pe\Pgg\
 %%% these fils have charged PF veto included, need to swap out
 \begin{figure}[htbp]
   \begin{center}
-    \includegraphics[width=0.48\linewidth]{Analysis/Figures/fit_data_ee_pt_175_200.pdf}
-    \includegraphics[width=0.48\linewidth]{Analysis/Figures/fit_data_eg_pt_175_200.pdf}
-    \includegraphics[width=0.48\linewidth]{Analysis/Figures/fit_data_ee_pt_200_250.pdf}
-    \includegraphics[width=0.48\linewidth]{Analysis/Figures/fit_data_eg_pt_200_250.pdf}
-    \includegraphics[width=0.48\linewidth]{Analysis/Figures/fit_data_ee_pt_250_6500.pdf}
-    \includegraphics[width=0.48\linewidth]{Analysis/Figures/fit_data_eg_pt_250_6500.pdf}
+    \includegraphics[width=0.47\textwidth]{Analysis/Figures/fit_data_ee_pt_175_200.pdf}
+    \includegraphics[width=0.47\textwidth]{Analysis/Figures/fit_data_eg_pt_175_200.pdf}
+    \includegraphics[width=0.47\textwidth]{Analysis/Figures/fit_data_ee_pt_200_250.pdf}
+    \includegraphics[width=0.47\textwidth]{Analysis/Figures/fit_data_eg_pt_200_250.pdf}
+    \includegraphics[width=0.47\textwidth]{Analysis/Figures/fit_data_ee_pt_250_6500.pdf}
+    \includegraphics[width=0.47\textwidth]{Analysis/Figures/fit_data_eg_pt_250_6500.pdf}
     \caption{
       Fits to the mass distributions for \Pe\Pe\ (left) and \Pe\Pgg\ (right) selections, in bins of probe $\pt$: $175 < \pt < 200\GeV$ (top), $200 < \pt < 250\GeV$ (middle), $\pt > 250\GeV$ (bottom). 
       The blue solid line represents the full fit model, and the green dashed line its background component.
@@ -361,7 +361,7 @@ The electron proxy sample is reweighted by $R_{\Pe}$ depending on the \pt\ of th
 %%% this file has charged PF veto included, need to swap out
 \begin{figure}[htbp]
   \begin{center}
-    \includegraphics[width=0.48\linewidth]{Analysis/Figures/frate_data_ptalt.pdf} 
+    \includegraphics[width=0.49\textwidth]{Analysis/Figures/frate_data_ptalt.pdf} 
     \caption{
       Electron to photon fake rate $R_{\Pe}$.
     }
@@ -386,7 +386,7 @@ Figure~\ref{fig:impurity-compsb} and Table~\ref{tab:hfake-impurity-systs} show t
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.45\linewidth]{Analysis/Figures/hfake/plot_impurity_barrel_medium.pdf}
+  \includegraphics[width=0.49\textwidth]{Analysis/Figures/hfake/plot_impurity_barrel_medium.pdf}
     \caption{
     Impurities for photons as a function of \pt. 
     The different bands show the effects of adding different stages of the full ID, starting with the baseline ID and isolation and successively adding the pixel seed veto.
@@ -407,12 +407,12 @@ Figure~\ref{fig:hadronTFactor} shows the transfer factor $R_{h}$ along with the 
 
 \begin{figure}[htbp]
   \begin{center}
-    \includegraphics[width=0.45\linewidth]{Analysis/Figures/hfake/distributionsNom.pdf}
-    \includegraphics[width=0.45\linewidth]{Analysis/Figures/hfake/tfactorNom.pdf}
-    \includegraphics[width=0.45\linewidth]{Analysis/Figures/hfake/distributionsTight.pdf}
-    \includegraphics[width=0.45\linewidth]{Analysis/Figures/hfake/tfactorTight.pdf}
-    \includegraphics[width=0.45\linewidth]{Analysis/Figures/hfake/distributionsLoose.pdf}
-    \includegraphics[width=0.45\linewidth]{Analysis/Figures/hfake/tfactorLoose.pdf}
+    \includegraphics[width=0.45\textwidth]{Analysis/Figures/hfake/distributionsNom.pdf}
+    \includegraphics[width=0.45\textwidth]{Analysis/Figures/hfake/tfactorNom.pdf}
+    \includegraphics[width=0.45\textwidth]{Analysis/Figures/hfake/distributionsTight.pdf}
+    \includegraphics[width=0.45\textwidth]{Analysis/Figures/hfake/tfactorTight.pdf}
+    \includegraphics[width=0.45\textwidth]{Analysis/Figures/hfake/distributionsLoose.pdf}
+    \includegraphics[width=0.45\textwidth]{Analysis/Figures/hfake/tfactorLoose.pdf}
     \caption{
       Left: The \pt\ distribution of the candidate photon object in the photon + jet control sample (black), the result of scaling it with the impurity (red), and the \pt\ distribution of the hadronic proxy object in the proxy + jet control sample (blue).
       Right: Hadronic transfer factor $R_{h}$, which is the ratio of the red and blue distributions in the left plot. 
@@ -447,7 +447,7 @@ Figure~\ref{fig:hadronFakePurity} shows the resulting shapes from moving the sha
 
 \begin{figure}[htbp]
   \begin{center}
-    \includegraphics[width=0.48\linewidth]{Analysis/Figures/hfake/shape_sample.pdf}
+    \includegraphics[width=0.49\textwidth]{Analysis/Figures/hfake/shape_sample.pdf}
     \caption{
       The \pt\ distribution of the estimated contribution from hadronic fakes in the signal region. 
       The distribution labeled Up (Down) comes from the tighter (looser) selection. 
@@ -459,7 +459,7 @@ Figure~\ref{fig:hadronFakePurity} shows the resulting shapes from moving the sha
 
 \begin{figure}[htbp]
   \begin{center}
-    \includegraphics[width=0.48\linewidth]{Analysis/Figures/hfake/shape_purity.pdf}
+    \includegraphics[width=0.49\textwidth]{Analysis/Figures/hfake/shape_purity.pdf}
     \caption{
       The \pt\ distribution of the estimated contribution from hadronic fakes in the signal region. 
       The distribution labeled Up (Down) comes from varying the purity one sigma up (down). 
@@ -511,10 +511,10 @@ In this way, the selection bias over spikes from the L1T, HLT, and offline recon
 
 Plugging in the observed numbers, we have
 \begin{align*}
-  A &= 4969 \\
-  B &= 1180 \\
-  C &= 54 \\
-  \therefore D &= 12.8 \pm 1.8 \text{(stat.)}
+  A & = 4969 \\
+  B & = 1180 \\
+  C & = 54 \\
+  \therefore D & = 12.8 \pm 1.8 \text{(stat.)}
 \end{align*}
 
 There are, however, at least two reasons to believe that this method overestimates the number of spike events in the signal region. 
@@ -574,10 +574,10 @@ Each quantity $Q_{j}$ with a nominal value $\overline{Q}_{j}$ and a standard dev
 
 \begin{figure}[htbp]
   \centering
-    \includegraphics[width=0.45\textwidth]{Analysis/Figures/bonly_diel.pdf}
-    \includegraphics[width=0.45\textwidth]{Analysis/Figures/bonly_dimu.pdf}
-    \includegraphics[width=0.45\textwidth]{Analysis/Figures/bonly_monoel.pdf}
-    \includegraphics[width=0.45\textwidth]{Analysis/Figures/bonly_monomu.pdf}
+    \includegraphics[width=0.49\textwidth]{Analysis/Figures/bonly_diel.pdf}
+    \includegraphics[width=0.49\textwidth]{Analysis/Figures/bonly_dimu.pdf}
+    \includegraphics[width=0.49\textwidth]{Analysis/Figures/bonly_monoel.pdf}
+    \includegraphics[width=0.49\textwidth]{Analysis/Figures/bonly_monomu.pdf}
     \caption{
       Comparison between data and MC simulation in the four control regions: 
       \Pe\Pe\Pgg\ (upper left), 
@@ -594,8 +594,8 @@ Each quantity $Q_{j}$ with a nominal value $\overline{Q}_{j}$ and a standard dev
 
 \begin{figure}[htbp]
   \centering
-    \includegraphics[width=0.45\textwidth]{Analysis/Figures/bonly_horizontal.pdf}
-    \includegraphics[width=0.45\textwidth]{Analysis/Figures/bonly_vertical.pdf}
+    \includegraphics[width=0.49\textwidth]{Analysis/Figures/bonly_horizontal.pdf}
+    \includegraphics[width=0.49\textwidth]{Analysis/Figures/bonly_vertical.pdf}
     \caption{
       Observed \ETg\ distributions in the horizontal (left) and vertical (right) signal regions compared with the post-fit background expectations for various SM processes.
       The last bin of the distribution includes all events with $\ETg > 1000\GeV$. 
@@ -707,7 +707,7 @@ The expected DM abundance is estimated, separately for each model, using the the
       Simplified model DM parameters of $\gq=0.25$ and $\gDM=1$ are assumed.
       The region to the upper left of the contour is excluded. 
       On the plots, the median expected 90\% \CL\ curve overlaps the observed 90\% \CL\ curve.
-      Also shown are corresponding exclusion contours, where regions above the curves are excluded, from the recent results by the direct and indirect detection experiments listed in the text..
+      Also shown are corresponding exclusion contours, where regions above the curves are excluded, from the recent results by the direct and indirect detection experiments listed in the text.
     }
     \label{fig:limits_direct}
 \end{figure}

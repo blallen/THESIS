@@ -33,6 +33,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{xspace}
 \usepackage{hyperref}
 \pagestyle{plain}
@@ -104,8 +105,8 @@
 \newcommand{\Pe}{\ensuremath{{e}}}
 \newcommand{\Pgm}{\ensuremath{{\mu}}}
 \newcommand{\Pgt}{\ensuremath{{\tau}}}
-\newcommand{\PGn}{\ensuremath{\nu}}
-\newcommand{\PAGn}{\ensuremath{\overline{\nu}}}
+\newcommand{\Pgn}{\ensuremath{\nu}}
+\newcommand{\Pagn}{\ensuremath{\overline{\nu}}}
 \newcommand{\Pq}{\ensuremath{{q}}}
 \newcommand{\Paq}{\ensuremath{\bar{{q}}}}
 \newcommand{\Pp}{\ensuremath{{p}}}
@@ -132,13 +133,13 @@
 \newcommand{\deta}{\ensuremath{\Delta \eta}}
 \newcommand{\dphi}{\ensuremath{\Delta \phi}}
 \newcommand{\dR}{\ensuremath{\Delta R}}
-\newcommand{\DphiMETg}{\ensuremath{\Delta \phi(\ptmiss, \Pgg)}}
-\newcommand{\minDphiMETj}{\ensuremath{\mathrm{min}\Delta \phi(\ptvecmiss, \ptvec^{\kern1pt\text{jet}})}\xspace}
+\newcommand{\dphigmet}{\ensuremath{\Delta \phi(\Pgg, \ptmiss)}}
+\newcommand{\mindphijmet}{\ensuremath{\mathrm{min}\Delta \phi(\ptvec^{\kern1pt\text{jet}}, \ptvecmiss)}\xspace}
 
 \newcommand{\gmet}{\Pgg+\met}
-\newcommand{\zinvg}{\ensuremath{\PZ(\to\PGn\PAGn){+}\Pgg}}
+\newcommand{\zinvg}{\ensuremath{\PZ(\to\Pgn\Pagn){+}\Pgg}}
 \newcommand{\zllg}{\ensuremath{\PZ(\to\ell\overline{\ell}){+}\Pgg}}
-\newcommand{\wlng}{\ensuremath{\PW(\to\ell\PGn){+}\Pgg}}
+\newcommand{\wlng}{\ensuremath{\PW(\to\ell\Pgn){+}\Pgg}}
 \newcommand{\vg}{\ensuremath{\mathrm{V}{+}\Pgg}}
 \newcommand{\ttg}{\ensuremath{\ttbar\Pgg}\xspace}
 \newcommand{\Zee}{\ensuremath{\PZ\rightarrow\Pe\Pe}}
@@ -171,7 +172,8 @@
 \newcommand{\npass}{\ensuremath{N_{\text{pass}}}}
 \newcommand{\nfail}{\ensuremath{N_{\text{fail}}}}
 
-\newcommand{\CL}{CL\xspace}
+\newcommand{\CL}{\ensuremath{\text{CL}}\xspace}
+\newcommand{\CLs}{\ensuremath{\text{CL}_\text{s}}\xspace}
 
 \begin{document}
 
