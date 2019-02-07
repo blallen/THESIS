@@ -2,10 +2,100 @@
 
 Why I did this.
 
-\section{Astrophysical Evidence for Dark Matter}
+\section{The Standard Model}
+\label{sec:sm}
+
+The Standard Model (SM) of particle physics describes the physical properties and dynamics of fermions, the fundamental constituents of matter, and their interactions in the language of a Lorentz-invariant quantum field theory (QFT).
+The Standard Model consists of a set of fermion fields, shown in Table~\ref{tab:fermions} and the local gauge symmetry group that acts on them
+\begin{equation}
+  G_{\text{SM}} = \text{SU}(3)_C \times \text{SU}(2)_L \times \text{U}(1)_Y,
+\end{equation}
+which is composed of the subgroups
+\begin{align}
+  G_{\text{QCD}} & = \text{SU}(3)_C \qquad \text{and} \\
+  G_{\text{EWK}} & = \text{SU}(2)_L \times \text{U}(1)_Y,
+\end{align}
+corresponding to the \textit{strong} and \textit{electroweak} interactions, respectively.
+Each fermion field exists in a unique representation of $G_{\text{SM}}$, also summarized in Table~\ref{tab:fermions}.
+The possible represenations of SU(3)$_C$ are triplet, conjugate, and singlet, denoted by $\mathbf{3}$, $\mathbf{\bar{3}}$, and $\mathbf{1}$, respectively, while the possible representations of SU(2)$_L$ are doublet and singlet, denoted by $\mathbf{2}$ and $\mathbf{1}$, respectively.
+All fermions exist in the singlet representation of U(1), only distinguished by differing values of the weak hypercharge $Y$.
+Conversely, all fermions in non-singlet representations of SU(3)$_C$ and SU(2)$_L$ have the same interaction strength, a feature known as universality.
+
+\begin{table}[htbp]
+\centering
+\caption{
+  The categories of SM fermions and the action of the SM local gauge symmetry group $G_{\text{SM}}$.
+  Each category contains three members, one for each generation of the Standard Model.
+  A corresponding table exists for the charge conjugated fields representing the anti-fermions.
+  The subscripts $L$ and $R$ denote whether the field is left- or right-handed.
+}
+\label{tab:fermions}
+\begin{tabular}{ l|c|c|c|c }
+  Name & Symbol & $Y$ & SU(2) rep. & SU(3) rep. \\
+  \hline
+  \hline
+  Left-handed quark & $q_L$ & $\sfrac{1}{6}$ & \textbf{2} & \textbf{3} \\
+  Right-handed up-type quark & $u_R$ & $\sfrac{2}{3}$ & \textbf{1} & \textbf{3} \\
+  Right-handed down-type quark & $d_R$ & $\sfrac{-1}{3}$ & \textbf{1} & \textbf{3} \\
+  \hline
+  Left-handed lepton & $\ell_L$ & $\sfrac{-1}{2}$ & \textbf{2} & \textbf{1} \\
+  Right-handed charged lepton & $\ell^{-}_R$ & -1 & \textbf{1} & \textbf{1} \\
+  Right-handed neutrino & $\nu_R$ & $\sfrac{1}{6}$ & \textbf{1} & \textbf{1} \\
+\end{tabular}
+\end{table}
+
+For each category of fermion listed in Table~\ref{tab:fermions}, there exist three generations or copies in the Standard Model, identical except for differing masses.
+The lepton electroweak doublets contain the left-handed charged leptons and neutrinos
+\begin{equation}
+  \ell_{iL} = \begin{pmatrix} \nu_e \\ e^{-}_L \end{pmatrix} ,
+              \begin{pmatrix} \nu_\mu \\ \mu^{-}_L \end{pmatrix} ,
+              \begin{pmatrix} \nu_\tau \\ \tau^{-}_L \end{pmatrix} ,
+\end{equation}
+with the generations indexed by $i$ and the right-handed lepton singlets contain the right-handed projections of the same leptons and neutrinos.
+The quark electroweak doublets contain the left-handed up-type and down-type quarks
+\begin{equation}
+  q_{iL} = \begin{pmatrix} u_L \\ d'_L \end{pmatrix} ,
+           \begin{pmatrix} c_L \\ s'_L \end{pmatrix} ,
+           \begin{pmatrix} t_L \\ b'_L \end{pmatrix} ,
+\end{equation}
+where $d'$, $s'$, and $b'$ are the electroweak eigenstates of the down-type quarks (further explained in Section~\ref{subsec:ewk}). Quarks also exist in a strong triplet, which will be denoted with a superscript $c$ as necessary.
+
+\subsection{Strong Interactions}
+\label{subsec:qcd}
+
+The strong interactions of quarks and gluons are described by quantum chromodynamics (QCD), with the Lagrangian
+\begin{equation}
+  \label{eqn:lqcd}
+  \mathcal{L}_{\text{QCD}} = i \bar q_f^a \slashed D^{ab} q_f^b + m_f \bar q_f^a q_f^a - \frac{1}{4} G_{\mu\nu}^a G^{a,\mu\nu} + \theta \frac{g_s^2}{72\pi^2} \epsilon_{\mu\nu\rho\sigma} G^{c,\mu\nu} G^{c, \rho\sigma},
+\end{equation}
+where repeated indices are contracted.
+The $q_f^a$ are the quark-field Dirac spinors of flavor $f \in \{u,d,c,s,t,b\}$, color $a \in \{r,g,b\}$ (he basis element of the triplet representation), and mass $m_f$.
+The first term in Equation~\ref{eqn:lqcd} contains the QCD covariant derivative
+\begin{equation}
+  D_{\mu}^{ab} = \delta^{ab} \partial_\mu - i g_s \sum_{c} t_c^{ab} G_{c,\mu},
+\end{equation}
+where $g_s$ is the strong interaction coupling strength, $t_c$ are the eight $3\times3$ Hermitian traceless matrices that serve as the generators of the triplet representation of SU(3), and $G_c$ are the corresponding eight gluon fields.
+The third term in Equation~\ref{eqn:lqcd} contains the gluon field strength tensors
+\begin{equation}
+  G_{\mu\nu}^a = \partial_\mu G_\nu^a - \partial_\nu G_\mu^a - g_s f^{abc} G_\mu^b G_\nu^C,
+\end{equation}
+where $f^{abc}$ are the structure constants of SU(3).
+The non-Abelian structure of the SU(3) group means allows for 3-gluon and 4-gluon interactions in addition to the quark-antiquark-gluon interactions.
+
+The last term in Equation~\ref{eqn:lqcd} violates CP conservation and produces a non-zero electric dipole moment (EDM) for the neutron.
+Experimental limits on the neutron EDM constraint the $\theta$ parameter to be smaller than $10^{-10}$.
+The Peccei-Quinn theory provides a possible method to force $\theta$ to zero by introducing the hypothetical axion particle. The axion is a potential dark matter candidate and will be discussed further in Section~\ref{sec:dm}.
+
+\subsection{Electroweak Interactions}
+\label{subsec:ewk}
+
+\section{Dark Matter}
+\label{sec:dm}
+
+\subsection{Astrophysical Evidence}
 
 Galactic Rotation Curves and the Bullet Cluster.
 
-\section{Simplified Models for the WIMP Paradigm}
+\subsection{Simplified Models for the WIMP Paradigm}
 
 It was the hot thing at the time.
