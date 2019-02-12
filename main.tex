@@ -40,6 +40,14 @@
 \usepackage{slashed}
 \pagestyle{plain}
 
+%% make matrixes work like tables
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
 %% This bit allows you to either specify only the files which you wish to
 %% process, or `all' to process all files which you \include.
 %% Krishna Sethuraman (1990).
@@ -176,6 +184,10 @@
 
 \newcommand{\CL}{\ensuremath{\text{CL}}\xspace}
 \newcommand{\CLs}{\ensuremath{\text{CL}_\text{s}}\xspace}
+
+\newcommand{\suthree}{\ensuremath{\text{SU}(3)_C}}
+\newcommand{\sutwo}{\ensuremath{\text{SU}(2)_L}}
+\newcommand{\uone}{\ensuremath{\text{U}(1)_Y}}
 
 \begin{document}
 
