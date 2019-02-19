@@ -1,6 +1,6 @@
 \chapter{Motivation}
 
-Why I did this.
+% Why I did this.
 
 \section{The Standard Model}
 \label{sec:sm}
@@ -39,7 +39,7 @@ Conversely, all fermions in non-singlet representations of \suthree\ and \sutwo\
   Right-handed down-type quark & $d_R$ & $\sfrac{-1}{3}$ & \textbf{1} & \textbf{3} \\
   \hline
   Left-handed lepton & $\ell_L$ & $\sfrac{-1}{2}$ & \textbf{2} & \textbf{1} \\
-  Right-handed charged lepton & $\ell^{-}_R$ & -1 & \textbf{1} & \textbf{1} \\
+  Right-handed charged lepton & $e_R$ & -1 & \textbf{1} & \textbf{1} \\
   Right-handed neutrino & $\nu_R$ & $\sfrac{1}{6}$ & \textbf{1} & \textbf{1} \\
 \end{tabular}
 \end{table}
@@ -47,18 +47,20 @@ Conversely, all fermions in non-singlet representations of \suthree\ and \sutwo\
 For each category of fermion listed in Table~\ref{tab:fermions}, there exist three generations or copies in the Standard Model, identical except for differing masses.
 The lepton electroweak doublets contain the left-handed charged leptons and neutrinos
 \begin{equation}
-  \ell_{iL} = \begin{pmatrix} \nu_e \\ e^{-}_L \end{pmatrix} ,
-              \begin{pmatrix} \nu_\mu \\ \mu^{-}_L \end{pmatrix} ,
-              \begin{pmatrix} \nu_\tau \\ \tau^{-}_L \end{pmatrix} ,
+  \ell_{L} = \begin{pmatrix} \nu_e \\ e^-_L \end{pmatrix} ,
+              \begin{pmatrix} \nu_\mu \\ \mu^-_L \end{pmatrix} ,
+              \begin{pmatrix} \nu_\tau \\ \tau^-_L \end{pmatrix} ,
 \end{equation}
-with the generations indexed by $i$ and the right-handed lepton singlets contain the right-handed projections of the same leptons and neutrinos.
+and the right-handed lepton singlets contain the right-handed projections of the same leptons and neutrinos.
 The quark electroweak doublets contain the left-handed up-type and down-type quarks
 \begin{equation}
-  q_{iL} = \begin{pmatrix} u_L \\ d'_L \end{pmatrix} ,
-           \begin{pmatrix} c_L \\ s'_L \end{pmatrix} ,
-           \begin{pmatrix} t_L \\ b'_L \end{pmatrix} ,
+  q_{L} = \begin{pmatrix} u_L \\ d_L \end{pmatrix} ,
+           \begin{pmatrix} c_L \\ s_L \end{pmatrix} ,
+           \begin{pmatrix} t_L \\ b_L \end{pmatrix} ,
 \end{equation}
-where $d'$, $s'$, and $b'$ are the electroweak eigenstates of the down-type quarks (further explained in Section~\ref{subsec:ewk}). Quarks also exist in a strong triplet, which will be denoted with a superscript $c$ as necessary.
+and the right-handed quark singlets contain the right-handed projections of the same quarks.
+% where $d'$, $s'$, and $b'$ are the electroweak eigenstates of the down-type quarks (further explained in Section~\ref{subsec:ewk}).
+Quarks also exist in a strong triplet, which will be denoted with a superscript $c$ as necessary.
 
 \subsection{Strong Interactions}
 \label{subsec:qcd}
@@ -94,7 +96,7 @@ The electroweak interactions of fermions are described by $\sutwo \times \uone$ 
   \label{eqn:lewk}
   \mathcal{L}_{\text{EWK}} = i \bar \psi_i \slashed D \psi_i - \frac{1}{4} \vec W_{\mu\nu} \cdot \vec W^{\mu\nu} - \frac{1}{4} B_{\mu\nu} B^{\mu\nu}
 \end{equation}
-where repeated indices are contracted and $\psi \supseteq \{q_L, u_R, d_R, \ell_L, \ell^{-}_R, \nu_R\}$ is the set of SM fermions, and the gauge field tensors are given by
+where repeated indices are contracted and $\psi \supseteq \{q_L, u_R, d_R, \ell_L, e_R, \nu_R\}$ is the set of SM fermions, and the gauge field tensors are given by
 \begin{align}
   B_{\mu\nu} & = \partial_\mu B_\nu - \partial_\nu B_\mu \qquad \text{and} \\
   \vec W_{\mu\nu} & = \partial_\mu \vec W_\nu - \partial_\nu \vec W_\mu + g \vec W^\mu \times \vec W^\nu ,
@@ -102,18 +104,16 @@ where repeated indices are contracted and $\psi \supseteq \{q_L, u_R, d_R, \ell_
 where $\vec W_\mu$ and $B_\mu$ are the gauge fields for \sutwo\ and \uone, respectively, and $g$ is the coupling strength for \sutwo.
 The first term in Equation~\ref{eqn:lewk} contains the EWK covariant derivative
 \begin{equation}
-  D_{\mu} = \partial_\mu - \frac{\delta_L}{2} \: i g \vec \sigma \cdot \vec W_\mu - i g' Y B_\mu,
+  D_{\mu} = \partial_\mu - i g \vec T \cdot \vec W_\mu - i g' Y B_\mu,
 \end{equation}
 where $g'$ is the coupling strength for \uone,
 $Y$ is the \uone\ hypercharge of the fermion field,
-$\vec \sigma$ is the set of $2\times2$ Pauli matrices that serve as the generators of the doublet representation of \sutwo\,
-and $\delta_L$ is 1 if the fermion field is left-handed and 0 if it is right-handed.
-The values of the hypercharge $Y$ shown in Table~\ref{tab:fermions} are chosen such that the physical electric charge of each fermion is given by
-\begin{equation}
-  Q = \frac{1}{2} \left( \sigma_3 + Y \right).
-\end{equation}
+and $\vec T$ are the generators of the doublet representation of \sutwo.
+The generators can be written in terms of the Pauli spin matrices $\vec T = \vec \sigma / 2$ and only have non-zero action on left-handed particles.
+% and $\delta_L$ is 1 if the fermion field is left-handed and 0 if it is right-handed.
+The values of the hypercharge $Y$ shown in Table~\ref{tab:fermions} are chosen such that the physical electric charge of each fermion is given by $Q =  T_3 + Y$.
 
-Notice that Equation~\ref{eqn:lewk} does not contain a quadratic mass term like that found in Equation~\ref{eqn:lqcd}.
+Notice that Equation~\ref{eqn:lewk} does not contain a Dirac mass term like that found in Equation~\ref{eqn:lqcd}.
 This is because the term
 \begin{equation}
   m \bar \psi \psi = m \left( \bar \psi_L \psi_R + \bar \psi_R \psi_L \right)
@@ -137,7 +137,10 @@ Fortunately, the two self-interaction terms create a Higgs potential with a dege
 \begin{equation}
   v \equiv \langle | \phi | \rangle = \sqrt{ \frac{\mu^2}{\lambda}},
 \end{equation}
-and through gauge rotations we set $\langle \phi_{1,2,4} \rangle = 0$, removing three degrees of freedom and producing three massless Nambu-Goldstone bosons. The remaining degree of freedom is the real Higgs field $H$ which expresses small peturbations around the vev in the third component of the complex Higgs field $\phi_3 = v + H$. The remaining term in Equation~\ref{eqn:ewsb} couples the complex Higgs field to the EWK gauge bosons as follows at the vev
+and through gauge rotations we set $\langle \phi_{1,2,4} \rangle = 0$, removing three degrees of freedom and producing three massless Nambu-Goldstone bosons.
+The remaining degree of freedom is the real Higgs field $H$ which expresses small peturbations around the vev in the third component of the complex Higgs field $\phi_3 = v + H$.
+
+The kinetic term in Equation~\ref{eqn:ewsb} couples the complex Higgs field to the EWK gauge bosons as follows at the vev
 \begin{equation}
   \left| D_\mu \phi \right|^2 = \frac{v^2}{8} \left[ \left(g W_\mu^1 \right)^2 + \left(g W_\mu^2 \right)^2 + \left(g' B_\mu - g W_\mu^3 \right)^2 \right].
 \end{equation}
@@ -146,13 +149,57 @@ Diagonalizing this term gives rise to the three massive weak bosons and the mass
   \begin{matrix}[l | l]
     W_\mu^{\pm} \equiv \frac{1}{\sqrt{2}} \left( W_\mu^1 \mp W_\mu^2 \right)
     & m_W = \frac{1}{2} vg \\
-    Z_\mu \equiv \cos \theta_w W_\mu^3 - \sin \theta_w B_\mu
+    Z_\mu \equiv \cos \thetaw W_\mu^3 - \sin \thetaw B_\mu
     & m_Z = \frac{1}{2} v \sqrt{g^2 + (g')^2} \\
-    A_\mu \equiv \sin \theta_w W_\mu^3 + \cos \theta_w B_\mu
+    A_\mu \equiv \sin \thetaw W_\mu^3 + \cos \thetaw B_\mu
     & m_A = 0,
   \end{matrix}
 \end{equation}
-where $\tan \theta_w = g'/g$. Thus, the symmetry is spontaneously broken.
+where $\tan \thetaw = g'/g$.
+
+%% paragraph on L_EWK in terms of W, Z, and A. 
+
+We can also expand Equation~\ref{eqn:ewsb} about the vev giving us the following Higgs Lagrangian
+\begin{align}
+  \mathcal{L}_H = \frac{1}{2} \partial_\mu H \partial^\mu H & - \frac{1}{2} m_H^2 H^2 - \frac{1}{2} m_W^2 W_\mu^+ W^{-\mu} - \frac{1}{2} m_Z^2 Z_\mu Z^\mu \\
+  & + \frac{m_H^2}{2 v} H^3 + \frac{2 m_W^2}{v} W_\mu^+ W^{-\mu} H + \frac{m_Z^2}{v} Z_\mu Z^\mu H \\
+  & + \frac{m_H^2}{8 v^2} H^4 + \frac{m_W^2}{v^2} W_\mu^+ W^{-\mu} H^2 + \frac{m_Z^2}{2v^2} Z_\mu Z^\mu H^2, 
+\end{align}
+where $m_H = \mu \sqrt{2} $.
+Thus, we see that the real Higgs field $H$ has trilinear and quartic couplings to itself and the weak gauge bosons with coupling strengths proportional to the mass squared of the appropriate boson.
+This suggests a way to introduce fermion masses through the Higgs field.
+
+\subsection{Fermion Masses}
+\label{subsec:yukawa}
+
+Introducing Yukawa couplings between the complex Higgs field $\phi$ and the SM fermion fields enables us to add mass terms for the fermions.
+First, we start with the terms for charged leptons,
+\begin{equation}
+  \label{eqn:lyuk}
+  \mathcal{L}^{\text{leptons}}_{\text{Y}} = \bar \ell_L Y_e \phi e_R + \bar e_R Y_e \phi^\dagger \ell_L,
+\end{equation}
+where $Y_e$ is the Yukawa matrix for the charged leptons.
+In general, Yukawa matrices and thus mass matrices are non-diagonal and hence we need to convert from the electroweak eigenstates $f_{L,R}$ to the mass eigenstates $\tilde{f}_{L,R} = U^{f}_{L,R} f_{L,R}$ where $U^{f}_{L,R}$ is a unitary matrix.
+With this we rewrite Equation~\ref{eqn:lyuk} in terms of the mass eigenstates
+\begin{align}
+  \mathcal{L}^{\text{leptons}}_{\text{Y}} & = \bar{\tilde{\ell}}_{L} U^e_L Y_e \phi U^{e\dagger}_R \tilde{e}_{R} + \bar{\tilde{e}}_{R} U^e_R Y_e \phi^\dagger U^{e\dagger}_L \tilde{\ell}_{L} \\
+  & = \bar{\tilde{\ell}}_{L} \tilde Y_e \phi \tilde{e}_{R} + \bar{\tilde{e}}_{R} \tilde Y_e^\dagger \phi^\dagger \tilde{\ell}_{L}, 
+\end{align}
+where $\tilde Y_e = U^e_L Y_e U^{e\dagger}_R$ is the diagonalized Yukawa matrix for the charged leptons.
+After electroweak symmetry breaking, these terms become
+\begin{align}
+  \mathcal{L}^{\text{leptons}}_{\text{Y}} & = - \frac{v + H}{\sqrt{2}} \left( \bar{\tilde{e}}_L \tilde Y_e  \tilde{e}_R + \bar{\tilde{e}}_R \tilde Y_e^\dagger \tilde{e}_L \right) \\
+  & = - \left(1 + \frac{H}{v}\right) \left( \bar{\tilde{e}}_L \tilde M_e \tilde{e}_R + \bar{\tilde{e}}_R \tilde M_e^\dagger \tilde{e}_L \right)\\
+  & = - \tilde M_e \bar e e - \frac{\tilde M_e}{v} \bar e e H,
+    \label{eqn:lmass}
+\end{align}
+where $\tilde M_e = v \tilde Y_e / \sqrt{2}$ is the diagonalized mass matrix for the charged leptons and $e$ is the set of massive Dirac spinors for the charged leptons.
+
+From Equation~\ref{eqn:lmass}, we see that the Yukawa couplings between the complex Higgs field $\phi$ and the charged leptons result in a Dirac mass term and a coupling to the real Higgs field $H$ that is proportional to the mass of the charged leptons and the vev.
+The same procedure is used to introduce mass terms for the down-type quarks whereas for the neutrinos and up-type quarks we must use the conjugate doublet $\phi_c = - i \sigma_2 \phi^*$ in place of $\phi$ to obtain the same result.
+Note that for the charged leptons and up-type quarks, it is possible to define a basis of simultaneous electroweak and mass eigenstates, so in practice $\tilde Y_{e,u} = Y_{e,u}$ as $U^{e,u}_L = U^{e,u}_R = \mathit{\mathbf{I}}$.
+However, it is not possible to do this for the neutrinos at the same time as the charged leptons or for the down-type quarks at the same time as the up-type quarks.
+
 
 \iffalse
 \section{Dark Matter}
