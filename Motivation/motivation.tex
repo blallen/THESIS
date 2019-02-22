@@ -109,7 +109,7 @@ The first term in Equation~\ref{eqn:lewk} contains the EWK covariant derivative
 where $g'$ is the coupling strength for \uone,
 $Y$ is the \uone\ hypercharge of the fermion field,
 and $\vec T$ are the generators of the doublet representation of \sutwo.
-The generators can be written in terms of the Pauli spin matrices $\vec T = \vec \sigma / 2$ and only have non-zero action on left-handed particles.
+The generators can be written in terms of the Pauli spin matrices $\vec T = \vec \sigma / 2$ and only have non-zero action on left-handed particles. %  and right-handed antiparticles.
 % and $\delta_L$ is 1 if the fermion field is left-handed and 0 if it is right-handed.
 The values of the hypercharge $Y$ shown in Table~\ref{tab:fermions} are chosen such that the physical electric charge of each fermion is given by $Q =  T_3 + Y$.
 
@@ -144,6 +144,7 @@ The kinetic term in Equation~\ref{eqn:ewsb} couples the complex Higgs field to t
 \begin{equation}
   \left| D_\mu \phi \right|^2 = \frac{v^2}{8} \left[ \left(g W_\mu^1 \right)^2 + \left(g W_\mu^2 \right)^2 + \left(g' B_\mu - g W_\mu^3 \right)^2 \right].
 \end{equation}
+\newpage 
 Diagonalizing this term gives rise to the three massive weak bosons and the massless photon that we observe in nature:
 \begin{equation}
   \begin{matrix}[l | l]
@@ -156,6 +157,15 @@ Diagonalizing this term gives rise to the three massive weak bosons and the mass
   \end{matrix}
 \end{equation}
 where $\tan \thetaw = g'/g$.
+With this, we rewrite Equation~\ref{eqn:lewk} in terms of the observed electromagnetic, charged weaked, and neutral weak currents as follows:
+\begin{align}
+  \label{eqn:lewsb}
+  \mathcal{L}_{\text{EWK}} % &= \mathcal{L}_{\text{EM}} + \mathcal{L}_{\text{CC}} + \mathcal{L}_{\text{NC}} \\
+   & = \bar \psi_i \left( i \slashed \partial - e Q \slashed A \right) \psi_i
+  - \frac{g}{2\sqrt{2}} \bar \psi_i \left( T^+ \slashed W^+ + T^- \slashed W^- \right) \psi_i \\
+  & \qquad - \frac{g}{2 \cos \thetaw} \bar \psi_i (g_V - g_A \gamma^5) \slashed Z \psi_i, 
+\end{align}
+where $e = g' \cos \thetaw$ is the charge of the electron, $T^\pm = (T_1 \mp i T_2)/\sqrt{2}$ are the weak isospin raising and lowering operators, and $g_V = T_3$ and $g_A = T_3 - 2 Q \sin^2 \thetaw$ are the vector and axial-vector couplings for the neutral weak current.
 
 %% paragraph on L_EWK in terms of W, Z, and A. 
 
@@ -169,6 +179,8 @@ where $m_H = \mu \sqrt{2} $.
 Thus, we see that the real Higgs field $H$ has trilinear and quartic couplings to itself and the weak gauge bosons with coupling strengths proportional to the mass squared of the appropriate boson.
 This suggests a way to introduce fermion masses through the Higgs field.
 
+\newpage
+
 \subsection{Fermion Masses}
 \label{subsec:yukawa}
 
@@ -176,14 +188,14 @@ Introducing Yukawa couplings between the complex Higgs field $\phi$ and the SM f
 First, we start with the terms for charged leptons,
 \begin{equation}
   \label{eqn:lyuk}
-  \mathcal{L}^{\text{leptons}}_{\text{Y}} = \bar \ell_L Y_e \phi e_R + \bar e_R Y_e \phi^\dagger \ell_L,
+  \mathcal{L}^{\text{leptons}}_{\text{Y}} = - \bar \ell_L Y_e \phi e_R - \bar e_R Y_e \phi^\dagger \ell_L,
 \end{equation}
 where $Y_e$ is the Yukawa matrix for the charged leptons.
 In general, Yukawa matrices and thus mass matrices are non-diagonal and hence we need to convert from the electroweak eigenstates $f_{L,R}$ to the mass eigenstates $\tilde{f}_{L,R} = U^{f}_{L,R} f_{L,R}$ where $U^{f}_{L,R}$ is a unitary matrix.
 With this we rewrite Equation~\ref{eqn:lyuk} in terms of the mass eigenstates
 \begin{align}
-  \mathcal{L}^{\text{leptons}}_{\text{Y}} & = \bar{\tilde{\ell}}_{L} U^e_L Y_e \phi U^{e\dagger}_R \tilde{e}_{R} + \bar{\tilde{e}}_{R} U^e_R Y_e \phi^\dagger U^{e\dagger}_L \tilde{\ell}_{L} \\
-  & = \bar{\tilde{\ell}}_{L} \tilde Y_e \phi \tilde{e}_{R} + \bar{\tilde{e}}_{R} \tilde Y_e^\dagger \phi^\dagger \tilde{\ell}_{L}, 
+  \mathcal{L}^{\text{leptons}}_{\text{Y}} & = - \bar{\tilde{\ell}}_{L} U^e_L Y_e \phi U^{e\dagger}_R \tilde{e}_{R} - \bar{\tilde{e}}_{R} U^e_R Y_e \phi^\dagger U^{e\dagger}_L \tilde{\ell}_{L} \\
+  & = - \bar{\tilde{\ell}}_{L} \tilde Y_e \phi \tilde{e}_{R} - \bar{\tilde{e}}_{R} \tilde Y_e^\dagger \phi^\dagger \tilde{\ell}_{L}, 
 \end{align}
 where $\tilde Y_e = U^e_L Y_e U^{e\dagger}_R$ is the diagonalized Yukawa matrix for the charged leptons.
 After electroweak symmetry breaking, these terms become
@@ -197,9 +209,79 @@ where $\tilde M_e = v \tilde Y_e / \sqrt{2}$ is the diagonalized mass matrix for
 
 From Equation~\ref{eqn:lmass}, we see that the Yukawa couplings between the complex Higgs field $\phi$ and the charged leptons result in a Dirac mass term and a coupling to the real Higgs field $H$ that is proportional to the mass of the charged leptons and the vev.
 The same procedure is used to introduce mass terms for the down-type quarks whereas for the neutrinos and up-type quarks we must use the conjugate doublet $\phi_c = - i \sigma_2 \phi^*$ in place of $\phi$ to obtain the same result.
-Note that for the charged leptons and up-type quarks, it is possible to define a basis of simultaneous electroweak and mass eigenstates, so in practice $\tilde Y_{e,u} = Y_{e,u}$ as $U^{e,u}_L = U^{e,u}_R = \mathit{\mathbf{I}}$.
+
+\subsection{Flavor Mixing}
+
+For the charged leptons and up-type quarks, it is possible to define a basis of simultaneous electroweak and mass eigenstates, so in practice $\tilde Y_{e,u} = Y_{e,u}$ as $U^{e,u}_L = U^{e,u}_R = \mathit{\mathbf{I}}$.
 However, it is not possible to do this for the neutrinos at the same time as the charged leptons or for the down-type quarks at the same time as the up-type quarks.
 
+When writing Equation~\ref{eqn:lewsb} in terms of the mass eigenstates, the charged current term involves interactions between the up-type and down-type quarks:
+\begin{align}
+  \mathcal{L}_{\text{CC}} % & = - \frac{g}{2\sqrt{2}} \bar Q_L \left( T^+ \slashed W^+ + T^- \slashed W^- \right) Q_L \\
+  & = - \frac{g}{2\sqrt{2}} \left( \bar u_L T^+ \slashed W^+ d_L + \bar d_L T^- \slashed W^- u_L \right) \\
+  & = - \frac{g}{2\sqrt{2}} \left( \bar{\tilde{u}}_L U^{u\dagger}_L T^+ \slashed W^+ U^d_L \tilde{d}_L + \bar{\tilde{d}}_L U^{d\dagger}_L T^- \slashed W^- U^u_L \tilde{u}_L \right) \\
+  & = - \frac{g}{2\sqrt{2}} \left( \bar{\tilde{u}}_L  T^+ \slashed W^+ \vckm \tilde{d}_L + \bar{\tilde{d}}_L T^- \slashed W^- \vckm^\dagger \tilde{u}_L \right),
+\end{align}
+where $\vckm = U^{u\dagger}_L U^d_L$ is the Cabibbo-Kaboyshi-Maskawa matrix.
+The CKM matrix is unitary with four free parameters, the mixing angles between quark generations $\phi_{12}$, $\phi_{23}$, and $\phi_{13}$ as well as a CP-violating phase $\delta$.
+In terms of these parameters, the CKM matrix is
+\begin{equation}
+  \vckm = \begin{pmatrix} c_{12} & s_{12} & 0 \\ - s_{12} & c_{12} & 0 \\ 0 & 0 & 1 \end{pmatrix}
+  \times \begin{pmatrix} 1 & 0 & 0  \\ 0 & c_{23} & s_{23} \\ 0 & - s_{23} & c_{23} \end{pmatrix}
+  \times \begin{pmatrix} c_{13} & 0 & s_{13} e^{-i\delta} \\ 0 & 1 & 0 \\ -s_{13} e^{i\delta} & 0 & c_{13} \end{pmatrix},
+\end{equation}
+where $s_{ij} = \sin \phi_{ij}$ and $c_{ij} = \cos \phi_{ij}$.
+It has been experimentally determined that the CKM is mostly diagonal with $s_{13} \ll s_{23} \ll s_{12} \ll 1$. 
+
+The equivalent mixing matrix for the neutrinos is the Pontecorvo-Maki-Nakagawa-Sakata matrix \upmns, which  converts from the mass eigenstates $\nu_1$, $\nu_2$, and $\nu_3$ to the electroweak eigenstates $\nu_e$, $\nu_\mu$, $\nu_\tau$.
+Unlike the CKM matrix, the PMNS is non-diagonal resulting in stronger mixing in the neutrino sector.
+The values of the mixing angles $\theta_{12}$, $\theta_{23}$, and $\theta_{13}$ have been measured in neutrino oscillation experiments while the CP-violating phase $\delta'$ has not yet been directly measured.
+From cosmological measurements, % of the large-scale structure of the universe,
+it is known that the sum of the neutrino masses is less than one eV. 
+
+\newpage
+
+\subsection{Summary}
+
+The Standard Model has a total of 26 free parameters and 17 physical particles.
+The particles and their properties are summarized in Table~\ref{tab:smp} and the parameters are  
+the twelve Yukawa couplings for the fermions,
+the four parameters of the CKM matrix,
+the four parameters of the PMNS matrix,
+the three coupling constants $g_s$, $g$, and $g'$,
+the Higgs vacuum expectation value $v$,
+the Higgs self-coupling $\lambda$,
+and the CP-violating $\theta$ parameter of QCD Lagrangian.
+
+\begin{table}[htbp]
+\centering
+\caption{ The physical particles of the Standard Model.}
+\label{tab:smp}
+\begin{tabular}{ l|c|c|c|c }
+  Name & Symbol & Spin & Charge & Mass \\
+  \hline
+  \hline
+  up quark & $u$ & \sfrac{1}{2} & \sfrac{2}{3} & 2.2\MeV \\
+  down quark & $d$ & \sfrac{1}{2} & \sfrac{-1}{3} & 4.7\MeV \\
+  charm quark & $c$ & \sfrac{1}{2} & \sfrac{2}{3} & 1.28\GeV \\
+  strange quark & $s$ & \sfrac{1}{2} & \sfrac{-1}{3} & 95\MeV \\
+  top quark & $t$ & \sfrac{1}{2} & \sfrac{2}{3} & 173\GeV \\
+  bottom quark & $b$ & \sfrac{1}{2} & \sfrac{-1}{3} & 4.18\GeV \\
+  \hline
+  electron neutrino & $\nu_e$ & \sfrac{1}{2} & 0 & - \\
+  electron & $e$ & \sfrac{1}{2} & -1 & 511\keV \\
+  muon neutrino & $\nu_\mu$ & \sfrac{1}{2} & 0 & - \\
+  muon & $\mu$ & \sfrac{1}{2} & -1 & 105\MeV \\
+  tau neutrino & $\nu_\tau$ & \sfrac{1}{2} & 0 & - \\
+  tau & $\tau$ & \sfrac{1}{2} & -1 & 1.78\GeV \\
+  \hline
+  gluon & g & 1 & 0 & 0 \\
+  photon & $\gamma$ & 1 & 0 & 0 \\
+  Z boson & $Z$ & 1 & 0 & 91.2\GeV \\
+  W boson & $W^\pm$ & 1 & $\pm 1$ & 80.4\GeV \\
+  Higgs boson & $H$ & 0 & 0 & 125 GeV
+\end{tabular}
+\end{table}
 
 \iffalse
 \section{Dark Matter}
