@@ -1,0 +1,73 @@
+\chapter{The Large Hadron Collider}
+
+The Large Hadron Collider (LHC) is a circular proton-proton collider, 27 km in circumference and between 40 and 175 m below the surface, located at the European Organization for Nuclear Research (CERN) on the French-Swiss border near the city of Geneva.
+Designed to collide protons at a maximum center-of-mass energy $\sqrt{s} = 14\TeV$, the LHC has delivered collisions at $\sqrt{s} = 7, 8 \TeV$ during Run 1 (2010-2012) and at $\sqrt{s} = 13\TeV$ during Run 2 (2015-2018).
+While the LHC is primarily a proton-proton collider, lead (Pb) ion beams of energy of up to 2.8 TeV per nucleon are used to produce lead-lead and proton-lead collisions.
+In this thesis, we focus exclusively on data recorded from proton-proton collisions during Run 2.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.625\textwidth]{Collider/Figures/LHC_diagram.pdf}
+  \caption{
+    A schematic representation of the CERN accelerator complex. 
+    The LHC (dark blue) is fed protons by a chain of intermediate accelerators, beginning with LINAC2 (light pink).
+    Reprinted from the CERN Document Server~\cite{}. % https://cds.cern.ch/record/2636343?ln=en
+  }
+  \label{fig:lhc}
+\end{figure}
+
+The LHC is the final stage of the CERN accelerator complex depicted in Figure~\ref{fig:lhc}.
+Hydrogen atoms are stripped of their electrons and accelerated to an energy of 50\GeV by the LINAC2 linear acceleration.
+Following this, they are injected into the Booster ring, the Proton Synchrotron (PS), and the Super Proton Synchrotron (SPS) and accelerated to 1.4, 26, and 450\GeV, respectively.
+After the SPS, the protons are injected into the two counter-circulating rings of the LHC in up to 2808 discrete bunches with a bunch spacing of 25\ns.
+The two beams intersect in eight places along the LHC with detector experiments CMS, ATLAS, LHCb, and ALICE each located at an intersection point.
+
+The LHC is a synchrotron containing 1232 superconducting NbTi dipole magnets measuring 15 m in length, each with a peak dipole field of 8.33 Tesla. 
+There are an additional 492 quadrupole magnets measuring 5-7 m in length which focus the beams in between the dipole magnets.
+Due to space limitations in the tunnels, the beam pipes are magnetically coupled and the magnets share the same superfluid liquid helium cryostatic system to achieve the 1.9K temperature required to achieve the desired magnetic field strength.
+
+The number of events produced at the LHC is given by
+\begin{equation}
+  N(pp \rightarrow X) = \int dt L(t) \sigma(pp \rightarrow X),
+\end{equation}
+where $\sigma$ is the cross section of the process and $L$ is the instantaneous luminosity of the machine given by
+\begin{equation}
+  L = \frac{N_b^2 n_b f_{\text{rev}} \gamma}{4 \pi \epsilon \beta^*} \times F,
+\end{equation}
+where $N_b$ is the number of particles per bunch ($\mathcal{O}(10^11)$),
+$n_b$ is the number of bunches per beam,
+$f_{\text{rev}}$ is frequency of revolution,
+$\gamma$ is the Lorentz factor of the beam,
+$\epsilon$ is transverse emittance of the beam,
+$\beta^*$ is beta function of the beam at the collision point,
+and $F$ is the geometric luminosity reduction factor due to the crossing angle at the interaction point.
+The instantaneous luminosity decreases exponentially as a function of time due to $N_b$ and $n_b$ being reduced by collisions.
+The LHC is designed to deliver an initial instantaneous luminosity of $\mathcal{O}(10^{34}) \percms$.
+
+As all known cross sections are time-independent, the total number of events is directly proportional to the integrated luminosity given by
+\begin{equation}
+  L_{\text{int}} = \int_0^T dt L(t) = L(0) \tau_L \left(1 - e^{-\sfrac{T}{\tau_L}} \right),
+\end{equation}
+where $T$ is the time since starting collisions,
+$L(0)$ is the initial instantaneous luminosity,
+and $\tau_L \approx 15$ the characteristic beam loss timescale for the LHC.
+The total luminosity delivered by the LHC and recorded by CMS during the 2016 is shown in Figure~\ref{fig:lumi}.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.75\textwidth]{Collider/Figures/lumi_2016.pdf}
+  \caption{
+    The total integrated luminosity of the LHC during proton-proton collisions during 2016.\cite{}
+    While a total luminosity of 41\fbinv was collected, only a subset during which the detector operated optimally is used in this thesis. This corresponds to 36\fbinv of data.
+    % https://twiki.cern.ch/twiki/bin/view/CMSPublic/LumiPublicResults
+  }
+  \label{fig:lumi}
+\end{figure}
+
+\section{Collider Phenomenology}
+
+\subsection{Parton Distribution Functions}
+
+\subsection{Hard Scattering}
+
+\subsection{Parton Shower}
