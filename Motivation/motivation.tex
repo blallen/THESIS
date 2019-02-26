@@ -88,6 +88,51 @@ The last term in Equation~\ref{eqn:lqcd} violates CP conservation and produces a
 Experimental limits on the neutron EDM constraint the $\theta$ parameter to be smaller than $10^{-10}$.
 The Peccei-Quinn theory provides a possible method to force $\theta$ to zero by introducing the hypothetical axion particle. The axion is a potential dark matter candidate and will be discussed further in Section~\ref{sec:dm}.
 
+\subsection{Hadrons}
+\label{sec:hadrons}
+
+Free quarks and gluons are not observed in nature, only in bound states called hadrons.
+This is a consequence of two factors: color confinement and aysmptotic freedom.
+Color confinement is the hypothesis that colored objects are always confined to color singlet states and that no objects with non-zero color charge can propagate as free particles.
+Thus, quarks can only exist in bound states of a quark-antiquark pair or three quarks, called mesons and baryons, respectively. 
+Since gluons carry a color charge, they are confined to hadrons as well.
+An analytic proof of color confinement does not exist currently; however, the running of the strong coupling constant $\alpha_s = \sfrac{g_s^2}{4\pi}$ provides a mechanism for it.
+
+Due to higher-order corrections to propagators in a QFT, physical quantities such as coupling constants and masses acquire a scale-dependence, where the value of the quantity changes as a function of the probed energy scale $q^2$.
+The process of recovering scale-invariance is called renormalization and ensures that any divergent terms from the higher-order corrections cancel out in the physical values.
+Given the value of an arbitrary coupling constant $\alpha$ at some known scale $q^2 = \mu^2$, the value of $\alpha$ at arbitrary scale is  
+\begin{equation}
+  \label{eqn:rge}
+  \alpha (q^2) = \frac{\alpha(\mu^2)}{1 - \alpha(\mu^2) \left[ \Pi(q^2) - \Pi(\mu^2) \right]},
+\end{equation}
+where $\Pi(q^2)$ and $\Pi(\mu^2)$ are the self-energy correction of the propagator at scales $q^2$ and $\mu^2$.
+While these individual terms are separately divergent, their difference is finite and calculable. 
+
+To one-loop order in QCD for values of $q^2$ and $\mu^2$ larger than the confinement scale \lqcd, the difference between the gluon self-energy corrections is given by 
+\begin{equation}
+  \label{eqn:beta_qcd}
+  \Pi_s(q^2) - \Pi_s(\mu^2) \approx - \frac{\beta}{4\pi} \ln \left( \dfrac{q^2}{\mu^2} \right)
+\end{equation}
+where $\beta$ depends on the number of quark and gluon loops.
+For $N_c$ colors and $N_f$ quark flavors with mass below $\abs q$,
+\begin{equation}
+  \beta = \frac{11 N_c - 2 N_f}{12 \pi}. 
+\end{equation}
+In the Standard Model, $N_c = 3$ and $N_f \le 6$ regardless of energy, thus $\beta$ is always positive.
+Combining Equations~\ref{eqn:rge} and~\ref{eqn:beta_qcd}, the evolution of $\alpha_s$ is given by
+\begin{equation}
+  \label{eqn:alpha_s}
+  \alpha_s (q^2) = \frac{\alpha_s(\mu^2)}{1 + \beta \alpha_s (\mu^2) \ln \left( \dfrac{q^2}{\mu^2} \right)} \approx \frac{1}{\beta \ln \left( \dfrac{q^2}{\lqcd^2} \right)}
+\end{equation}
+for a sufficiently large energy scale $q^2 \gg \lqcd^2$.
+Through electron-positron collisions, the value of $\alpha_s$ at the $Z$-pole has been measured to be $\alpha_s (m_Z^2) = 0.1181 \pm 0.0011$ with a corresponding confinement scale of $\lqcd = 218\MeV$.  
+
+From Equation~\ref{eqn:alpha_s}, we see that $\alpha_s$ decreases with increasing $q^2$.
+At $\abs q \sim 1\GeV$, the value of $\alpha_s$ is of $\mathcal{O}(1)$ confining quarks and gluons to hadrons in a strongly-bound non-perturbative state.
+However, $\abs q \gtrsim 100\GeV$, we have $\alpha_s \approx 0.1$ which is small eneough that perturbation theory can be used and quarks can be treated as quasi-free particles.
+This property of QCD is known as asymptotic freedom.
+
+%\newpage
 \subsection{Electroweak Interactions}
 \label{subsec:ewk}
 
@@ -144,7 +189,7 @@ The kinetic term in Equation~\ref{eqn:ewsb} couples the complex Higgs field to t
 \begin{equation}
   \left| D_\mu \phi \right|^2 = \frac{v^2}{8} \left[ \left(g W_\mu^1 \right)^2 + \left(g W_\mu^2 \right)^2 + \left(g' B_\mu - g W_\mu^3 \right)^2 \right].
 \end{equation}
-\newpage 
+%\newpage 
 Diagonalizing this term gives rise to the three massive weak bosons and the massless photon that we observe in nature:
 \begin{equation}
   \begin{matrix}[l | l]
@@ -167,8 +212,6 @@ With this, we rewrite Equation~\ref{eqn:lewk} in terms of the observed electroma
 \end{align}
 where $e = g' \cos \thetaw$ is the charge of the electron, $T^\pm = (T_1 \mp i T_2)/\sqrt{2}$ are the weak isospin raising and lowering operators, and $g_V = T_3$ and $g_A = T_3 - 2 Q \sin^2 \thetaw$ are the vector and axial-vector couplings for the neutral weak current.
 
-%% paragraph on L_EWK in terms of W, Z, and A. 
-
 We can also expand Equation~\ref{eqn:ewsb} about the vev giving us the following Higgs Lagrangian
 \begin{align}
   \mathcal{L}_H = \frac{1}{2} \partial_\mu H \partial^\mu H & - \frac{1}{2} m_H^2 H^2 - \frac{1}{2} m_W^2 W_\mu^+ W^{-\mu} - \frac{1}{2} m_Z^2 Z_\mu Z^\mu \\
@@ -179,8 +222,7 @@ where $m_H = \mu \sqrt{2} $.
 Thus, we see that the real Higgs field $H$ has trilinear and quartic couplings to itself and the weak gauge bosons with coupling strengths proportional to the mass squared of the appropriate boson.
 This suggests a way to introduce fermion masses through the Higgs field.
 
-\newpage
-
+%\newpage
 \subsection{Fermion Masses}
 \label{subsec:yukawa}
 
@@ -239,8 +281,7 @@ The values of the mixing angles $\theta_{12}$, $\theta_{23}$, and $\theta_{13}$ 
 From cosmological measurements, % of the large-scale structure of the universe,
 it is known that the sum of the neutrino masses is less than one eV. 
 
-\newpage
-
+%\newpage
 \subsection{Summary}
 
 The Standard Model has a total of 26 free parameters and 17 physical particles.
