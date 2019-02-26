@@ -12,10 +12,10 @@ The Standard Model consists of a set of fermion fields, shown in Table~\ref{tab:
 \end{equation}
 which is composed of the subgroups
 \begin{align}
-  G_{\text{QCD}} & = \suthree \qquad \text{and} \\
+  G_{\text{QCD}} & = \suthree \qquad \text{and} \nonumber \\
   G_{\text{EWK}} & = \sutwo \times \uone,
 \end{align}
-corresponding to the \textit{strong} and \textit{electroweak} interactions, respectively.
+corresponding to the strong and electroweak interactions, respectively.
 Each fermion field exists in a unique representation of $G_{\text{SM}}$, also summarized in Table~\ref{tab:fermions}.
 The possible represenations of \suthree\ are triplet, conjugate, and singlet, denoted by $\mathbf{3}$, $\mathbf{\bar{3}}$, and $\mathbf{1}$, respectively, while the possible representations of \sutwo\ are doublet and singlet, denoted by $\mathbf{2}$ and $\mathbf{1}$, respectively.
 All fermions exist in the singlet representation of \uone, only distinguished by differing values of the weak hypercharge $Y$.
@@ -71,7 +71,7 @@ The strong interactions of quarks and gluons are described by quantum chromodyna
   \mathcal{L}_{\text{QCD}} = i \bar q_f^a \slashed D^{ab} q_f^b + m_f \bar q_f^a q_f^a - \frac{1}{4} G_{\mu\nu}^a G^{a,\mu\nu} + \theta \frac{g_s^2}{72\pi^2} \epsilon_{\mu\nu\rho\sigma} G^{c,\mu\nu} G^{c, \rho\sigma},
 \end{equation}
 where repeated indices are contracted.
-The $q_f^a$ are the quark-field Dirac spinors of flavor $f \in \{u,d,c,s,t,b\}$, color $a \in \{r,g,b\}$ (he basis element of the triplet representation), and mass $m_f$.
+The $q_f^a$ are the quark-field Dirac spinors of flavor $f \in \{u,d,c,s,t,b\}$, color $a \in \{r,g,b\}$ (the basis element of the triplet representation), and mass $m_f$.
 The first term in Equation~\ref{eqn:lqcd} contains the QCD covariant derivative
 \begin{equation}
   D_{\mu}^{ab} = \delta^{ab} \partial_\mu - i g_s \sum_{c} t_c^{ab} G_{c,\mu},
@@ -82,7 +82,7 @@ The third term in Equation~\ref{eqn:lqcd} contains the gluon field strength tens
   G_{\mu\nu}^a = \partial_\mu G_\nu^a - \partial_\nu G_\mu^a - g_s f^{abc} G_\mu^b G_\nu^C,
 \end{equation}
 where $f^{abc}$ are the structure constants of \suthree.
-The non-Abelian structure of the \suthree\ group means allows for 3-gluon and 4-gluon interactions in addition to the quark-antiquark-gluon interactions.
+The non-Abelian structure of the \suthree\ group allows for 3-gluon and 4-gluon interactions in addition to the quark-antiquark-gluon interactions.
 
 The last term in Equation~\ref{eqn:lqcd} violates CP conservation and produces a non-zero electric dipole moment (EDM) for the neutron.
 Experimental limits on the neutron EDM constraint the $\theta$ parameter to be smaller than $10^{-10}$.
@@ -93,14 +93,16 @@ The Peccei-Quinn theory provides a possible method to force $\theta$ to zero by 
 
 Free quarks and gluons are not observed in nature, only in bound states called hadrons.
 This is a consequence of two factors: color confinement and aysmptotic freedom.
+
 Color confinement is the hypothesis that colored objects are always confined to color singlet states and that no objects with non-zero color charge can propagate as free particles.
 Thus, quarks can only exist in bound states of a quark-antiquark pair or three quarks, called mesons and baryons, respectively. 
 Since gluons carry a color charge, they are confined to hadrons as well.
+Confinement is a low-energy non-pertubative phenomenon, occuring only below the QCD confinement scale \lqcd. 
 An analytic proof of color confinement does not exist currently; however, the running of the strong coupling constant $\alpha_s = \sfrac{g_s^2}{4\pi}$ provides a mechanism for it.
 
 Due to higher-order corrections to propagators in a QFT, physical quantities such as coupling constants and masses acquire a scale-dependence, where the value of the quantity changes as a function of the probed energy scale $q^2$.
 The process of recovering scale-invariance is called renormalization and ensures that any divergent terms from the higher-order corrections cancel out in the physical values.
-Given the value of an arbitrary coupling constant $\alpha$ at some known scale $q^2 = \mu^2$, the value of $\alpha$ at arbitrary scale is  
+Given the value of an arbitrary coupling constant $\alpha$ at some known scale $\mu^2$, the value of $\alpha$ at arbitrary scale $q^2$ is  
 \begin{equation}
   \label{eqn:rge}
   \alpha (q^2) = \frac{\alpha(\mu^2)}{1 - \alpha(\mu^2) \left[ \Pi(q^2) - \Pi(\mu^2) \right]},
@@ -108,7 +110,7 @@ Given the value of an arbitrary coupling constant $\alpha$ at some known scale $
 where $\Pi(q^2)$ and $\Pi(\mu^2)$ are the self-energy correction of the propagator at scales $q^2$ and $\mu^2$.
 While these individual terms are separately divergent, their difference is finite and calculable. 
 
-To one-loop order in QCD for values of $q^2$ and $\mu^2$ larger than the confinement scale \lqcd, the difference between the gluon self-energy corrections is given by 
+For values of $q^2$ and $\mu^2$ larger than the confinement scale \lqcd, the difference between the gluon self-energy corrections to one-loop order is given by 
 \begin{equation}
   \label{eqn:beta_qcd}
   \Pi_s(q^2) - \Pi_s(\mu^2) \approx - \frac{\beta}{4\pi} \ln \left( \dfrac{q^2}{\mu^2} \right)
@@ -143,7 +145,7 @@ The electroweak interactions of fermions are described by $\sutwo \times \uone$ 
 \end{equation}
 where repeated indices are contracted and $\psi \supseteq \{q_L, u_R, d_R, \ell_L, e_R, \nu_R\}$ is the set of SM fermions, and the gauge field tensors are given by
 \begin{align}
-  B_{\mu\nu} & = \partial_\mu B_\nu - \partial_\nu B_\mu \qquad \text{and} \\
+  B_{\mu\nu} & = \partial_\mu B_\nu - \partial_\nu B_\mu \qquad \text{and} \nonumber \\
   \vec W_{\mu\nu} & = \partial_\mu \vec W_\nu - \partial_\nu \vec W_\mu + g \vec W^\mu \times \vec W^\nu ,
 \end{align}
 where $\vec W_\mu$ and $B_\mu$ are the gauge fields for \sutwo\ and \uone, respectively, and $g$ is the coupling strength for \sutwo.
@@ -205,17 +207,17 @@ where $\tan \thetaw = g'/g$.
 With this, we rewrite Equation~\ref{eqn:lewk} in terms of the observed electromagnetic, charged weaked, and neutral weak currents as follows:
 \begin{align}
   \label{eqn:lewsb}
-  \mathcal{L}_{\text{EWK}} % &= \mathcal{L}_{\text{EM}} + \mathcal{L}_{\text{CC}} + \mathcal{L}_{\text{NC}} \\
-   & = \bar \psi_i \left( i \slashed \partial - e Q \slashed A \right) \psi_i
-  - \frac{g}{2\sqrt{2}} \bar \psi_i \left( T^+ \slashed W^+ + T^- \slashed W^- \right) \psi_i \\
-  & \qquad - \frac{g}{2 \cos \thetaw} \bar \psi_i (g_V - g_A \gamma^5) \slashed Z \psi_i, 
+  \mathcal{L}_{\text{EWK}} % &= \mathcal{L}_{\text{EM}} + \mathcal{L}_{\text{CC}} + \mathcal{L}_{\text{NC}} \nonumber \\
+  = \bar \psi_i \left( i \slashed \partial - e Q \slashed A \right) \psi_i
+  & - \frac{g}{2\sqrt{2}} \bar \psi_i \left( T^+ \slashed W^+ + T^- \slashed W^- \right) \psi_i - \frac{1}{2} m_W^2 W_\mu^+ W^{-\mu} \nonumber \\
+   & - \frac{g}{2 \cos \thetaw} \bar \psi_i (g_V - g_A \gamma^5) \slashed Z \psi_i - \frac{1}{2} m_Z^2 Z_\mu Z^\mu, 
 \end{align}
 where $e = g' \cos \thetaw$ is the charge of the electron, $T^\pm = (T_1 \mp i T_2)/\sqrt{2}$ are the weak isospin raising and lowering operators, and $g_V = T_3$ and $g_A = T_3 - 2 Q \sin^2 \thetaw$ are the vector and axial-vector couplings for the neutral weak current.
 
 We can also expand Equation~\ref{eqn:ewsb} about the vev giving us the following Higgs Lagrangian
 \begin{align}
-  \mathcal{L}_H = \frac{1}{2} \partial_\mu H \partial^\mu H & - \frac{1}{2} m_H^2 H^2 - \frac{1}{2} m_W^2 W_\mu^+ W^{-\mu} - \frac{1}{2} m_Z^2 Z_\mu Z^\mu \\
-  & + \frac{m_H^2}{2 v} H^3 + \frac{2 m_W^2}{v} W_\mu^+ W^{-\mu} H + \frac{m_Z^2}{v} Z_\mu Z^\mu H \\
+  \mathcal{L}_H = \frac{1}{2} \partial_\mu H \partial^\mu H - \frac{1}{2} m_H^2 H^2
+  & + \frac{m_H^2}{2 v} H^3 + \frac{2 m_W^2}{v} W_\mu^+ W^{-\mu} H + \frac{m_Z^2}{v} Z_\mu Z^\mu H \nonumber \\
   & + \frac{m_H^2}{8 v^2} H^4 + \frac{m_W^2}{v^2} W_\mu^+ W^{-\mu} H^2 + \frac{m_Z^2}{2v^2} Z_\mu Z^\mu H^2, 
 \end{align}
 where $m_H = \mu \sqrt{2} $.
@@ -236,14 +238,14 @@ where $Y_e$ is the Yukawa matrix for the charged leptons.
 In general, Yukawa matrices and thus mass matrices are non-diagonal and hence we need to convert from the electroweak eigenstates $f_{L,R}$ to the mass eigenstates $\tilde{f}_{L,R} = U^{f}_{L,R} f_{L,R}$ where $U^{f}_{L,R}$ is a unitary matrix.
 With this we rewrite Equation~\ref{eqn:lyuk} in terms of the mass eigenstates
 \begin{align}
-  \mathcal{L}^{\text{leptons}}_{\text{Y}} & = - \bar{\tilde{\ell}}_{L} U^e_L Y_e \phi U^{e\dagger}_R \tilde{e}_{R} - \bar{\tilde{e}}_{R} U^e_R Y_e \phi^\dagger U^{e\dagger}_L \tilde{\ell}_{L} \\
+  \mathcal{L}^{\text{leptons}}_{\text{Y}} & = - \bar{\tilde{\ell}}_{L} U^e_L Y_e \phi U^{e\dagger}_R \tilde{e}_{R} - \bar{\tilde{e}}_{R} U^e_R Y_e \phi^\dagger U^{e\dagger}_L \tilde{\ell}_{L} \nonumber \\
   & = - \bar{\tilde{\ell}}_{L} \tilde Y_e \phi \tilde{e}_{R} - \bar{\tilde{e}}_{R} \tilde Y_e^\dagger \phi^\dagger \tilde{\ell}_{L}, 
 \end{align}
 where $\tilde Y_e = U^e_L Y_e U^{e\dagger}_R$ is the diagonalized Yukawa matrix for the charged leptons.
 After electroweak symmetry breaking, these terms become
 \begin{align}
-  \mathcal{L}^{\text{leptons}}_{\text{Y}} & = - \frac{v + H}{\sqrt{2}} \left( \bar{\tilde{e}}_L \tilde Y_e  \tilde{e}_R + \bar{\tilde{e}}_R \tilde Y_e^\dagger \tilde{e}_L \right) \\
-  & = - \left(1 + \frac{H}{v}\right) \left( \bar{\tilde{e}}_L \tilde M_e \tilde{e}_R + \bar{\tilde{e}}_R \tilde M_e^\dagger \tilde{e}_L \right)\\
+  \mathcal{L}^{\text{leptons}}_{\text{Y}} & = - \frac{v + H}{\sqrt{2}} \left( \bar{\tilde{e}}_L \tilde Y_e  \tilde{e}_R + \bar{\tilde{e}}_R \tilde Y_e^\dagger \tilde{e}_L \right) \nonumber \\
+  & = - \left(1 + \frac{H}{v}\right) \left( \bar{\tilde{e}}_L \tilde M_e \tilde{e}_R + \bar{\tilde{e}}_R \tilde M_e^\dagger \tilde{e}_L \right) \nonumber \\
   & = - \tilde M_e \bar e e - \frac{\tilde M_e}{v} \bar e e H,
     \label{eqn:lmass}
 \end{align}
@@ -257,15 +259,16 @@ The same procedure is used to introduce mass terms for the down-type quarks wher
 For the charged leptons and up-type quarks, it is possible to define a basis of simultaneous electroweak and mass eigenstates, so in practice $\tilde Y_{e,u} = Y_{e,u}$ as $U^{e,u}_L = U^{e,u}_R = \mathit{\mathbf{I}}$.
 However, it is not possible to do this for the neutrinos at the same time as the charged leptons or for the down-type quarks at the same time as the up-type quarks.
 
-When writing Equation~\ref{eqn:lewsb} in terms of the mass eigenstates, the charged current term involves interactions between the up-type and down-type quarks:
+In Equation~\ref{eqn:lewsb}, the charged current term involves interactions between the up-type and down-type quarks and is not preserved under the transform $f \rightarrow \tilde f$.
+Writing this in terms of the mass eigenstates we have
 \begin{align}
-  \mathcal{L}_{\text{CC}} % & = - \frac{g}{2\sqrt{2}} \bar Q_L \left( T^+ \slashed W^+ + T^- \slashed W^- \right) Q_L \\
-  & = - \frac{g}{2\sqrt{2}} \left( \bar u_L T^+ \slashed W^+ d_L + \bar d_L T^- \slashed W^- u_L \right) \\
-  & = - \frac{g}{2\sqrt{2}} \left( \bar{\tilde{u}}_L U^{u\dagger}_L T^+ \slashed W^+ U^d_L \tilde{d}_L + \bar{\tilde{d}}_L U^{d\dagger}_L T^- \slashed W^- U^u_L \tilde{u}_L \right) \\
-  & = - \frac{g}{2\sqrt{2}} \left( \bar{\tilde{u}}_L  T^+ \slashed W^+ \vckm \tilde{d}_L + \bar{\tilde{d}}_L T^- \slashed W^- \vckm^\dagger \tilde{u}_L \right),
+  \mathcal{L}_{\text{CC}} % & = - \frac{g}{2\sqrt{2}} \bar Q_L \left( T^+ \slashed W^+ + T^- \slashed W^- \right) Q_L \nonumber \\
+  & = - \frac{g}{2\sqrt{2}} \left( \bar u_L T^+ \slashed W^+ d_L + \bar d_L T^- \slashed W^- u_L \right) \nonumber \\
+  % & = - \frac{g}{2\sqrt{2}} \left( \bar{\tilde{u}}_L U^{u\dagger}_L T^+ \slashed W^+ U^d_L \tilde{d}_L + \bar{\tilde{d}}_L U^{d\dagger}_L T^- \slashed W^- U^u_L \tilde{u}_L \right) \nonumber \\
+  & = - \frac{g}{2\sqrt{2}} \left( \bar{u}_L  T^+ \slashed W^+ \vckm \tilde{d}_L + \bar{\tilde{d}}_L T^- \slashed W^- \vckm^\dagger u_L \right),
 \end{align}
-where $\vckm = U^{u\dagger}_L U^d_L$ is the Cabibbo-Kaboyshi-Maskawa matrix.
-The CKM matrix is unitary with four free parameters, the mixing angles between quark generations $\phi_{12}$, $\phi_{23}$, and $\phi_{13}$ as well as a CP-violating phase $\delta$.
+where $\vckm = U^{u\dagger}_L U^d_L$ is the Cabibbo-Kaboyshi-Maskawa matrix and $u_L = \tilde{u}_L$ by construction.
+The CKM matrix is unitary with four free parameters, the mixing angles between quark generations $\phi_{12} = 13.1$, $\phi_{23}$, and $\phi_{13}$ as well as a CP-violating phase $\delta$.
 In terms of these parameters, the CKM matrix is
 \begin{equation}
   \vckm = \begin{pmatrix} c_{12} & s_{12} & 0 \\ - s_{12} & c_{12} & 0 \\ 0 & 0 & 1 \end{pmatrix}
@@ -284,20 +287,47 @@ it is known that the sum of the neutrino masses is less than one eV.
 %\newpage
 \subsection{Summary}
 
+\begin{table}[htbp]
+\centering
+\caption{ The free parameters of the Standard Model, not including masses.}
+\label{tab:sm_params}
+\begin{tabular}{ c|l|r }
+  Parameter & Description & Value \\
+  \hline
+  \hline
+  $\phi_{12}$ & CKM 12-mixing anlge    & $13.1^\circ$ \\
+  $\phi_{23}$ & CKM 23-mixing angle    & $2.4^\circ$ \\
+  $\phi_{13}$ & CKM 13-mixing angle    & $0.4^\circ$ \\
+  $\delta$    & CKM CP-violating phase & 0.995 \\
+  \hline
+  $\sin^2 \theta_{12}$ & PMNS 12-mixing anlge    & 0.297 \\
+  $\sin^2 \theta_{23}$ & PMNS 23-mixing angle    & 0.437 \\
+  $\sin^2 \theta_{13}$ & PMNS 13-mixing angle    & 0.0214 \\
+  $\delta'$            & PMNS CP-violating phase & 1.35 \\
+  \hline
+  $g_s$ & \suthree\ coupling constant    & 1.221 \\
+  $g$   & \sutwo\ coupling constant      & 0.652 \\
+  $g'$  & \uone\ coupling constant       & 0.357 \\
+  $v$   & Higgs vacuum expectation value & 246\GeV \\
+  \hline
+  $\theta$ & QCD vacuum angle & $< 10^{-10}$ 
+\end{tabular}
+\end{table}
+
 The Standard Model has a total of 26 free parameters and 17 physical particles.
-The particles and their properties are summarized in Table~\ref{tab:smp} and the parameters are  
+The parameters are  
 the twelve Yukawa couplings for the fermions,
 the four parameters of the CKM matrix,
 the four parameters of the PMNS matrix,
 the three coupling constants $g_s$, $g$, and $g'$,
 the Higgs vacuum expectation value $v$,
-the Higgs self-coupling $\lambda$,
-and the CP-violating $\theta$ parameter of QCD Lagrangian.
+the Higgs mass $m_H$,
+and the QCD vacuum angle $\theta$.
 
 \begin{table}[htbp]
 \centering
 \caption{ The physical particles of the Standard Model.}
-\label{tab:smp}
+\label{tab:sm_particles}
 \begin{tabular}{ l|c|c|c|c }
   Name & Symbol & Spin & Charge & Mass \\
   \hline
@@ -323,6 +353,11 @@ and the CP-violating $\theta$ parameter of QCD Lagrangian.
   Higgs boson & $H$ & 0 & 0 & 125 GeV
 \end{tabular}
 \end{table}
+
+The physical particles are the single-particle states of the various mass eigenfields and their properties are summarized in Table~\ref{tab:sm_particles}.
+Each of the fermion fields has a corresponding anti-particle with the electromagnetic and color charges inverted.
+Most of these single-particle states have finite lifetimes and decay to lower energy configurations.
+The only particles whose decays have not been observed are the photon, the electron, the neutrinos, and the proton (a baryon of flavor content uud). 
 
 \iffalse
 \section{Dark Matter}
