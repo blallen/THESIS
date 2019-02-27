@@ -66,6 +66,34 @@ The total luminosity delivered by the LHC and recorded by CMS during the 2016 is
 
 \section{Collider Phenomenology}
 
+The proton is a composite particle consisting of valence quarks, sea quarks, and gluons, collectively referred to as partons.
+When colliding protons at the LHC, we are actually interested in the inelastic scattering of a pair of partons from the incident protons.
+Each parton $a,b$ carries a fraction of the momentum of the incoming proton $x_{a,b}$ following the particle-dependent parton distribution functions (PDFs) $f_{a,b}$.
+The differential cross section for $2\rightarrow N$ parton scattering process is given by
+\begin{equation}
+  \text{d}\sigma \left(ab \rightarrow \{c_i\} \right) =
+  \frac{(2\pi)^4}{2s} \left( \prod_i \frac{\text{d}^3 p_i}{(2\pi)^3} \right)
+  \cdot \delta^4 \left(k_a + k_b - \sum_i p_i \right)
+  \cdot \abs{ \mathcal{M} \left(ab \rightarrow \{c_i\} \right)}^2
+\end{equation}
+where $k_{a,b} = x_{a,b} \sqrt{s}$ are the momenta of the incoming partons, $\{p_i\}$ are the momenta of the outgoing partons $\{c_i\}$, and $\mathcal{M}$ is the matrix element of the process.
+
+This parton level scattering, called the hard scattering process, is perturbatively calculable through standard QFT methods.
+However, the hard scattering does not include any effects related to the PDFs of the incoming partons or the decay and hadronization of the outgoing partons into the final state particles (called the parton shower), both of which involve non-pertubative aspects of QCD.
+Fortunately, the collinear factorization theorem states that the probability of obtaining the final state $X(\Theta)$ from a hadron collision can be calculated as the product of the probability that specific partons $a,b$ are involved in the interaction, the probability for the hard scattering to produce outgoing partons $\{c_i\}$, and the formation of final state hadrons from these outgoing partons.
+The factorization process is not unique and requires the choice of an arbitrary energy scale $\mu_F$, which defines a lower bound for interactions to be considered part of the hard scattering.  
+
+Including the effects from PDFs and parton showering (PS), the general cross section for $pp \rightarrow X(\Theta)$ is
+\begin{align}
+  \label{eqn:ppx}
+  \frac{\text{d}\sigma}{\text{d}\Theta} \Big(pp \rightarrow X(\Theta) \Big) =
+  \sum_{a,b} \int & \text{d} x_a f_a(x_a, \mu_F) \cdot \text{d} x_b f_b(x_b, \mu_F)  \nonumber \\
+  & \times \text{d}\sigma \left(ab \rightarrow \{c_i\} \right)
+  \times D \left( \{c_i\} \rightarrow X(\Theta) \right) 
+\end{align}
+where the sum is over the initial state partons and $D$ is the fragmentation function that describes parton shower process resulting in the observed final state.
+The following sections discuss the simulation of the three main elements of Equation~\ref{eqn:ppx}: the parton distribution functions $f_a$, the hard scattering cross section $\text{d}\sigma$, and the fragmentation function $D$.
+
 \subsection{Parton Distribution Functions}
 
 \subsection{Hard Scattering}
