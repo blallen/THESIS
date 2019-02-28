@@ -96,6 +96,36 @@ The following sections discuss the simulation of the three main elements of Equa
 
 \subsection{Parton Distribution Functions}
 
+Due to soft collinear emissions from the partons, the behavior of the parton distribution functions depends on the factorization scale.
+Denoting the gluon PDF as $g(x, \mu_F)$ and the PDF for quark flavor $i$ as $q_i(x, \mu_F)$, the analytic behavior of the PDFs is given by the DGLAP evolution equations
+\begin{equation}
+  \mu_F \frac{\text{d}}{\text{d} \mu_F} \begin{pmatrix} q_i(x, \mu_F) \\ g(x, \mu_F) \end{pmatrix}
+  = \frac{\alpha_s}{2\pi} \int_{x}^{1} \frac{\text{d}y}{y}
+  % {\Huge P}\left(\frac{x}{y}\right)
+  \begin{pmatrix}
+     P_{qq}\left(\sfrac{x}{y}\right) &  P_{qg}\left(\sfrac{x}{y}\right) \\
+     P_{gq}\left(\sfrac{x}{y}\right) &  P_{gg}\left(\sfrac{x}{y}\right) 
+  \end{pmatrix}
+    \begin{pmatrix} q_i(y, \mu_F) \\ g(y, \mu_F) \end{pmatrix}
+\end{equation}
+where $y$ is the fraction of momentum carried by initial parton and the $P$ matrix elements are the real splitting kernels defined by
+\begin{equation}
+  \begin{matrix}[l | l]
+    P_{qq}(z) = \dfrac{4}{3} \left( \dfrac{1+z^2}{1-z} \right)
+    & P_{qg}(z) = \dfrac{4}{3} \left( \dfrac{1+(1-z)^2}{z} \right)
+    \\ \\ P_{gq}(z) = \dfrac{1}{2} \left( z^2 + (1+z)^2 \right)
+    & P_{gg}(z) = 6 \left( \dfrac{1-z}{z} + \dfrac{z}{1-z} + z(1-z) \right) .
+  \end{matrix}
+\end{equation}
+
+The DGLAP equations cannot be solved analytically at a fixed scale.
+Instead, parameterized functional forms are fitted to data from many experiments.  
+The results presented in this thesis use the NNPDF3.0 PDF set provided by the NNPDF collaboration.
+
 \subsection{Hard Scattering}
+
+
+The hard scattering process is simulated using Monte Carlo generators that sample events with probability proportional to the phase space and matrix element.
+For the results contained in this thesis, the primary hard interaction is simulated using the MADGRAPH5 aMC@NLO generator, which can simulate to leading order (LO) in EW vertices and up to next-to-leading order (NLO) in QCD vertices.
 
 \subsection{Parton Shower}
