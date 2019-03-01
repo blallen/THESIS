@@ -1,5 +1,7 @@
 \chapter{The Large Hadron Collider}
 
+\section{Experimental Apparatus}
+
 The Large Hadron Collider (LHC) is a circular proton-proton collider, 27 km in circumference and between 40 and 175 m below the surface, located at the European Organization for Nuclear Research (CERN) on the French-Swiss border near the city of Geneva.
 Designed to collide protons at a maximum center-of-mass energy $\sqrt{s} = 14\TeV$, the LHC has delivered collisions at $\sqrt{s} = 7, 8 \TeV$ during Run 1 (2010-2012) and at $\sqrt{s} = 13\TeV$ during Run 2 (2015-2018).
 While the LHC is primarily a proton-proton collider, lead (Pb) ion beams of energy of up to 2.8 TeV per nucleon are used to produce lead-lead and proton-lead collisions.
@@ -92,7 +94,7 @@ Including the effects from PDFs and parton showering (PS), the general cross sec
   \times D \left( \{c_i\} \rightarrow X(\Theta) \right) 
 \end{align}
 where the sum is over the initial state partons and $D$ is the fragmentation function that describes parton shower process resulting in the observed final state.
-The following sections discuss the simulation of the three main elements of Equation~\ref{eqn:ppx}: the parton distribution functions $f_a$, the hard scattering cross section $\text{d}\sigma$, and the fragmentation function $D$.
+The following sections discuss the simulation of the three main elements of Equation~\ref{eqn:ppx}: the parton distribution functions $f_a$, the hard scattering cross section $\text{d}\sigma$, and the parton shower and hadronization processes that contribute to the fragmentation function $D$.
 
 \subsection{Parton Distribution Functions}
 
@@ -108,7 +110,7 @@ Denoting the gluon PDF as $g(x, \mu_F)$ and the PDF for quark flavor $i$ as $q_i
   \end{pmatrix}
     \begin{pmatrix} q_i(y, \mu_F) \\ g(y, \mu_F) \end{pmatrix}
 \end{equation}
-where $y$ is the fraction of momentum carried by initial parton and the $P$ matrix elements are the real splitting kernels defined by
+where $y$ is the fraction of momentum carried by initial parton and the $P$ matrix elements are the splitting kernels defined by
 \begin{equation}
   \begin{matrix}[l | l]
     P_{qq}(z) = \dfrac{4}{3} \left( \dfrac{1+z^2}{1-z} \right)
@@ -118,14 +120,63 @@ where $y$ is the fraction of momentum carried by initial parton and the $P$ matr
   \end{matrix}
 \end{equation}
 
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.625\textwidth]{Collider/Figures/nnpdf30_115_test.png}
+  \caption{
+    The various quark and gluon PDFs for the proton, as a function of momentum fraction $x$.
+    The specific PDF set is the NNPDF3.0 118 NLO PDF set.
+    % https://apfel.mi.infn.it/jobs
+  }
+  \label{fig:nnpdf}
+\end{figure}
+
 The DGLAP equations cannot be solved analytically at a fixed scale.
 Instead, parameterized functional forms are fitted to data from many experiments.  
 The results presented in this thesis use the NNPDF3.0 PDF set provided by the NNPDF collaboration.
+Figure~\ref{fig:nnpdf} shows the quark and gluon PDFs for the proton.
+As $x \rightarrow 0$, the gluon fraction dominates while as $x \rightarrow 1$, the up-quark fraction $u(x, \mu_F)$ approaches \sfrac{2}{3}, the down-quark fraction $d(x, \mu_F)$ approaches \sfrac{1}{3}, and the gluon and sea quark fractions approach zero.
 
 \subsection{Hard Scattering}
-
 
 The hard scattering process is simulated using Monte Carlo generators that sample events with probability proportional to the phase space and matrix element.
 For the results contained in this thesis, the primary hard interaction is simulated using the MADGRAPH5 aMC@NLO generator, which can simulate to leading order (LO) in EW vertices and up to next-to-leading order (NLO) in QCD vertices.
 
 \subsection{Parton Shower}
+
+The parton shower is a sequence of splittings where one outgoing parton $c_i$ emits a second soft and/or collinear particle $j$.
+Each splitting has an associated splitting kernel $P_{c_i \rightarrow c_i j}(z)$, where $z$ is the momentum fraction carried by the initial parton.
+The allowed QCD splittings are $q\rightarrow qg$, $g\rightarrow q \bar q$, and $g\rightarrow gg$ and the allowed QED splittings are $f\rightarrow f\gamma$ and $\gamma \rightarrow f \bar f$.
+The kernels associated with these splittings are
+\begin{equation}
+  \begin{matrix}[l | l]
+    P_{q\rightarrow qg}(z) = \dfrac{4}{3} \left( \dfrac{1+z^2}{1-z} \right)
+    & P_{f \rightarrow f \gamma}(z) = Q_f^2 \left( \dfrac{1+z^2}{1-z} \right)
+    \\ P_{g\rightarrow q \bar q}(z) = \dfrac{1}{2} \left( z^2 + (1-z)^2\right)
+    & P_{\gamma \rightarrow f \bar f}(z) = N_C Q_f^2 \left( z^2 + (1-z)^2 \right) 
+    \\ P_{g\rightarrow gg}(z) = 3 \left( \dfrac{(1-z(1-z))^2}{z(1-z)} \right)  & 
+  \end{matrix}
+\end{equation}
+where $Q_f$ is the charge of the fermion and $N_C$ is the number of color states the fermion can occupy (3 for quarks and 1 for leptons).
+The cross section of a splitting is given by
+\begin{equation}
+  \frac{\text{d}\sigma (ab\rightarrow \{c_i\}j)}{\text{d}\sigma (ab\rightarrow \{c_i\})}
+  = P_{c_i\rightarrow c_i j}(z) \cdot \frac{\alpha_s}{2\pi} \cdot \frac{\text{d}\theta}{\theta} \cdot \text{d}z 
+\end{equation}
+where $\theta$ is the opening angle between $c_i$ and $j$.
+These cross sections diverge as $\theta \rightarrow 0$ and $z \rightarrow 1$, meaning bare quarks producing many soft and collinear gluons.
+Then, these gluons further split to $gg$ and $q\bar q$ pairs, which in turn emit even more soft and collinear gluons and photons.
+This process continues until the energy of the outgoing partons reaches $\lqcd$ at which point hadronization occurs.
+
+\subsection{Hadronization}
+
+The QCD potential between two quarks can be approximated as $ V(\vec r) \approx \kappa r$, where $\kappa$ has been measured to be approximately 1 GeV/fm.
+The linear behavior of the potential is due to the attractive interactions between the gluons mediating the quark-quark interaction which confine the color field between the quarks into a tube 1 fm in diameter.
+As the quarks separate, the energy contained in this gluon tube increases linearly until it exceeds the mass of a $q\bar q$ pair.
+At this point, a new $q \bar q$ pair pops into existence through a quantum mechanical tunneling process, splitting the tube in two.
+Due to the difference in quark masses, only up, down, and strange quarks are produced, in a 10:10:3 ratio.
+This process continues until the energy of all the quarks have low enough energy to combine into stable hadrons.
+
+The above procedure is a qualitative description of the Lund string model used.
+The Pythia event generator models hadronization using the Lund string model as well as the parton shower effects described in the previous section.
+All results in this thesis use the Pythia 8.2 program to simulation the parton shower and hadronization processes. 
