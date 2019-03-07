@@ -378,7 +378,50 @@ Dark matter cannot be explained by the 17 particles of the Standard Model, yet i
 \subsection{Astrophysical Evidence}
 \label{sec:dm_astro}
 
-Galactic Rotation Curves and the Bullet Cluster.
+All existing evidence for dark matter comes from astrophysical observations of its gravitational effects on the universe at various length scales.
+We shall focus on four different sources of evidence: the average velocity of galaxies in clusters, the rotation curves of spiral galaxies, strong gravitational lensing, and merging galactic clusters. The evidence presented here is not exhaustive, see Reference~\ref{Roos10} for more detail. % https://arxiv.org/pdf/1001.0316.pdf
+
+Galactic clusters are the largest gravitational bound systems, with the orbital velocities of the individual clusters determined by the total gravitional mass of the cluster. Applying the Virial Theorem gives the explicit relation
+\begin{equation}
+  v^2 = \frac{GM}{2r},
+\end{equation}
+where $v$ is the average orbital velocity of a galaxy in the cluster, $r$ is the average separation between galaxies in the cluster, $M$ is the total gravitational mass of the cluster, and $G$ is the Newtonian constant of gravitation.
+In 1933, Fritz Zwicky measured the average orbtial velocity of the Coma clustered and discovered that it was a factor of ten larger than the observed visible mass of the Coma cluster, leading to the conclusion that the majority of the cluster consisted of non-luminous matter.
+Today studies show that stars only contribute 1\% of the total cluster mass, with a hot, baryonic intracluster medium and dark matter contributing the remaining 14\% and 85\% of the total cluster mass, respectively.
+
+Spiral galaxies are stable gravitational bound systems with stars and interstellar gas rotating around the galactic center in nearly circular orbits in a single plane.
+For these galaxies, the orbit of an individual star is stable when the gravitational force acting on the star balances the centripetal acceleration of the star.
+With this condition, the expected stellar velocity $v$ is a function of distance $r$ from the galatic center given by
+\begin{equation}
+  v = \sqrt{\frac{GM(r)}{r}}
+\end{equation}
+where $M(r)$ is the total gravitational mass inside radius $r$.
+Thus, past a certain critical radius $r_c$, the stellar velocity should fall with as $r^{1/2}$ as the mass of the galaxy is no longer increasing.
+
+In 1980, Vera Rubin and Kent Ford observed that instead of decreasing at distances outside the visible galaxy, the stellar velocity stayed constant out to a very great distance, necessitating an additional non-luminous source of mass. % http://adsabs.harvard.edu/doi/10.1086/158003
+The most common explanation for this missing mass is the existence of an isotropic dark matter halo surrounding the galaxy.
+With the inclusion of interstellar gas, the total mass inside radius $r$ is given by
+\begin{equation}
+  M(r) = 4 \pi \int_0^r \text{d}r' (r')^2 \Big[\rho_{\text{S}}(r') + \rho_{\text{g}}(r') + \rho_{\text{DM}}(r') \Big],
+\end{equation}
+where $\rho_{\text{S}}$, $\rho_{\text{g}}$, and $\rho_{\text{DM}}$ are the density profiles of the stars, interstellar gas, and dark matter in the galaxy, respectively.
+Once these densities have been specified, it is possible to plot the fraction of the total stellar velocity for each mass source as a function of distance from the galactic center.
+
+Figure~\ref{fig:rotation_curves} shows the results of doing this using the observed stellar and interstellar mass density profiles and the expected density from an isotropic dark matter halo for two different spiral galaxies.
+In both cases, this reproduces the observed flat galactic rotation curve incredibly well, lending strong support for the existence of galactic dark matter halos. 
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.85\textwidth]{Motivation/Figures/rotation_curves.png}
+  \caption{
+    The observed (points) and fitted (solid line) rotation curves for two sample galaxies.
+    The fit consists of three components: the stellar component (dashed), the interstellar gas (dotted), and the dark matter halo (dash-dotted).
+    Reprinted from Reference~\cite{}. % http://adsabs.harvard.edu/abs/1991MNRAS.249..523B
+  }
+  \label{fig:rotation_curves}
+\end{figure}
+
+
 
 \subsection{Dark Matter Candidates}
 \label{sec:dm_cand}
