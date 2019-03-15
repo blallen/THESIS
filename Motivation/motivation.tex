@@ -361,7 +361,7 @@ Most of these single-particle states have finite lifetimes and decay to lower en
 The only particles whose decays have not been observed are the photon, the electron, the neutrinos, and the proton (a baryon of flavor content uud).
 Additionally, stable bound states of protons and neutrons (a baryon of flavor content udd) exist in the form of atomic nuclei.
 
-\newpage
+% \newpage
 
 \section{Dark Matter}
 \label{sec:dm}
@@ -497,10 +497,43 @@ Instead, the gravitational potential tracks the smaller stellar baryonic mass co
 Dark matter must be the dominant gravitational source in the cluster since the center of total mass is offset from the center of baryonic mass.
 Furthermore, the observation of two gravitional mass centers places strong constraints on the self-interaction of dark matter requiring that the observed mass must have a self-interaction collisional cross section $\sigma/m < 1.25\cm^2\text{g}^{-1}$ at a 68\% confidence level.
 
+\subsection{Relic Density}
+\label{sec:dm_relic}
+
+Gonna do some calculations.
+
+At thermal equilibrium, the number density of dark matter $\chi$ is given by
+\begin{equation}
+  n_\chi^{\text{eq}} = \frac{g}{(2\pi)^3} \int f(\vec p) \, \text{d}^3 \vec p,
+\end{equation}
+where $g$ is the number of internal degrees of freedom of the particle and $f(\vec p)$ is either the Fermi-Dirac or Bose-Einstein distribution.
+The time evolution of the number density $n_\chi (t)$ of dark matter is given by
+\begin{equation}
+  \frac{\text{d} n_\chi}{\text{d}t} + 3 H n_\chi = - \langle \sigma_A v \rangle \left[ (n_\chi)^2 - (n_\chi^{\text{eq}})^2\right],
+\end{equation}
+where $H$ is the Hubble expansion rate and $\langle \sigma_A v \rangle$ is the thermally averaged product of the total cross section for annihilation $\sigma_A$ and the  relative velocity $v$ of the dark matter particles.
+A dimensional approximation of the present mass density of dark matter is
+\begin{equation}
+  \Omega_\chi \cdot h^2 = \frac{m_\chi n_\chi}{\rho_c} \simeq \frac{3 \times 10^{-27} \cm^{3} s^{-1}}{\langle \sigma_A v \rangle},
+\end{equation}
+where $m_\chi$ is the mass of the dark matter particle and $\rho_c = 3H^2/(8\pi G)$ is the critical density of the universe.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.625\textwidth]{Motivation/Figures/relic_density.png}
+  \caption{
+    Relic density of dark matter in the early universe as a function of time.
+    The solid curves are the equilibrium abundance while the dashed curves are the actual abundance after freeze-out.
+    As the annihilation cross section increases, the relic abundance decreases as the dark matter particles stay in equilibrium longer.
+    Reprinted from Reference~\cite{}. % https://doi.org/10.1016/0370-1573(95)00058-5
+  }
+  \label{fig:relic_density}
+\end{figure}
+
 \subsection{Dark Matter Candidates}
 \label{sec:dm_cand}
 
-WIMPs and axions for now.
+WIMPs, axions, and sterile neutrinos.
 
 \subsection{Non-collider Searches}
 \label{sec:dm_search}
