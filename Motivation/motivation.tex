@@ -500,35 +500,46 @@ Furthermore, the observation of two gravitional mass centers places strong const
 \subsection{Relic Density}
 \label{sec:dm_relic}
 
-Gonna do some calculations.
-
-At thermal equilibrium, the number density of dark matter $\chi$ is given by
+During the early universe, dark matter (DM) was in thermal equilibrium with the rest of the SM particles with a number density $n_\chi$ given by
 \begin{equation}
   n_\chi^{\text{eq}} = \frac{g}{(2\pi)^3} \int f(\vec p) \, \text{d}^3 \vec p,
 \end{equation}
-where $g$ is the number of internal degrees of freedom of the particle and $f(\vec p)$ is either the Fermi-Dirac or Bose-Einstein distribution.
-The time evolution of the number density $n_\chi (t)$ of dark matter is given by
+where $g$ is the number of internal degrees of freedom of the DM particle $\chi$ and $f(\vec p)$ is either the Fermi-Dirac or Bose-Einstein distribution, depending on the quantum statistics of the DM particle.
+At very high temperatures relative to the mass $m_\chi$ of the DM particle, dark matter and SM particles rapidly convert back and forth with a DM annihilation rate $\Gamma = \langle \sigma_A v \rangle \cdot n_\chi$, where $\langle \sigma_A v \rangle$ is the thermally averaged product of the total cross section for annihilation $\sigma_A$ and the relative velocity $v$ of the dark matter particles.
+After the temperature drops below $m_\chi$, the DM annihilation rate $\Gamma$ drops below the Hubble expansion rate $H$ of the universe and the DM particles stop annihilating and freeze-out of equilibrium with the SM particles, leaving the DM relic density that we observe today.
+During the freeze-out process, the time dependence of the number density $n_\chi$ is described by the Boltzmann equation as follows
 \begin{equation}
-  \frac{\text{d} n_\chi}{\text{d}t} + 3 H n_\chi = - \langle \sigma_A v \rangle \left[ (n_\chi)^2 - (n_\chi^{\text{eq}})^2\right],
+  \frac{\text{d} n_\chi}{\text{d}t} + 3 H n_\chi = - \langle \sigma_A v \rangle \left[ (n_\chi)^2 - (n_\chi^{\text{eq}})^2\right].
 \end{equation}
-where $H$ is the Hubble expansion rate and $\langle \sigma_A v \rangle$ is the thermally averaged product of the total cross section for annihilation $\sigma_A$ and the  relative velocity $v$ of the dark matter particles.
-A dimensional approximation of the present mass density of dark matter is
-\begin{equation}
-  \Omega_\chi \cdot h^2 = \frac{m_\chi n_\chi}{\rho_c} \simeq \frac{3 \times 10^{-27} \cm^{3} s^{-1}}{\langle \sigma_A v \rangle},
-\end{equation}
-where $m_\chi$ is the mass of the dark matter particle and $\rho_c = 3H^2/(8\pi G)$ is the critical density of the universe.
+The LHS term accounts for the reduction in density due to the expansion of the universe.
+The two RHS terms account for the change in density due to annihilation and product of DM particles to and from SM particles, respectively.
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.625\textwidth]{Motivation/Figures/relic_density.png}
   \caption{
-    Relic density of dark matter in the early universe as a function of time.
+    Number density of dark matter in the early universe as a function of time.
     The solid curves are the equilibrium abundance while the dashed curves are the actual abundance after freeze-out.
-    As the annihilation cross section increases, the relic abundance decreases as the dark matter particles stay in equilibrium longer.
     Reprinted from Reference~\cite{}. % https://doi.org/10.1016/0370-1573(95)00058-5
   }
   \label{fig:relic_density}
 \end{figure}
+
+Figure~\ref{fig:relic_density} shows the calculated DM number density $n_\chi$ as a function of time in the early universe.
+As the annihilation cross section increases, the relic density decreases as the dark matter particles stay in equilibrium longer.
+We shall make an order-of-magnitude estimate of the relic density by assuming that $\langle \sigma_A v \rangle$ is independent of energy.
+Freeze-out occurs at the temperature $T_f$ where the expansion rate $H(T)$ equals the annihilation rate $\Gamma(T)$.
+The temperature dependence of $\Gamma$ is simply that of $n_\chi$, e.g. $\Gamma \propto T^3$.
+Meanwhile, the early universe is radiation dominated, so we have that $H \propto T^2$. 
+Futhermore, astrophysical measurements (see Section~\ref{sec:dm_astro}) can't give direct bounds on the number density, only on the mass density $\rho_\chi = m_\chi n_\chi$. 
+Additionally, mass densities are usually expressed as a fraction of the critical density of the universe $\rho_c = 3H^2/(8\pi G)$.
+Combining all of this, the relic density of dark matter is given by 
+\begin{equation}
+  \Omega_\chi \cdot h^2 = \frac{m_\chi n_\chi}{\rho_c} \simeq \frac{3 \times 10^{-27} \cm^{3} s^{-1}}{\langle \sigma_A v \rangle},
+\end{equation}
+where $h = H_0/(100 \text{ km s}^{-1}\text{ Mpc}^{-1})$ is the reduced Hubble constant. 
+Thus, to first order the DM relic density depends only on two things: the total DM annihilation cross section $\sigma_A$ and the mass $m_\chi$ of the DM candidate, as after freeze-out $T \ll m_\chi$ and the velocity $v$ is stricly proportional to $m_\chi$. 
+The latest Planck results measure that $\Omega_\chi \cdot h^2 = 0.1200 \pm 0.0012$, providing strong constaints on the possible values of $\sigma_A$ and $m_\chi$.
 
 \subsection{Dark Matter Candidates}
 \label{sec:dm_cand}
