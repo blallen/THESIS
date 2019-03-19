@@ -182,7 +182,8 @@ Futhermore, astrophysical measurements (see Section~\ref{sec:dm_astro}) can't gi
 Additionally, mass densities are usually expressed as a fraction of the critical density of the universe $\rho_c = 3H^2/(8\pi G)$.
 Combining all of this, the relic density of dark matter is given by 
 \begin{equation}
-  \Omega_\chi \cdot h^2 = \frac{m_\chi n_\chi}{\rho_c} \simeq \frac{3 \times 10^{-27} \cm^{3} s^{-1}}{\langle \sigma_A v \rangle},
+  \label{eqn:relic_density}
+  \Omega_\chi \cdot h^2 = \frac{m_\chi n_\chi}{\rho_c} \simeq \frac{10^{-27} \cm^{3}\text{ s}^{-1}}{\langle \sigma_A v \rangle},
 \end{equation}
 where $h = H_0/(100 \text{ km s}^{-1}\text{ Mpc}^{-1})$ is the reduced Hubble constant. 
 Thus, to first order the DM relic density depends only on two things: the total DM annihilation cross section $\sigma_A$ and the mass $m_\chi$ of the DM candidate, as after freeze-out $T \ll m_\chi$ and the velocity $v$ is stricly proportional to $m_\chi$. 
@@ -191,8 +192,22 @@ The latest Planck results measure that $\Omega_\chi \cdot h^2 = 0.1200 \pm 0.001
 \section{Dark Matter Candidates}
 \label{sec:dm_cand}
 
-WIMPs, axions, and sterile neutrinos.
+% WIMPs, axions, and sterile neutrinos.
 
+\subsection{Weakly-Interacting Massive Particles}
+\label{dm_wimp}
+
+The annihilation cross-section of new particle $\chi$ with electroweak scale interactions is approximately
+\begin{equation}
+  \langle \sigma_A v \rangle \approx \left( \frac{\alpha \cdot g_\chi^2}{m_\chi} \right)^2 = \left( \frac{e^2}{4\pi} \cdot \frac{(0.8)^2}{100\GeV} \right)^2 \approx 10^{-26} \cm^{3}\text{ s}^{-1},
+\end{equation}
+where $\alpha = e^2 / 4\pi$ is the fine-structure constant, $m_\chi = 100\GeV$ is the mass of the particle, and $g_\chi \approx 0.8$ is the effective coupling for the four-point interaction $\chi \bar\chi \rightarrow f \bar f$.
+Plugging this into Equation~\ref{eqn:relic_density}, we obtain $\Omega_\chi \cdot h^2 \approx 0.1$, which is very close to the observed value.
+This numerical coincidence motivates a new weakly-interacting massive particle (WIMP) as a good DM candidate.
+
+The only criteria to be a WIMP beyond the generic definition of dark matter is that the mass and interaction strength of the new particle must be approximately that of the EWK scale.
+Thus, a great many new physics models have WIMPS natively, such as the neutralino in supersymmetry and the lightest Kaluza-Klein particle in theories of universal extra dimensions.
+In this thesis, we shall focus on a set of simplified models that describe WIMP interactions in a relatively model-independent manner. For more details, see Section~\ref{sec:dm_simp}.
 \section{Non-collider Searches}
 \label{sec:dm_search}
 
