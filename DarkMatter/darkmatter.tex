@@ -3,12 +3,15 @@
 
 As a theory of the fundamental particles and forces of nature, the Standard Model should also help explain physics at the largest scales.
 The $\Lambda$CDM model best explains all current cosmological observations including the structure of the cosmic microwave background; the abundances of hydrogren, helium, and lithium; the large-scale structure in the distribution of galaxies, and the accelerating expansion of the universe.
-However, the latest results from the Planck collaboration show that bayronic matter (matter consisting of combinations of protons, neutrons, and electrons) only contributes $\sim$5\% of the total energy of the universe, with radiation (photons and relativistic neutrinos) contributing less than a hundredth of a percent.
+However, the latest results from the Planck collaboration show that bayronic matter (matter consisting of various combinations of protons, neutrons, and electrons) only contributes $\sim$5\% of the total energy of the universe, with radiation (photons and relativistic neutrinos) contributing less than a hundredth of a percent.
 
 The remaining 95\% of energy comes from just two sources: $\sim$27\% from non-relativistic non-baryonic matter referred to as dark matter and $\sim$68\% from an unknown form of energy that permeates all of space referred to as dark energy.
-Current observations show the latter is uniform in space and time producing a similar effect to that of the cosmological constant in the Einstein field equations of general relavity, sufficient explanation for the work shown in this thesis which shall focus on the former.
+Current observations show that dark energy is uniform in space and time producing a similar effect to that of the cosmological constant in the Einstein field equations of general relavity.
+Not much else is known about dark energy, although there are many experiments attempting to discover additional properties.
+The work in this thesis shall focus on trying to explain dark matter.
 
-Dark matter cannot be explained by the 17 particles of the Standard Model, yet its gravitational effects have been observed in many circumstances. The rest of this section will cover the astrophysical evidence for dark matter (Section~\ref{sec:dm_astro}), various dark matter candidates (Section~\ref{sec:dm_cand}), and non-collider searches for dark matter (Section~\ref{sec:dm_search}) before concluding with a discussion of the dark matter models investigated in this thesis (Section~\ref{sec:dm_simp}).
+Dark matter cannot be explained by the 17 particles of the Standard Model (see Section~\ref{sec:dm_cand}), yet its gravitational effects have been observed in many circumstances.
+The rest of this chapter will cover the astrophysical evidence for dark matter (Sections~\ref{sec:dm_astro} and~\ref{sec:dm_relic}), various dark matter candidates (Section~\ref{sec:dm_cand}), and non-collider searches for dark matter (Section~\ref{sec:dm_search}) before concluding with a discussion of the dark matter models investigated in this thesis (Section~\ref{sec:dm_simp}).
 
 \section{Astrophysical Evidence}
 \label{sec:dm_astro}
@@ -47,7 +50,7 @@ With the inclusion of interstellar gas, the total mass inside radius $r$ is give
   M(r) = 4 \pi \int_0^r \text{d}r' (r')^2 \Big[\rho_{\text{S}}(r') + \rho_{\text{g}}(r') + \rho_{\text{DM}}(r') \Big],
 \end{equation}
 where $\rho_{\text{S}}$, $\rho_{\text{g}}$, and $\rho_{\text{DM}}$ are the density profiles of the stars, interstellar gas, and dark matter in the galaxy, respectively.
-Once these densities have been specified, it is possible to plot the fraction of the total stellar velocity for each mass source as a function of distance from the galactic center.
+Once these densities have been specified, it is possible to plot the fraction of the total stellar velocity due to each mass source as a function of distance from the galactic center.
 
 Figure~\ref{fig:rotation_curves} shows the results of doing this using the observed stellar and interstellar mass density profiles and the expected density from an isotropic dark matter halo for two different spiral galaxies.
 In both cases, this reproduces the observed flat galactic rotation curve incredibly well, lending strong support for the existence of galactic dark matter halos. 
@@ -113,7 +116,7 @@ An example of strong lensing is shown in Figure~\ref{fig:strong_lensing}.
 
 The next regime is known as weak lensing, where the deflection is enough to distort the image of the source but not enough to result in multiple images.
 The shear of this distortion can be converted into a map of the projected mass distribution.
-True weak lensing results in circular ``$E$-mode'' patterns while sources of systematic uncertainty produce ``$E$-mode'' and curl-like ``$B$-mode'' patterns.
+True weak lensing results in circular ``$E$-mode'' patterns while sources of systematic uncertainty produce both ``$E$-mode'' and curl-like ``$B$-mode'' patterns.
 Thus, requiring a zero ``$B$-mode'' contribution assures that the measured mass distribution is accurate.
 Figure~\ref{fig:weak_lensing} shows the observed shear of half a million galaxies measured in the Hubble Space Telescope COSMOS survey.
 
@@ -139,7 +142,7 @@ Microlensing results show that rocky exoplanets orbit other stars and that these
 
 Additionally, gravitational lensing measurements of galactic cluster collisions provide support for dark matter and help constrain its properties.
 Figure~\ref{fig:bullet_cluster} shows the merging cluster 1E0657-558.
-By comparing the weak lensing reconstruction of the gravitational potential of the cluster shown in green contours against temperature color gradient of the X-ray emitting interstellar plasma, it was learned that the gravitational potential of the cluster doesn't track the dominant baryonic mass contribution coming from the plasma.
+By comparing the weak lensing reconstruction of the gravitational potential of the cluster shown in green contours against temperature color gradient of the X-ray emitting interstellar plasma, it was learned that the gravitational potential of the cluster does not track the dominant baryonic mass contribution coming from the plasma.
 Instead, the gravitational potential tracks the smaller stellar baryonic mass component.
 Dark matter must be the dominant gravitational source in the cluster since the center of total mass is offset from the center of baryonic mass.
 Furthermore, the observation of two gravitional mass centers places strong constraints on the self-interaction of dark matter requiring that the observed mass must have a self-interaction collisional cross section $\sigma/m < 1.25\cm^2\text{g}^{-1}$ at a 68\% confidence level.
@@ -183,31 +186,48 @@ Additionally, mass densities are usually expressed as a fraction of the critical
 Combining all of this, the relic density of dark matter is given by 
 \begin{equation}
   \label{eqn:relic_density}
-  \Omega_\chi \cdot h^2 = \frac{m_\chi n_\chi}{\rho_c} \simeq \frac{10^{-27} \cm^{3}\text{ s}^{-1}}{\langle \sigma_A v \rangle},
+  \dmrelic = \frac{m_\chi n_\chi}{\rho_c} \simeq \frac{10^{-27} \cm^{3}\text{ s}^{-1}}{\langle \sigma_A v \rangle},
 \end{equation}
 where $h = H_0/(100 \text{ km s}^{-1}\text{ Mpc}^{-1})$ is the reduced Hubble constant. 
 Thus, to first order the DM relic density depends only on two things: the total DM annihilation cross section $\sigma_A$ and the mass $m_\chi$ of the DM candidate, as after freeze-out $T \ll m_\chi$ and the velocity $v$ is stricly proportional to $m_\chi$. 
-The latest Planck results measure that $\Omega_\chi \cdot h^2 = 0.1200 \pm 0.0012$, providing strong constaints on the possible values of $\sigma_A$ and $m_\chi$.
+The latest Planck results measure that $\dmrelic = 0.1200 \pm 0.0012$, providing strong constaints on the possible values of $\sigma_A$ and $m_\chi$.
 
 \section{Dark Matter Candidates}
 \label{sec:dm_cand}
 
 % WIMPs, axions, and sterile neutrinos.
 
+Any dark matter candidate must satisfy the following criteria:
+\begin{itemize}
+\item No or extremely weak interactions with photons, e.g. be \underline{\textbf{\textit{dark}}}
+\item Weak baryonic interactions to preserve the DM halos discussed in Section~\ref{sec:dm_curves}
+\item Weak self-interactions as discussed in Section~\ref{sec:dm_bullet}
+\item The observed relic density discussed in Section~\ref{sec:dm_relic}.
+\end{itemize}
+These four criteria place stringent requirements on dark matter candidates.
+The light neutrinos, the only SM particles satisfying the first three conditions, are excluded as the total neutrino relic density has a bound of $\Omega_\nu \cdot h^2 \leq 0.00067$ at 95\% confidence level from analysis of the CMB anisotropies.
+Big Bang Nucleosynthesis and gravitational microlensing have mostly exclude non-luminious baryonic matter from forming the bulk of dark matter.
+Thus, most theories of dark matter propose a new fundamental particle as a dark matter candidate.
+The following sections discuss the most common dark matter candidates, namely axions, sterile neutrinos, and weakly-interacting massive particles (WIMPs).
+
+\subsection{Axions}
+\label{dm_axion}
+
 \subsection{Weakly-Interacting Massive Particles}
 \label{dm_wimp}
 
 The annihilation cross-section of new particle $\chi$ with electroweak scale interactions is approximately
 \begin{equation}
-  \langle \sigma_A v \rangle \approx \left( \frac{\alpha \cdot g_\chi^2}{m_\chi} \right)^2 = \left( \frac{e^2}{4\pi} \cdot \frac{(0.8)^2}{100\GeV} \right)^2 \approx 10^{-26} \cm^{3}\text{ s}^{-1},
+  \langle \sigma_A v \rangle \approx \left( \frac{\alpha \cdot g_\chi^2}{m_\chi} \right)^2 = \left( \frac{e^2}{4\pi} \cdot \frac{(0.8)^2}{100\GeV} \right)^2 \simeq 10^{-26} \cm^{3}\text{ s}^{-1},
 \end{equation}
 where $\alpha = e^2 / 4\pi$ is the fine-structure constant, $m_\chi = 100\GeV$ is the mass of the particle, and $g_\chi \approx 0.8$ is the effective coupling for the four-point interaction $\chi \bar\chi \rightarrow f \bar f$.
-Plugging this into Equation~\ref{eqn:relic_density}, we obtain $\Omega_\chi \cdot h^2 \approx 0.1$, which is very close to the observed value.
+Plugging this into Equation~\ref{eqn:relic_density}, we obtain $\dmrelic \sim 0.1$, which is very close to the observed value.
 This numerical coincidence motivates a new weakly-interacting massive particle (WIMP) as a good DM candidate.
 
 The only criteria to be a WIMP beyond the generic definition of dark matter is that the mass and interaction strength of the new particle must be approximately that of the EWK scale.
 Thus, a great many new physics models have WIMPS natively, such as the neutralino in supersymmetry and the lightest Kaluza-Klein particle in theories of universal extra dimensions.
 In this thesis, we shall focus on a set of simplified models that describe WIMP interactions in a relatively model-independent manner. For more details, see Section~\ref{sec:dm_simp}.
+
 \section{Non-collider Searches}
 \label{sec:dm_search}
 
