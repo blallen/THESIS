@@ -195,8 +195,6 @@ The latest Planck results measure that $\dmrelic = 0.1200 \pm 0.0012$, providing
 \section{Dark Matter Candidates}
 \label{sec:dm_cand}
 
-% WIMPs, axions, and sterile neutrinos.
-
 Any dark matter candidate must satisfy the following criteria:
 \begin{itemize}
 \item No or extremely weak interactions with photons, e.g. be \underline{\textbf{\textit{dark}}}
@@ -211,10 +209,34 @@ Thus, most theories of dark matter propose a new fundamental particle as a dark 
 The following sections discuss the most common dark matter candidates, namely axions, sterile neutrinos, and weakly-interacting massive particles (WIMPs).
 
 \subsection{Axions}
-\label{dm_axion}
+\label{sec:dm_axion}
+
+The hypothetical axion particle introduced in Section~\ref{sec:qcd} is a dark matter candidate if the axion decay constant $f_a$ is large enough as all axion-SM couplings are inversely proportional to it.
+Constraints from the observed duration of the neutrino burst from supernova SN 1987A require that $f_a \gtrsim 10^9\GeV$, sufficiently high that the axion lifetime exceeds the age of the universe by many orders of magnitude. % https://arxiv.org/pdf/hep-ph/0611350.pdf
+Thus, the axion is a viable DM candidate due to its long lifetime and weak couplings to SM particles.
+
+After accounting for kinematic mixing with the $\pi^0$ and $\eta$ mesons, the axion mass is given by
+\begin{equation}
+  m_a = \left(\frac{\sqrt{m_u m_d}}{m_u + m_d}\right) \left(\frac{f_\pi}{f_a}\right) m_\pi \simeq \left( \frac{10^7\GeV}{f_a}\right) \eV,
+\end{equation}
+where $f_\pi$ is the pion decay constant and $m_u$, $m_d$, and $m_\pi$ are the masses of the up quark, the down quark, and the neutral pion, respectively.
+From this, we see that the axion mass is inversely proportional to $f_a$, leading to an upper limit of $m_a \lesssim 10 \meV$.
+The Planck measurements of the cosmic microwave background also provide a lower (upper) bound on the axion mass $m_a \gtrsim 10 \mueV$ (axion decay constant $f_a \lesssim 10^{12}\GeV$), otherwise the axion abundance is too high.
+
+The axion obtains a two-photon vertex through loops involving virtual quarks and gluons of the form
+\begin{equation}
+  \mathcal{L}_{a\gamma\gamma} = \frac{1}{4} g_{a\gamma\gamma} \epsilon_{\mu\nu\rho\sigma} F^{\mu\nu} F^{\rho\sigma} a = - g_{a\gamma\gamma} \left(\vec E \cdot \vec B\right) a,
+\end{equation}
+where $F^{\mu\nu}$ is the electromagnetic field-strength tensor, $\vec E$ and $\vec B$ are the electric and magnetic fields, respectively, and the coupling constant is
+\begin{equation}
+  g_{a\gamma\gamma} = - \frac{\alpha}{3\pi f_a} \left( \frac{m_u + 4m_d}{m_u + m_d}\right).
+\end{equation}
+From this, we can see that the axion's coupling to the photon is incredibly small unless in the presence of a strong electromagnetic field.
+Thus, astrophysical axions are \underline{\textbf{\textit{dark}}} unless they enter a region with such a field.
+Searches for axions such as CAST\cite{} and ADMX\cite{} exploit this to try to observe axion-to-photon conversions.
 
 \subsection{Weakly-Interacting Massive Particles}
-\label{dm_wimp}
+\label{sec:dm_wimp}
 
 The annihilation cross-section of new particle $\chi$ with electroweak scale interactions is approximately
 \begin{equation}
