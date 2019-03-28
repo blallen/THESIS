@@ -208,6 +208,39 @@ Big Bang Nucleosynthesis and gravitational microlensing have mostly exclude non-
 Thus, most theories of dark matter propose a new fundamental particle as a dark matter candidate.
 The following sections discuss the most common dark matter candidates, namely axions, sterile neutrinos, and weakly-interacting massive particles (WIMPs).
 
+\subsection{Sterile Neutrinos}
+\label{sec:dm_sterile}
+
+In Section~\ref{sec:yukawa}, we introduced mass for the SM fermions through the Higgs mechanism in order to preserve \sutwo\ gauge invariance.
+However, since the right-handed neutrinos are singlets under the full $\suthree \times \sutwo \times \uone$ gauge of the SM, it is possible to add explicit Majorana mass terms in addition to the Dirac mass terms in the SM Lagrangian as follows
+\begin{align}
+  \mathcal{L}_{\nu_R} & = i \bar \nu_R \slashed \partial \nu_R
+  - \left( \bar \ell_L Y_\nu \phi_c \nu_R + \bar \nu_R Y_\nu^\dagger \phi_c^\dagger \ell_L \right)
+  - \frac{1}{2} \left( \bar \nu_R^c M_M \nu_R + \bar \nu_R M_M^\dagger \nu_R^c \right) \nonumber \\
+  & = i \bar \nu_R \slashed \partial \nu_R
+  - \left( \bar{{\nu}}_L  M_\nu  \nu_R + \bar{{\nu}}_R  M_\nu^\dagger  \nu_L \right)
+  - \frac{1}{2} \left( \bar \nu_R^c M_M \nu_R + \bar \nu_R M_M^\dagger \nu_R^c \right) \nonumber \\
+  & = i \bar \nu_R \slashed \partial \nu_R
+  - \frac{1}{2} \left[ \begin{pmatrix} \bar \nu_L & \bar \nu_R^c \end{pmatrix}
+    \begin{pmatrix} 0 & M_\nu \\ M_\nu^T & M_M \end{pmatrix}
+    \begin{pmatrix} \nu_L^c \\ \nu_R \end{pmatrix} + h.c. \right], 
+\end{align}
+where $\nu_R^c$ are the charge conjugates of the right-handed neutrinos, $h.c.$ stands for hermitian conjugate, and $Y_\nu$, $M_\nu$, and $M_M$ are the Yukawa, Dirac mass, and Majorana mass matrices for the neutrinos, respectively.
+% https://arxiv.org/pdf/1303.6912.pdf
+
+
+In the limit $M_M \gg M_\nu$, %(required to produce a dark matter candidate),
+the combined mass matrix has two distinct sets of eigenvalues: the sterile neutrinos $\nu_s$ with masses $m_s \simeq M_M$ and the active neutrinos $\nu_a$ with masses $m_a \simeq M_\nu^2 / M_M$.
+The active and sterile neutrinos are related to the left- and right-handed neutrinos by the active-sterile mixing matrix $\theta = M_\nu M_M^{-1}$ as follows
+\begin{align}
+  | \nu_a \rangle & = \cos \theta | \nu_L \rangle + \sin \theta |\nu_R \rangle \nonumber \\
+  | \nu_s \rangle & = - \sin \theta | \nu_L \rangle + \cos \theta |\nu_R \rangle.
+\end{align}
+In this formulation, the active neutrinos are the observed neutrinos of the SM while the sterile neutrino states are a promising dark matter candidate as they only interact with the SM through neutrino oscillations.
+Furthermore, the sterile neutrinos must have $m_s \simeq \keV$ or else they cannot account for the observed masses of DM-dominated objects without violating the Pauli exclusion principle. % https://arxiv.org/pdf/0901.0011.pdf
+Fortunately, this constraint also means that the oscillation rate into active neutrinos is low enough that the sterile neutrino lifetime is longer than the age of the universe.
+Astrophysical detection, accelerator production, and neutrinoless double $\beta$ decay experiments all place constraints on sterile neutrino properties. % https://arxiv.org/pdf/1807.07938.pdf
+
 \subsection{Axions}
 \label{sec:dm_axion}
 
