@@ -206,7 +206,49 @@ These four criteria place stringent requirements on dark matter candidates.
 The light neutrinos, the only SM particles satisfying the first three conditions, are excluded as the total neutrino relic density has a bound of $\Omega_\nu \cdot h^2 \leq 0.00067$ at 95\% confidence level from analysis of the CMB anisotropies.
 Big Bang Nucleosynthesis and gravitational microlensing have mostly exclude non-luminious baryonic matter from forming the bulk of dark matter.
 Thus, most theories of dark matter propose a new fundamental particle as a dark matter candidate.
-The following sections discuss the most common dark matter candidates, namely axions, sterile neutrinos, and weakly-interacting massive particles (WIMPs).
+The following sections discuss the most common dark matter candidates, namelyweakly-interacting massive particles (WIMPs), axions, and sterile neutrinos.
+
+\subsection{Weakly-Interacting Massive Particles}
+\label{sec:dm_wimp}
+
+The annihilation cross-section of new particle $\chi$ with electroweak scale interactions is approximately
+\begin{equation}
+  \langle \sigma_A v \rangle \approx \left( \frac{\alpha \cdot g_\chi^2}{m_\chi} \right)^2 = \left( \frac{e^2}{4\pi} \cdot \frac{(0.8)^2}{100\GeV} \right)^2 \simeq 10^{-26} \cm^{3}\text{ s}^{-1},
+\end{equation}
+where $\alpha = e^2 / 4\pi$ is the fine-structure constant, $m_\chi = 100\GeV$ is the mass of the particle, and $g_\chi \approx 0.8$ is the effective coupling for the four-point interaction $\chi \bar\chi \rightarrow f \bar f$.
+Plugging this into Equation~\ref{eqn:relic_density}, we obtain $\dmrelic \sim 0.1$, which is very close to the observed value.
+This numerical coincidence motivates a new weakly-interacting massive particle (WIMP) as a good DM candidate.
+
+The only criteria to be a WIMP beyond the generic definition of dark matter is that the mass and interaction strength of the new particle must be approximately that of the EWK scale.
+Thus, a great many new physics models have WIMPS natively, such as the neutralino in supersymmetry and the lightest Kaluza-Klein particle in theories of universal extra dimensions.
+In this thesis, we shall focus on a set of simplified models that describe WIMP interactions in a relatively model-independent manner. For more details, see Section~\ref{sec:dm_simp}.
+
+\subsection{Axions}
+\label{sec:dm_axion}
+
+The hypothetical axion particle introduced in Section~\ref{sec:qcd} is a dark matter candidate if the axion decay constant $f_a$ is large enough as all axion-SM couplings are inversely proportional to it.
+Constraints from the observed duration of the neutrino burst from supernova SN 1987A require that $f_a \gtrsim 10^9\GeV$, sufficiently high that the axion lifetime exceeds the age of the universe by many orders of magnitude. % https://arxiv.org/pdf/hep-ph/0611350.pdf
+Thus, the axion is a viable DM candidate due to its long lifetime and weak couplings to SM particles.
+
+After accounting for kinematic mixing with the $\pi^0$ and $\eta$ mesons, the axion mass is given by
+\begin{equation}
+  m_a = \left(\frac{\sqrt{m_u m_d}}{m_u + m_d}\right) \left(\frac{f_\pi}{f_a}\right) m_\pi \simeq \left( \frac{10^7\GeV}{f_a}\right) \eV,
+\end{equation}
+where $f_\pi$ is the pion decay constant and $m_u$, $m_d$, and $m_\pi$ are the masses of the up quark, the down quark, and the neutral pion, respectively.
+From this, we see that the axion mass is inversely proportional to $f_a$, leading to an upper limit of $m_a \lesssim 10 \meV$.
+The Planck measurements of the cosmic microwave background also provide a lower (upper) bound on the axion mass $m_a \gtrsim 10 \mueV$ (axion decay constant $f_a \lesssim 10^{12}\GeV$), otherwise the axion abundance is too high.
+
+The axion obtains a two-photon vertex through loops involving virtual quarks and gluons of the form
+\begin{equation}
+  \mathcal{L}_{a\gamma\gamma} = \frac{1}{4} g_{a\gamma\gamma} \epsilon_{\mu\nu\rho\sigma} F^{\mu\nu} F^{\rho\sigma} a = - g_{a\gamma\gamma} \left(\vec E \cdot \vec B\right) a,
+\end{equation}
+where $F^{\mu\nu}$ is the electromagnetic field-strength tensor, $\vec E$ and $\vec B$ are the electric and magnetic fields, respectively, and the coupling constant is
+\begin{equation}
+  g_{a\gamma\gamma} = - \frac{\alpha}{3\pi f_a} \left( \frac{m_u + 4m_d}{m_u + m_d}\right).
+\end{equation}
+From this, we can see that the axion's coupling to the photon is incredibly small unless in the presence of a strong electromagnetic field.
+Thus, astrophysical axions are \underline{\textbf{\textit{dark}}} unless they enter a region with such a field.
+Searches for axions such as CAST\cite{} and ADMX\cite{} exploit this to try to observe axion-to-photon conversions.
 
 \subsection{Sterile Neutrinos}
 \label{sec:dm_sterile}
@@ -239,49 +281,8 @@ The active and sterile neutrinos are related to the left- and right-handed neutr
 In this formulation, the active neutrinos are the observed neutrinos of the SM while the sterile neutrino states are a promising dark matter candidate as they only interact with the SM through neutrino oscillations.
 Furthermore, the sterile neutrinos must have $m_s \simeq \keV$ or else they cannot account for the observed masses of DM-dominated objects without violating the Pauli exclusion principle. % https://arxiv.org/pdf/0901.0011.pdf
 Fortunately, this constraint also means that the oscillation rate into active neutrinos is low enough that the sterile neutrino lifetime is longer than the age of the universe.
+Additionally, the Majorana mass term allows for additional CP-violating phases beyond the Dirac phases discussed in Section~\ref{sec:flavor}.
 Astrophysical detection, accelerator production, and neutrinoless double $\beta$ decay experiments all place constraints on sterile neutrino properties. % https://arxiv.org/pdf/1807.07938.pdf
-
-\subsection{Axions}
-\label{sec:dm_axion}
-
-The hypothetical axion particle introduced in Section~\ref{sec:qcd} is a dark matter candidate if the axion decay constant $f_a$ is large enough as all axion-SM couplings are inversely proportional to it.
-Constraints from the observed duration of the neutrino burst from supernova SN 1987A require that $f_a \gtrsim 10^9\GeV$, sufficiently high that the axion lifetime exceeds the age of the universe by many orders of magnitude. % https://arxiv.org/pdf/hep-ph/0611350.pdf
-Thus, the axion is a viable DM candidate due to its long lifetime and weak couplings to SM particles.
-
-After accounting for kinematic mixing with the $\pi^0$ and $\eta$ mesons, the axion mass is given by
-\begin{equation}
-  m_a = \left(\frac{\sqrt{m_u m_d}}{m_u + m_d}\right) \left(\frac{f_\pi}{f_a}\right) m_\pi \simeq \left( \frac{10^7\GeV}{f_a}\right) \eV,
-\end{equation}
-where $f_\pi$ is the pion decay constant and $m_u$, $m_d$, and $m_\pi$ are the masses of the up quark, the down quark, and the neutral pion, respectively.
-From this, we see that the axion mass is inversely proportional to $f_a$, leading to an upper limit of $m_a \lesssim 10 \meV$.
-The Planck measurements of the cosmic microwave background also provide a lower (upper) bound on the axion mass $m_a \gtrsim 10 \mueV$ (axion decay constant $f_a \lesssim 10^{12}\GeV$), otherwise the axion abundance is too high.
-
-The axion obtains a two-photon vertex through loops involving virtual quarks and gluons of the form
-\begin{equation}
-  \mathcal{L}_{a\gamma\gamma} = \frac{1}{4} g_{a\gamma\gamma} \epsilon_{\mu\nu\rho\sigma} F^{\mu\nu} F^{\rho\sigma} a = - g_{a\gamma\gamma} \left(\vec E \cdot \vec B\right) a,
-\end{equation}
-where $F^{\mu\nu}$ is the electromagnetic field-strength tensor, $\vec E$ and $\vec B$ are the electric and magnetic fields, respectively, and the coupling constant is
-\begin{equation}
-  g_{a\gamma\gamma} = - \frac{\alpha}{3\pi f_a} \left( \frac{m_u + 4m_d}{m_u + m_d}\right).
-\end{equation}
-From this, we can see that the axion's coupling to the photon is incredibly small unless in the presence of a strong electromagnetic field.
-Thus, astrophysical axions are \underline{\textbf{\textit{dark}}} unless they enter a region with such a field.
-Searches for axions such as CAST\cite{} and ADMX\cite{} exploit this to try to observe axion-to-photon conversions.
-
-\subsection{Weakly-Interacting Massive Particles}
-\label{sec:dm_wimp}
-
-The annihilation cross-section of new particle $\chi$ with electroweak scale interactions is approximately
-\begin{equation}
-  \langle \sigma_A v \rangle \approx \left( \frac{\alpha \cdot g_\chi^2}{m_\chi} \right)^2 = \left( \frac{e^2}{4\pi} \cdot \frac{(0.8)^2}{100\GeV} \right)^2 \simeq 10^{-26} \cm^{3}\text{ s}^{-1},
-\end{equation}
-where $\alpha = e^2 / 4\pi$ is the fine-structure constant, $m_\chi = 100\GeV$ is the mass of the particle, and $g_\chi \approx 0.8$ is the effective coupling for the four-point interaction $\chi \bar\chi \rightarrow f \bar f$.
-Plugging this into Equation~\ref{eqn:relic_density}, we obtain $\dmrelic \sim 0.1$, which is very close to the observed value.
-This numerical coincidence motivates a new weakly-interacting massive particle (WIMP) as a good DM candidate.
-
-The only criteria to be a WIMP beyond the generic definition of dark matter is that the mass and interaction strength of the new particle must be approximately that of the EWK scale.
-Thus, a great many new physics models have WIMPS natively, such as the neutralino in supersymmetry and the lightest Kaluza-Klein particle in theories of universal extra dimensions.
-In this thesis, we shall focus on a set of simplified models that describe WIMP interactions in a relatively model-independent manner. For more details, see Section~\ref{sec:dm_simp}.
 
 \section{Non-collider Searches}
 \label{sec:dm_search}
