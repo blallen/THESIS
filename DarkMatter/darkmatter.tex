@@ -221,7 +221,8 @@ This numerical coincidence motivates a new weakly-interacting massive particle (
 
 The only criteria to be a WIMP beyond the generic definition of dark matter is that the mass and interaction strength of the new particle must be approximately that of the EWK scale.
 Thus, a great many new physics models have WIMPS natively, such as the neutralino in supersymmetry and the lightest Kaluza-Klein particle in theories of universal extra dimensions.
-In this thesis, we shall focus on a set of simplified models that describe WIMP interactions in a relatively model-independent manner. For more details, see Section~\ref{sec:dm_simp}.
+In this thesis, we shall focus on a set of simplified models that describe WIMP interactions in a relatively model-independent manner.
+For more details, see Section~\ref{sec:dm_simp}.
 
 \subsection{Axions}
 \label{sec:dm_axion}
@@ -292,4 +293,42 @@ Describes.
 \section{Simplified Models for LHC}
 \label{sec:dm_simp}
 
-It was the hot thing at the time.
+Without loss of generality, we assume that dark matter consists of a single Dirac fermion WIMP species $\chi$ with mass \mdm. 
+In order to observe DM at a hadron collider or through direct detection, there must exist a new mediator particle with mass \mmed\ that couples to both SM quarks and $\chi$ with couplings \gq\ and \gdm, respectively.
+In general, this mediator can have any spin structure; for purposes of simplicity, we limit ourselves to the observed mediators in the SM: a spin-0 scalar $S$, a spin-0 pseudoscalar $P$, a spin-1 vector $V_\mu$, and a spin-1 axial-vector $A_\mu$ (not to be confused with SM photon). % https://arxiv.org/pdf/1411.0535.pdf
+The Lagrangians for these possible mediators are
+\begin{align}
+  \mathcal{L}_{S} & = \frac{1}{2} \mmed^2 S^2 + \gdm \bar \chi S \chi + \gq \sum\limits_q \bar q Y_q S q \\
+  \mathcal{L}_{P} & = \frac{1}{2} \mmed^2 P^2 + \gdm \bar \chi \gamma^5 P \chi + i \gq \sum\limits_q \bar q Y_q \gamma^5 P q \\
+  \mathcal{L}_{V} & = \frac{1}{2} \mmed^2 V_\mu V^\mu + \gdm \bar \chi \slashed V \chi + \gq \sum\limits_q \bar q \slashed V q \\
+  \mathcal{L}_{A} & = \frac{1}{2} \mmed^2 A_\mu A^\mu + \gdm \bar \chi \gamma^5 \slashed A \chi + \gq \sum\limits_q \bar q \gamma^5 \slashed A q ,
+\end{align}
+where $\{q\}$ and $\{Y_q\}$ are the SM quarks and their associated Yukawa couplings and we have assumed that the coupling \gq\ is universal to all quarks without any loss of generality.
+The width of the mediators is determined by the coupling constants and mass of the mediator.
+Thus, these four models are described by only four parameters in addition to the spin structure of their couplings: $\{\gq, \gdm, \mdm, \mmed\}$. % https://arxiv.org/pdf/1507.00966.pdf
+
+As the CMS detector is focused on observing particles through electromagnetic and strong interactions (see Chapter~\ref{sec:cms}), the production of DM particles alone does not result in an observable signature in the detector.
+Instead, we look for events where they are produced in association with a visible SM particle with the resulting signature of the SM particle recoiling against an invisible state.
+The standard mechanism for producing this final state is for one of the incoming partons to radiate the visible SM particle, usually a quark or a gauge boson.% , as shown in Figure~\ref{fig:monox}.
+The possible final states split into the categories shown in Table~\ref{tab:monox} with unique final states and interaction strengths.
+
+\begin{table}[htbp]
+\centering
+\caption{
+  Final states of DM production with approximate interaction strength.
+}
+\label{tab:monox}
+\begin{tabular}{ l|l|c }
+  Name & Strength & Final State \\
+  \hline
+  Monojet & $\mathcal{O}(\alpha_s)$ & $j+\chi\bar\chi$ \\
+  Monophoton & $\mathcal{O}(\alpha)$ & $\gamma+\chi\bar\chi$ \\
+  Mono-$Z$ & $\mathcal{O}(\alpha)/M_Z^2$ & $\ell\ell+\chi\bar\chi$ \\
+\end{tabular}
+\end{table}
+
+The monojet final state has the highest production rate but also the largest amount of background from SM processes.
+The Mono-$Z$ final state is the cleanest signature but also a substantially surpressed production rate due to the mass of the $Z$ boson and the small branching ratio to leptons.
+The monophoton final state lands in the middle on both metrics: the production rate is $\sim 1/10$ that of the monojet final state but also has fewer backgrounds from SM processes.
+Additionally, the monophoton state has the ``advantage'' of being able to distinguish between the spin-0 and spin-1 mediators by virtue of the $gg \rightarrow \gamma S$ and $gg \rightarrow \gamma P$ processes being forbidden by Furry's theorem.
+For the bulk of this thesis, we focus on the monophoton final state, saving comparisons against the monojet and mono-$Z$ states for Chapter~\ref{sec:conclusion}. 
