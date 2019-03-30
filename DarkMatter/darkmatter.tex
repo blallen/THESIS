@@ -206,7 +206,7 @@ These four criteria place stringent requirements on dark matter candidates.
 The light neutrinos, the only SM particles satisfying the first three conditions, are excluded as the total neutrino relic density has a bound of $\Omega_\nu \cdot h^2 \leq 0.00067$ at 95\% confidence level from analysis of the CMB anisotropies.
 Big Bang Nucleosynthesis and gravitational microlensing have mostly exclude non-luminious baryonic matter from forming the bulk of dark matter.
 Thus, most theories of dark matter propose a new fundamental particle as a dark matter candidate.
-The following sections discuss the most common dark matter candidates, namelyweakly-interacting massive particles (WIMPs), axions, and sterile neutrinos.
+The following sections discuss the most common dark matter candidates, namely weakly-interacting massive particles (WIMPs), axions, and sterile neutrinos.
 
 \subsection{Weakly-Interacting Massive Particles}
 \label{sec:dm_wimp}
@@ -285,16 +285,11 @@ Fortunately, this constraint also means that the oscillation rate into active ne
 Additionally, the Majorana mass term allows for additional CP-violating phases beyond the Dirac phases discussed in Section~\ref{sec:flavor}.
 Astrophysical detection, accelerator production, and neutrinoless double $\beta$ decay experiments all place constraints on sterile neutrino properties. % https://arxiv.org/pdf/1807.07938.pdf
 
-\section{Non-collider Searches}
-\label{sec:dm_search}
-
-Describes.
-
 \section{Simplified Models for LHC}
 \label{sec:dm_simp}
 
 Without loss of generality, we assume that dark matter consists of a single Dirac fermion WIMP species $\chi$ with mass \mdm. 
-In order to observe DM at a hadron collider or through direct detection, there must exist a new mediator particle with mass \mmed\ that couples to both SM quarks and $\chi$ with couplings \gq\ and \gdm, respectively.
+In order to observe DM at a hadron collider, there must exist a new mediator particle with mass \mmed\ that couples to both SM quarks and $\chi$ with couplings \gq\ and \gdm, respectively.
 In general, this mediator can have any spin structure; for purposes of simplicity, we limit ourselves to the observed mediators in the SM: a spin-0 scalar $S$, a spin-0 pseudoscalar $P$, a spin-1 vector $V_\mu$, and a spin-1 axial-vector $A_\mu$ (not to be confused with SM photon). % https://arxiv.org/pdf/1411.0535.pdf
 The Lagrangians for these possible mediators are
 \begin{align}
@@ -332,3 +327,93 @@ The Mono-$Z$ final state is the cleanest signature but also a substantially surp
 The monophoton final state lands in the middle on both metrics: the production rate is $\sim 1/10$ that of the monojet final state but also has fewer backgrounds from SM processes.
 Additionally, the monophoton state has the ``advantage'' of being able to distinguish between the spin-0 and spin-1 mediators by virtue of the $gg \rightarrow \gamma S$ and $gg \rightarrow \gamma P$ processes being forbidden by Furry's theorem.
 For the bulk of this thesis, we focus on the monophoton final state, saving comparisons against the monojet and mono-$Z$ states for Chapter~\ref{sec:conclusion}. 
+
+\section{Non-collider Searches}
+\label{sec:dm_search}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.625\textwidth]{DarkMatter/Figures/dm_box.png}
+  \caption{
+    Possible dark matter detection channels.
+    Reprinted from Reference~\cite{}. % https://arxiv.org/pdf/1509.08767.pdf
+  }
+  \label{fig:dm_box}
+\end{figure}
+
+The goal of a collider-based search for dark matter is to create pairs of DM candidates through quark-antiquark annihilation, i.e. $q\bar q \rightarrow \chi\bar\chi$.
+However, there are other ways you can look at this interaction to attempt to find dark matter, as shown in Figure~\ref{fig:dm_box}.
+The longest running searches for DM particles have been direct detection searches, where one attempts to observe the scattering of a DM particle off of a heavy nucleus, i.e. $q \chi \rightarrow q \chi$.
+Yet another method involves the inverse process utilized at hadron colliders, the observation of SM particles produced in the annihilation of astrophysical DM pairs, i.e. $\chi\bar\chi \rightarrow q \bar q$.
+In this section, we shall give a brief overview of the leading experiments for these two approaches.
+
+\subsection{Direct Detection}
+\label{sec:dm_direct}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.875\textwidth]{DarkMatter/Figures/direct_triangle.png}
+  \caption{
+    Possible signals measured and techonologies used in direct detection experiments.
+    Reprinted from Reference~\cite{}. % https://arxiv.org/pdf/1509.08767.pdf
+  }
+  \label{fig:direct_triangle}
+\end{figure}
+
+Direct detection experiments aim to observe a collision between a DM particle $\chi$ and an atomic nucleus $N$.
+The typical nuclear recoil for such a collision is in the $1-100\keV$ range and there are various different techonologies that are used to identify the recoiling nucleus, as shown in Figure~\ref{fig:direct_triangle}.
+The three main signals are light from a scintillating material, charge from an ionization reaction, and the product of heat and/or phonons.
+Many detectors utilize multiple signals in order to enhance background rejection.
+A final consideration is whether the interaction is spin-independent (SI) or spin-dependent (SD), corresponding to a vector or axial mediator, respectively. 
+The SI DM-nucleus cross-section scales as the number of nucleons squared and thus experiments focusing on SI interactions use materials with a large atomic number.
+Conversely, the spin-dependent DM-nucleus cross-section depends on the total nuclear spin and experiments focusing on SD interactions use materials with an odd number of nucleons, particularly those with unpaired protons and neutrons.
+The remainder of this section will discuss three proto-typical direct detection experiments.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.625\textwidth]{DarkMatter/Figures/lux.png}
+  \caption{
+    Latest SI independent results from the LUX experiment (brazilian flag bands).
+    Reprinted from Reference~\cite{}. % https://arxiv.org/pdf/1608.07648.pdf
+  }
+  \label{fig:dm_lux}
+\end{figure}
+
+The Large Underground Xenon (LUX) experiment is a  dual-phase xenon time projection chamber that utilizes both scintillation light and free electrons from ionization to detect nuclear recoils.
+The active detector volume has 250 kg of ultrapure liquid xenon, a large enough volume that the detector is self-shielding.
+Odd isotopes make up 47\% of naturally occuring xenon, enabling measurements of spin-dependent interactions with approximately half the active detector volume.
+The latest LUX results are shown in Figure~\ref{fig:dm_lux}.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.625\textwidth]{DarkMatter/Figures/cdms.png}
+  \caption{
+    Latest SI independent results from the CDMSlite experiment (black line with salmon band).
+    Reprinted from Reference~\cite{}. % https://arxiv.org/pdf/1509.02448.pdf
+  }
+  \label{fig:dm_cdms}
+\end{figure}
+
+The CDMSlite experiment uses a cryogenic germanium bolometer that detects phonons and ionization from nuclear recoils.
+The presence of both signals allows for particle identification, but the most sensitive results only use the phonon signals.
+CDMSlite is most sensitive to dark matter with masses between 1-10\GeV as shown in Figure~\ref{fig:dm_cdms}.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.625\textwidth]{DarkMatter/Figures/pico.png}
+  \caption{
+    Latest SD independent results from the PICO-60 experiment (thick blue line).
+    Reprinted from Reference~\cite{}. % https://arxiv.org/pdf/1702.07666.pdf
+  }
+  \label{fig:dm_pico}
+\end{figure}
+
+The PICO-60 experiment uses a bubble chamber filled with C$_3$F$_8$ to observe nuclear recoils with a threshold of 13.6\keV.
+This threshold is high enough to reject backgrounds from minimum ionizing particles while still having sufficienct signal efficiency.
+Furthermore, flourine has exactly one unpaired proton and no unpaired neutrons, greatly enhancing the sensitivity to the proton-coupling SD interactions.
+The latest results from PICO-60 are shown in Figure~\ref{fig:dm_pico}. 
+
+
+\subsection{Indirect Detection}
+\label{sec:dm_indirect}
+
