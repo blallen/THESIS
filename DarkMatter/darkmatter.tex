@@ -11,7 +11,7 @@ Not much else is known about dark energy, although there are many experiments at
 The work in this thesis shall focus on trying to explain dark matter.
 
 Dark matter cannot be explained by the 17 particles of the Standard Model (see Section~\ref{sec:dm_cand}), yet its gravitational effects have been observed in many circumstances.
-The rest of this chapter will cover the astrophysical evidence for dark matter (Sections~\ref{sec:dm_astro} and~\ref{sec:dm_relic}), various dark matter candidates (Section~\ref{sec:dm_cand}), and non-collider searches for dark matter (Section~\ref{sec:dm_search}) before concluding with a discussion of the dark matter models investigated in this thesis (Section~\ref{sec:dm_simp}).
+The rest of this chapter will cover the astrophysical evidence for dark matter (Sections~\ref{sec:dm_astro} and~\ref{sec:dm_relic}), various dark matter candidates (Section~\ref{sec:dm_cand}) and the models investigated at the LHC (Section~\ref{sec:dm_simp}), and non-collider searches for dark matter (Section~\ref{sec:dm_search}).
 
 \section{Astrophysical Evidence}
 \label{sec:dm_astro}
@@ -155,11 +155,11 @@ During the early universe, dark matter (DM) was in thermal equilibrium with the 
   n_\chi^{\text{eq}} = \frac{g}{(2\pi)^3} \int f(\vec p) \, \text{d}^3 \vec p,
 \end{equation}
 where $g$ is the number of internal degrees of freedom of the DM particle $\chi$ and $f(\vec p)$ is either the Fermi-Dirac or Bose-Einstein distribution, depending on the quantum statistics of the DM particle.
-At very high temperatures relative to the mass $m_\chi$ of the DM particle, dark matter and SM particles rapidly convert back and forth with a DM annihilation rate $\Gamma = \langle \sigma_A v \rangle \cdot n_\chi$, where $\langle \sigma_A v \rangle$ is the thermally averaged product of the total cross section for annihilation $\sigma_A$ and the relative velocity $v$ of the dark matter particles.
+At very high temperatures relative to the mass $m_\chi$ of the DM particle, dark matter and SM particles rapidly convert back and forth with a DM annihilation rate $\Gamma = \sigmav \cdot n_\chi$, where \sigmav\ is the thermally averaged product of the total cross section for annihilation $\sigma_A$ and the relative velocity $v$ of the dark matter particles.
 After the temperature drops below $m_\chi$, the DM annihilation rate $\Gamma$ drops below the Hubble expansion rate $H$ of the universe and the DM particles stop annihilating and freeze-out of equilibrium with the SM particles, leaving the DM relic density that we observe today.
 During the freeze-out process, the time dependence of the number density $n_\chi$ is described by the Boltzmann equation as follows
 \begin{equation}
-  \frac{\text{d} n_\chi}{\text{d}t} + 3 H n_\chi = - \langle \sigma_A v \rangle \left[ (n_\chi)^2 - (n_\chi^{\text{eq}})^2\right].
+  \frac{\text{d} n_\chi}{\text{d}t} + 3 H n_\chi = - \sigmav \left[ (n_\chi)^2 - (n_\chi^{\text{eq}})^2\right].
 \end{equation}
 The LHS term accounts for the reduction in density due to the expansion of the universe.
 The two RHS terms account for the change in density due to annihilation and product of DM particles to and from SM particles, respectively.
@@ -177,7 +177,7 @@ The two RHS terms account for the change in density due to annihilation and prod
 
 Figure~\ref{fig:relic_density} shows the calculated DM number density $n_\chi$ as a function of time in the early universe.
 As the annihilation cross section increases, the relic density decreases as the dark matter particles stay in equilibrium longer.
-We shall make an order-of-magnitude estimate of the relic density by assuming that $\langle \sigma_A v \rangle$ is independent of energy.
+We shall make an order-of-magnitude estimate of the relic density by assuming that \sigmav\ is independent of energy.
 Freeze-out occurs at the temperature $T_f$ where the expansion rate $H(T)$ equals the annihilation rate $\Gamma(T)$.
 The temperature dependence of $\Gamma$ is simply that of $n_\chi$, e.g. $\Gamma \propto T^3$.
 Meanwhile, the early universe is radiation dominated, so we have that $H \propto T^2$. 
@@ -186,7 +186,7 @@ Additionally, mass densities are usually expressed as a fraction of the critical
 Combining all of this, the relic density of dark matter is given by 
 \begin{equation}
   \label{eqn:relic_density}
-  \dmrelic = \frac{m_\chi n_\chi}{\rho_c} \simeq \frac{10^{-27} \cm^{3}\text{ s}^{-1}}{\langle \sigma_A v \rangle},
+  \dmrelic = \frac{m_\chi n_\chi}{\rho_c} \simeq \frac{10^{-27} \cm^{3}\text{ s}^{-1}}{\sigmav},
 \end{equation}
 where $h = H_0/(100 \text{ km s}^{-1}\text{ Mpc}^{-1})$ is the reduced Hubble constant. 
 Thus, to first order the DM relic density depends only on two things: the total DM annihilation cross section $\sigma_A$ and the mass $m_\chi$ of the DM candidate, as after freeze-out $T \ll m_\chi$ and the velocity $v$ is stricly proportional to $m_\chi$. 
@@ -213,14 +213,14 @@ The following sections discuss the most common dark matter candidates, namely we
 
 The annihilation cross-section of new particle $\chi$ with electroweak scale interactions is approximately
 \begin{equation}
-  \langle \sigma_A v \rangle \approx \left( \frac{\alpha \cdot g_\chi^2}{m_\chi} \right)^2 = \left( \frac{e^2}{4\pi} \cdot \frac{(0.8)^2}{100\GeV} \right)^2 \simeq 10^{-26} \cm^{3}\text{ s}^{-1},
+  \sigmav \approx \left( \frac{\alpha \cdot g_\chi^2}{m_\chi} \right)^2 = \left( \frac{e^2}{4\pi} \cdot \frac{(0.8)^2}{100\GeV} \right)^2 \simeq 10^{-26} \cm^{3}\text{ s}^{-1},
 \end{equation}
 where $\alpha = e^2 / 4\pi$ is the fine-structure constant, $m_\chi = 100\GeV$ is the mass of the particle, and $g_\chi \approx 0.8$ is the effective coupling for the four-point interaction $\chi \bar\chi \rightarrow f \bar f$.
 Plugging this into Equation~\ref{eqn:relic_density}, we obtain $\dmrelic \sim 0.1$, which is very close to the observed value.
 This numerical coincidence motivates a new weakly-interacting massive particle (WIMP) as a good DM candidate.
 
 The only criteria to be a WIMP beyond the generic definition of dark matter is that the mass and interaction strength of the new particle must be approximately that of the EWK scale.
-Thus, a great many new physics models have WIMPS natively, such as the neutralino in supersymmetry and the lightest Kaluza-Klein particle in theories of universal extra dimensions.
+Thus, a great many new physics models have WIMPs natively, such as the neutralino in supersymmetry and the lightest Kaluza-Klein particle in theories of universal extra dimensions.
 In this thesis, we shall focus on a set of simplified models that describe WIMP interactions in a relatively model-independent manner.
 For more details, see Section~\ref{sec:dm_simp}.
 
@@ -300,11 +300,25 @@ The Lagrangians for these possible mediators are
 \end{align}
 where $\{q\}$ and $\{Y_q\}$ are the SM quarks and their associated Yukawa couplings and we have assumed that the coupling \gq\ is universal to all quarks without any loss of generality.
 The width of the mediators is determined by the coupling constants and mass of the mediator.
-Thus, these four models are described by only four parameters in addition to the spin structure of their couplings: $\{\gq, \gdm, \mdm, \mmed\}$. % https://arxiv.org/pdf/1507.00966.pdf
+Thus, these four models are described by only four parameters in addition to the spin structure of their couplings: $\{\gq, \gdm, \mdm, \mmed\}$.
+For the results shown in this thesis, we fix $\gq = 0.25$ and $\gdm = 1$ to satisfy the narrow width approximation and provide complimentarity to dijet and dilepton searches for new mediators.
+Meanwhile, we scan the mass parameters \mdm\ and \mmed\ between 1-1000\GeV and 10-2000\GeV, respectively. % https://arxiv.org/pdf/1507.00966.pdf
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.875\textwidth]{DarkMatter/Figures/dm_diagram.png}
+  \caption{
+    Feymann diagrams for possible dark matter production modes at the LHC, with X denoting the mediator and $\chi$ the dark matter particle.
+    The left diagram is most common for scalar and pseudoscalar mediators, while the right diagram is most common for vector and axial mediators.
+    For the right diagram, the gluon can be replaced with any of the EWK gauge boson whereas for the left diagram, other production modes dominate for the EWK gauge bosons.
+    Reprinted from Reference~\cite{}. % https://arxiv.org/pdf/1507.00966.pdf
+  }
+  \label{fig:dm_diagram}
+\end{figure}
 
 As the CMS detector is focused on observing particles through electromagnetic and strong interactions (see Chapter~\ref{sec:cms}), the production of DM particles alone does not result in an observable signature in the detector.
-Instead, we look for events where they are produced in association with a visible SM particle with the resulting signature of the SM particle recoiling against an invisible state.
-The standard mechanism for producing this final state is for one of the incoming partons to radiate the visible SM particle, usually a quark or a gauge boson.% , as shown in Figure~\ref{fig:monox}.
+Instead, we look for events where they are produced in association with a visible SM particle with the resulting signature of the SM particle recoiling against an invisible state. 
+The standard mechanism for producing this final state is for one of the incoming partons to radiate the visible SM particle, usually a quark or a gauge boson, as shown in Figure~\ref{fig:dm_diagram}.
 The possible final states split into the categories shown in Table~\ref{tab:monox} with unique final states and interaction strengths.
 
 \begin{table}[htbp]
@@ -323,9 +337,9 @@ The possible final states split into the categories shown in Table~\ref{tab:mono
 \end{table}
 
 The monojet final state has the highest production rate but also the largest amount of background from SM processes.
-The Mono-$Z$ final state is the cleanest signature but also a substantially surpressed production rate due to the mass of the $Z$ boson and the small branching ratio to leptons.
+The Mono-$Z$ final state is the cleanest signature but also ahs a substantially surpressed production rate due to the mass of the $Z$ boson and the small branching ratio to leptons.
 The monophoton final state lands in the middle on both metrics: the production rate is $\sim 1/10$ that of the monojet final state but also has fewer backgrounds from SM processes.
-Additionally, the monophoton state has the ``advantage'' of being able to distinguish between the spin-0 and spin-1 mediators by virtue of the $gg \rightarrow \gamma S$ and $gg \rightarrow \gamma P$ processes being forbidden by Furry's theorem.
+Additionally, the monophoton state has the ``advantage'' of being able to distinguish between the spin-0 and spin-1 mediators by the ``virtue'' of the $gg \rightarrow S \gamma$ and $gg \rightarrow P \gamma$ processes being forbidden by Furry's theorem.
 For the bulk of this thesis, we focus on the monophoton final state, saving comparisons against the monojet and mono-$Z$ states for Chapter~\ref{sec:conclusion}. 
 
 \section{Non-collider Searches}
@@ -342,9 +356,9 @@ For the bulk of this thesis, we focus on the monophoton final state, saving comp
 \end{figure}
 
 The goal of a collider-based search for dark matter is to create pairs of DM candidates through quark-antiquark annihilation, i.e. $q\bar q \rightarrow \chi\bar\chi$.
-However, there are other ways you can look at this interaction to attempt to find dark matter, as shown in Figure~\ref{fig:dm_box}.
+However, there are other ways you can look at this interaction when attempting to find dark matter, as shown in Figure~\ref{fig:dm_box}.
 The longest running searches for DM particles have been direct detection searches, where one attempts to observe the scattering of a DM particle off of a heavy nucleus, i.e. $q \chi \rightarrow q \chi$.
-Yet another method involves the inverse process utilized at hadron colliders, the observation of SM particles produced in the annihilation of astrophysical DM pairs, i.e. $\chi\bar\chi \rightarrow q \bar q$.
+Another method involves the inverse process utilized at hadron colliders, the observation of SM particles produced in the annihilation of astrophysical DM pairs, i.e. $\chi\bar\chi \rightarrow q \bar q$.
 In this section, we shall give a brief overview of the leading experiments for these two approaches.
 
 \subsection{Direct Detection}
@@ -362,9 +376,9 @@ In this section, we shall give a brief overview of the leading experiments for t
 
 Direct detection experiments aim to observe a collision between a DM particle $\chi$ and an atomic nucleus $N$.
 The typical nuclear recoil for such a collision is in the $1-100\keV$ range and there are various different techonologies that are used to identify the recoiling nucleus, as shown in Figure~\ref{fig:direct_triangle}.
-The three main signals are light from a scintillating material, charge from an ionization reaction, and the product of heat and/or phonons.
+The three main signals are light from a scintillating material, charge from an ionization reaction, and phonons from thermal excitations.
 Many detectors utilize multiple signals in order to enhance background rejection.
-A final consideration is whether the interaction is spin-independent (SI) or spin-dependent (SD), corresponding to a vector or axial mediator, respectively. 
+A final consideration is whether the interaction is spin-independent (SI) or spin-dependent (SD), corresponding to a vector/scalar or axial/pseudoscalar mediator, respectively. 
 The SI DM-nucleus cross-section scales as the number of nucleons squared and thus experiments focusing on SI interactions use materials with a large atomic number.
 Conversely, the spin-dependent DM-nucleus cross-section depends on the total nuclear spin and experiments focusing on SD interactions use materials with an odd number of nucleons, particularly those with unpaired protons and neutrons.
 The remainder of this section will discuss three proto-typical direct detection experiments.
@@ -417,3 +431,39 @@ The latest results from PICO-60 are shown in Figure~\ref{fig:dm_pico}.
 \subsection{Indirect Detection}
 \label{sec:dm_indirect}
 
+In Section~\ref{sec:dm_relic}, we discussed the process of dark matter annihilation in the early universe and found that the relic density $\dmrelic$ depended on the average annihilation cross section \sigmav.
+In Section~\ref{sec:dm_wimp}, we found that a 100\GeV WIMP particle must have $\sigmav \sim 10^{-26} \cm^{3}\text{ s}^{-1}$ in order to produce the observed relic density.
+While our calculation in Section~\ref{sec:dm_relic} assumed that the DM number density didn't change appreciably after freezeout, there is still a non-zero annihilation rate of $n_\chi^2 \sigmav / 2$ for dark matter to SM particles.
+With this decay rate and the observed relic density, there should be $\mathcal{O}(10)$ particles from DM annilation reaching Earth per year per square meter. % https://arxiv.org/pdf/1710.05137.pdf
+Thus, it is possible to learn about dark matter by observing the particle flux near Earth.
+
+While dark matter can decay to a pair of any SM particles, the only ones that live long enough to reach Earth are photons, neutrinos, electrons, positrons, protons, and anti-protons, whether produced directly or from decays of short-lived particles.
+While it is possible to measure the flux of all of these particles, it is only possible to observe the energy spectrum and source locations of photons and neutrinos as galactic magnetic fields obscure these for the charge particles.
+Thus, experiments such as the Alpha Magnetic Spectrometer (AMS-02) look for a rise in the positron and anti-proton fractions of the cosmic ray flux to find signs of WIMP annihilation. % https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.113.121101
+Similarly, gamma ray telescopes such as the Fermi Large Area Telescope (Fermi-LAT) search for high-energy photons originating from dwarf spheroidal galaxies as they have especially high ratios of dark matter to luminous matter. % https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.115.231301
+Both experiments have tentative signals that are yet to be confirmed.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.625\textwidth]{DarkMatter/Figures/icecube.png}
+  \caption{
+    Latest SD independent results from the IceCube experiment.
+    Reprinted from Reference~\cite{}. % https://iopscience.iop.org/article/10.1088/1475-7516/2016/04/022/pdf
+  }
+  \label{fig:dm_icecube}
+\end{figure}
+
+The neutrino channel differs from the other two because it is sensitive to the annihilation of WIMPs that have been gravitationally captured by the sun. % % https://arxiv.org/pdf/1604.00014.pdf
+While solar WIMPs can decay to any SM particle, only neutrinos are capable of escaping the sun.
+Furthermore, astrophysical uncertainties are very small for neutrinos originating from the sun versus galactic sources.
+Additionally, solar WIMPs are in equilibrium, so the annihilation flux depends on the DM-nucleon cross-section instead of the annilihation cross-section allowing for easy comparison with direct detection experiments.
+Since the sun consists primarily of hydrogen, observations of solar WIMPs are especially sensitive to spin-dependent processes.
+The IceCube neutrino observatory is a Cherenkov light detector consisting of a cubic kilometer of Antartic ice instrumented with 79 strings of photomultiplier tubes.
+Figure~\ref{fig:dm_icecube} shows the latest results from IceCube, with each curves assuming annihilation into a different SM particle pair. % https://iopscience.iop.org/article/10.1088/1475-7516/2016/04/022/pdf
+
+\section{Summary}
+Copious astrophysical evidence exists for a non-relativistic non-baryonic type of matter referred to as dark matter that constititues $\sim27$ of the energy of the universe.
+The favored source for dark matter is a new beyond the Standard Model particle that has weak interactions with photons, baryons, and itself and a relic density of $\dmrelic = 0.1200 \pm 0.0012$.
+While other candidates exist, a new weakly-interacting massive particle is a dark matter candidate found in many theories of new physics.
+Collider, direct detection, and indirect detection searches can all be interpretted in the context of simplified models, which posit a new Dirac fermion DM particle and a massive mediator.
+The remainder of this thesis focuses on a search for dark matter produced in conjunction with a single photon at the Large Hadron Collider using the Compact Muon Solenoid detector.
