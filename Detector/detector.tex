@@ -1,15 +1,47 @@
 \chapter{The CMS Detector}
 \label{sec:cms}
 
-The big thing we know and love.
+The Compact Muons Solenoid (CMS) detector is one of two general purpose detectors at the Large Hadron Collider.
+The original motivation for the experiment was the discovery of the Higgs boson in final states with photons, electrons, and muons.
+Towards this end, the subdetectors were built to specify the following goals
+\begin{itemize}
+\item Unambiguous charge identification of muons with momenta up to 1\TeV
+\item 1\GeV mass resolution on 100\GeV pairs of muons, electrons, and photons
+\item Efficient triggering and tagging of $\tau$ lepton and $b$ quark decays
+\item Good resolution on dijet masses and missing transverse energy
+\item Sufficient time resolution to deal with 40MHz of collisions .
+\end{itemize}
+The four subdetectors are the silicon pixel and strip trackers, the electromagnetic calorimeter (ECAL), the hadronic calorimeter (HCAL), and the muon chambers.
+The first three are within the field volume of a 3.8T superconducting solenoid magnet with an internal diameter of six meters.
+The muon chambers are embedded in the return yoke of the magnet.
+Additionally, there is an online triggering system to reduce readout from 40MHz to $\mathcal{O}(1)$kHz. 
 
-\section{Silicon Pixel Detector}
+Figure~\ref{} shows a diagram of the CMS detector.
+The CMS detector has a length of 22 m and a diameter of 15 m and a cylindrical geometry with concentric barrel shaped detectors in the central region and disc shaped detectors in the forward region.
+The following coordinate system is used when working with the CMS detector:
+\begin{itemize}
+\item distance $z$ along the beam axis
+  \begin{itemize}
+  \item $z=0$ at the center of the detector
+  \item positive corresponds to counter-clockwise as seen from the sky
+  \end{itemize}
+\item distance $r$ from the beam axis
+\item azimuthal angle $\phi$ in the plane orthogonal to the beam axis
+  \item pseudorapidity $\eta = - \ln \tan\sfrac{\theta}{2}$ in terms of the polar angle $\theta$ measured with respects to the positive $z$-axis
+\end{itemize}
+In addition to these four main coordinates, we define the right-handed cartesian $x$ and $y$ coordinates perpendicular to the beam axis, with the positive $x$-axis pointing from the center of the detector to the center of the LHC ring and the positive $y$-axis pointing upwards. 
+The spatial separation of two particles is given by $\Delta R = \sqrt{(\Delta\phi)^2 + (\Delta\eta)^2}$.
+The fiducial acceptance of the CMS detector is from $0 \le \phi < 2\pi$ and $-5 \le \eta \le 5$.
 
-The tiny dots.
+An additional useful quantity is the momentum in the transverse plane $\ptvec = p_x \hat x + p_y \hat y$ with magnitude $\pt = \sqrt{p_x^2 + p_y^2}$.
+In terms of \pt\ and $\eta$, we have the total momentum $p = \pt \cosh \eta$ and the momentum along the beam pipe $p_z = \pt \sinh \eta$. 
+Thus, in our detector coordinate frame, the Lorentz-invariant four-momentum $p_i$ of a given particle $i$ is defined by $p_i = (\pt^i, \eta_i, \phi_i, E_i) = (\pt^i, \eta_i, \phi_i, m_i)$, where the first three components are space-like and the last one is time-like. 
 
-\section{Silicon Strip Tracker}
 
-The thin strips.
+\section{Silicon Pixel and Strip Trackers}
+\label{sec:cms_tracker}
+
+The tiny dots and thin strips.
 
 \section{Electromagnetic Calorimeter}
 
