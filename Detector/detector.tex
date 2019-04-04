@@ -52,13 +52,30 @@ In terms of \pt, $\eta$, and $\phi$, we have the following expressions for our c
 In terms of our Lorentz-invariant coordinates, the four-momentum of a given particle is $p = (\pt, \eta, \phi, E)$. 
 Additionally, the spatial separation of two particles is given by $\Delta R = \sqrt{(\Delta\phi)^2 + (\Delta\eta)^2}$ and the fiducial acceptance of the CMS detector is from $0 \le \phi < 2\pi$ and $-5 \le \eta \le 5$.
 
-
-
-
 \section{Silicon Pixel and Strip Trackers}
 \label{sec:cms_tracker}
 
-The tiny dots and thin strips.
+Closest to the interaction point, the inner tracking system identifies charged particles and measures their momenta.
+Additionally, high resolution tracks are used to identify primary and secondary vertices.
+The magnetic field in the tracker volume is uniform with strength 3.8 T and field lines parallel to the beam direction. 
+The tracker volume extends to 1.2 m in $r$ and 2.9 m in $z$ and is instrumented with silicon pixels and strips.
+Each silicon sensor is a $p$-$n$ semiconductor junction with a bias voltage applied.
+When a charged particle passes through the depletion region of the junction, electron-hole pairs are produced and collected by the readout electronics.
+A schematic of the inner tracker is shown in Figure~\ref{fig:cms_tracker}.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{Detector/Figures/cms_tracker.pdf}
+  \caption{
+    A schematic view of the CMS tracking system.
+    Silicon pixel and strip detectors are shown.
+    The double lines indicate back-to-back modules that deliver stereo hits.
+    The volumes labeled TIB, TID, TOB, and TEC are all strip trackers.
+    TIB = Tracker Inner Barrel, TID = Tracker Inner Disk, TOB = Tracker Outer Barrel, TEC = Tracker Endcap. 
+    Reprinted from Reference~\cite{}. % https://iopscience.iop.org/article/10.1088/1748-0221/3/08/S08004/meta
+  }
+  \label{fig:cms_tracker}
+\end{figure}
 
 \section{Electromagnetic Calorimeter}
 
