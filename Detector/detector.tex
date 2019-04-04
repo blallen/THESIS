@@ -3,13 +3,13 @@
 
 The Compact Muons Solenoid (CMS) detector is one of two general purpose detectors at the Large Hadron Collider.
 The original motivation for the experiment was the discovery of the Higgs boson in final states with photons, electrons, and muons.
-Towards this end, the subdetectors were built to specify the following goals
+Towards this end, the subdetectors were built to specify the following goals:
 \begin{itemize}
 \item Unambiguous charge identification of muons with momenta up to 1\TeV
 \item 1\GeV mass resolution on 100\GeV pairs of muons, electrons, and photons
 \item Efficient triggering and tagging of $\tau$ lepton and $b$ quark decays
 \item Good resolution on dijet masses and missing transverse energy
-\item Sufficient time resolution to deal with 40MHz of collisions .
+\item Sufficient time resolution to deal with 40MHz of collisions
 \end{itemize}
 The four subdetectors are the silicon pixel and strip trackers, the electromagnetic calorimeter (ECAL), the hadronic calorimeter (HCAL), and the muon chambers.
 The first three are within the field volume of a 3.8T superconducting solenoid magnet with an internal diameter of six meters.
@@ -26,16 +26,23 @@ The following coordinate system is used when working with the CMS detector:
   \item positive corresponds to counter-clockwise as seen from the sky
   \end{itemize}
 \item distance $r$ from the beam axis
+\item polar angle $\theta$ measured with respects to the positive $z$-axis
 \item azimuthal angle $\phi$ in the plane orthogonal to the beam axis
-  \item pseudorapidity $\eta = - \ln \tan\sfrac{\theta}{2}$ in terms of the polar angle $\theta$ measured with respects to the positive $z$-axis
 \end{itemize}
-In addition to these four main coordinates, we define the right-handed cartesian $x$ and $y$ coordinates perpendicular to the beam axis, with the positive $x$-axis pointing from the center of the detector to the center of the LHC ring and the positive $y$-axis pointing upwards. 
-The spatial separation of two particles is given by $\Delta R = \sqrt{(\Delta\phi)^2 + (\Delta\eta)^2}$.
-The fiducial acceptance of the CMS detector is from $0 \le \phi < 2\pi$ and $-5 \le \eta \le 5$.
+In addition to these four main coordinates, we define the right-handed cartesian $x$ and $y$ coordinates perpendicular to the beam axis, with the positive $x$-axis pointing from the center of the detector to the center of the LHC ring and the positive $y$-axis pointing upwards.
 
-An additional useful quantity is the momentum in the transverse plane $\ptvec = p_x \hat x + p_y \hat y$ with magnitude $\pt = \sqrt{p_x^2 + p_y^2}$.
-In terms of \pt\ and $\eta$, we have the total momentum $p = \pt \cosh \eta$ and the momentum along the beam pipe $p_z = \pt \sinh \eta$. 
-Thus, in our detector coordinate frame, the Lorentz-invariant four-momentum $p_i$ of a given particle $i$ is defined by $p_i = (\pt^i, \eta_i, \phi_i, E_i) = (\pt^i, \eta_i, \phi_i, m_i)$, where the first three components are space-like and the last one is time-like. 
+The four-momentum of a particle is $p_i = (p_x^i, p_y^i, p_z^i, E_i)$ in the cartesian basis 
+%, where the first three components are space-like and the last one is time-like,
+and a particle of mass $m_i$ produced at rest in the center of the detector has $p_i = (0, 0, 0, m_i)$.
+While the momenta along the beam axis of the two incoming protons are equal, the momenta of the incoming partons involved in the hard scattering often are not as discussed in Section~\ref{sec:collider_pheno}.
+Thus, we define two kinematic quantities that are Lorentz-invariant with respect to a boost along the beam axis:
+the tranverse momentum $\ptvec = p_x \hat x + p_y \hat y$ with magnitude $\pt = \sqrt{p_x^2 + p_y^2}$ and the pseudorapidity $\eta = - \ln \tan\sfrac{\theta}{2}$.
+
+In terms of \pt, $\eta$, and $\phi$, we have the following expressions for our cartesian variables $p_x = \pt \cos \phi$, $p_y = \pt \sin \phi$, $p_z = \pt \sinh \eta$, and $E = \pt \cosh \eta$, with the last equality assuming the mass of the particle is negligible compared to its momentum.
+Thus, in our detector coordinate frame, the Lorentz-invariant four-momentum $p_i$ of a given particle $i$ is defined by $p_i = (\pt^i, \eta_i, \phi_i, E_i)$. 
+Additionally, the spatial separation of two particles is given by $\Delta R = \sqrt{(\Delta\phi)^2 + (\Delta\eta)^2}$ and the fiducial acceptance of the CMS detector is from $0 \le \phi < 2\pi$ and $-5 \le \eta \le 5$.
+
+
 
 
 \section{Silicon Pixel and Strip Trackers}
