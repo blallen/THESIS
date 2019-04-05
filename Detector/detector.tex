@@ -58,7 +58,7 @@ Additionally, the spatial separation of two particles is given by $\Delta R = \s
 Closest to the interaction point, the inner tracking system identifies charged particles and measures their momenta.
 Additionally, high resolution tracks are used to identify primary and secondary vertices.
 The magnetic field in the tracker volume is uniform with strength 3.8 T and field lines parallel to the beam direction. 
-The tracker volume extends to 1.2 m in $r$ and 2.9 m in $z$ and is instrumented with silicon pixels and strips.
+The tracker volume extends to 1.2 m in $r$ and 2.9 m in $z$, providing coverage for $\abs\eta < 2.5$,  and is instrumented with silicon pixels and strips.
 Each silicon sensor is a $p$-$n$ semiconductor junction with a bias voltage applied.
 When a charged particle passes through the depletion region of the junction, electron-hole pairs are produced and collected by the readout electronics.
 A schematic of the inner tracker is shown in Figure~\ref{fig:cms_tracker}.
@@ -76,6 +76,11 @@ A schematic of the inner tracker is shown in Figure~\ref{fig:cms_tracker}.
   }
   \label{fig:cms_tracker}
 \end{figure}
+
+The 66 million individual pixel sensors, each measuring $285\mum\times 100\mum\times 150\mum$ in $r\times r\phi \times z$, are arranged into seven layers: three cylindrical barrels at $r = 4.4, 7.3, 10.2\cm$ and two bi-layer endcap annulli at $z = \pm34.5, \pm46.5 \cm$.
+Due to the geometry of the pixel detector, tracks typically cross the sensor at a 20$^\circ$ angle, leading to the charge deposit from a single track to be shared among multiple pixels in the same layer.
+The exact position of a particle in each layer is determined by interpolating the signals from multiple adjacent pixels with an analog pulse height greater than a tuneable read-out threshold.
+Thus, each pixel hit is localized to an area of $\sim 15 \mum\times 20\mum$ in $r\phi \times z$, providing a much higher spacial resolution than the raw pixel spacing.
 
 \section{Electromagnetic Calorimeter}
 
