@@ -100,8 +100,8 @@ The final spacial resolution is 10-50\mum in the direction perpendicular to the 
 
 The electromagnetic calorimeter (ECAL) is a homogeneous, hermetic calorimeter
 composed of 76,000 lead tungstate (PbWO4) crystals.
-High density (8.3 g/$\cm^3$) lead tungstate was chosen due to its radiation hardnes, fast scintillation decay time constant of 25\ns, small Moliere radius $r_M= 21.9\mm$, and short radiation length $X_0 = 8.9\mm$.
-All of these factors combine to enable the construction of a compact calorimeter with high granularity while still containing electromagnetic showers in the longitudinal and transverse directions.
+High density (8.3 g/$\cm^3$) lead tungstate was chosen due to its radiation hardness, fast scintillation decay time constant of 25\ns, small Moliere radius $r_M= 21.9\mm$, and short radiation length $X_0 = 8.9\mm$.
+All of these factors combine to enable the construction of a compact calorimeter with high granularity and excellent energy resolution.
 
 \begin{figure}[htbp]
   \centering
@@ -121,6 +121,25 @@ Each crystal in the EB has a truncated pyramidal shape with a length of 230\mm, 
 The cross-sectional area of approximately one Moliere radius and length of approximately 25 radiation lengths allows just a few crystals to contain the entire transverse and longitudinal development of the shower.
 To reduce the likelihood of the primary photon or electron emerging from the hard scattering depositing most of its energy in passive material, the crystals do not point directly to the interaction region.
 
+The interactions between the 3.8 T magnetic field and the geometries of the ECAL lead to the selection of different photosensors in the barrel and endcaps.
+In the endcaps, the magnetic field is parallel to the path of the photoelectrons and has a negligible effect on the gain, while in the barrel, the magnetic field is perpendicular and reduces the gain by a factor proportional to the distance traveled by the photoelectrons.
+Thus, in the barrel, solid-state reverse-structure avalanche photodiodes (APDs) with a depletion layer of $6.0\pm0.5\mum$ are used, while photomultiplier tubes with a single gain stage and a very fine copper mesh anode called vacuum phototriodes (VPTs) are used in the endcaps. 
+Two APDs with an active area of $25\mm^2$ are glued to the rear of each crystal in the barrel while only one VPT with an active area of $280\mm^2$ is needed per crsytal in the endcap.
+The APDs and VPTs amplify the initial signal of approximately 4.5 photoelectrons per \MeV of energy deposit per crystal by a factor of 50 and 10, respectively. 
+
+The small signals from the photodetectors are shaped and amplified in the Multi-Gain Preamplifier (MGPA) and a 12-bit analog-to-digital converter (ADC) samples the pulse every 25\ns.
+Each output voltage pulse has a length of approximately 300\ns, with the maximum at approximately 75\ns\ and a slow decay afterwards. 
+The MGPA has multiple gain modes of 12, 6, and 1, and the gain chosen for the output decreases once the signal has saturated the previous gain setting.
+After the pulse falls below the saturation threshold, the lower gain setting is maintained for the next five samples.
+This mechanism provides a dynamic signal range from a few MeV to a maximum of1.5\TeV in the barrel and 3.1\TeV in the endcaps.
+
+The energy resolution of the ECAL was measured using an electron beam to be
+\begin{equation}
+  \frac{\sigma_E}{E} = \frac{2.8\%}{\sqrt{E/\GeV}} \oplus \frac{12\%}{E/\GeV} \oplus 0.3\%,
+\end{equation}
+where $E$ is the energy of the incident particle and the three terms on the RHS are the stochastic, noise, and constant terms, respectively.
+The stochasistic term is dominated by event-to-event fluctuations in the lateral shower containment and a photostatistics contribution of 2.1\%.
+Electronic and digitization noise drive the noise term while the constant term comes from a non-uniform longitudinallight collection and intercalibration errors.
 
 \section{Hadronic Calorimeter}
 
