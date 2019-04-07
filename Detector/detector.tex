@@ -152,7 +152,8 @@ The silicon strips resolve the shower with a resolution of $\mathcal{O}(1-10)\mm
 \section{Hadronic Calorimeter}
 
 The hadronic calorimeter (HCAL) is a set of four heterogenous calorimeters that provide hermetic coverage when combined:  the barrel calorimeter (HB) covering $\abs\eta< 1.3$, the endcap calorimeter (HE) covering $1.3 < \abs\eta < 3$, the outer calorimter (HO) covering $\abs\eta < 1.3$, and the forward calorimeter (HF) covering $3 < \abs\eta < 5$.
-The region covering $\abs\eta < 3$ shall be referred to as the central HCAL. 
+The region covering $\abs\eta < 3$ shall be referred to as the central HCAL.
+The granularity of the HCAL in $\eta$-$\phi$ is $0.087\times0.087$ for $\abs\eta<1.6$, $0.17\times0.17$ for $1.6 < \abs\eta < 3.0$, and $0.175\times0.175$ for $3 < \abs\eta < 5$.
 The layout of the HCAL is shown in Figure~\ref{fig:cms_hcal}. 
 
 \begin{figure}[htbp]
@@ -168,12 +169,26 @@ The layout of the HCAL is shown in Figure~\ref{fig:cms_hcal}.
   \label{fig:cms_hcal}
 \end{figure}
 
-The granularity of the central HCAL is $0.087\times0.087$ in $\eta$-$\phi$ for $\abs\eta<1.6$ and $0.17\times0.17$ for $1.6 < \abs\eta < 3.0$.
-The HB (HE) consists of 16 (17) thin plastic scintillator layers interleaved with thick absorber layers made of a non-magnetic brass alloy with an interaction length $\lambda_I = 1.5\cm$.
+The HB and HE are sampling calorimeters with 16 and 17 thin plastic scintillator layers, respectively,  interleaved with thick absorber layers made of a non-magnetic brass alloy with an interaction length $\lambda_I = 1.5\cm$.
 The layers range in thickness from 40 to 75\mm providing a total absorber depth ranging from a minumum of 5.82 $\lambda_I$ at $\abs\eta=0$ to a maximum of 10.6 $\lambda_I$ at $\abs\eta = 1.3$ in the barrel and approximately nine interaction lengths throughout the endcaps, with the ECAL contributing another interaction length worth of material.
 The dimensions of the HB and HE are determined by the requirement that they reside between the ECAL and the solenoid. 
 To circumvent this constraint, an additional layer of scintillator located in the return yoke of the magnet, the HO, utilizes the solenoid material as an additional interaction length of absorber.
 Hybrid photodiodes (HPDs) are used to read out the scintillator light in the HB and HE while silicon photomultipliers (SiPMs) are used in the HO.
+
+Located 11 meters from the interaction point, the HF is a sampling calorimeter covering the region of  phase-space with high pseudorapidity.
+Since the particle flux here is much higher than in the central region, the HF uses radiation-hard steel absorber instrumented with two sets of scintillating quartz fibers.
+Charged particles produced by showers in the steel traverse the quartz fibers and emit Cherenkov radiation that is recorded by photomultiplier tubes.
+To distinguish hadrons from photons and electrons, the second set of fibers starts at a depth of 22\cm.
+
+Since hadrons interact with the ECAL as well as the HCAL, the energy resolution of the detectors must be considered in tandem in the central region.
+Using a charged particle test beam, the combined ECAL+HCAL energy resolution was measured to be
+\begin{equation}
+   \frac{\sigma_E}{E} = \frac{0.847}{\sqrt{E/\GeV}} \oplus 0.074
+\end{equation}
+and the standalone HF energy energy resolution is
+\begin{equation}
+   \frac{\sigma_E}{E} = \frac{1.98}{\sqrt{E/\GeV}} \oplus 0.09.
+\end{equation}
 
 \section{Muon Chambers}
 
