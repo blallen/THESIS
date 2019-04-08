@@ -192,7 +192,32 @@ and the standalone HF energy energy resolution is
 
 \section{Muon Chambers}
 
-The red ones.
+The outer most components of CMS are the muon triggering, identification, and detection systems.
+These muon detectors are interleaved with the steel return yoke of the magnet resulting in a characteristic $S$-shape for the muon trajectories due to the reversal of magnetic field direction across the solenoid.
+Signal purity in the muon detectors is high as hadrons, electrons, and photons are stopped by the calorimeters while muons are minimum ionizing particles (MIPs) that lose little energy while traversing the detector.
+Taking advantage of the large detector volumes required by the outer solenoid radius of 3.5\unit{m}, three types of gas ionization chambers are used: drift tubes (DTs) in the barrel covering $\abs\eta < 1.2$, cathode strip chambers (CSCs) in the endcaps coering $0.9 < \abs\eta < 2.4$, and resistive plate chambers (RPCs) in both covering $\abs\eta < 2.1$.
+The layout of the muon detectors is shown in Figure~\ref{fig:cms_muons}.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.9\textwidth]{Detector/Figures/cms_muons.pdf}
+  \caption{
+    The layout of the CMS muon chambers.
+    The four DT stations are labeled MB1-MB4, the four CSC stations are labeled ME1-ME4, and the RPC stations are shown in red.
+    The dashed lines denote different values of pseudorapidity.
+    Reprinted from Reference~\cite{}. % 
+  }
+  \label{fig:cms_muons}
+\end{figure}
+
+The DT chambers consist of rectangular drift cells with tranverse dimensions of $42\mm \times 13\mm$ filled with a 85:15 Ar-CO$_2$ mix and a gold/steel anode wire held at a voltage of 3600\unit{V}.
+The  maximum drift time per cell of 400\ns\ provides a spatial resultion of approximately 250\mum.
+A single chamber is made out of superlayers which are in turn made out of four individual cells for a combined resultion of 100\mum.
+The chambers are arranged into four 2.4\unit{m} thick dodecagonal rings called the muon barrel stations.
+All four stations have two superlayers per chamber that measure position in the $r$-$\phi$ plane while the chambers in the inner three stations have an additional superlayer that measures position in the $r$-$z$ plane.
+Together, the four muon stations and iron yokes form a wheel with one between the solenoid and the first iron layer, two in between the yokes, and one outside.
+The outer barrel is composed of five wheels in total. 
+
 
 \section{Online Trigger System}
 
