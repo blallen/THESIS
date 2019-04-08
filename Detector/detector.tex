@@ -11,7 +11,7 @@ Towards this end, the detector was built to fulfill the following goals:
 \item Good resolution on the hadronic energy and missing transverse energy
 \item Sufficient time resolution to deal with 40 MHz of collisions
 \end{itemize}
-The CMS detector consists of four main subdetetors: the inner tracker system, the electromagnetic calorimeter (ECAL), the hadronic calorimeter (HCAL), and the muon chambers.
+The CMS detector consists of four main subdetetors: the inner trackers, the electromagnetic calorimeter (ECAL), the hadronic calorimeter (HCAL), and the muon chambers.
 The first three are within the field volume of the eponymous 3.8 T superconducting NbTi solenoid magnet while the muon chambers are embedded in the return yoke of the magnet.
 Additionally, there is an online triggering system to reduce readout from 40 MHz to $\mathcal{O}(1)$ kHz for prompt reconstruction. 
 
@@ -52,10 +52,10 @@ In terms of \pt, $\eta$, and $\phi$, we have the following expressions for our c
 In terms of our Lorentz-invariant coordinates, the four-momentum of a given particle is $p = (\pt, \eta, \phi, E)$. 
 Additionally, the spatial separation of two particles is given by $\Delta R = \sqrt{(\Delta\phi)^2 + (\Delta\eta)^2}$ and the fiducial acceptance of the CMS detector is from $0 \le \phi < 2\pi$ and $-5 \le \eta \le 5$.
 
-\section{Inner Tracker System}
+\section{Inner Trackers}
 \label{sec:cms_tracker}
 
-Closest to the interaction point, the inner tracker system identifies charged particles and measures their momenta.
+Closest to the interaction point, the inner trackers identify charged particles and measures their momenta.
 Additionally, high resolution tracks are used to identify primary and secondary vertices.
 The magnetic field in the tracker volume is uniform with strength 3.8 T and field lines parallel to the beam direction. 
 The tracker volume extends to 1.2 m in $r$ and 2.9 m in $z$, providing coverage for $\abs\eta < 2.5$,  and is instrumented with silicon pixels and strips.
@@ -192,7 +192,7 @@ and the standalone HF energy energy resolution is
 
 \section{Muon Chambers}
 
-The outer most components of CMS are the muon triggering, identification, and detection systems.
+The outer most components of CMS are the muon triggering, identification, and detection chambers.
 These muon detectors are interleaved with the steel return yoke of the magnet resulting in a characteristic $S$-shape for the muon trajectories due to the reversal of magnetic field direction across the solenoid.
 Signal purity in the muon detectors is high as hadrons, electrons, and photons are stopped by the calorimeters while muons are minimum ionizing particles (MIPs) that lose little energy while traversing the detector.
 Taking advantage of the large detector volumes required by the outer solenoid radius of 3.5\unit{m}, three types of gas ionization chambers are used: drift tubes (DTs) in the barrel covering $\abs\eta < 1.2$, cathode strip chambers (CSCs) in the endcaps coering $0.9 < \abs\eta < 2.4$, and resistive plate chambers (RPCs) in both covering $\abs\eta < 2.1$.
@@ -210,13 +210,22 @@ The layout of the muon detectors is shown in Figure~\ref{fig:cms_muons}.
   \label{fig:cms_muons}
 \end{figure}
 
-The DT chambers consist of rectangular drift cells with tranverse dimensions of $42\mm \times 13\mm$ filled with a 85:15 Ar-CO$_2$ mix and a gold/steel anode wire held at a voltage of 3600\unit{V}.
+The DT chambers consist of rectangular drift cells with tranverse dimensions of $42\mm \times 13\mm$ filled with a 85:15 Ar/CO$_2$ mix and a gold/steel anode wire held at a voltage of 3.6\unit{kV}.
 The  maximum drift time per cell of 400\ns\ provides a spatial resultion of approximately 250\mum.
 A single chamber is made out of superlayers which are in turn made out of four individual cells for a combined resultion of 100\mum.
 The chambers are arranged into four 2.4\unit{m} thick dodecagonal rings called the muon barrel stations.
 All four stations have two superlayers per chamber that measure position in the $r$-$\phi$ plane while the chambers in the inner three stations have an additional superlayer that measures position in the $r$-$z$ plane.
 Together, the four muon stations and iron yokes form a wheel with one between the solenoid and the first iron layer, two in between the yokes, and one outside.
 The outer barrel is composed of five wheels in total. 
+
+Due to their faster response time and better spatial resolution, CSCs are used to handle the higher muon and background fluxes in the endcap region. 
+Each CSC is filled with a 50:40:10 CO$_2$/Ar/CF$_4$ mix and instrumented with 80 cathode strips held at voltages of 2.9-3.6\unit{kV} relative to the gold-plated tungsten anode wires.
+The strips run radially outward to measure position in the $r$-$\phi$ plane while the wires run perpendicular measure the $\eta$ and beam-crossing time of the muons.
+The four muon stations in each endcap are made of CSCs arranged into annuli oriented perpendicular to the beam axis and interspersed between the flux return plates.
+The three inner stations have multiple annuli with smaller ones fitting inside the larger ones while the fourth station only has one close to the beamline.
+
+An RPC is a parallel-plate double-gap chamber with a time resolution of one nanosecond and a poor spatial resolution. 
+The RPCs are interspersed throughout the DT and CSCs to provide an independent muon trigger system that can identify the correct bunch crossing time.
 
 
 \section{Online Trigger System}
