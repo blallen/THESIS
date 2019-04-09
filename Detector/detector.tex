@@ -227,16 +227,15 @@ The three inner stations have multiple annuli with smaller ones fitting inside t
 An RPC is a parallel-plate double-gap chamber with a time resolution of one nanosecond and a poor spatial resolution. 
 The RPCs are interspersed throughout the DT and CSCs to provide an independent muon trigger system that can identify the correct bunch crossing time.
 
-
 \section{Online Trigger System}
 
 How we choose events.
 
 \section{Detector Simulation}
 
-Gotta get predictions somehow.
-
-% \section{Detector Issues}
-
-% What went wrong.
+Geant4 is used to simulate the detector response to the particles produced in collisions.
+Starting with the output of the particle-level MC described in Section~\ref{sec:collider_pheno}, final state particles are propagated through the solenoid's magnetic field into the passive and active elements of the detector where energy deposition, decay, and showering are simulated.
+Additional inelastic proton-proton collision are overlaid into an event to simulate the effects of pileup.
+As the particles interact with the detector, the response of the readout electronics is simulated, including the effects of noise.
+In order to miminize differences between simulated events and those from collisions, the reconstruction software and output format are the same for both up to the retention of additional truth information from the generators.
 
