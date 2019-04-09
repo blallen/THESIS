@@ -239,6 +239,26 @@ Events selected by the L1 trigger are fully readout and passed to the high level
 The HLT reconstructs the full event on a CPU farm using a version of the offline reconstruction software optimized to process a single event within 200\unit{ms} at the cost of precision.
 Events selected by the HLT are sent to the offline computing resources for full reconstruction followed by storage on disk and tape. 
 
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.875\textwidth]{Detector/Figures/cms_l1t.png}
+  \caption{
+    The Level-1 trigger architecture with components labeled and information flow indicated.  
+    Reprinted from Reference~\cite{}. % https://iopscience.iop.org/article/10.1088/1748-0221/3/08/S08004/meta
+  }
+  \label{fig:cms_l1t}
+\end{figure}
+
+The L1 trigger uses field programmable gate arrays (FPGAs) and application specific integrated circuits (ASICs) to make decisions within 4\mus of each collision.
+Each subdetector module has a hardware trigger that reconstructs objects called trigger primitives (TPs).
+In the two calorimeters, clustered energy deposits from each tower are sent to a regional calorimeter trigger (RCT) which correlates the information from adject towers and between the ECAL and HCAL into electron, photon, and jet candidates.
+The outputs from the RCT are passed to the global calorimeter trigger (GCT) which computes global event variables such as the total transverse energy, the hadronic transverse energy, and the momentum imbalance.
+Muon track candidates are produced from a simple segment-finding and tracking algorithm in each of the three types of muon chambers.
+The global muon trigger (GMT) receives the candidates and combines them with information from the GCT to produce the final set of muon candidates.
+The global trigger (GT) decides if an event should be sent to the HLT based on the information it receives from the GCT, the GMT, and the Timing, Trigger, and Control (TTC) system that monitors the readiness of the sub-detectors and the data acquisition (DAQ) system.
+The inner tracker is not included because the detector readout and reconstruction process take longer than the time alloted.
+Figure~\ref{fig:cms_l1t} shows a schematic description of the full L1 trigger process.
+
 \section{Detector Simulation}
 
 The Geant4 program is used to simulate the detector response to the particles produced in collisions.
