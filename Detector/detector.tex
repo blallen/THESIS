@@ -229,11 +229,19 @@ The RPCs are interspersed throughout the DT and CSCs to provide an independent m
 
 \section{Online Trigger System}
 
-How we choose events.
+To achieve an instantaneous luminosity of $\mathcal{O}(10^{34}) \percms$, the LHC has bunch crossings every 25\ns\ for a total data rate of 40\unit{MHz}, much higher than the 100\unit{kHz} readout rate for the detector and the $\mathcal{O}(1)\unit{kHz}$ data reconstruction and tape writing rates.
+Fortunately, uninteresting elastic scattering and QCD inelastic scattering events dominate the approximately 100\unit{$\mu$b} total proton-proton cross-section at the LHC.
+Meanwhile, most new physics processes have a predicted on the order of picobarns or femtobarns and even the highest rate SM EWK cross-sections are $\mathcal{O}(10)$\unit{nb}, so not every event needs to be readout, reconstructed, and written to tape.
+
+A two-stage trigger system selects the events to keep for permanent storage and analysis.
+The Level 1 hardware-based trigger (L1) selects interesting events based on incomplete detector information to reduce readout and computation times.
+Events selected by the L1 trigger are fully readout and passed to the high level software-based trigger (HLT).
+The HLT reconstructs the full event on a CPU farm using a version of the offline reconstruction software optimized to process a single event within 200\unit{ms} at the cost of precision.
+Events selected by the HLT are sent to the offline computing resources for full reconstruction followed by storage on disk and tape. 
 
 \section{Detector Simulation}
 
-Geant4 is used to simulate the detector response to the particles produced in collisions.
+The Geant4 program is used to simulate the detector response to the particles produced in collisions.
 Starting with the output of the particle-level MC described in Section~\ref{sec:collider_pheno}, final state particles are propagated through the solenoid's magnetic field into the passive and active elements of the detector where energy deposition, decay, and showering are simulated.
 Additional inelastic proton-proton collision are overlaid into an event to simulate the effects of pileup.
 As the particles interact with the detector, the response of the readout electronics is simulated, including the effects of noise.
