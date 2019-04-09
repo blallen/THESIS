@@ -235,13 +235,12 @@ Meanwhile, most new physics processes have a predicted on the order of picobarns
 
 A two-stage trigger system selects the events to keep for permanent storage and analysis.
 The Level 1 hardware-based trigger (L1) selects interesting events based on incomplete detector information to reduce readout and computation times.
-Events selected by the L1 trigger are fully readout and passed to the high level software-based trigger (HLT).
-The HLT reconstructs the full event on a CPU farm using a version of the offline reconstruction software optimized to process a single event within 200\unit{ms} at the cost of precision.
+Events selected by the L1 trigger are fully readout and passed to the high level software-based trigger (HLT) where the full event is reconstructed using the data acquisition system (DAQ), a computing farm with over 20k CPU cores.
 Events selected by the HLT are sent to the offline computing resources for full reconstruction followed by storage on disk and tape. 
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.875\textwidth]{Detector/Figures/cms_l1t.png}
+  \includegraphics[width=0.8175\textwidth]{Detector/Figures/cms_l1t.png}
   \caption{
     The Level-1 trigger architecture with components labeled and information flow indicated.  
     Reprinted from Reference~\cite{}. % https://iopscience.iop.org/article/10.1088/1748-0221/3/08/S08004/meta
@@ -255,9 +254,22 @@ In the two calorimeters, clustered energy deposits from each tower are sent to a
 The outputs from the RCT are passed to the global calorimeter trigger (GCT) which computes global event variables such as the total transverse energy, the hadronic transverse energy, and the momentum imbalance.
 Muon track candidates are produced from a simple segment-finding and tracking algorithm in each of the three types of muon chambers.
 The global muon trigger (GMT) receives the candidates and combines them with information from the GCT to produce the final set of muon candidates.
-The global trigger (GT) decides if an event should be sent to the HLT based on the information it receives from the GCT, the GMT, and the Timing, Trigger, and Control (TTC) system that monitors the readiness of the sub-detectors and the data acquisition (DAQ) system.
+The global trigger (GT) decides if an event should be sent to the HLT based on the information it receives from the GCT, the GMT, and the Timing, Trigger, and Control (TTC) system that monitors the readiness of the sub-detectors and the DAQ.
 The inner tracker is not included because the detector readout and reconstruction process take longer than the time alloted.
 Figure~\ref{fig:cms_l1t} shows a schematic description of the full L1 trigger process.
+
+The HLT uses a version of the offline reconstruction software optimized to process a single event within 200\unit{ms} at the cost of some precision.
+The reconstruction is split into a series of filters that make decisions within regions of interested defined by the L1 trigger infromation.
+The HLT implements the desired trigger logic by constructing trigger paths out of these filters.
+For example, three filters relevant for dark matter searches are (1) a single photon, (2) large momentum imbalance, and (3) large hadronic energy.
+Combining the first two yields a trigger path targetting the monophoton channel while combining the latter two yields one for the monojet channel.
+To reduce CPU usage, simple decisions such as those using only the calorimeters or muon information are computed before complex decisions such as tracking.
+
+An event must pass all the filters in a given path to be recorded in an output primary dataset (PD).
+Trigger paths are organized into PDs such that each PD contains events with similar topologies.
+Some examples are the SinglePhoton, DoubleMuon, and Jet/HT datasets. 
+A single event that exhibits multiple different physics signatures can pass multiple trigger paths and end up in multiple PDs.
+These overlaps must be considered in the offline analysis.
 
 \section{Detector Simulation}
 
