@@ -1,18 +1,81 @@
-\chapter{Reconstruction}
+\chapter{Global Event Reconstruction}
 
-How do we turn electrical signals into physics.
+In the previous chapter, we discussed the interactions of particles with the individual subdetectors and how these generate electrical signals.
+Now, we shall discuss the reverse process, namely reconstructing the individual particles or physics objects from the electrical signals recorded by the subdetectors.
 
-\section{Tracks}
-\label{sec:tracks}
+Traditionally, each class of physics object was reconstructed using information from a single subdetector: muons from the muon chambers, isolated photons and electrons from the ECAL, jets and missing transverse energy from the HCAL, and secondary vertices from $\tau$ lepton and $b$ quark decays from the tracker.
+However, as depicted in Figure~\ref{fig:cms_slice}, each type of particle interacts with multiple different subdetectors and this information is lost unless the information from all the subdetectors is combined into a single global event description.
 
-\section{Primary Vertex}
-\label{sec:vertex}
+The particle flow (PF) algorithm leverages the fine angular granularity of the calorimeters and the excellent momentum resolution of the inner tracker and muon chambers to greatly improve the reconstruction of physics objects and include soft particles that would otherwise be ignored.
+This is especially advantageous for jet energy measurements as roughly 62\% of the jet energy is carried by charged hadrons, approximately 27\% by photons, around 10\% by neutral hadrons, and about 1.5\% by neutrinos.
 
-\section{Particle Flow}
-\label{sec:particle_flow}
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[width=0.875\textwidth]{Reconstruction/Figures/cms_slice.png}
+    \caption{
+      A sketch of a transverse slice of the CMS detector showing particle interactions from the interaction point to the muon detector.
+      % Charge particles tracks are shown with solid lines while the paths of neutral particles are shown with dotted lines. 
+      % The muon and charged pion are positively charged and the electron is negatively charged.
+      % Neutrinos do not interact with the detector at an appreciably rate.
+      Reprinted from Reference~\cite{}. % https://iopscience.iop.org/article/10.1088/1748-0221/12/10/P10003/meta
+    }
+    \label{fig:cms_slice}
+  \end{center}
+\end{figure}
 
-\section{Photons}
-\label{sec:photons}
+The distinguishing feature of the PF algorithm is to combine multiple detector signals together into a single PF candidate.
+The input detector signals are the tracks, vertices, calorimeter clusters, and muon segments described in Section~\ref{sec:pf_elements}.
+Based on their proximity in the $\eta$-$\phi$, these PF elements are combined into muons, electrons, and hadrons.
+Muon segments are combined with inner tracks to produce muons, inner tracks are combined with calorimeter clusters to produce electrons and charge hadrons, and calorimeter clusters are correlated to produce photons and neutral hadrons.
+
+The PF algorithm reconstructs particles in the blocks described in Section~\ref{sec:pf_cands} and after each block any PF elements associated to a PF candidate are not considered by the following blocks.
+For example, clusters associated with photons will not be used when reconstructing neutral hadrons.
+After all PF candidates are identified, they can be combined into event-wide variables such as jets and the missing transverse energy as described in Section~\ref{sec:pf_event}. 
+
+\section{Particle Flow Elements}
+\label{sec:pf_elements}
+
+\subsection{Tracks}
+\label{sec:pf_tracks}
+
+Some text.
+
+\subsection{Primary Vertexing}
+\label{sec:pf_pv}
+
+\subsection{Secondary Vertexing}
+\label{sec:pf_csv}
+
+\subsection{Calorimeter Clusters}
+\label{sec:pf_clusters}
+
+\section{Particle Identification}
+\label{sec:pf_cands}
+
+\subsection{Muons}
+\label{sec:pf_muons}
+
+\subsection{Electrons and Isolated Photons}
+\label{sec:pf_egamma}
+
+\subsection{Hadrons and Nonisolated Photons}
+\label{sec:pf_hadrons}
+
+\section{Event Variables}
+\label{sec:pf_event}
+
+\subsection{Jets}
+\label{sec:pf_jets}
+
+\subsection{Missing Tranverse Energy}
+\label{sec:pf_met}
+
+\iffalse
+\section{Analysis Selections}
+\label{sec:ana_sel}
+
+\subsection{Photons}
+\label{sec:ana_photons}
 
 We select high-\ET\ photons from the ECAL Barrel. First, we apply the following cuts to select high-\ET\ photon candidates:
 \begin{itemize}
@@ -91,8 +154,8 @@ To clean the candidate sample from photon objects originating from non-collision
 Beam halo tagger is the total energy deposited in ECAL by a hypothetical beam halo muon that passes through the photon cluster. 
 Lower bounds for \sieie\ and \sipip\ as well as the requirement on the cluster seed time are employed to reject spurious photon objects arising from ``ECAL spikes'', or anomalous electronic signal induced at the ECAL Barrel photodetectors by nuclear or ionizing interactions in the photocathode.
 
-\section{Electrons}
-\label{sec:electrons}
+\subsection{Electrons}
+\label{sec:ana_electrons}
 
 Electrons must have $\pt^{\Pe} > 10\GeV$ and $\abs{\eta^{\Pe}} < 2.5$ to be considered.
 Additionally, electrons must pass further cuts on the following observables:
@@ -108,8 +171,8 @@ Additionally, electrons must pass further cuts on the following observables:
 The exact values of the cuts are tuned based on whether the electron is in the barrel or the endcap and to give desired signal efficiencies and background acceptance.
 The loose ID is tuned to 90\% signal efficiency and 0.5\% background acceptance, while the tight ID is tuned to 70\% signal efficiency and 0.1\% background acceptance.
 
-\section{Muons}
-\label{sec:muons}
+\subsection{Muons}
+\label{sec:ana_muons}
 
 Muons must have $\pt^{\Pgm} > 10\GeV$ and $\abs{\eta^{\Pgm}} < 2.5$ to be considered.
 The veto muon ID is simply the requirement that a PF muon also be a Global muon, e.g., that the muon is linked between a muon signature from the inner tracker and the outer muon chambers.
@@ -128,16 +191,14 @@ In order for a muon to pass the tight ID, it must satisfy the following addition
 
 \end{itemize}
 
-\section{Hadrons and jets}
-\label{sec:jets}
+\subsection{Jets}
+\label{sec:ana_jets}
 
-% \subsection{Hadronic taus}
-
-\section{Missing Transverse Energy}
-\label{sec:met}
+\section{Sources of Spurious Photons and \met}
+\label{sec:issues}
 
 \subsection{ECAL gain-switch effect}
-\label{subsec:gainswitch}
+\label{sec:gainswitch}
 
 \begin{figure}[htbp]
   \centering
@@ -166,7 +227,7 @@ This effect is mitigated in the reprocessed data set used for this analysis by i
 The gain-switch problem affected the analyses documented in this thesis, since large underestimation of the energy of a photon in an otherwise typical \gj\ event would introduce large missing transverse momentum to the event, typical collinear to the affected photon. 
 Figures~\ref{fig:eventdisplay_gsfix} and \ref{fig:ptshift_gsfix} are the visualization of how the new dataset changes the reconstructed photon energy and \met.
 
-\section{Beam Halo Phenomenology}
+\subsection{Beam Halo Phenomenology}
 \label{sec:halo}
 
 Bremsstrahlung photons emitted by beam halo muons in the ECAL volume generate a physical EM shower in the ECAL crystals. 
@@ -277,7 +338,7 @@ From these two observations, we can see that there are is only a negligible numb
 While the peaking behavior is a robust feature of the halo showers, their rate is not easily predictable. 
 Therefore, the contribution from beam halo processes is estimated by a direct fit to the observed data during the signal extraction process, described in Section~\ref{sec:halo_estimate}
 
-\section{ECAL Barrel Spikes Phenomenology}
+\subsection{ECAL Barrel Spikes Phenomenology}
 \label{sec:spikes}
 
 Noise in the photodetector or the detector electronics can result in spurious photon signals. 
@@ -401,3 +462,4 @@ In the $\alpha$--$\beta$ parameter space, seed rec hits of wide clusters concent
 In fact, the pulse amplitude distribution of narrow-cluster seeds with $\alpha > 0.9$ is unlike that of the narrow-cluster seeds with $\alpha < 0.9$, and resembles the amplitude distribution of wide-cluster seeds shown in Figure~\ref{fig:spike_amplitudes}.
 This suggests that the population $\alpha > 0.9$ correspond to the clusters of physical, prompt photons.
 It then follows that spike hits can be regarded to exclusively have sharp pulse shapes.
+\fi
