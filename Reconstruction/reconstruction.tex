@@ -46,7 +46,7 @@ Earlier iterations require three pixel hits while later iterations gradually loo
 The final iterations specifically target increased muon tracking efficiency by including information from the muon chambers.
 
 Next, a Kalman filter is used to find additional hits consistant with the evolution of the track seeds through the rest of the tracker, accounting for the magnetic field, energy loss due to ionization, and multiple scattering.
-The five parameters used for the helical trajectory evolution are the curvature $\rho$, the azimuthal angle $\phi_0$, the impact parameter $d_0$ , the minimum distance along the beam axis $z_0$ , and $\lambda = \cot \theta$, where $\theta$ is the polar angle.
+The five parameters used for the helical trajectory evolution are the curvature $\rho$, the azimuthal angle $\phi_0$, the transverse impact parameter $d_0$ , the longitudinal impact parameter $z_0$ , and $\lambda = \cot \theta$, where $\theta$ is the polar angle.
 
 After propagating the track through all layers of the detector and finding all associated hits, a Kalman fitter and smoother is used to refit the overall trajectory while a fourth-order Runge-Kutta method is used to extrapolate the trajectory between successive hits.
 To reduce the fraction of fake tracks, various quality requirements concerning the number of missing hits, the reduced $\chi^2$ of the fit, and compatibility with a primary vertex are applied before proceeding to the next iteration.
@@ -58,6 +58,25 @@ A Gaussian Sum Filter (GSF) defined to approximate the Bethe-Heitler energy-loss
 \subsection{Primary Vertexing}
 \label{sec:pf_pv}
 
+A deterministic annealing (DA) algorithm is used to associate tracks to primary vertices.
+Tracks must pass additional requirements on the transverse impact parameter $d_0$, the number of strip and pixel hits, and the reduced $\chi$ of the trajectory fit to be considered when finding primary vertices.
+The most probable vertex positions at an artifical temperature $T$ are determined by the minimization of the ``free energy''
+\begin{equation}
+  F = -T \sum_i^{N_T} \ln \sum_j^{N_V} p_{ij} \rho_j \exp \left[ - \frac{1}{T} \left(\frac{z_i^T - z_j^V}{\sigma^z_i}\right)^2 \right]
+\end{equation}
+where the $z_j^V$ are the vertex positions with weights $\rho_j$, the $z_i^T$ and $\sigma_i^z$  are the longitudinal impact parameters and the corresponding uncertainties of the tracks, and the $p_{ij}$ are the probabilities of assigning the track $i$ of $N_T$ to the vertex $j$ of $N_V$.
+
+The DA algorithm starts with a single vertex at a very high temperature that is gradually decreased.
+The free energy $F$ is minimized with respects to $z_j^K$ at each new temperature and a vertex is split in two whenever $T$ falls below its criticial temperature
+\begin{equation}
+  T_C^j = 2 \sum_i \frac{p_i p_{ij}}{\left(\sigma_i^z\right)^2} \left(\frac{z_i^T - z_j^V}{\sigma^z_i}\right)^2 \Bigg/ \sum_i \frac{p_i p_{ij}}{\left(\sigma_i^z\right)^2}.
+\end{equation}
+The annealing procedure with vertex splitting continues down to $T = 4$ and the final assignment of tracks to vertices is performed at $T = 1$ without any further splitting. 
+The vertex designated as \textit{the} primary vertex of the hard scattering is the one which maximizes
+\begin{equation}
+  \sum_i  (\pt^i)^2 + (\ptmiss)^2,
+  \end{equation}
+where $\pt^i$ is the transverse momentum of a track assigned to the vertex and \ptmiss\ is the magnitude of the momentum imbalance in the transverse plane for the vertex. 
 \subsection{Secondary Vertexing}
 \label{sec:pf_csv}
 
