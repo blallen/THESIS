@@ -1,9 +1,11 @@
 \chapter{Global Event Reconstruction}
 
+% https://doi.org/10.1088/1748-0221/12/10/P10003
+
 In the previous chapter, we discussed the interactions of particles with the individual subdetectors and how these generate electrical signals.
 Now, we shall discuss the reverse process, namely reconstructing the individual particles or physics objects from the electrical signals recorded by the subdetectors.
 
-Traditionally, each class of physics object was reconstructed using information from a single subdetector: muons from the muon chambers, isolated photons and electrons from the ECAL, jets and missing transverse energy from the HCAL, and secondary vertices from $\tau$ lepton and $b$ quark decays from the tracker.
+Traditionally, each class of physics object was reconstructed using information from a single subdetector: muons from the muon chambers, isolated photons and electrons from the ECAL, jets and missing transverse energy from the HCAL, and secondary vertices from $\tau$ lepton and $b$ hadron decays from the tracker.
 However, as depicted in Figure~\ref{fig:cms_slice}, each type of particle interacts with multiple different subdetectors and this information is lost unless the information from all the subdetectors is combined into a single global event description.
 
 The particle flow (PF) algorithm leverages the fine angular granularity of the calorimeters and the excellent momentum resolution of the inner tracker and muon chambers to greatly improve the reconstruction of physics objects and include soft particles that would otherwise be ignored.
@@ -38,6 +40,8 @@ After all PF candidates are identified, they can be combined into event-wide var
 \subsection{Tracks}
 \label{sec:pf_tracks}
 
+% doi:10.1088/1748-0221/9/10/P10009
+
 The Combinatorial Track Finder software is used to reconstruct tracks in an iterative inside-out process.
 Initial interations search for tracks that are easy to find, e.g. those with high \pt, and hits associated with these tracks are removed for later iterations, reducing the combinatorial complexity and simplifying the search for more difficult tracks, e.g. greatly displaced ones.
 
@@ -51,12 +55,16 @@ The five parameters used for the helical trajectory evolution are the curvature 
 After propagating the track through all layers of the detector and finding all associated hits, a Kalman fitter and smoother is used to refit the overall trajectory while a fourth-order Runge-Kutta method is used to extrapolate the trajectory between successive hits.
 To reduce the fraction of fake tracks, various quality requirements concerning the number of missing hits, the reduced $\chi^2$ of the fit, and compatibility with a primary vertex are applied before proceeding to the next iteration.
 
+% https://doi.org/10.1088/1748-0221/12/10/P10003
+
 Track reconstruction for electrons is more complicated as the Kalman filter is not a good description because of the high rate of non-Gaussian energy loss due to brehmsstrahlung these tracks experience within the tracker.
 To improve the electron reconstruction efficiency, the electron seed collection is filled both by looking outside-in for ECAL superclusters (see Section~\ref{sec:pf_clusters}) consistant with track seeds and inside-out track seeds consistent with superclusters.
 A Gaussian Sum Filter (GSF) defined to approximate the Bethe-Heitler energy-loss distribution is used to fit the trajectory of electron tracks. 
 
 \subsection{Primary Vertexing}
 \label{sec:pf_pv}
+
+% doi:10.1088/1748-0221/9/10/P10009
 
 A deterministic annealing (DA) algorithm is used to associate tracks to primary vertices.
 Tracks must pass additional requirements on the transverse impact parameter $d_0$, the number of strip and pixel hits, and the reduced $\chi$ of the trajectory fit to be considered when finding primary vertices.
@@ -77,8 +85,23 @@ The vertex designated as \textit{the} primary vertex of the hard scattering is t
   \sum_i  (\pt^i)^2 + (\ptmiss)^2,
   \end{equation}
 where $\pt^i$ is the transverse momentum of a track assigned to the vertex and \ptmiss\ is the magnitude of the momentum imbalance in the transverse plane for the vertex. 
+
 \subsection{Secondary Vertexing}
 \label{sec:pf_csv}
+
+% https://arxiv.org/pdf/1712.07158.pdf
+
+Long-lived particles such as $b$ hadrons and $\tau$ leptons often produce charged particles in their decays.
+These charged particles are traced to a secondary vertex at the location of the decay, which is identified by the inclusive vertex fitter (IVF) algorithm.
+
+The IVF procedure begins by selecting seed tracks with a 3D impact parameter $\sqrt{d_0^2 + z_0^2} \ge  50\mum$ and a 2D impact parameter significance of at least 1.2.
+Tracks are assigned to a secondary vertex based on their opening angle with the seed track and distance at closest approach, with the additional stipulation that this distance be smaller for the secondary vertex than for the primary vertex.
+
+To determine the precise position of the secondary vertices, the associated tracks are fitted with the adaptive vertex fitter and any vertices with a flight distance significance less than a certain threshold are discarded.
+At this point, a track is unassociated from a secondary vertex if the angular distance between the track and the secondary vertex flight direction is greater than 0.4 and if the track's distance at closest approach is larger than the magnitude of its impact parameter.
+
+The secondary vertex position is refitted after track cleaning if there are still at least two tracks associated with the vertex.
+The last stage of cleaning removes a secondary vertex if it shares at least 20\% of its tracks with another and the flight distance significance between the two is less than ten.
 
 \subsection{Calorimeter Clusters}
 \label{sec:pf_clusters}
