@@ -38,7 +38,22 @@ After all PF candidates are identified, they can be combined into event-wide var
 \subsection{Tracks}
 \label{sec:pf_tracks}
 
-Some text.
+The Combinatorial Track Finder software is used to reconstruct tracks in an iterative inside-out process.
+Initial interations search for tracks that are easy to find, e.g. those with high \pt, and hits associated with these tracks are removed for later iterations, reducing the combinatorial complexity and simplifying the search for more difficult tracks, e.g. greatly displaced ones.
+
+The first step is to form seeds based on pixel hits, double strip hits containing 3D information, and an estimate of the beam spot.
+Earlier iterations require three pixel hits while later iterations gradually loosen the requirements. %  to reconstruct displaced tracks.
+The final iterations specifically target increased muon tracking efficiency by including information from the muon chambers.
+
+Next, a Kalman filter is used to find additional hits consistant with the evolution of the track seeds through the rest of the tracker, accounting for the magnetic field, energy loss due to ionization, and multiple scattering.
+The five parameters used for the helical trajectory evolution are the curvature $\rho$, the azimuthal angle $\phi_0$, the impact parameter $d_0$ , the minimum distance along the beam axis $z_0$ , and $\lambda = \cot \theta$, where $\theta$ is the polar angle.
+
+After propagating the track through all layers of the detector and finding all associated hits, a Kalman fitter and smoother is used to refit the overall trajectory while a fourth-order Runge-Kutta method is used to extrapolate the trajectory between successive hits.
+To reduce the fraction of fake tracks, various quality requirements concerning the number of missing hits, the reduced $\chi^2$ of the fit, and compatibility with a primary vertex are applied before proceeding to the next iteration.
+
+Track reconstruction for electrons is more complicated as the Kalman filter is not a good description because of the high rate of non-Gaussian energy loss due to brehmsstrahlung these tracks experience within the tracker.
+To improve the electron reconstruction efficiency, the electron seed collection is filled both by looking outside-in for ECAL superclusters (see Section~\ref{sec:pf_clusters}) consistant with track seeds and inside-out track seeds consistent with superclusters.
+A Gaussian Sum Filter (GSF) defined to approximate the Bethe-Heitler energy-loss distribution is used to fit the trajectory of electron tracks. 
 
 \subsection{Primary Vertexing}
 \label{sec:pf_pv}
