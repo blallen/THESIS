@@ -58,7 +58,7 @@ To reduce the fraction of fake tracks, various quality requirements concerning t
 % https://doi.org/10.1088/1748-0221/12/10/P10003
 
 Track reconstruction for electrons is more complicated as the Kalman filter is not a good description because of the high rate of non-Gaussian energy loss due to brehmsstrahlung these tracks experience within the tracker.
-To improve the electron reconstruction efficiency, the electron seed collection is filled both by looking outside-in for ECAL superclusters (see Section~\ref{sec:pf_clusters}) consistant with track seeds and inside-out track seeds consistent with superclusters.
+To improve the electron reconstruction efficiency, the electron seed collection is filled both by looking outside-in for ECAL superclusters (see Section~\ref{sec:pf_sc}) consistant with track seeds and inside-out track seeds consistent with superclusters.
 A Gaussian Sum Filter (GSF) defined to approximate the Bethe-Heitler energy-loss distribution is used to fit the trajectory of electron tracks. 
 
 \subsection{Primary Vertexing}
@@ -94,7 +94,7 @@ where $\pt^i$ is the transverse momentum of a track assigned to the vertex and \
 Long-lived particles such as $b$ hadrons and $\tau$ leptons often produce charged particles in their decays.
 These charged particles are traced to a secondary vertex at the location of the decay, which is identified by the inclusive vertex fitter (IVF) algorithm.
 
-The IVF procedure begins by selecting seed tracks with a 3D impact parameter $\sqrt{d_0^2 + z_0^2} \ge  50\mum$ and a 2D impact parameter significance of at least 1.2.
+The IVF procedure begins by selecting seed tracks with a 2D impact parameter significance $\sigma_{d_0} \ge 1.2$ and a 3D impact parameter $\sqrt{d_0^2 + z_0^2} \ge  50\mum$.
 Tracks are assigned to a secondary vertex based on their opening angle with the seed track and distance at closest approach, with the additional stipulation that this distance be smaller for the secondary vertex than for the primary vertex.
 
 To determine the precise position of the secondary vertices, the associated tracks are fitted with the adaptive vertex fitter and any vertices with a flight distance significance less than a certain threshold are discarded.
@@ -103,8 +103,59 @@ At this point, a track is unassociated from a secondary vertex if the angular di
 The secondary vertex position is refitted after track cleaning if there are still at least two tracks associated with the vertex.
 The last stage of cleaning removes a secondary vertex if it shares at least 20\% of its tracks with another and the flight distance significance between the two is less than ten.
 
-\subsection{Calorimeter Clusters}
+\subsection{ECAL Superclusters}
+\label{sec:pf_sc}
+
+Due to the large amount of material in the tracker, electrons often emit bremsstrahlung photons, photons often convert to electron-positron pairs, and the brehmsstrahlung photons and converted electrons often undergo further conversion and brehmsstrahlung before reaching the ECAL.
+Because of the bending of electron trajectories in the magnetic field, the resulting electromagnetic (EM) shower is significantly spread in the $\phi$-direction and collimated in the $\eta$-direction.
+The ECAL reconstruction algorithm combines the basic cluster from each showered particle into a supercluster representing the initial electron or photon from the hard scattering. 
+
+% https://iopscience.iop.org/article/10.1088/1748-0221/10/06/P06005/pdf
+
+The first step is the identification of a seed crystal with greater transverse energy than its immediate neighbors and above a predefined minimum threshold.
+The energy of each crystal is determined from calibration constants combined with the amplitude and peak time obtained by fitting the pulse shape of the ten time samples surrounding the triggering bunch crossing.
+
+% https://iopscience.iop.org/article/10.1088/1748-0221/10/08/P08010/pdf
+
+In the barrel, a supercluster starts with a $5\times1$ array of crystals in the $\eta$-$\phi$ plane centred on the seed crystal.
+The array is extended around the seed crystal in the $\phi$-direction up to $\abs{\Delta\phi} \le 0.3$ if the energy of the additional crystals exceeds a certain threshold. 
+The contiguous array is grouped into distinct basic clusters each containing a seed array with energy greater than another threshold.
+The supercluster is the collection of basic threshold found in the $\eta$-$\phi$ region centered on the initial seed crystal.
+Since the crystals in the endcaps are arranged in an $x$-$y$ grid, clustering here uses fixed $5\times5$ matrices of crystals. 
+After a seed cluster is identified, additional, partially overlapping $5\times5$ matrices are added if their centroid lies within $\abs{\Delta\eta} \le 0.07$ and $\abs{\Delta\phi} \le 0.3$.
+For uncoverted photons, both methods produce superclusters that are simple $5\times5$ matrices.
+
+\subsection{HCAL Clusters}
 \label{sec:pf_clusters}
+
+% pf paper
+
+The purpose of clustering in the HCAL is to measure the energy and direction of neutral hadrons, disentangle neutral hadrons from charged hadron energy deposits, and improve the energy measurement for charged hadrons with poorly reconstructed tracks.
+Similar to the supercluster algorithm, a cluster in the HCAL is first identified by a seed cell with greater transverse energy than its immediate neighbors and above a predefined minimum threshold.
+This seed is then grown into a topological cluster by adding cells with at least a corner in common with a cell already in the cluster and energy above twice the noise threshold.
+
+An iterative Gaussian mixture model is used to break each topological cluster of M individual cells is broken into N energy deposits corresponding to individual particles, where N is the number of seeds.
+Each energy deposit is modeled as a Gaussian distribution $\mathcal{N}$ with amplitude $A_i$, mean $\vec \mu_i$ in the $\eta$-$\phi$ plane, and width $\sigma$ fixed by the calorimeter resolution.
+The expected fraction $f_{ji}$ of the energy $E_j$ measured in the cell at position $\vec c_j$ from the $i$th energy deposit is
+\begin{equation}
+  f_{ji} = \dfrac{\mathcal{N}\left(\vec c_j | A_i, \vec \mu_i, \sigma\right)}
+  {\sum_k^N \mathcal{N}\left(\vec c_j | A_k, \vec \mu_k, \sigma\right)}.
+\end{equation}
+The amplitude and position of each energy deposit are determined by an analytical maximum-likelihood fit to be
+\begin{equation}
+  \begin{matrix}[l | r]
+    A_i = \sum\limits_j^M f_{ji} E_j &
+    \vec \mu_i = \sum\limits_j^M f_{ji} E_j \vec c_j
+  \end{matrix}
+\end{equation}
+where the initial values are the energy and position of the seeds.
+The process of calculating energy fractions $f_{ji}$ and fitting for the amplitudes $A_i$ and positions $\vec \mu_i$ is repeated until convergence, at which point they are taken as the cluster parameters.
+
+\subsection{Muon Segments}
+\label{sec:pf_segments}
+
+Muon segments are reconstructed from the hits in the muon chambers using a Kalman filter in a similar manner to that described for the inner tracker in Section~\ref{sec:pf_tracks}.
+A full track constructed in this way is referred to as a standalone muon.
 
 \section{Particle Identification}
 \label{sec:pf_cands}
@@ -112,11 +163,22 @@ The last stage of cleaning removes a secondary vertex if it shares at least 20\%
 \subsection{Muons}
 \label{sec:pf_muons}
 
-\subsection{Electrons and Isolated Photons}
-\label{sec:pf_egamma}
+text.
+
+\subsection{Electrons}
+\label{sec:pf_electrons}
+
+text.
+
+\subsection{Isolated Photons}
+\label{sec:pf_photons}
+
+text.
 
 \subsection{Hadrons and Nonisolated Photons}
 \label{sec:pf_hadrons}
+
+text.
 
 \section{Event Variables}
 \label{sec:pf_event}
@@ -399,7 +461,7 @@ Therefore, the contribution from beam halo processes is estimated by a direct fi
 \label{sec:spikes}
 
 Noise in the photodetector or the detector electronics can result in spurious photon signals. 
-Most of the time, such spurious signal is filtered out by multiple layers of protection, starting from the so-called ``spike killer'' algorithm at the level-1 trigger~\cite{CMS_AN_2010-357}. 
+Most of the time, such spurious signal is filtered out by multiple layers of protection, starting from the so-called ``spike killer'' algorithm at the Level 1 trigger~\cite{CMS_AN_2010-357}. 
 Nevertheless, in rare cases, noise in a single ECAL channel coincides with pileup or other energy deposit in the nearby crystals and appear as a high-energy photon cluster.
 
 \begin{figure}[tbp]
