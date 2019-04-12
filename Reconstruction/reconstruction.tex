@@ -30,7 +30,8 @@ The input detector signals are the tracks, vertices, calorimeter clusters, and m
 Based on their proximity in the $\eta$-$\phi$, these PF elements are combined into muons, electrons, photons, and hadrons.
 Muon segments are combined with inner tracks to produce muons, inner tracks are combined with calorimeter clusters to produce electrons and charged hadrons, and calorimeter clusters are correlated to produce photons and neutral hadrons.
 
-The PF algorithm reconstructs particles in the blocks described in Section~\ref{sec:pf_cands} and after each block any PF elements associated to a PF candidate are not considered by the following blocks.
+The PF algorithm reconstructs particles in regions of the detectors called blocks following the steps described in Section~\ref{sec:pf_cands}.
+After each step any PF elements associated to a PF candidate are removed from the block.
 For example, clusters associated with photons will not be used when reconstructing neutral hadrons.
 After all PF candidates are identified, they can be combined into event-wide variables such as jets and the missing transverse energy as described in Section~\ref{sec:pf_event}. 
 
@@ -80,7 +81,7 @@ The free energy $F$ is minimized with respects to $z_j^K$ at each new temperatur
   T_C^j = 2 \sum_i \frac{p_i p_{ij}}{\left(\sigma_i^z\right)^2} \left(\frac{z_i^T - z_j^V}{\sigma^z_i}\right)^2 \Bigg/ \sum_i \frac{p_i p_{ij}}{\left(\sigma_i^z\right)^2}.
 \end{equation}
 The annealing procedure with vertex splitting continues down to $T = 4$ and the final assignment of tracks to vertices is performed at $T = 1$ without any further splitting. 
-The vertex designated as \textit{the} primary vertex of the hard scattering is the one which maximizes
+The vertex designated as \textit{the} primary vertex (PV) of the hard scattering is the one which maximizes
 \begin{equation}
   S_T = \sum_i  (\pt^i)^2 + (\ptmiss)^2,
   \end{equation}
@@ -174,23 +175,6 @@ In events with very few tracks, such as one with a single high \pt\ photon and a
 In such cases, the photon object can be surrounded by charged hadrons and still appear isolated under the standard charged hadron isolation.
 A conservative measure to address such misidentification is to replace \ICH\ with the maximum of the PF charged hadron isolations computed over all reconstructed vertices, e.g. the maximum charged hadron isolation $\ICHmax = \max\limits_{\text{vertices}} \ICH$.
 
-\begin{table}[htbp]
-  \begin{center}
-    \caption{Effective areas for isolations.} 
-    \label{tab:ea}
-    \begin{tabular}{|c|c|c|}
-      \hline
-      Isolation & $\abs\eta < 1.0$ & $1.0 < \abs\eta < 1.479$  \\
-      \hline
-      maximum PF charged hadron isolation & 0.01064& 0.1026 \\
-      PF neutral hadron isolation & 0.0597 & 0.0807 \\
-      PF photon isolation & 0.1210 & 0.1107 \\
-      \hline
-    \end{tabular}
-  \end{center}
-\end{table}
-
-
 To reduce the pileup dependence of these variables, the median energy density $\rho$ of the pileup interactions in the isolation cone is calculated using the effective areas given in Table~\ref{tab:ea} and subtracted from each isolation sum.
 Additionally, since the rate of the charged particles originating from pileup interactions is about twice as large as the corresponding rate of the neutral particles, the pileup isolation \IPU\ is defined as the half the \pt\ sum of the PF charged hadrons \textit{not} associated with the primary vertex.
 Often selections are placed on the individual isolation components when selecting prompt photons, while the relative combined PF isolation
@@ -199,13 +183,28 @@ Often selections are placed on the individual isolation components when selectin
 \end{equation}
 is used when selecting prompt leptons.
 
+\begin{table}[htbp]
+  \begin{center}
+    \begin{tabular}{l|r|r}
+      Isolation & $\abs\eta < 1.0$ & $1.0 < \abs\eta < 1.479$  \\
+      \hline
+      \ICH\ &  &  \\
+      \INH\ & 0.0597 & 0.0807 \\
+      \Ig\ & 0.1210 & 0.1107 \\
+      \ICHmax\ & 0.01064& 0.1026
+    \end{tabular}
+    \caption{Effective areas for isolations.} 
+    \label{tab:ea}
+  \end{center}
+\end{table}
+
 \section{Particle Identification}
 \label{sec:pf_cands}
 
 \subsection{Muons}
 \label{sec:pf_muons}
 
-The first block of the PF algorithm reconstructs three types of muon candidates: the standalone muons described in Section~\ref{sec:pf_segments}, outside-in global muons, and inside-out tracker muons.
+The first step of the PF algorithm reconstructs three types of muon candidates: the standalone muons described in Section~\ref{sec:pf_segments}, outside-in global muons, and inside-out tracker muons.
 To construct a global muon, the algorithm identifies an inner track consistent with the trajectory of a standalone muon evolved inwards using a Kalman filter similar to those discussed in Section~\ref{sec:pf_tracks}. 
 After finding a match, a global muon candidate is created by combining the inner track with the standalone track with a second Kalman filter. 
 Conversely, to construct a tracker muon, the algorithm identifies a muon segment consistent with the trajectory of a inner track with $\pt > 0.5\GeV$.
@@ -218,12 +217,12 @@ Finally, misidentified or misreconstructed muons can lead to a spurious imbalanc
 The procedure used to identify and remove these muon candidates is described in Section~\ref{sec:pf_met}.
 The total efficiency of muon reconstruction is 99\%.
 
-The work described in this thesis only considers global muons with $\pt^{\Pgm} > 10\GeV$ and $\abs{\eta^{\Pgm}} < 2.5$.
+The work described in this thesis only considers global muons with $\pt > 10\GeV$ and $\abs\eta < 2.5$.
 This minimum requirement is only used to reject events containing a muon and is referred to as the veto muon ID. 
 The loose muon ID adds the requirement that the relative combined PF Isolation $\IPF$ must be less than 0.25.
  must be less than 0.25.
 In order for a muon to pass the tight ID, it must satisfy the following additional requirements:
-$\pt^{\Pgm} > 30\GeV$,
+$\pt > 30\GeV$,
 relative combined PF Isolation $\IPF < 0.15$,
 global-muon track fit reduced $\chi^2 < 10$,
 at least one muon-chamber hit included in the global-muon track fit,
@@ -235,11 +234,20 @@ and more than five tracker layers with hits.
 \subsection{Electrons}
 \label{sec:pf_electrons}
 
-The work described in this thesis only considers electrons with $\pt^{\Pe} > 10\GeV$ and $\abs{\eta^{\Pe}} < 2.5$.
+Electron candidates are seeded from the GSF tracks described in Section~\ref{sec:pf_tracks} as long as the corresponding ECAL clusters are not linked to three or more additional tracks.
+In each block, all ECAL clusters linked to either the supercluster (SC) or one of the GSF track tangents are associated with the candidate to ensure optimal energy containment.
+Additional tracks linked to these clusters are associated if the track momenta and energies of any linked HCAL clusters are compatible with the electron hypothesis.
+Any tracks and clusters belonging to identified photon conversions linked to the GSF track tangents are associated as well.  
+
+To recover any energy lost during the association process, the total energy of the collected clusters is corrected with analytical functions of $E$ and $\eta$. 
+For ECAL-based candidates, the sum of the energies measured in the HCAL cells within $\dR < 0.15$ of the supercluster must be less than 10\% of the supercluster energy.
+The final energy of an electron candidate is a weighted average of the corrected ECAL energy and the momentum of the GSF track and the electron direction is that of its GSF track.
+
+The work described in this thesis only considers electrons with $\pt > 10\GeV$ and $\abs\eta < 2.5$.
 Additionally, electrons must pass further cuts on the following observables:
-the \sieie\ of the corresponding SC,
+the energy-weighted cell width in the $\eta$-direction \sieie\ of the corresponding SC,
 the \deta\ and \dphi\ between the SC seed crystal and the GSF track at the PV,
-the energy  ratio of $H/E$ of the corresponding ECAL and HCAL towers,
+the energy ratio of $H/E$ of the corresponding ECAL and HCAL towers,
 the relative combined PF Isolation \IPF,
 the difference in energy measured in the tracker and the calorimeter $\abs{1/E - 1/p}$,
 the number of missing hits in the inner tracker,
@@ -250,7 +258,75 @@ The loose ID is tuned to 90\% signal efficiency and 0.5\% background acceptance,
 \subsection{Isolated Photons}
 \label{sec:pf_photons}
 
-text.
+Photon candidates are seeded from the ECAL superclusters (SCs) described in Section~\ref{sec:pf_sc} as long as they have no links to GSF tracks and $\ET > 10\GeV$. 
+The same cluster and track association process described for electrons in Section~\ref{sec:pf_electrons} is used for photons, with the photon energy and direction being that of the final supercluster.
+This is motivated by the observation that the additional energy corrections used to improve the photon energy resolution cause photon candidates with large cluster width to exhibit unphysical energies. 
+Figure~\ref{fig:corr_vs_sieie} is a profile of the magnitude of the energy correction in bins of \sieie, the energy-weighted cell width in the $\eta$-direction.
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[width=0.6\textwidth]{Reconstruction/Figures/corr_vs_sieie.pdf}
+    \caption{
+      Magnitude of the energy correction on the photon object in bins of \sieie.
+    }
+    \label{fig:corr_vs_sieie}
+  \end{center}
+\end{figure}
+
+As an illustration, an unphysically large correction is causing the transverse momentum of the photon object in the event shown in Fig.~\ref{fig:badcorr_evtdisp} to be nearly twice as large as the transverse momentum imbalance, which is supposed to balance the visible, \ie, photon momentum. 
+Photon candidates with wide showers are used to estimate the hadron-to-photon misidentification background, while the photon energy resolution has an insignificant effect. 
+Therefore, the unbiased supercluster energy was chosen over the corrected photon energy.
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[width=0.6\textwidth]{Reconstruction/Figures/badcorr_evtdisp.pdf}
+    \caption{
+      An example event where a photon with a wide shower receives a large energy correction.
+    }
+    \label{fig:badcorr_evtdisp}
+  \end{center}
+\end{figure}
+
+For the work shown in this thesis, we are only concerned with high-\ET\ photons from the ECAL Barrel that have a supercluster with $\ET > 175\GeV$ and $\abs\eta < 1.4442$. % The following paragraphs describe the unique photon ID developed for these photons.
+To reduce hadron-to-photon misidentification rate, we apply the collection of isolation and shower shape selections in Table~\ref{tab:egid}, which will hereby be referred to as the \egamma\ ID.
+To reject electrons from the candidate sample, no electron track seeds can be associated to the supercluster.
+This is known as the pixel seed veto.
+To clean the candidate sample from photon objects originating from non-collision sources, we apply the collection of cuts shown in Table~\ref{tab:gsid}, which combined with the pixel seed veto constitutes the \Pgg-specific ID.
+The beam halo tagger \emip\ is the total energy deposited in ECAL by a hypothetical beam halo muon that passes through the photon cluster. See Section~\ref{sec:halo} for more detail on beam halo processes. 
+The lower bounds on \sieie\ and \sipip\ as well as the requirement on the cluster seed time $\abs\tseed$ are employed to reject spurious photon objects arising from the ``ECAL spikes'' discussed in Section~\ref{sec:spikes}.
+%, or anomalous electronic signal induced at the ECAL Barrel photodetectors by nuclear or ionizing interactions in the photocathode.
+
+\begin{table}[htbp]
+  \begin{center}
+    \begin{tabular}{l | r}
+      Variable & Maximum Value \\
+      \hline
+      $H/E$ &  0.0260 \\ 
+      $\sieie$ &  0.01040 \\ 
+      $\rho$-corrected \ICHmax\ & 1.146 \\
+      $\rho$-corrected \INH\ & $2.792 + 0.0112 \times \ETg + 0.000028 \times \left(\ETg \right)^2$ \\ 
+      $\rho$-corrected \Ig\ & $2.176 + 0.0043 \times \ETg$
+    \end{tabular}
+    \caption{Selections for the \egamma\ portion of the photon ID. Isolation values and \ETg\ are all in units of \GeV.}
+    \label{tab:egid}
+  \end{center}
+\end{table}
+
+\begin{table}[htbp]
+  \begin{center}
+    \begin{tabular}{l | r}
+      Variable & Selection \\
+      \hline
+      \emip\ & $< 4.9\GeV$ \\
+      \sieie\ &  $> 0.001$ \\
+      \sipip\ & $> 0.001$ \\
+      $\abs\tseed$ & $< 3\ns$ 
+    \end{tabular}
+    \caption{Selections for the \Pgg-specific portion of the photon ID. \emip\ and $\abs\tseed$ are defined in the text.}
+    \label{tab:gsid}
+  \end{center}
+\end{table}
+
 
 \subsection{Hadrons and Nonisolated Photons}
 \label{sec:pf_hadrons}
@@ -269,62 +345,6 @@ text.
 \iffalse
 \section{Reconstruction Issues Specific to the Monophoton Final State}
 \label{sec:issues}
-
-\subsection{Photons}
-\label{sec:ana_photons}
-
-We select high-\ET\ photons from the ECAL Barrel. First, we apply the following cuts to select high-\ET\ photon candidates:
-\begin{itemize}
-\item Super cluster $\ET > 175\GeV$
-\item Super cluster $\abs\eta < 1.4442$ .
-\end{itemize}
-We use the uncorrected \ET\ of the supercluster as photon \ET. 
-The use of supercluster raw \ET\ is motivated by an observation that this energy correction causes photon objects with large cluster shower width to exhibit unphysical energies. 
-Figure~\ref{fig:corr_vs_sieie} is a profile of the magnitude of the energy correction in bins of \sieie. 
-As an illustration, an unphysically large correction is causing the transverse momentum of the photon object in the event shown in Fig.~\ref{fig:badcorr_evtdisp} to be nearly twice as large as the \met, which is supposed to balance the visible, \ie, photon momentum. 
-Photon objects with wide showers are used to estimate the hadron-to-photon misidentification background, while the photon energy resolution has an insignificant effect. 
-Therefore, unbiased supercluster energy was chosen over the corrected photon energy.
-
-\begin{figure}[htbp]
-  \begin{center}
-    \includegraphics[width=0.6\textwidth]{Reconstruction/Figures/corr_vs_sieie.pdf}
-    \caption{
-      Magnitude of the energy correction on the photon object in bins of \sieie.
-    }
-    \label{fig:corr_vs_sieie}
-  \end{center}
-\end{figure}
-
-\begin{figure}[htbp]
-  \begin{center}
-    \includegraphics[width=0.6\textwidth]{Reconstruction/Figures/badcorr_evtdisp.pdf}
-    \caption{
-      An example event where a photon with a wide shower receives a large energy correction.
-    }
-    \label{fig:badcorr_evtdisp}
-  \end{center}
-\end{figure}
-
-To reduce hadron-to-photon misidentification rate, we apply the following collection of isolation and shower shape cuts, which will hereby be referred to as the \egamma\ ID:
-\begin{itemize}
-  \item $H/E < 0.0260$
-  \item $\sieie < 0.01040$
-  \item $\rho$-corrected maximum PF charged hadron isolation $\ICHmax < 1.146\GeV$
-  \item $\rho$-corrected PF neutral hadron isolation $\INH < 2.792\GeV + 0.0112 \times \ETg + 0.000028 \times \left(\ETg \right)^2/\GeV$
-  \item $\rho$-corrected PF photon isolation $\Ig < 2.176\GeV + 0.0043 \times \ETg$
-\end{itemize}
-
-To reject electrons from the candidate sample, we require that no electron track seeds can be associated to the super cluster. This is known as the pixel seed veto.
-
-To clean the candidate sample from photon objects originating from non-collision sources. we apply the following collection of cuts, which combined with the pixel seed veto constitutes the \Pgg-specific ID:
-\begin{itemize} 
-  \item Beam halo tagger $\emip < 4.9\GeV$
-  \item $\sieie > 0.001$
-  \item $\sipip > 0.001$
-  \item Cluster seed time $\abs\tseed < 3\ns$ .
-\end{itemize}
-Beam halo tagger is the total energy deposited in ECAL by a hypothetical beam halo muon that passes through the photon cluster. 
-Lower bounds for \sieie\ and \sipip\ as well as the requirement on the cluster seed time are employed to reject spurious photon objects arising from ``ECAL spikes'', or anomalous electronic signal induced at the ECAL Barrel photodetectors by nuclear or ionizing interactions in the photocathode.
 
 \subsection{ECAL gain-switch effect}
 \label{sec:gainswitch}
@@ -354,7 +374,7 @@ This effect is mitigated in the reprocessed data set used for this analysis by i
 \end{figure}
 
 The gain-switch problem affected the analyses documented in this thesis, since large underestimation of the energy of a photon in an otherwise typical \gj\ event would introduce large missing transverse momentum to the event, typical collinear to the affected photon. 
-Figures~\ref{fig:eventdisplay_gsfix} and \ref{fig:ptshift_gsfix} are the visualization of how the new dataset changes the reconstructed photon energy and \met.
+Figures~\ref{fig:eventdisplay_gsfix} and~\ref{fig:ptshift_gsfix} are the visualization of how the new dataset changes the reconstructed photon energy and \met.
 
 \subsection{Beam Halo Phenomenology}
 \label{sec:halo}
@@ -362,7 +382,7 @@ Figures~\ref{fig:eventdisplay_gsfix} and \ref{fig:ptshift_gsfix} are the visuali
 Bremsstrahlung photons emitted by beam halo muons in the ECAL volume generate a physical EM shower in the ECAL crystals. 
 Large deposits energy are rare, but the rate of beam halo penetration during the 2016 run was substantial. 
 The characteristic features of a shower caused by a halo particle include coincident hits in the barrel muon system and a ``trail'' of low-energy clusters in ECAL along the particle trajectory. 
-The beam halo MET filter described in Section~\ref{sec:met} exploits the former, while the \emip\ variable described in Section~\ref{sec:photons} captures the latter.
+The beam halo MET filter described in Section~\ref{sec:pf_met} exploits the former, while the \emip\ variable described in Section~\ref{sec:pf_photons} captures the latter.
 
 \begin{figure}[tbp]
   \begin{center}
