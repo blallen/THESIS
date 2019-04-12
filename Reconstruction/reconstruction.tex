@@ -82,7 +82,7 @@ The free energy $F$ is minimized with respects to $z_j^K$ at each new temperatur
 The annealing procedure with vertex splitting continues down to $T = 4$ and the final assignment of tracks to vertices is performed at $T = 1$ without any further splitting. 
 The vertex designated as \textit{the} primary vertex of the hard scattering is the one which maximizes
 \begin{equation}
-  \sum_i  (\pt^i)^2 + (\ptmiss)^2,
+  S_T = \sum_i  (\pt^i)^2 + (\ptmiss)^2,
   \end{equation}
 where $\pt^i$ is the transverse momentum of a track assigned to the vertex and \ptmiss\ is the magnitude of the momentum imbalance in the transverse plane for the vertex. 
 
@@ -158,20 +158,22 @@ Muon segments are reconstructed from the hits in the muon chambers using a Kalma
 A full track constructed in this way is referred to as a standalone muon.
 
 \subsection{Isolation}
-\label{sec:pf_isolation}
+\label{sec:pf_iso}
 
-While not a physics object persay, isolation is a key concept of the PF algorithm used to distinguish prompt leptons and photons originating in the hard scattering from those originating in the decays of hardrons during the parton shower.
+While not a physics object persay, isolation is a key concept of the PF algorithm that  distinguishes prompt leptons and photons originating in the hard scattering from those originating in the decays of hardrons during the parton shower.
+The latter are surrounded by a large amount of additional hadrons while the former have little hadronic activity in their vicinity, originating mainly from the pileup vertices.
 
-$(\ICH + \INH + \Ig) / \pt^{\Pe}$
+The isolation of a prompt object is the total amount of energy due to additional particles within an annulus of radius $0.01 < \dR < 0.4$ around the prompt object, where the lower bound avoids including the prompt object and its radiation in the sum.
+The isolation is calculated using either the raw energy deposits in the subdetectors or the four-momenta of the PF candidates surrounding the prompt object depending the stage of the PF algorithm.
+Prompt objects are required to have an isolation value below a certain threshold, rejecting hadrons misidentified as leptons and photons as well as non-prompt leptons and photons.
 
-In the identification criteria, the maximum PF charged hadron isolation \ICHmax\ is the maximum of the standard PF charged hadron isolation computed for all reconstructed vertices. 
-Standard PF charged hadron isolation is computed with respect to the primary vertex. 
-Since the object with the highest \pt\ in the selected events is typically a photon, which has no intrinsic association to a vertex, it is possible that the identified primary vertex does not correspond to the \Pp\Pp\ interaction from which the photon object originate. 
-In such cases, the photon object can be surrounded by charged hadrons, \ie, a part of a jet, and still appear isolated under the standard charged hadron isolation. 
-The use of maximum isolation is a conservative measure to address such misidentification.
+The isolation calculation is usually split into three different components based on the types of particles that contribute energy.
+The photon isolation \Ig\ is the \ET\ sum of the PF photons defined in Section~\ref{sec:pf_photons} while the charged hadron and neutral hadron isolations \ICH\ and \INH\ are the \pt\ sums of the PF charged and neutral hadrons defined in Section~\ref{sec:pf_hadrons}, with the additional stipulation that charged hadrons be associated with the primary vertex.
 
-Effective areas for isolations are also recomputed to maintain flat pileup dependence as given in Table~\ref{tab:ea}
-%
+In events with very few tracks, such as one with a single high \pt\ photon and a large momentum imbalance, it is possible that the identified primary vertex does not correspond to the \Pp\Pp\ interaction from which the photon object originates because the photon does not figure into the primary vertex calculation from Section~\ref{sec:pf_pv}.
+In such cases, the photon object can be surrounded by charged hadrons and still appear isolated under the standard charged hadron isolation.
+A conservative measure to address such misidentification is to replace \ICH\ with the maximum of the PF charged hadron isolations computed over all reconstructed vertices, e.g. the maximum charged hadron isolation $\ICHmax = \max\limits_{\text{vertices}} \ICH$.
+
 \begin{table}[htbp]
   \begin{center}
     \caption{Effective areas for isolations.} 
@@ -187,6 +189,15 @@ Effective areas for isolations are also recomputed to maintain flat pileup depen
     \end{tabular}
   \end{center}
 \end{table}
+
+
+To reduce the pileup dependence of these variables, the median energy density $\rho$ of the pileup interactions in the isolation cone is calculated using the effective areas given in Table~\ref{tab:ea} and subtracted from each isolation sum.
+Additionally, since the rate of the charged particles originating from pileup interactions is about twice as large as the corresponding rate of the neutral particles, the pileup isolation \IPU\ is defined as the half the \pt\ sum of the PF charged hadrons \textit{not} associated with the primary vertex.
+Often selections are placed on the individual isolation components when selecting prompt photons, while the relative combined PF isolation
+\begin{equation}
+  \IPF = \bigg(\ICH + \max \Big\{0, \INH + \Ig - \IPU\Big\}\bigg) \bigg/ \pt^\ell
+\end{equation}
+is used when selecting prompt leptons.
 
 \section{Particle Identification}
 \label{sec:pf_cands}
