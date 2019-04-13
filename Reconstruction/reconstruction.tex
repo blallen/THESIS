@@ -33,7 +33,7 @@ Muon segments are combined with inner tracks to produce muons, inner tracks are 
 The PF algorithm reconstructs particles in regions of the detectors called blocks following the steps described in Section~\ref{sec:pf_cands}.
 After each step any PF elements associated to a PF candidate are removed from the block.
 For example, clusters associated with photons will not be used when reconstructing neutral hadrons.
-After all PF candidates are identified, they can be combined into event-wide variables such as jets and the missing transverse energy as described in Section~\ref{sec:pf_event}. 
+After all PF candidates are identified, they can be combined into event-wide variables such as jets and the missing transverse energy as described in Sections~\ref{sec:pf_jets} and~\ref{sec:pf_met}, respectively. 
 
 \section{Particle Flow Elements}
 \label{sec:pf_elements}
@@ -287,7 +287,7 @@ Therefore, the unbiased supercluster energy was chosen over the corrected photon
   \end{center}
 \end{figure}
 
-For the work shown in this thesis, we are only concerned with high-\ET\ photons from the ECAL Barrel that have a supercluster with $\ET > 175\GeV$ and $\abs\eta < 1.4442$. % The following paragraphs describe the unique photon ID developed for these photons.
+For the work shown in this thesis, we are only concerned with high-\ET\ photons from the ECAL Barrel that have a supercluster with $\ET > 175\GeV$ and $\abs\eta < 1.4442$. 
 To reduce hadron-to-photon misidentification rate, we apply the collection of isolation and shower shape selections in Table~\ref{tab:egid}, which will hereby be referred to as the \egamma\ ID.
 To reject electrons from the candidate sample, no electron track seeds in the pixel detector can be associated to the supercluster.
 This is known as the pixel seed veto.
@@ -357,9 +357,30 @@ When three or more charged particle candidates are linked to a secondary vertex 
 If an incoming track is associated with the vertex, it determines the direction of the primary charged hadron, which is otherwise determined by the vectorial sum of momenta of the secondary particles.
 If the momentum of the incoming track is well measured, the energy of undetected secondary particles is estimated and added to the energy of the primary charged particle.
 
-
 \subsection{Jets}
 \label{sec:pf_jets}
+
+As discussed in Section~\ref{sec:lhc_pheno}, jets are produced during the fragmentation and hadronization of colored particles produced in the hard scattering.
+After all PF candidates have been identified, a sequential recombination algorithm is used in an attempt to cluster these jets.
+Given an object $i$ in the event $E$, we define the distance to the beam and the distance to another object $j$ to be
+\begin{equation}
+  \begin{matrix}[l | r]
+    \displaystyle
+    d_{iB} = \left(\pt^i\right)^{2q} &
+    d_{ij} = \min \left\{\left(\pt^i\right)^{2q}, \left(\pt^j\right)^{2q} \right\} \dfrac{\left(\dR_{ij}\right)^2}{R^2} ,
+  \end{matrix}
+\end{equation}
+respectively, where $q$ and $R$ are tunable parameters and $\dR_{ij}$ is the angular distance between the two particles.
+The distance parameter $R$ is an appromixate measure of the cone size \dR\ of the jet, while the power of the energy scale $q$ defines the relationship between the relationship between the momentum and angular factors.
+Jets clustered with $q = -1$ are referred to as anti-\kt\ jets, those with $q = 0$ as Cambridge-Aachen jets, and those with $q = 1$ as \kt\ jets.  
+Negative values of $q$ force the clustering of circular jets around hard seeds ensuring that the resulting jet boundaries are resilient with respect to soft radiation.
+Within CMS, anti-\kt\ jets with $R = 0.4$ are used to cluster the parton shower from single partons.
+
+The implementation in the FastJet library reduces the computational complexity of clustering from $\mathcal{O}(N^2)$ to $\mathcal{O}(N \log N)$ for jets with hundreds or thousands of constituent particles.
+First, the two objects $i$ and $j$ with the smallest distance $d_{ij}$ between them are found. 
+If $d_{ij}$ is less than both $d_{iB}$ and $d_{jB}$, they are removed from $E$ and a single object $k$ with four-momentum $p_\mu^k = p_\mu^i + p_\mu^j$ which is added in their place. 
+Otherwise if $d_{iB} < d_{jB}$, object $i$ is removed from $E$ and added to the set of jet candidates $J$ while object $j$ is kept, and vice versa if $d_{jB} < d_{iB}$.
+This procedure continues until all objects are removed from $E$ and $J$ contains all possible jet candidates.
 
 \subsection{Missing Tranverse Energy}
 \label{sec:pf_met}
