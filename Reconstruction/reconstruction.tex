@@ -289,7 +289,7 @@ Therefore, the unbiased supercluster energy was chosen over the corrected photon
 
 For the work shown in this thesis, we are only concerned with high-\ET\ photons from the ECAL Barrel that have a supercluster with $\ET > 175\GeV$ and $\abs\eta < 1.4442$. % The following paragraphs describe the unique photon ID developed for these photons.
 To reduce hadron-to-photon misidentification rate, we apply the collection of isolation and shower shape selections in Table~\ref{tab:egid}, which will hereby be referred to as the \egamma\ ID.
-To reject electrons from the candidate sample, no electron track seeds can be associated to the supercluster.
+To reject electrons from the candidate sample, no electron track seeds in the pixel detector can be associated to the supercluster.
 This is known as the pixel seed veto.
 To clean the candidate sample from photon objects originating from non-collision sources, we apply the collection of cuts shown in Table~\ref{tab:gsid}, which combined with the pixel seed veto constitutes the \Pgg-specific ID.
 The beam halo tagger \emip\ is the total energy deposited in ECAL by a hypothetical beam halo muon that passes through the photon cluster. See Section~\ref{sec:halo} for more detail on beam halo processes. 
@@ -317,6 +317,7 @@ The lower bounds on \sieie\ and \sipip\ as well as the requirement on the cluste
     \begin{tabular}{l | r}
       Variable & Selection \\
       \hline
+      Pixel seed & False \\
       \emip\ & $< 4.9\GeV$ \\
       \sieie\ &  $> 0.001$ \\
       \sipip\ & $> 0.001$ \\
@@ -327,14 +328,35 @@ The lower bounds on \sieie\ and \sipip\ as well as the requirement on the cluste
   \end{center}
 \end{table}
 
-
-\subsection{Hadrons and Nonisolated Photons}
+\subsection{Hadrons}
 \label{sec:pf_hadrons}
 
-text.
+The last candidates reconstructed in a given block are the charged and neutral hadrons from fragmentation and hadronization, as well as the non-isolated muons and photons produced from their respective decays.
 
-\section{Event Variables}
-\label{sec:pf_event}
+Inside the tracker acceptance of $\abs\eta < 2.5$, all trackless HCAL clusters are reconstructed as neutral hadrons while all trackless ECAL clusters are reconstructed as photons.
+The preference towards photons is motivated because photons carry 25\% of the jet energy and neutral hadrons do not interact strongly with the ECAL.
+Conversely, outside of the tracker acceptance, it is no longer possible to distinguish charged and neutral hadrons, so any ECAL clusters linked to HCAL clusters are assumed to arise from unidentified charged hadrons.
+Thus, only unlinked ECAL clusters are reconstructed as photons and linked ECAL and HCAL clusters are reconstructed as neutral hadrons.
+
+Afterwards, the only remaining PF elements are HCAL clusters linked to one or more tracks and ECAL clusters linked to one of these tracks.
+A single charged hadron is constructed for each remaining HCAL cluster, with energy equal to the sum of the ECAL and HCAL clusters and momentum equal to the sum of the individual track momenta.
+
+If the energy of the charged hadron exceeds its momentum by an amount larger than the calometric energy resolution, neutral hadrons and photons are added.
+For excesses greater than 500\MeV, a photon with energy equal to the excess is created.
+If this photon cannont explain the entire excess, e.g. the excess is larger than the ECAL energy by at least 1\GeV, the remainder is indentified as a neutral hadron. 
+After photons and neutral hadrons consume the excess calometric energy, charged hadrons are constructed from the linked tracks with their energy and momentum determined by the track momenta under the charged-pion hypothesis. 
+
+If energy and momentum of the charged hadron are compatible, no neutral particles are identified. A charged hadron candidate is created for each track linked to the HCAL cluster, with momenta determined by a $\chi^2$ fit of the tracker and calorimeter measurements.
+This combintation ensures a smooth transition between the tracker-dominated low-enrgy regime and the calorimeter-dominated high-energy regime while always improving the final energy resolution. 
+
+If the momentum of the charged hadron exceeds its energy by three standard deviations, new PF muons are made from any non-isolated global muons failing the cleaning described in Section~\ref{sec:pf_muons} with momentum resolution better than 25\%.
+If, after masking the tracks from these muons, the track momentum sum still greatly exceeds the calorimeter energy, all remaining tracks with a \pt\ uncertainty greater than 1\GeV are identified, sorted in decreasing order of this uncertainty, and sequentially masked until no such tracks remain or the momentum excess disappears, whichever comes first. 
+At this point, the HCAL cluster is reconstructed according to one of the procedures defined in the preceding paragraphs.
+
+When three or more charged particle candidates are linked to a secondary vertex identified as described in Section~\ref{sec:pf_csv}, a single primary charged hadron with energy equal to the sum of their energies replaces them in the reconstructed particle list.
+If an incoming track is associated with the vertex, it determines the direction of the primary charged hadron, which is otherwise determined by the vectorial sum of momenta of the secondary particles.
+If the momentum of the incoming track is well measured, the energy of undetected secondary particles is estimated and added to the energy of the primary charged particle.
+
 
 \subsection{Jets}
 \label{sec:pf_jets}
