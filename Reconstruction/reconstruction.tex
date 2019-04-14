@@ -188,7 +188,7 @@ is used when selecting prompt leptons.
     \begin{tabular}{l|r|r}
       Isolation & $\abs\eta < 1.0$ & $1.0 < \abs\eta < 1.479$  \\
       \hline
-      \ICH\ &  &  \\
+      \ICH\ & 0.0360 &  0.0377 \\
       \INH\ & 0.0597 & 0.0807 \\
       \Ig\ & 0.1210 & 0.1107 \\
       \ICHmax\ & 0.01064& 0.1026
@@ -221,15 +221,25 @@ The work described in this thesis only considers global muons with $\pt > 10\GeV
 This minimum requirement is only used to reject events containing a muon and is referred to as the veto muon ID. 
 The loose muon ID adds the requirement that the relative combined PF Isolation $\IPF$ must be less than 0.25.
  must be less than 0.25.
-In order for a muon to pass the tight ID, it must satisfy the following additional requirements:
-$\pt > 30\GeV$,
-relative combined PF Isolation $\IPF < 0.15$,
-global-muon track fit reduced $\chi^2 < 10$,
-at least one muon-chamber hit included in the global-muon track fit,
-muon segments in at least two muon stations,
-inner track has transverse (longitudinal) impact parameter $d_0 < 2\mm$ ($d_z < 5\mm$) with respects to the primary vertex,
-at least one pixel hit ,
-and more than five tracker layers with hits.
+In order for a muon to pass the tight ID, it must have $\pt\ > 30\GeV$ and $\IPF\ < 0.15$ as well as satisfying the additional requirements in Table~\ref{tab:muid}.
+
+\begin{table}[htbp]
+  \begin{center}
+    \begin{tabular}{l | r}
+      Selection & Description \\
+      \hline
+      $\chi^2_{\text{track fit}}/ N_{\text{dof}} < 10$ & quality of global-muon track fit \\ 
+      $N_{\text{hit}}^{\text{muon}} > 1$ & at least one muon-chamber hit\\
+      $N_{\text{station}}^{\text{muon}} > 2$ & segments in at least two muon stations \\
+      $d_0 < 2\mm$ & reject cosmic ray muons \\
+      $d_z < 5\mm$ & reject muons from pileup \\
+      $N_{\text{hit}}^{\text{pixel}} > 1$ & at least one pixel hit \\
+      $N_{\text{hit}}^{\text{tracker}} > 5$ & more than five tracker layers with hits 
+    \end{tabular}
+    \caption{Selections for the tight muon ID.}
+    \label{tab:muid}
+  \end{center}
+\end{table}
 
 \subsection{Electrons}
 \label{sec:pf_electrons}
@@ -244,16 +254,27 @@ For ECAL-based candidates, the sum of the energies measured in the HCAL cells wi
 The final energy of an electron candidate is a weighted average of the corrected ECAL energy and the momentum of the GSF track and the electron direction is that of its GSF track.
 
 The work described in this thesis only considers electrons with $\pt > 10\GeV$ and $\abs\eta < 2.5$.
-Additionally, electrons must pass further cuts on the following observables:
-the energy-weighted cell width in the $\eta$-direction \sieie\ of the corresponding SC,
-the \deta\ and \dphi\ between the SC seed crystal and the GSF track at the PV,
-the energy ratio of $H/E$ of the corresponding ECAL and HCAL towers,
-the relative combined PF Isolation \IPF,
-the difference in energy measured in the tracker and the calorimeter $\abs{1/E - 1/p}$,
-the number of missing hits in the inner tracker,
-and the existence of a pair of tracks originating at a displaced vertex, indicting photon conversion.
+Additionally, electrons must pass further cuts on the observables listed in Table~\ref{tab:eleid}.
 The exact values of the cuts are tuned based on whether the electron is in the barrel or the endcap and to give desired signal efficiencies and background acceptance.
 The loose ID is tuned to 90\% signal efficiency and 0.5\% background acceptance, while the tight ID is tuned to 70\% signal efficiency and 0.1\% background acceptance.
+
+\begin{table}[htbp]
+  \begin{center}
+    \begin{tabular}{l | l}
+      Variable & Description \\
+      \hline
+      \sieie\ & energy-weighted cell width in the $\eta$-direction of the SC \\ 
+      \deta\ and \dphi\ & angular separation between the SC seed and the GSF track \\
+      $H/E$ & energy ratio of the corresponding ECAL and HCAL towers \\
+      \IPF\ & relative combined PF Isolation \\
+      $\abs{1/E - 1/p}$ & difference between calorimeter energy and tracker momentum \\
+      $N_{\text{hit}}^{\text{miss}}$ & number of missing hits in the inner tracker \\
+      Conversion veto & presense of tracks originating from a converted photon
+    \end{tabular}
+    \caption{Variables used in selecting electrons.}
+    \label{tab:eleid}
+  \end{center}
+\end{table}
 
 \subsection{Isolated Photons}
 \label{sec:pf_photons}
@@ -294,7 +315,6 @@ This is known as the pixel seed veto.
 To clean the candidate sample from photon objects originating from non-collision sources, we apply the collection of cuts shown in Table~\ref{tab:gsid}, which combined with the pixel seed veto constitutes the \Pgg-specific ID.
 The beam halo tagger \emip\ is the total energy deposited in ECAL by a hypothetical beam halo muon that passes through the photon cluster. See Section~\ref{sec:halo} for more detail on beam halo processes. 
 The lower bounds on \sieie\ and \sipip\ as well as the requirement on the cluster seed time $\abs\tseed$ are employed to reject spurious photon objects arising from the ``ECAL spikes'' discussed in Section~\ref{sec:spikes}.
-%, or anomalous electronic signal induced at the ECAL Barrel photodetectors by nuclear or ionizing interactions in the photocathode.
 
 \begin{table}[htbp]
   \begin{center}
@@ -315,15 +335,14 @@ The lower bounds on \sieie\ and \sipip\ as well as the requirement on the cluste
 \begin{table}[htbp]
   \begin{center}
     \begin{tabular}{l | r}
-      Variable & Selection \\
+      Selection & Description \\
       \hline
-      Pixel seed & False \\
-      \emip\ & $< 4.9\GeV$ \\
-      \sieie\ &  $> 0.001$ \\
-      \sipip\ & $> 0.001$ \\
-      $\abs\tseed$ & $< 3\ns$ 
+      $\emip\ < 4.9\GeV$ & ECAL energy from a hypothetical beam halo muon \\
+      $\sieie\ > 0.001$ & non-trivial shower width in the $\eta$-direction \\
+      $\sipip\ > 0.001$ & non-trivial shower width in the $\phi$-direction \\
+      $\abs\tseed < 3\ns$ & timing of the cluster seed relative to bunch crossing
     \end{tabular}
-    \caption{Selections for the \Pgg-specific portion of the photon ID. \emip\ and $\abs\tseed$ are defined in the text.}
+    \caption{Additional selections beyond the pixel seed veto for the \Pgg-specific portion of the photon ID.}
     \label{tab:gsid}
   \end{center}
 \end{table}
@@ -360,7 +379,7 @@ If the momentum of the incoming track is well measured, the energy of undetected
 \subsection{Jets}
 \label{sec:pf_jets}
 
-As discussed in Section~\ref{sec:lhc_pheno}, jets are produced during the fragmentation and hadronization of colored particles produced in the hard scattering.
+As discussed in Section~\ref{sec:collider_pheno}, jets are produced during the fragmentation and hadronization of colored particles produced in the hard scattering.
 After all PF candidates have been identified, a sequential recombination algorithm is used in an attempt to cluster these jets.
 Given an object $i$ in the event $E$, we define the distance to the beam and the distance to another object $j$ to be
 \begin{equation}
@@ -407,9 +426,9 @@ Applying these filters removes essentially all remaining events with fake \met\ 
 \section{Reconstruction Issues}
 \label{sec:issues}
 
-The work shown in this thesis focuses on events with a single high-\pt\ photon and large \met.
-There are a lot of reconstruction issues specific to this final state as photons are relatively easy to fake through other processes that result in a large amount of \met.
-This section describes the three main sources of fake photons and fake \met encountered during this analysis.
+This thesis focuses on events with a single high-\pt\ photon and large \met.
+There are a lot of reconstruction issues specific to this final state as photons are relatively easy to fake through other processes that result in a large amount of fake \met.
+This section describes the three main sources of correlated fake photons and fake \met encountered during this analysis.
 
 \subsection{ECAL gain-switch effect}
 \label{sec:gainswitch}
@@ -430,7 +449,7 @@ This effect is mitigated in the reprocessed data set used for this analysis by i
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.48\linewidth]{Reconstruction/Figures/gsfix/movements.pdf}
+  \includegraphics[width=0.6\linewidth]{Reconstruction/Figures/gsfix/movements.pdf}
   \caption{
     The change in reconstructed photon \pt\ and \met\ for events in the bin $\dphigmet < 0.05$ of the distribution in Figure~\ref{fig:dphigmet_beforegsfix}. 
     Each arrow represents a single event, the the tail (head) of the arrow corresponding to (\ETg, \met) coordinates in the datasets without (with) the fix for the gain-switch problem.
@@ -451,9 +470,11 @@ The beam halo MET filter described in Section~\ref{sec:pf_met} exploits the form
 
 \begin{figure}[tbp]
   \begin{center}
-    \includegraphics[width=0.6\textwidth]{Reconstruction/Figures/halo/halophi.pdf}
+    \includegraphics[width=0.45\textwidth]{Reconstruction/Figures/halo/bkgphi.pdf}
+    \includegraphics[width=0.45\textwidth]{Reconstruction/Figures/halo/halophi.pdf}
     \caption{
-      The \phig\ distribution of the halo-like showers, tagged in multiple ways. 
+      Left: The \phig\ distribution from \zinvg\ MC simulation. \qquad \qquad
+      Right: The \phig\ distribution of the halo-like showers, tagged in multiple ways. 
       Histograms are normalized to unity.
       The cyan histogram is the \phig\ distribution after applying photon identification selections except for the shower shape. 
       It can be seen that the \phig\ distribution is highly stable against the listed identification selections.
@@ -462,21 +483,11 @@ The beam halo MET filter described in Section~\ref{sec:pf_met} exploits the form
   \end{center}
 \end{figure}
 
-\begin{figure}[tbp]
-  \begin{center}
-    \includegraphics[width=0.6\textwidth]{Reconstruction/Figures/halo/bkgphi.pdf}
-    \caption{
-      The \phig\ distribution from \zinvg\ MC simulation.
-    }
-    \label{fig:bkgphi}
-  \end{center}
-\end{figure}
-
-Because beam halo particles are produced through complex LHC machine effects, it is natural that the observed distribution of the halo showers is not
+Because beam halo particles are produced through complex LHC machine effects, the observed distribution of the halo showers is not
 symmetric in the azimuthal angle in the detector coordinates.
-Figure~\ref{fig:halophi} is a \phig\ distribution of the halo showers obtained from the Single Photon data set, requiring $\met > 140\GeV$. 
-Here, halo showers are defined as those that fail the MIP-tagging and in the event tagged by the CSC beam halo tagger. 
-On the other hand reconstructed shower from all other sources are symmetric in \phig\, as demonstrated in Fig.~\ref{fig:bkgphi}. 
+The right side of Figure~\ref{fig:halophi} is a \phig\ distribution of the halo showers obtained from the SinglePhoton dataset, requiring $\met > 140\GeV$. 
+Halo showers are defined as those that fail the MIP-tagging and in the event tagged by the CSC beam halo tagger. 
+On the other hand, reconstructed showers from all other sources are symmetric in \phig\, as shown on the left side of Figure~\ref{fig:halophi}. 
 
 \begin{figure}[tbp]
   \begin{center}
@@ -499,7 +510,7 @@ Combining the two observations, the conclusion is that the stringent requirement
 
 \begin{figure}[tbp]
   \begin{center}
-    \includegraphics[width=0.45\textwidth]{Reconstruction/Figures/halo/haloPhiFolded.pdf}
+    \includegraphics[width=0.35\textwidth]{Reconstruction/Figures/halo/haloPhiFolded.pdf}
     \caption{
       Folded $\phi'$ distribution of the halo sample.
     }
@@ -627,8 +638,8 @@ By processing the \gj\ MC simulation events through this special reconstruction,
 
 \begin{figure}[tbp]
   \begin{center}
-    \includegraphics[width=0.3\textwidth]{Reconstruction/Figures/spikes/pulse_example_normal.pdf}
-    \includegraphics[width=0.3\textwidth]{Reconstruction/Figures/spikes/pulse_example_spike.pdf}
+    \includegraphics[width=0.45\textwidth]{Reconstruction/Figures/spikes/pulse_example_normal.pdf}
+    \includegraphics[width=0.45\textwidth]{Reconstruction/Figures/spikes/pulse_example_spike.pdf}
     \caption{
       Example ECAL DIGIs and corresponding pulse shapes reconstructed through $\chi^{2}$ fits of Equation~\ref{eqn:pulse_shape}, for normal (left) and spike-like (right) hits.
     }
