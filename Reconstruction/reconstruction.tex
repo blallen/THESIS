@@ -385,6 +385,25 @@ This procedure continues until all objects are removed from $E$ and $J$ contains
 \subsection{Missing Tranverse Energy}
 \label{sec:pf_met}
 
+The production of neutrinos and dark matter candidates produces a momentum imbalance in the transverse plane.
+The missing transverse momentum \ptvecmiss\ is defined as the negative vectorial sum of all the PF candidates in the event $E$ such that
+\begin{equation}
+  \ptvecmiss = - \sum_{i\in E} \Big( \hat x \cdot \pt^i \cos \phi + \hat y \cdot \pt^i \sin \phi \Big),
+\end{equation}
+and its magnitude is the missing transverse energy $\met = \abs\ptvecmiss$.
+In a perfectly reconstructed event, non-zero \met\ implies the presence of neutrinos or DM candidates; however, the failure to properly reconstruct energy deposits or the reconstruction of PF candidates with incorrect energy results in events with large amount of fake \met.
+
+One last cleaning of the PF candidates is conducted in an attempt to fix these events.
+To remove muons from cosmic rays, muon candidates with trajectories more than 1\cm away from the beam axis are removed if the measured \met\ is consequently reduced by half.
+For muons with $\pt > 20\GeV$, the choice of subdetector used to estimate momemtum is reviewed and the smallest available estimate used if it reduces the measured \met\ by half.
+Additionally, the assignment of charged hadrons and neutral hadrons is reconsidered to ensure a charged hadron is not reconstructed as a muon and neutral hadron and vice versa.
+
+Fake \met\ can persist in an event even after the final cleaning of PF candidates.
+At this point, events are checked against a known set of filters identifying possible sources of fake \met\ not captured by the PF algorithm.
+One set of filters is the HCAL and ECAL filters that identify events with calorimeter clusters caused by noise from the shape and timing of the energy distribution.
+Another such filter is the beam halo filter that identifies energy deposits from muons produced from interactions between the beam and the machine that travel parallel to the beam. These muons are identified by their localization in $\phi$ and a longitudinal track left in the ECAL endcaps and the CSCs.
+Applying these filters removes essentially all remaining events with fake \met\ while rejecting less than 1\% of events with real \met.
+
 \iffalse
 \section{Reconstruction Issues Specific to the Monophoton Final State}
 \label{sec:issues}
