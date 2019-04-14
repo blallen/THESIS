@@ -404,9 +404,12 @@ One set of filters is the HCAL and ECAL filters that identify events with calori
 Another such filter is the beam halo filter that identifies energy deposits from muons produced from interactions between the beam and the machine that travel parallel to the beam. These muons are identified by their localization in $\phi$ and a longitudinal track left in the ECAL endcaps and the CSCs.
 Applying these filters removes essentially all remaining events with fake \met\ while rejecting less than 1\% of events with real \met.
 
-\iffalse
-\section{Reconstruction Issues Specific to the Monophoton Final State}
+\section{Reconstruction Issues}
 \label{sec:issues}
+
+The work shown in this thesis focuses on events with a single high-\pt\ photon and large \met.
+There are a lot of reconstruction issues specific to this final state as photons are relatively easy to fake through other processes that result in a large amount of \met.
+This section describes the three main sources of fake photons and fake \met encountered during this analysis.
 
 \subsection{ECAL gain-switch effect}
 \label{sec:gainswitch}
@@ -477,12 +480,12 @@ On the other hand reconstructed shower from all other sources are symmetric in \
 
 \begin{figure}[tbp]
   \begin{center}
-    \includegraphics[width=0.7\textwidth]{Reconstruction/Figures/halo/halo_eta.pdf}
-    \includegraphics[width=0.45\textwidth]{Reconstruction/Figures/halo/halo_shape_etalow.pdf}
-    \includegraphics[width=0.45\textwidth]{Reconstruction/Figures/halo/halo_shape_etahigh.pdf}
+    \includegraphics[width=0.3\textwidth]{Reconstruction/Figures/halo/halo_eta.pdf}
+    \includegraphics[width=0.3\textwidth]{Reconstruction/Figures/halo/halo_shape_etalow.pdf}
+    \includegraphics[width=0.3\textwidth]{Reconstruction/Figures/halo/halo_shape_etahigh.pdf}
     \caption{
-      Top: $\eta$ distribution of the halo-like showers with $|\phi| < \pi/2$ and $|\phi| > \pi/2$.
-      Bottom: shift in the $\eta$ distribution of the halo-like showers with respect to the requirement on \sieie.
+      Left: $\eta$ distribution of the halo-like showers with $|\phi| < \pi/2$ and $|\phi| > \pi/2$.
+      Middle and right: shift in the $\eta$ distribution of the halo-like showers with respect to the requirement on \sieie.
     }
     \label{fig:halo_eta}
   \end{center}
@@ -673,4 +676,3 @@ In the $\alpha$--$\beta$ parameter space, seed rec hits of wide clusters concent
 In fact, the pulse amplitude distribution of narrow-cluster seeds with $\alpha > 0.9$ is unlike that of the narrow-cluster seeds with $\alpha < 0.9$, and resembles the amplitude distribution of wide-cluster seeds shown in Figure~\ref{fig:spike_amplitudes}.
 This suggests that the population $\alpha > 0.9$ correspond to the clusters of physical, prompt photons.
 It then follows that spike hits can be regarded to exclusively have sharp pulse shapes.
-\fi
