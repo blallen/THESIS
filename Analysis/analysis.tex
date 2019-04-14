@@ -19,7 +19,7 @@ The estimates for all five processes are taken from \MGvATNLO simulations at LO 
 
 Finally, apparent large energy deposits in ECAL from non-collision processes can mimic \gmet\  events and therefore need to be controlled. 
 Known sources of such background include bremsstrahlung of beam halo or cosmic ray muons and anomalous ECAL energy deposits resulting from the interaction of particles in the ECAL photodetectors referred to as ``ECAL spikes''. 
-These processes are described in detail in Sections~\ref{sec:halo_estimate} and~\ref{sec:spikes}, respectively.
+These processes are described in detail in Sections~\ref{sec:halo_estimate} and~\ref{sec:spike_estimate}, respectively.
 
 All background processes except for the two irreducible ones and beam halo are given absolute estimates from data-driven methods or MC cross section calculations. 
 The estimates of the contributions from \zinvg, \wlng, and beam halo processes are allowed to float in the final fit to data performed to extract the potential signal contribution described in Section~\ref{sec:interpretation}.
@@ -36,7 +36,7 @@ The photon energy reconstructed at the HLT is less precise relative to that deri
 Therefore, the thresholds in the trigger on both $H/E$ and \ETg, are less restrictive than their offline counterparts.  
 The trigger efficiency is measured to be about 98\% for events passing the analysis selection with $\ETg > 175\GeV$.
 
-From the recorded data, events are selected by requiring $\met > 170\GeV$ and at least one photon with $\ETg > 175\GeV$ in the fiducial region of the ECAL barrel ($\abs{\eta} < 1.44$) passing the selected presented in Section~\ref{sec:photons}. 
+From the recorded data, events are selected by requiring $\met > 170\GeV$ and at least one photon with $\ETg > 175\GeV$ in the fiducial region of the ECAL barrel ($\abs{\eta} < 1.44$) passing the selected presented in Section~\ref{sec:pf_photons}. 
 
 Events with a high-\pt\ photon and large \met\ are subjected to further requirements to suppress SM background processes that feature a genuine high-energy photon, but not a significant amount of \met.
 One such SM process is \gj, where an apparent large \met\ is often the result of a mismeasured jet energy.
@@ -65,7 +65,7 @@ The recoil vector of this region is $\vec{U} = \ptvecmiss + \sum\ptvec^{\ell}$ a
 \label{sec:irreducible}
 
 \subsection{Simulation of \vg\ Processes}
-\label{subsec:vgmc}
+\label{sec:vgmc}
 
 The \zinvg\ and \wlng\ background contributions are modeled using MC simulations.
 Samples generated at the leading order (LO) in QCD by \MADGRAPH5 with up to two additional partons and a generator-level requirement of $\ETg > 130\GeV$ are employed for this purpose.
@@ -100,24 +100,17 @@ These factors are the ratios of QCD next-to-next-to leading order (NNLO) differe
 
 \begin{table}
   \begin{center}
-    \caption{NNLO / LO correction factors for \zinvg\ and \wlng\ samples.}
-    \label{tab:zg_kfactors}
-    \begin{tabular}{| l | r | r |}
-      \hline
+    \begin{tabular}{ l | r | r }
       \ETg range (GeV) & \zinvg & \wlng \\
       \hline
-      \hline
       $[175, 190]$ & 1.44 & 1.40 \\
-      \hline
       $[190, 250]$ & 1.41 & 1.37 \\
-      \hline
       $[250, 400]$ & 1.35 & 1.31 \\
-      \hline
       $[400, 700]$ & 1.29 & 1.26 \\
-      \hline
-      $[700, \inf]$ & 1.15 & 1.15 \\
-      \hline
+      $[700, \infty)$ & 1.15 & 1.15 \\
     \end{tabular}
+    \caption{NNLO / LO correction factors for \zinvg\ and \wlng\ samples.}
+    \label{tab:zg_kfactors}
   \end{center}
 \end{table}
 
@@ -181,7 +174,7 @@ This uncertainty is considered fully correlated in the ratio between the \zinvg\
 Finally, data-to-simulation correction factors $\rho$ for the lepton identification efficiencies have associated uncertainties that do not cancel when taking ratios between regions defined by different lepton selection requirements.
 
 \subsection{Data-driven Control Regions}
-\label{subsec:control_regions}
+\label{sec:control_regions}
 
 Contributions from the \zinvg\ and \wlng\ processes are estimated using observed data in four mutually exclusive single-electron, single-muon, dielectron, and dimuon control regions defined in Section~\ref{sec:event_selection}. 
 The ratios between the expected yields of these processes are constrained by MC simulations of \vg\ processes. This background estimation method exploits cancellation of some of the systematic uncertainties, both experimental and theoretical, in the ratios of the photon \ETg\ distributions of \vg\ processes, from here on referred to as ``transfer factors''.
@@ -230,6 +223,19 @@ A large fraction of electrons that are out of tracker acceptance are still captu
 
 \begin{table}[tbp]
   \begin{center}
+    \begin{tabular}{ l r | r r }
+      \multicolumn{2}{ c |}{Subprocess} & \multicolumn{2}{| c }{$A\times\epsilon \times 10^{3}$} \\
+      \hline
+      \multicolumn{2}{ l |}{$\PW\rightarrow\Pe\Pgn + \Pgg$} & 1.68 & \\
+      & $|\eta^{\Pe}| < 2.5$ & & 1.35 \\
+      & $|\eta^{\Pe}| > 2.5$ & & 0.32 \\
+      \hline
+      \multicolumn{2}{ l |}{$\PW\rightarrow\Pgm\Pgn + \Pgg$} & 1.83 & \\
+      & $|\eta^{\Pgm} < 2.5$ & & 0.74 \\
+      & $|\eta^{\Pgm} > 2.5$ & & 1.08 \\
+      \hline
+      \multicolumn{2}{ l |}{$\PW\rightarrow\Pgt\Pgn + \Pgg$} & 5.03 & \\
+    \end{tabular}
     \caption{
       The breakdown of simulated $\PW+\Pgg$ events passing the full event selection. 
       Events are categorized in the \PW\ decay mode. 
@@ -237,26 +243,6 @@ A large fraction of electrons that are out of tracker acceptance are still captu
       For each \PW\ decay mode, the fraction out of total generated ($A\times\epsilon$) is shown.
     }
     \label{tab:wg_breakdown}
-    \begin{tabular}{| l r | r r |}
-      \hline
-      \multicolumn{2}{| c |}{Subprocess} & \multicolumn{2}{| c |}{$A\times\epsilon \times 10^{3}$} \\
-      \hline
-      \hline
-      \multicolumn{2}{| l |}{$\PW\rightarrow\Pe\Pgn + \Pgg$} & 1.68 & \\
-      \hline
-       & $|\eta^{\Pe}| < 2.5$ & & 1.35 \\
-      \hline
-       & $|\eta^{\Pe}| > 2.5$ & & 0.32 \\
-      \hline
-      \multicolumn{2}{| l |}{$\PW\rightarrow\Pgm\Pgn + \Pgg$} & 1.83 & \\
-      \hline
-       & $|\eta^{\Pgm}| < 2.5$ & & 0.74 \\
-      \hline
-       & $|\eta^{\Pgm}| > 2.5$ & & 1.08 \\
-      \hline
-      \multicolumn{2}{| l |}{$\PW\rightarrow\Pgt\Pgn + \Pgg$} & 5.03 & \\
-      \hline
-    \end{tabular}
   \end{center}
 \end{table}
 
@@ -279,7 +265,7 @@ The underlying logic is the same; e.g., that the signal region selection efficie
 
 Finally, to benefit further from the larger statistical power that the single-lepton control samples provides, an additional transfer factor $\fZW = \NZg / \NWg$ is defined to connect the \zinvg\ and \wlng\ background yields in the signal regions, where the quantity $\NWg$ is the number of \wlng\ events in the combined signal regions. 
 When calculating the ratio \fZW, all experimental uncertainties associated with the data-to-simulation correction factors $\rho$ cancel since both processes result in very similar event configurations. 
-The main uncertainties in \fZW\ are those from higher-order theoretical corrections, discussed in Section~\ref{subsec:vgmc}. Figure~\ref{fig:tf_syst} shows the effect of each systematic uncertainty in \fZW\ with respects to its nominal value for \zinvg\ and \wlng\ respectively.
+The main uncertainties in \fZW\ are those from higher-order theoretical corrections, discussed in Section~\ref{sec:vgmc}. Figure~\ref{fig:tf_syst} shows the effect of each systematic uncertainty in \fZW\ with respects to its nominal value for \zinvg\ and \wlng\ respectively.
 
 \begin{figure}[htbp]
   \centering
@@ -317,11 +303,11 @@ where $b_{\ell\Pgg}$ is the predicted contribution from other background sources
 An electron can be misidentified as a photon if the association of tracks or track seeds to the supercluster in ECAL fails in the reconstruction step. 
 The production of a single \PW\ boson decaying to an electron and a neutrino is a high-rate process, and it mimicks the photon plus \met\ signature if the electron is misidentified.
 
-The rate at which this misidentification occurs is proportional to the inefficiency $1 - \epsilon_{\Pe}^{\text{track}}$ of the tracking, defined over the electrons passing the photon identification criteria described in Sec.~\ref{sec:photons} except the electron veto. 
+The rate at which this misidentification occurs is proportional to the inefficiency $1 - \epsilon_{\Pe}^{\text{track}}$ of the tracking, defined over the electrons passing the photon identification criteria described in Sec.~\ref{sec:pf_photons} except the electron veto. 
 This partial identification is denoted as \Pe\Pgg\ ID in the following.  
 If one assumes that the kinematic and other critical properties of the electron plus \met\ events are unaffected by the electron misidentification, it is possible to model the electron misidentification background by taking a proxy sample with well-identified electrons and scaling this sample by $R_{\Pe} = (1 - \epsilon_{\Pe}^{\text{track}}) / \epsilon_{\Pe}^{\text{track}}$.
 
-The ``tag-and-probe'' method described in Section~\ref{subsec:idsf} with appropriate changes is used to measure the efficiency corresponding to the factor $R_{\Pe}$ in data.
+The ``tag-and-probe'' method described in Section~\ref{sec:idsf} with appropriate changes is used to measure the efficiency corresponding to the factor $R_{\Pe}$ in data.
 
 The first such change is that the sample is split into \Pe\Pgg\ and \Pe\Pe\ categories depending on whether the probe passes or fails the electron veto requirement. 
 Probes in both categories must also pass the \Pe\Pgg\ ID.
@@ -353,7 +339,7 @@ Figure~\ref{fig:efake_fits} shows the six fits performed on \Pe\Pe\ and \Pe\Pgg\
 
 The proxy sample for the background estimation is obtained by identical event selection as that described in Sec.~\ref{sec:event_selection}, but with the pixel-seed veto inverted on the photon candidate object.
 
-%%% Systematic uncertainties in this method to estimate the electron misidentification background can be categorized to those related to the TP fit (described in Section~\ref{subsec:idsf}) and those related to the applicability of the $R_{\Pe}$ factor.
+%%% Systematic uncertainties in this method to estimate the electron misidentification background can be categorized to those related to the TP fit (described in Section~\ref{sec:idsf}) and those related to the applicability of the $R_{\Pe}$ factor.
 
 Figure~\ref{fig:efake_frate} shows the derived $R_{\Pe}$ factor as a function of \ETg. 
 The electron proxy sample is reweighted by $R_{\Pe}$ depending on the \pt\ of the electron object.
@@ -374,12 +360,22 @@ The electron proxy sample is reweighted by $R_{\Pe}$ depending on the \pt\ of th
 
 The estimation of hadron misidentification background proceeds in multiple steps. 
 First, the fraction of hadronic objects within a pool of photon candidate objects in the photon plus jet control region is measured. 
-This measurement is described in detail in Section~\ref{subsec:pvsf}.
+This measurement is described in detail in Section~\ref{sec:pvsf}.
 Figure~\ref{fig:impurity-compsb} and Table~\ref{tab:hfake-impurity-systs} show the final impurity and associated uncertainties as a function of \pt. 
 
 \begin{table}[htbp]
   \centering
-  \input{Analysis/Figures/hfake/table_impurity_barrel_medium-pixel-monoph.tex}
+  \begin{tabular}{ c|c|c c c c }
+    \pt & Nominal & \multicolumn{4}{ |c }{Sources of Systematic Uncertainty} \\
+    (GeV) & & Sideband & CH Iso Shape & Signal Shape & Bgkd. Stats \\
+    \hline
+    (175, 200)  & $4.31 \pm 0.21$ & 0.09 & 0.18 & 0.05 & 0.04 \\
+    (200, 250)  & $3.39 \pm 0.17$ & 0.01 & 0.16 & 0.06 & 0.03 \\
+    (250, 300)  & $2.44 \pm 0.22$ & 0.14 & 0.16 & 0.06 & 0.05 \\
+    (300, 350)  & $1.99 \pm 0.23$ & 0.12 & 0.16 & 0.07 & 0.08 \\
+    (350, 400)  & $1.43 \pm 0.28$ & 0.23 & 0.11 & 0.05 & 0.10 \\
+    (400, $\infty$)  & $0.63 \pm 0.30$ & 0.27 & 0.09 & 0.05 & 0.05 \\
+  \end{tabular}
   \caption{Impurities for photons as a function of \pt.}
   \label{tab:hfake-impurity-systs}
 \end{table}
@@ -395,7 +391,7 @@ Figure~\ref{fig:impurity-compsb} and Table~\ref{tab:hfake-impurity-systs} show t
 \end{figure}
 
 Following this measurement, another control sample is formed where the photon in the photon plus jet sample is replaced by a hadronic proxy object. 
-The hadronic proxy object is a reconstructed photon object which pass the photon ID described in Section~\ref{sec:photons} with the execption of failing at least one of the following cuts: 
+The hadronic proxy object is a reconstructed photon object which pass the photon ID described in Section~\ref{sec:pf_photons} with the execption of failing at least one of the following cuts: 
 \begin{itemize}
 \item $\sieie < 0.01022$
 \item PF Charged Hadron isolation $< 0.441$ GeV .
@@ -570,7 +566,7 @@ Each quantity $Q_{j}$ with a nominal value $\overline{Q}_{j}$ and a standard dev
 \label{sec:results}
 
 \subsection{Pre-fit and post-fit distributions}
-\label{subsec:distributions}
+\label{sec:distributions}
 
 \begin{figure}[htbp]
   \centering
@@ -613,12 +609,7 @@ The observed distributions are in agreement with the prediction from SM and nonc
 
 \begin{table}[htbp]
 \centering
-\caption{Expected event yields in each \ETg\ bin for various background processes in the horizontal signal region.
-         The background yields and the corresponding uncertainties are obtained after performing a combined fit to data in all the control samples, excluding data in the signal region.
-         The observed event yields in the horizontal signal region are also reported.}
-\label{tab:yield_mask_horizontal}
-\begin{tabular}{ lcccccc }
-\hline
+\begin{tabular}{ l|cccccc }
 \rule[-1.2ex]{0pt}{3.8ex}\ETg~[\GeVns{}]      &         [175,  200] &         [200,  250] &         [250,  300] &         [300,  400] &         [400,  600] &         [600, 1000] \\
 \hline
 $\PZ\Pgg$        & $  81.2 \pm   8.0 $ & $  88.2 \pm   8.4 $ & $  38.8 \pm   4.8 $ & $  26.8 \pm   3.7 $ & $   8.8 \pm   1.9 $ & $   1.4 \pm   0.7 $ \\
@@ -628,19 +619,19 @@ Misid. hadrons   & $   5.2 \pm   2.2 $ & $   9.3 \pm   1.8 $ & $   3.1 \pm   0.7
 Other SM         & $  13.6 \pm   2.0 $ & $  19.6 \pm   1.3 $ & $  13.9 \pm   0.4 $ & $   4.2 \pm   0.2 $ & $   0.8 \pm   0.0 $ & $   0.1 \pm   0.0 $ \\
 ECAL spikes      & $   4.3 \pm   1.3 $ & $   2.7 \pm   0.8 $ & $   0.5 \pm   0.1 $ & $   0.1 \pm   0.0 $ & $   0.0 \pm   0.0 $ & $   0.0 \pm   0.0 $ \\
 Total prediction & $ 154.6 \pm   8.3 $ & $ 175.4 \pm   8.8 $ & $  78.2 \pm   5.3 $ & $  46.6 \pm   4.0 $ & $  14.1 \pm   2.1 $ & $   2.1 \pm   0.8 $ \\
-Observed         & $ 150   \pm  12   $ & $ 166   \pm    13 $ & $  76.0 \pm   8.7 $ & $  44.0 \pm   6.6 $ & $  19.0 \pm   4.4 $ & $   4.0 \pm   2.0 $ \\
 \hline
+Observed         & $ 150   \pm  12   $ & $ 166   \pm    13 $ & $  76.0 \pm   8.7 $ & $  44.0 \pm   6.6 $ & $  19.0 \pm   4.4 $ & $   4.0 \pm   2.0 $ \\
 \end{tabular}
+\caption{Expected event yields in each \ETg\ bin for various background processes in the horizontal signal region.
+         The background yields and the corresponding uncertainties are obtained after performing a combined fit to data in all the control samples, excluding data in the signal region.
+         The observed event yields in the horizontal signal region are also reported.}
+\label{tab:yield_mask_horizontal}
+
 \end{table}
 
 \begin{table}[htbp]
 \centering
-\caption{Expected event yields in each \ETg\ bin for various background processes in the vertical signal region.
-         The background yields and the corresponding uncertainties are obtained after performing a combined fit to data in all the control samples, excluding data in the signal regions.
-         The observed event yields in the vertical signal region are also reported.}
-\label{tab:yield_mask_vertical}
-\begin{tabular}{ lcccccc }
-\hline
+\begin{tabular}{ l|cccccc }
 \rule[-1.2ex]{0pt}{3.8ex}\ETg~[\GeVns{}]      &         [175,  200] &         [200,  250] &         [250,  300] &         [300,  400] &         [400,  600] &         [600, 1000] \\
 \hline
 $\PZ\Pgg$        & $ 172   \pm    17 $ & $ 190   \pm  18   $ & $  83   \pm  10   $ & $  58.6 \pm   7.9 $ & $  18.0 \pm   3.9 $ & $   3.1 \pm   1.6 $ \\
@@ -650,9 +641,13 @@ Misid. hadrons   & $  15.1 \pm   4.4 $ & $  14.5 \pm   3.1 $ & $   4.2 \pm   0.8
 Other SM         & $  33.8 \pm   4.1 $ & $  36.6 \pm   2.7 $ & $  13.6 \pm   0.5 $ & $  17.1 \pm   0.6 $ & $   2.4 \pm   0.1 $ & $   0.8 \pm   0.0 $ \\
 ECAL spikes      & $   9.3 \pm   2.8 $ & $   5.7 \pm   1.7 $ & $   0.9 \pm   0.3 $ & $   0.3 \pm   0.1 $ & $   0.0 \pm   0.0 $ & $   0.0 \pm   0.0 $ \\
 Total prediction & $ 339   \pm  18  $ & $ 366   \pm  19   $ & $ 150   \pm  11   $ & $ 107.5 \pm   8.7 $ & $  29.6 \pm   4.3 $ & $   5.4 \pm   1.7 $ \\
-Observed         & $ 301   \pm  17   $ & $ 342   \pm  19   $ & $ 161 \pm  13   $ & $ 107   \pm  10   $ & $  41.0 \pm   6.4 $ & $  12.0 \pm   3.5 $ \\
 \hline
+Observed         & $ 301   \pm  17   $ & $ 342   \pm  19   $ & $ 161 \pm  13   $ & $ 107   \pm  10   $ & $  41.0 \pm   6.4 $ & $  12.0 \pm   3.5 $ \\
 \end{tabular}
+\caption{Expected event yields in each \ETg\ bin for various background processes in the vertical signal region.
+         The background yields and the corresponding uncertainties are obtained after performing a combined fit to data in all the control samples, excluding data in the signal regions.
+         The observed event yields in the vertical signal region are also reported.}
+\label{tab:yield_mask_vertical}
 \end{table}
 
 The expected yields in each bin of \ETg\ for all backgrounds in the horizontal and vertical signal regions after performing a combined fit to data in all the control samples, excluding data in the signal regions, are given in Tables~\ref{tab:yield_mask_horizontal} and~\ref{tab:yield_mask_vertical}, respectively.
@@ -670,10 +665,10 @@ approach detailed in Ref.~\cite{CMS-NOTE-2017-001} to reinterpret the results fo
 \end{figure}.
 
 \subsection{Limits}
-\label{subsec:limits}
+\label{sec:limits}
 
 No significant excess of events beyond the SM expectation is observed. 
-Upper limits are determined for the production cross section of the new-physics processes mentioned in Section~\ref{sec:introduction}. 
+Upper limits are determined for the production cross section of the new-physics processes mentioned in Section~\ref{sec:dmsimp}. 
 For each model, a 95\% confidence level (\CL) upper limit is obtained utilizing the asymptotic \CLs\ criterion~\cite{Junk:1999kv,Read:2002hq,Cowan:2010js}, using a test statistic based on the negative logarithm of the likelihood in Section~\ref{sec:interpretation}.
 
 \begin{figure}[htbp]

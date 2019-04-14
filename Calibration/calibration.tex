@@ -18,8 +18,8 @@ The match is defined by $\dR = \sqrt{\deta^2 + \dphi^2}$ between the two objects
 For the offline photon object, a line that connects the detector origin and the cluster position was used to define its direction.
 
 The trigger efficiency measurement is performed on the SingleMuon data set, exploiting events mostly from leptonic \ttbar\ (\Pe\Pgm) topology. 
-Events with a candidate-quality photon without electron veto requirement (see Section~\ref{sec:photons}) and a muon object that passes the ``tight''
-identifictaion requirement defined in Section~\ref{sec:muons} and matches the trigger object of the HLT\_IsoMu24 or HLT\_IsoTkMu24 triggers are used. 
+Events with a candidate-quality photon without electron veto requirement (see Section~\ref{sec:pf_photons}) and a muon object that passes the ``tight''
+identifictaion requirement defined in Section~\ref{sec:pf_muons} and matches the trigger object of the HLT\_IsoMu24 or HLT\_IsoTkMu24 triggers are used. 
 The matching rate of the photon object and the trigger object is the trigger efficiency. 
 Figure~\ref{fig:hlt_eff} shows the L1+HLT combined efficiency as a function of the photon \ET. 
 It can be seen that the trigger is fully efficient for $\ET > 175\GeV$.
@@ -56,7 +56,7 @@ Therefore we deem the slight discrepancy of the trigger efficiency from unity as
 \section{Photon Identification Efficiency}
 \label{sec:photoneff}
 
-When measuring the photon efficiency scale factor, we split the photon ID described in Section~\ref{sec:photons} into two parts, which we call the \egamma\ portion and the \Pgg-specific portion. 
+When measuring the photon efficiency scale factor, we split the photon ID described in Section~\ref{sec:pf_photons} into two parts, which we call the \egamma\ portion and the \Pgg-specific portion. 
 The \egamma\ portion of the ID consists of the H/E, \sieie, and PF isolation cuts and is measured using the ``tag-and-probe'' (TP) method as these variables have similar efficiencies for physical electrons and photons. 
 The \Pgg-specific portion of the ID consists of the pixel seed veto and non-collision rejection cuts.
 We measure the efficiency of \Pgg-specific portion on a sample of physical photons using a \sieie\ template fit method.
@@ -65,7 +65,7 @@ We perform both efficiency estimates as a function of \pt\ with the binning [175
 This binning was chosen based on the number of available events in data for the failing probes fit in the TP method and the background template for the \sieie\ fits.
 
 \subsection{\egamma\ ID Efficiency}
-\label{subsec:idsf}
+\label{sec:idsf}
 
 The efficiency corresponding to the \egamma\ part of the photon ID is estimated by exploiting the \PZ\ boson decay into an $\Pe^{+}\Pe^{-}$ pair. 
 In this ``tag-and-probe'' (TP) method, a high-quality electron object (tag) is identified in a single photon data sample, and the accompanying electron is sought for in the pool of elecromagnetic objects (probes) in the event. 
@@ -148,14 +148,22 @@ We use the bin by bin scale factor corresponding to the truth values in the anal
  
 \begin{table}[htbp]
   \begin{center}
+    \begin{tabular}{ c|c|c }
+      $\pt^{\mathrm{probe}}$ (GeV) & MC Fit & Truth \\\hline
+      (175, 200)  & $1.014 \pm 0.008$ & $1.009 \pm 0.016$ \\
+      (200, 250)  & $1.003 \pm 0.008$ & $0.999 \pm 0.014$ \\
+      (250, 300)  & $1.014 \pm 0.010$ & $1.016 \pm 0.019$ \\
+      (300, 350)  & $1.002 \pm 0.014$ & $0.997 \pm 0.022$ \\
+      (350, 400)  & $0.986 \pm 0.012$ & $0.987 \pm 0.022$ \\
+      (400, 6500)  & $0.988 \pm 0.011$ & $0.999 \pm 0.016$ \\
+    \end{tabular}
     \caption{\egamma\ scale factors as a function of photon \pt.}
     \label{tab:idsf_results}
-    \input{Calibration/Figures/idsf/table_ptalt.tex}
   \end{center}
 \end{table}
 
 \subsection{\Pgg-specific ID Efficiency}
-\label{subsec:pvsf}
+\label{sec:pvsf}
 
 To measure the efficiency of the \Pgg-specific component of the photon ID, we use a \sieie\ template fit to extract the number of true photons from a pool of photon objects passing the \egamma\ ID.
 
@@ -300,11 +308,8 @@ The relative uncertainties on the numerator are similar, and in the efficiency, 
 
 \begin{table}[htbp]
   \begin{center}
-    \caption{Relative uncertainties on the estimated number of true photons in the denominator sample.}
-    \label{tab:impurity-systs}
-    \begin{tabular}{ |c|c c c c| }
-    \hline
-    \pt\ Range & \multicolumn{4}{ |c| }{Sources of Systematic Uncertainty} \\
+    \begin{tabular}{ c|c c c c }
+    \pt\ Range & \multicolumn{4}{ |c }{Sources of Systematic Uncertainty} \\
      (GeV) & Sideband & \ICH\ Shape & Signal Shape & Bgkd. Stats \\
     \hline
      (175, 200)  & 0.09 & 0.18 & 0.05 & 0.04 \\
@@ -312,9 +317,10 @@ The relative uncertainties on the numerator are similar, and in the efficiency, 
      (250, 300)  & 0.14 & 0.16 & 0.06 & 0.05 \\
      (300, 350)  & 0.12 & 0.16 & 0.07 & 0.08 \\
      (350, 400)  & 0.23 & 0.11 & 0.05 & 0.10 \\
-     (400, $\infty$)  & 0.27 & 0.09 & 0.05 & 0.05 \\
-    \hline
+     (400, $\infty$)  & 0.27 & 0.09 & 0.05 & 0.05
     \end{tabular}
+    \caption{Relative uncertainties on the estimated number of true photons in the denominator sample.}
+    \label{tab:impurity-systs}
   \end{center}
 \end{table}
 
@@ -351,9 +357,9 @@ As there is no significant trend in the scale factor as a function of \pt\, we a
 \section{Lepton Efficiency}
 \label{sec:lepton_eff}
 
-The electron and muon efficiencies are measured using a similar method to the ``tag-and-probe'' method described in Section~\ref{subsec:idsf}.
-For these measurements, the tag object is an electron (muon) object passing the tight ID described in Section~\ref{sec:electrons} (Section~\ref{sec:muons}) and matched to a SingleElectron (SingleMuon) trigger while the probe object is an PF electron (muon) without any ID applied.
-The passing (failing) categories are defined by events with probes passing (failing) the ID definition in question (see Sections~\ref{sec:electrons} and~\ref{sec:muons} for details).
+The electron and muon efficiencies are measured using a similar method to the ``tag-and-probe'' method described in Section~\ref{sec:idsf}.
+For these measurements, the tag object is an electron (muon) object passing the tight ID described in Section~\ref{sec:pf_electrons} (Section~\ref{sec:pf_muons}) and matched to a SingleElectron (SingleMuon) trigger while the probe object is an PF electron (muon) without any ID applied.
+The passing (failing) categories are defined by events with probes passing (failing) the ID definition in question (see Sections~\ref{sec:pf_electrons} and~\ref{sec:pf_muons} for details).
 The electron (muon) scale factors are approximately unity with a flat 2\% (1\%) systematic uncertainty.
 
 
@@ -382,8 +388,8 @@ To measure the possible difference between data and MC of this lepton veto effic
 In a high-purity \Zmm\  sample with the dimuon mass close to $M_{\PZ}$, events with a genuine third lepton is negligibly rare, and therefore the efficiency loss from rejecting events with a third lepton is dominantly due to fake leptons.
 
 For this measurement, collision events are taken from the SingleMuon data set and the MC events from a mixture of DY, \ttbar, \PW\PW, \PW\PZ, and \PZ\PZ\ samples. 
-We require two muons passing the ``tight'' identification working point defined in Section~\ref{sec:muons} with the mass between 61 and 121\GeV. 
-These events are then checked for additional electron or muon objects passing the loose selection criteria defined in Sections~\ref{sec:electrons} or~\ref{sec:muons}, respectively. 
+We require two muons passing the ``tight'' identification working point defined in Section~\ref{sec:pf_muons} with the mass between 61 and 121\GeV. 
+These events are then checked for additional electron or muon objects passing the loose selection criteria defined in Sections~\ref{sec:pf_electrons} or~\ref{sec:pf_muons}, respectively. 
 The efficiency is inspected as a function of number of vertices, number of jets, and $H_{\mathrm{T}}$ in the event, and in all cases data and MC are consistent as shown in Figure~\ref{fig:leptonveto_efficiencies}.
 
 \begin{figure}[tbph]
