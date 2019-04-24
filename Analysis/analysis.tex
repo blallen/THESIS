@@ -1,28 +1,30 @@
 \chapter{The Monophoton Analysis}
 \label{chap:analysis}
 
-There are multiple distinct sources of SM background to this analysis. 
-The most significant of them are the irreducible backgrounds, which are the associated production of a high-energy \Pgg\ with either a \PZ\ boson that subsequently decays to a pair of neutrinos or a \PW\ boson that decays to a charged lepton and a neutrino. 
+In this chapter, we discuss the search for dark matter produced in association with a single high-\pt photon.
+Our benchmark signal models are the vector and axial dark matter mediators discussed previously. 
+However, many Standard Model (SM) processes are also capable of producing events with a single high-\pt\ photon and large \met, whether with real photons, other particles misidentified as photons, or unphysical photon signatures from various  machine and detector processes.
+
+%%% maybe thrown in comparison diagrams here
+
+The most significant are the irreducible backgrounds, where the underlying physics process produces the exact same signature as the signal with only real and properly identified physics objects.
+In this case, the irreducible backgrounds are the associated production of a high-energy \Pgg\ with either a \PZ\ boson that subsequently decays to a pair of neutrinos or a \PW\ boson that decays to a charged lepton and a neutrino, with the charged lepton outside of the detector acceptance.
 These two processes are denoted as \zinvg\ and \wlng, respectively, and together they account for approximately 70\% of the SM background, with 50\% from the former and 20\% from the latter.
-The total irreducible background rate is estimated using simultaneous fits to the signal and control regions defined in Section~\ref{sec:event_selection} and the details of the modeling are given in Section~\ref{sec:irreducible}.
+The modeling of the irreducible backgrounds is explained in Section~\ref{sec:irreducible}.
+% The total irreducible background rate is estimated using simultaneous fits to the signal and control regions defined in Section~\ref{sec:event_selection} and 
 
-Less significant but non-negligible backgrounds arise from events where the candidate photon object is a misidentified electron (Section~\ref{sec:efake}) or electromagnetic shower caused by hadrons (Section~\ref{sec:hfake}). 
-The background events from electron misidentification are mostly \PW\ boson production ($\PW\rightarrow \Pe\Pgn$), whereas those from hadron misidentification can be due to multiple sources such as $\PZ(\rightarrow\Pgn\Pgn)+\text{jets}$ and QCD multijets with grossly mismeasured jet energy. 
-Misidentification itself is rare, but all of the above processes have high cross sections. 
-Since object misidentification rates depend on subtle details of the detector, the MC simulation cannot be expected to model it reliably. 
-Therefore, data-driven techniques are employed to estimate the contributions from these background events.
+Additional backgrounds arise from events where the candidate photon object is a misidentified electron (Section~\ref{sec:efake}) or an electromagnetic shower caused by hadrons (Section~\ref{sec:hfake}). 
+The background events from electron misidentification are mostly \PW\ boson production ($\PW\rightarrow \Pe\Pgn$), whereas those from hadron misidentification are due to multiple sources such as $\PZ(\rightarrow\Pgn\Pgn)+\text{jets}$ and QCD multijets with grossly mismeasured jet energy. 
+Misidentification itself is rare, but because these processes have high cross sections, the amount of background is substantial, approximately 15\% and 5\% respectively.
+Since object misidentification rates depend on subtle details of the detector, the MC simulation often fails to accurately describe them.
+Therefore, the contributions from these background processes are estimated by employing data-driven techniques, where the misidentification rates are measured in data and applied to proxy samples with well-identified electrons or hadrons.
 
-After the full selection described in Section~\ref{sec:event_selection}, the SM \gj, \ttg, VV\Pgg, \zllg, and $\PW\to\ell\Pgn$ processes are minor ($\sim$10\%) background processes in the signal region. 
-These processes, collectively denoted as minor SM backgrounds, can contribute in the signal region if the jet energy is severely mismeasured or the leptons fail to be reconstructed resulting in large \met in the signal region. 
-However, the \met is typically aligned with the photon or one of the jets in such cases, and therefore various selections on the kinematic relations between the \met, photons, and jets are used to reduce these backgrounds to a manageable rate. 
-The estimates for all five processes are taken from \MGvATNLO simulations at LO in QCD and can be found in Tables~\ref{tab:yield_mask_horizontal} and~\ref{tab:yield_mask_vertical}.
-
-Finally, apparent large energy deposits in ECAL from non-collision processes can mimic \gmet\  events and therefore need to be controlled. 
+Finally, apparent large energy deposits in ECAL from non-collision processes mimic \gmet\ events and therefore need to be controlled. 
 Known sources of such background include bremsstrahlung of beam halo or cosmic ray muons and anomalous ECAL energy deposits resulting from the interaction of particles in the ECAL photodetectors referred to as ``ECAL spikes''. 
-These processes are described in detail in Sections~\ref{sec:halo_estimate} and~\ref{sec:spike_estimate}, respectively.
+These methods used to estimate contributes from these processes are described in detail in Sections~\ref{sec:halo_estimate} and~\ref{sec:spike_estimate}, respectively.
 
-All background processes except for the two irreducible ones and beam halo are given absolute estimates from data-driven methods or MC cross section calculations. 
-The estimates of the contributions from \zinvg, \wlng, and beam halo processes are allowed to float in the final fit to data performed to extract the potential signal contribution described in Section~\ref{sec:interpretation}.
+The estimates of the contributions from \zinvg, \wlng, and beam halo processes are allowed to float in the fits to data performed to extract the potential signal contribution and set limits on new physics models. %  described in Section~\ref{sec:interpretation}.
+Meanwhile, for all other background processes, the yields in the fits are fixed to the estimates from data-driven methods or MC cross section calculation. 
 
 \section{Event Selection}
 \label{sec:event_selection}
@@ -525,6 +527,14 @@ First, the three values are recomputed with using $\sieie < 0.001$ as the only d
 This results in a minor change of the value of D of $12.1 \pm 1.7$. Next, A and B are computed using a lower-\pt SinglePhoton sample, requiring triggers Photon135\_PFMET100 or Photon120\_R9Id90\_HE10\_IsoM to have fired, instead of the signal trigger. 
 The second modification gives $D=9.1 \pm 1.3$. 
 We then take twice the discrepancy between the nominal D and the D value from the second modification as the systematic uncertainty in the spike background estimate.
+
+\section{Minor SM Backgrounds}
+\label{sec:minorsm}
+
+After the full selection described in Section~\ref{sec:event_selection}, the SM \gj, \ttg, VV\Pgg, \zllg, and $\PW\to\ell\Pgn$ processes are minor ($\sim$10\%) background processes in the signal region. 
+These processes, collectively denoted as minor SM backgrounds, contribute in the signal region when the jet energy is severely mismeasured or the leptons fail to be reconstructed resulting in large \met in the signal region. 
+However, the \met is typically aligned with the photon or one of the jets in such cases, and therefore various selections on the kinematic relations between the \met, photons, and jets are used to reduce these backgrounds to a manageable rate. 
+The estimates for all five processes are taken from \MGvATNLO~\cite{} simulations at LO in QCD and are listed in Tables~\ref{tab:yield_mask_horizontal} and~\ref{tab:yield_mask_vertical}.
 
 \section{Statistical Interpretation}
 \label{sec:interpretation}
