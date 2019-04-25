@@ -191,44 +191,37 @@ Most importantly, this results in different efficiencies for photons in data dn 
 To improve our MC, we reweight it by the ratio of the efficiency in data to that in MC, known as the photon efficiency scalefactor.
 
 When measuring the photon efficiency scale factor, we factorize the photon IDinto the \egamma\ portion and the \Pgg-specific portion. 
-The \egamma\ portion of the ID consists of the H/E, \sieie, and PF isolation cuts and is measured using the ``tag-and-probe'' (TP) method as these variables have similar efficiencies for physical electrons and photons. 
+The \egamma\ portion of the ID consists of a collection of isolation and shower shape selections designed to reduce the hadron misidentification rate.
+We measure the efficiency of the \egamma\ portion  using the ``tag-and-probe'' (TP) method with \Zee\ events as these variables have similar efficiencies for physical electrons and photons. 
 The \Pgg-specific portion of the ID consists of the pixel seed veto and non-collision rejection cuts.
-We measure the efficiency of \Pgg-specific portion on a sample of physical photons using a \sieie\ template fit method.
+We measure the efficiency of \Pgg-specific portion on a sample of physical photons in the EM object+jet measurement sample using a \sieie\ template fit method.
 
 We perform both efficiency estimates as a function of \pt\ with the binning [175,200], [200,250], [250,300], [300,350], [350,400] and [400,$\infty$). 
-This binning was chosen based on the number of available events in data for the failing probes fit in the TP method and the background template for the \sieie\ fits.
+This binning was chosen based on the number of available events in data for the failing probes fit in the TP method and the background template for the \sieie\ fits, as these samples are the smallest and drive the uncertainty of the methods.
 
 \subsection{\egamma\ ID Efficiency}
 \label{sec:idsf}
 
-The efficiency corresponding to the \egamma\ part of the photon ID is estimated by exploiting the \PZ\ boson decay into an $\Pe^{+}\Pe^{-}$ pair. 
-In this ``tag-and-probe'' (TP) method, a high-quality electron object (tag) is identified in a single photon data sample, and the accompanying electron is sought for in the pool of elecromagnetic objects (probes) in the event. 
-The area of the peak in the mass distribution of the tag-probe system around the \PZ\ boson mass (between 81\GeV\ and 101\GeV) is then measured once applying the \Pe\Pgg\ ID requirements on the probe and once inverting the requirements. 
-Denoting the two areas \npass\ and \nfail, respectively, the resulting effiency $\epsilon_{\egamma}$ is given by
+The efficiency corresponding to the \egamma\ part of the photon ID is estimated by exploiting \PZ\ boson decays into pairs of electrons and positrons.
+Using the TP method, a high-quality electron object (tag) is identified in a single photon data sample, and the accompanying electron is sought for in the pool of elecromagnetic objects (probes) in the event. 
+The area under the peak in the mass distribution of the tag-probe system around the \PZ\ boson mass (between 81\GeV\ and 101\GeV) is then measured once applying the \Pe\Pgg\ ID requirements on the probe and once inverting all of the requirements simultaneously. 
+Denoting the two areas under the peaks in the passing and failing samples \npass\ and \nfail, respectively, the resulting effiency $\epsilon_{\egamma}$ is given by
 \begin{equation}
 \epsilon_{\egamma} = \frac{\npass}{\npass + \nfail}.
 \end{equation}
 
 The TP measurement is performed on a subset of the single photon triggered events where there is an electron object (tag) passing the ``tight'' identification criteria in addition to the triggering photon (probe). 
-All possible tag-probe combinations are considered; if the tag object can also serve as a probe and the probe object as a tag, which is a common occurrence in the case when the probe is electron-like (passes the \Pe\Pgg\ ID), then the two combinations are considered independently to avoid the bias caused by somehow preferring one object over another to use as the probe.
+All possible tag-probe combinations are considered; if the tag object can also serve as a probe and the probe object as a tag, which is a common occurrence in the case when the probe is electron-like (passes the \Pe\Pgg\ ID), then the two combinations are considered independently to avoid the bias caused by preferring to use one object over another as the probe.
 
 The tag-probe mass distributions are then fit to extract \npass\ and \nfail. 
 The fit model is composed of two templates, where one template describes a pure \Zee\ line shape and the other describes the background contributions. 
 The backgrounds to the fits include \wj, diboson, and \ttbar\ productions, which are all negligible and estimated to contribute by less than 1\%. 
-Minor contribution from processes that do not involve true electrons, such as diphoton production with a strongly asymmetric conversion on one of the photons and misidentification of a QCD jet as an electron, are predicted to be negligible from MC studies.
+Minor contributions from processes that do not involve true electrons, such as diphoton production with a strongly asymmetric conversion on one of the photons and misidentification of a QCD jet as an electron, are predicted to be negligible from MC studies.
  
-The \Zee\ template is given by an analytic shape of Breit-Wigner distribution convoluted with the Crystal Ball function. 
-The mass and width parameters of Breit-Wigner distribution are fixed to PDG values. 
-Crystal Ball parameters are allowed to float in the fit. 
-It is well known that Breit-Wigner distribution usually does not describe the mass distribution well when the tag or the probe is under kinematically exclusive selections. 
-However, at this high probe \pt\ scale, selected events are mostly of \zj\ topology with a boosted \PZ\ boson, which makes the selection rather inclusive in terms of the tag-probe invariant mass.
-
-The background template is taken from events collected by the single photon trigger where an
-additional muon object is present, making use of the fact that the most of the background processes in both fits are symmetric in lepton flavor. 
-In order to mitigate the statistical fluctuation in the background sample, the actual template is constructed by a Gaussian kernel estimation of the mass distribution of this muon-probe sample. 
-
-The floating parameters of the fits are therefore the normalizations of the \Zee\ and backgroud templates and the Crystal Ball smearing parameters. 
-Selected example fits are shown in Figure~\ref{fig:idsf_fits}.
+The \Zee\ template shape is an analytic convolution of the Breit-Wigner distribution and the Crystal Ball function. 
+The mass and width parameters of the Breit-Wigner distribution are fixed to PDG values while the Crystal Ball parameters are allowed to float in the fit.
+We are able to use the analytic Breit-Wigner distribution instead of a template taken from MC because at this high probe \pt\ scale the selected events are mostly of the \zj\ topology with a boosted \PZ\ boson.
+This makes the selection rather inclusive in terms of the tag-probe invariant mass and ensures that the Breit-Wigner distribution accurately models the mass distribution even through the tag and probe are under kinematically exclusive selections.
 
 \begin{figure}[htbp]
   \begin{center}
@@ -249,6 +242,12 @@ Selected example fits are shown in Figure~\ref{fig:idsf_fits}.
   \end{center}
 \end{figure}
 
+The background template is taken from events collected by the single photon trigger where an additional muon object is present, making use of the fact that the most of the background processes in both fits are symmetric in lepton flavor. 
+In order to mitigate statistical fluctuations in the background sample, the actual template is constructed by a Gaussian kernel estimation of the mass distribution of this muon-probe sample. %% ask yutaro for a brief explanation
+
+The floating parameters of the fits are therefore the normalizations of the \Zee\ and background templates and the Crystal Ball smearing parameters. 
+Selected example fits are shown in Figure~\ref{fig:idsf_fits}.
+
 The statistical uncertainty of the fits is estimated by generating toy data from the nominal fit result with the same number of entries as the fit target distribution. 
 The mass distribution of the toy data is then fit with the same model with the parameters floating. 
 This procedure is repeated 100 times to obtain a distribution of the \Zee\ event yields, and its standard deviation is taken as the statistical uncertainty of the fit. 
@@ -258,15 +257,17 @@ To estimate the effect of potential mismodeling in the fits, alternative fits va
 In the alternative-background fit, a simple linear function is tested.
 In the alternative-signal fit, no Crystal Ball convolution is performed to the signal template and the mass and width of the Breit-Wigner function are allowed to vary. 
 Resulting best-fit distributions of these alternative models are then used to generate a large number of toy distributions, which are fit by the nominal model. 
-The average shift of the fit result from the nominal value is then taken as the uncertainty. The relative uncertainty on the efficiency varies from 2 to 4\% depending on the probe \pt\ bin. %%% double check these numbers
+The average shift of the fit result from the nominal value is then taken as the uncertainty.
+The relative uncertainty on the efficiency varies from 2 to 4\% depending on the probe \pt\ bin. %%% double check these numbers
 
 The MC efficiency is taken from counting the number truth-matched electrons passing and failing the \egamma\ part of the ID from a \Zee\ sample. 
-Additionally, the MC efficiency is computed using the same procedure as in data as a cross-check. The two methods are consistent within their uncertainties. 
+Additionally, the MC efficiency is computed using the same procedure as in data as a cross-check.
+The efficiencies obtained from these two methods are consistent within their uncertainties. 
 
 The data efficiencies, MC efficiencies, and resulting scale factors as a function of \pt\ are shown in Figure~\ref{fig:idsf_results}. 
 The scalefactors are consistent with unity within the uncertainties. 
 The numerical values are given in Table~\ref{tab:idsf_results}. 
-We use the bin by bin scale factor corresponding to the truth values in the analysis.
+We use the bin by bin scale factor corresponding to the truth values in the analysis. %% oops might need to fix
 
 \begin{figure}[htbp]
   \begin{center}
