@@ -3,9 +3,8 @@ To measure the efficiency of the \Pgg-specific component of the photon ID, we us
 The measurement is performed using the EM object+jet measurement sample. 
 We fit the \sieie\ distribution of the EM object with a template describing the \sieie\ shape of true photons and another describing the hadronic background. 
 The real photon template is taken from \gj\ MC requiring the photon to pass the \egamma\ ID except for the \sieie\ requirement.
-The fake photon template is taken from the same data control sample, requiring $5\GeV < \ICH
-< 7\GeV$. 
-The integral of the post-fit real photon template below $\sieie = 0.0104$ is the number of true photons in the target sample.
+The fake photon template is taken from the same data control sample, requiring $5\GeV < \ICH < 7\GeV$.
+The number of true photons in the target sample is the integral of the post-fit real photon template below $\sieie = 0.0104$, the same value as in our photon ID. 
 
 The fit is performed once for all EM objects and then once for EM objects passing the \Pgg-specific ID criteria. 
 The ratio of the numbers of true photons obtained in the two fits is the efficiency.
@@ -16,11 +15,6 @@ The \sieie\ template fit method in its simplest form fits the observed distribut
 \end{align}
 where $h_{s}$ is the signal template, $h_{b}$ is the background template, and $f$ is the fraction of true photons in the target sample. 
 Both the target template and the fit function are normalized to unity, removing the number of photon candidates in the target sample $N$ as a fit parameter and leaving $f$ as the only free parameter.
-
-However, the hadronic background template, taken from the data control sample, has contributions from real photons. 
-The amount of this ``photon contamination'' depends on the sideband choice, but is finite even for a sideband with very large \ICH. 
-As described below, we perform additional fits with the background templates from alternative sidebands $3.5\GeV < \ICH < 5\GeV$ (``near'') and $7.5\GeV < \ICH < 9\GeV$ (``far'') to assess the systematic uncertainty. 
-The photon contamination of the nominal and far sideband is 10-15\%, and in the near sideband, it can go up to approximately 20\% (see Figure~\ref{fig:impurity-signal-contamination}).
 
 \begin{figure}[htbp]
   \centering
@@ -33,7 +27,13 @@ The photon contamination of the nominal and far sideband is 10-15\%, and in the 
   \label{fig:impurity-signal-contamination}
 \end{figure}
 
-To remove the photon contamination from the background templates, we modify the method and create a new background template $h_{b}^{\text{sub}}$ from the original background template $h_{b}$ by subtracting the true photon shape in the sideband $h_{S^{'}}$. 
+However, the hadronic background template, taken from the data control sample, has contributions from real photons with a \ICH\ value exceeding the ID requirements. 
+The amount of this ``photon contamination'' depends on the sideband choice, but is non-zero even for a sideband with very large \ICH. 
+As described below, we perform additional fits with the background templates from alternative sidebands $3.5\GeV < \ICH < 5\GeV$ (``near'') and $7.5\GeV < \ICH < 9\GeV$ (``far'') to assess the systematic uncertainty. 
+The photon contamination of the nominal and far sideband is 10-15\%, and in the near sideband, it can go up to approximately 20\% (see Figure~\ref{fig:impurity-signal-contamination}).
+
+To remove the photon contamination from the background templates, we start with the true photon shape in the sideband $h_{s^{'}}$, which differs from the signal template $h_{s}$ in the \ICH\ selection applied to the photons.
+Then, we create a new background template $h_{b}^{\text{sub}}$ from the original background template $h_{b}$ by subtracting $h_{s^{'}}$. 
 After normalization to unity, we obtain the expression
 \begin{align}
   h_{b}^{\text{sub}}(\sieie) = \frac{h_{b}(\sieie) - S'/B \cdot h_{s'}(\sieie)}{1 - S'/B},
@@ -53,18 +53,6 @@ Going back to our original fit function and replacing $h_{b}$ with $h_{b}^{\text
 which converges to the original fit function if $S' = 0$, \ie, if there is no photon contamination in the sideband. 
 Note that $f$ is still the only free parameter for this new function as $S'$ only depends on $f$ and $r_{\text{sb}} / r_{\text{sig}}$ is set constant in the fit (see discussion of systematics for more detail).
 
-There are four main sources of systematic uncertainty for this measurement. 
-The first comes from the sideband choice, as the relative rates of different types of fake photons varies with \ICH. 
-The second comes from the true photon \ICH\ shape, as this is used to determine the normalization of true photons in the sideband. 
-Currently, this shape is taken from MC and thus there is the potential to mismodel the effects of the underlying event and pile-up. 
-The third comes from the true photon \sieie distribution. 
-As we take this from MC as well, we can mismodel the signal template shape. 
-Finally, at high \pt, we suffer from low yields in our \ICH\ sidebands, which can lead to
-fluctutations that unduly influence the fit.
-
-The uncertainty due to sideband choice is simply the larger of the differences of the purities measured using the near and far sidebands versus the nominal sideband. 
-Figure~\ref{fig:impurity-sideband} shows fits using the three sidebands for the [400,$\infty$) \pt\ bin.
-
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.45\textwidth]{Calibration/Figures/pvsf/ssfit_175_medium_near_logy.pdf}
@@ -80,11 +68,23 @@ Figure~\ref{fig:impurity-sideband} shows fits using the three sidebands for the 
   \label{fig:impurity-sideband}
 \end{figure}
 
+There are four main sources of systematic uncertainty for this measurement. 
+The first comes from the sideband choice, as the relative rates of different types of fake photons varies with \ICH. 
+The second comes from the true photon \ICH\ shape, as this is used to determine the normalization of true photons in the sideband. 
+Currently, this shape is taken from MC and thus there is the potential to mismodel the effects of the underlying event and pile-up. 
+The third comes from the true photon \sieie distribution. 
+As we take this from MC as well, we can mismodel the signal template shape. 
+Finally, at high \pt, we suffer from low yields in our \ICH\ sidebands, which leads fluctutations that negatively influence the fit.
+
+The uncertainty due to sideband choice is the larger of the differences of the purities measured using the near and far sidebands versus the nominal sideband. 
+Figure~\ref{fig:impurity-sideband} shows fits using the three sidebands for the [175,200] \pt\ bin on the left and for the [400,$\infty$) \pt\ bin on the right.
+
 To measure the uncertainty due to the \ICH\ shape, we look at the \ICH\ for electrons in \Zee\ events in both data and MC. 
 Using these distributions, we obtain a data/MC scale factor which we apply to the MC true photon \ICH\ distribution to obtain a scaled MC distribution. 
-This process is shown in Figure~\ref{fig:impurity-chiso}. 
+% This process is shown in Figure~\ref{fig:impurity-chiso}. 
 Then, we recount the photons using this new distribution and take the difference in the values obtained using the raw MC and scaled MC distributions as a systematic uncertainty.
 
+\iffalse
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.45\textwidth]{Calibration/Figures/pvsf/chiso_electrons_logy.pdf}
@@ -97,12 +97,14 @@ Then, we recount the photons using this new distribution and take the difference
   }
   \label{fig:impurity-chiso}
 \end{figure}
+\fi
 
-To measure the uncertainty due to the signal template \sieie\ shape, we look at the \sieie\ distributions for electrons in both data and MC. Again we compare \Zee\ events in data and MC.
-From the \sieie\ distributions of high-purity electron samples, obtain a data/MC scale factor which we apply to the MC true photon \sieie\ distribution to obtain a scaled MC distribution.
+To measure the uncertainty due to the signal template \sieie\ shape, we look at the \sieie\ distributions for electrons from \Zee\ events in both data and MC.
+Using these distributions, we obtain a data/MC scale factor which we apply to the MC true photon \sieie\ distribution to obtain a scaled MC distribution.
 Then, we recount the photons using this new distribution and take the difference in the values obtained using the raw MC and scaled MC distributions as a systematic uncertainty. 
-The difference between fits with and without the \sieie\ scaling are shown in Figure~\ref{fig:impurity-sieie}.
+% The difference between fits with and without the \sieie\ scaling are shown in Figure~\ref{fig:impurity-sieie}.
 
+\iffalse
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.45\textwidth]{Calibration/Figures/pvsf/sieie_ratio.pdf}
@@ -114,11 +116,13 @@ The difference between fits with and without the \sieie\ scaling are shown in Fi
   }
   \label{fig:impurity-sieie}
 \end{figure}
+\fi
 
 To estimate the uncertainty due to statistical fluctuations in our background templates, we generate toys from the background template from data. 
 We then repeat the fit with each of these toys and plot the distribution of the difference between the purity value obtained from the toy templates versus the nominal template. 
 We take the standard deviation of this distribution, shown in Figure~\ref{fig:impurity-toys}, as a systematic uncertainty.
 
+\iffalse
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.45\textwidth]{Calibration/Figures/pvsf/ssfit_175_medium-pixel-monoph_toyyield_dist.pdf}
@@ -128,6 +132,7 @@ We take the standard deviation of this distribution, shown in Figure~\ref{fig:im
   }
   \label{fig:impurity-toys}
 \end{figure}
+\fi
 
 The values obtained for each systematic uncertainty on the true photon count of the denominator are shown in Table~\ref{tab:impurity-systs} in bins of \pt. 
 The relative uncertainties on the numerator are similar, and in the efficiency, each uncertainty source is considered as fully correlated.
@@ -150,10 +155,11 @@ The relative uncertainties on the numerator are similar, and in the efficiency, 
   \end{center}
 \end{table}
 
-The MC effiiency of the \Pgg-specific ID is determined by counting the number of truth-matched photons passing \egamma\ part of the ID and the full ID. 
+The MC efficiency of the \Pgg-specific ID is determined by counting the number of truth-matched photons passing the \egamma\ part of the ID and the full ID. 
 However, there is a complication, the \gj\ region in data has approximately 5\% contamination from electrons before applying the pixel veto, as shown in Figure~\ref{fig:pvsf_contam}. 
-Thus, we combine appropriately cross-section weighted \gj, \wj, and \ttbar\ samples and truth match to both electrons and photons. 
-Additionally, we apply a 14\% uncertainty on the \wj\ and \ttbar\ yields to account for the NLO cross-section ratio uncertainties with respect to \gj\ at this \pt\ range that is uncorrelated between the numerator and denominator as a negligible amount of electron events survive the pixel veto.
+To replicate this effect in the MC, we combine appropriately cross-section weighted \gj, \wj, and \ttbar\ samples and truth match to both electrons and photons. 
+Additionally, to account for the NLO cross-section ratio uncertainties with respect to \gj\ at this \pt\ range, we apply a 14\% uncertainty on the \wj\ and \ttbar\ yields, where the specific value comes from the uncertainty on the \gj\ to \wj\ ratio in the monojet analysis~\cite{}.
+This uncertainty is uncorrelated between the numerator and denominator as a negligible amount of electron events survive the pixel veto.
 
 \begin{figure}[htbp]
   \begin{center}
@@ -167,7 +173,7 @@ Additionally, we apply a 14\% uncertainty on the \wj\ and \ttbar\ yields to acco
 \end{figure}
  
 The data efficiency, MC efficiency, and the scale factor for the \Pgg-specific ID as a function of \pt\ are shown in Figure~\ref{fig:pvsf_results}. 
-As there is no significant trend in the scale factor as a function of \pt\, we apply a flat scale factor of $0.984 \pm 0.009$ for all of the MC-based background and signal models in the analysis.
+As there is no significant trend in the scale factor as a function of \pt, we apply a flat scale factor of $0.9840 \pm 0.0090$ for all of the MC-based background and signal models in the analysis.
 
 \begin{figure}[htbp]
   \begin{center}
