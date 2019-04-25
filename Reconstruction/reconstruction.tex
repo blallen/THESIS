@@ -225,16 +225,16 @@ In order for a muon to pass the tight ID, it must have $\pt\ > 30\GeV$ and $\IPF
 
 \begin{table}[htbp]
   \begin{center}
-    \begin{tabular}{l | r}
-      Selection & Description \\
+    \begin{tabular}{l | l | r}
+      Variable & Selection & Description \\
       \hline
-      $\chi^2_{\text{track fit}}/ N_{\text{dof}} < 10$ & quality of global-muon track fit \\ 
-      $N_{\text{hit}}^{\text{muon}} > 1$ & at least one muon-chamber hit\\
-      $N_{\text{station}}^{\text{muon}} > 2$ & segments in at least two muon stations \\
-      $d_0 < 2\mm$ & reject cosmic ray muons \\
-      $d_z < 5\mm$ & reject muons from pileup \\
-      $N_{\text{hit}}^{\text{pixel}} > 1$ & at least one pixel hit \\
-      $N_{\text{hit}}^{\text{tracker}} > 5$ & more than five tracker layers with hits 
+      $\chi^2_{\text{track fit}}/ N_{\text{dof}}$ & $ < 10$ & quality of global-muon track fit \\ 
+      $N_{\text{hit}}^{\text{muon}}$ & $ > 1$ & at least one muon-chamber hit\\
+      $N_{\text{station}}^{\text{muon}}$ & $ > 2$ & segments in at least two muon stations \\
+      $d_0$ & $ < 2\mm$ & reject cosmic ray muons \\
+      $d_z$ & $ < 5\mm$ & reject muons from pileup \\
+      $N_{\text{hit}}^{\text{pixel}}$ & $ > 1$ & at least one pixel hit \\
+      $N_{\text{hit}}^{\text{tracker}}$ & $ > 5$ & more than five tracker layers with hits 
     \end{tabular}
     \caption{Selections for the tight muon ID.}
     \label{tab:muid}
@@ -334,13 +334,13 @@ The lower bounds on \sieie\ and \sipip\ as well as the requirement on the cluste
 
 \begin{table}[htbp]
   \begin{center}
-    \begin{tabular}{l | r}
-      Selection & Description \\
+    \begin{tabular}{l | l | r}
+      Variable & Selection & Description \\
       \hline
-      $\emip\ < 4.9\GeV$ & ECAL energy from a hypothetical beam halo muon \\
-      $\sieie\ > 0.001$ & non-trivial shower width in the $\eta$-direction \\
-      $\sipip\ > 0.001$ & non-trivial shower width in the $\phi$-direction \\
-      $\abs\tseed < 3\ns$ & timing of the cluster seed relative to bunch crossing
+      $\emip\ $ & $< 4.9\GeV$ & ECAL energy from a hypothetical beam halo muon \\
+      $\sieie\ $ & $> 0.001$ & non-trivial shower width in the $\eta$-direction \\
+      $\sipip\ $ & $> 0.001$ & non-trivial shower width in the $\phi$-direction \\
+      $\abs\tseed $ & $< 3\ns$ & timing of the cluster seed relative to bunch crossing
     \end{tabular}
     \caption{Additional selections beyond the pixel seed veto for the \Pgg-specific portion of the photon ID.}
     \label{tab:gsid}
@@ -523,6 +523,7 @@ To match the positions of the peaks in the halo template, the distribution is sh
 The new angular variable $\phi'$
 \begin{equation}
   \phi' := \left|\left[\left[\phig + 0.005\right]_{-\pi}^{\pi} - \frac{\pi}{2}\right]_{-\pi}^{\pi}\right| - \frac{\pi}{2},
+  \label{eqn:phi}
 \end{equation}
 where $[\cdot]_{\pi}^{\pi}$ signifies casting the content into range $[-\pi,\pi]$,
 exhibits a unimodal distribution for the halo template, as shown in Fig.~\ref{fig:halo_template}.

@@ -82,32 +82,106 @@ Therefore we deem the slight discrepancy of the trigger efficiency from unity as
 \section{Event Selection}
 \label{sec:event_selection}
 
-%%% need to make a second pass to change language from paper version
-
-From the recorded data, events are selected by requiring $\met > 170\GeV$ and at least one photon with $\ETg > 175\GeV$ in the fiducial region of the ECAL barrel ($\abs{\eta} < 1.44$) passing the selected presented in Section~\ref{sec:pf_photons}. 
+From the recorded data, events are selected by requiring $\met > 170\GeV$ and at least one photon with $\ETg > 175\GeV$ in the fiducial region of the ECAL barrel ($\abs{\eta} < 1.44$). Events with photons in the endcaps are not considered because the estimate of backgrounds due to beam halo and misidentified hadron are greatly complicated due to the $x$-$y$ grid of the crystals in the endcaps.
 
 Events with a high-\pt\ photon and large \met\ are subjected to further requirements to suppress SM background processes that feature a genuine high-energy photon, but not a significant amount of \met.
-One such SM process is \gj, where an apparent large \met\ is often the result of a mismeasured jet energy.
-In contrast to signal processes, \met is typically smaller than \ETg\ in these events, so requiring the ratio of \ETg\ to \met to be less than 1.4 rejects this background effectively with little effect on signal efficiency. 
-Events are also rejected if the minimum opening angle between \ptvecmiss\ and the directions of the four highest \pt\ jets, \mindphijmet, is less than 0.5. 
-Only jets with $\pt > 30\GeV$ and $\abs{\eta} < 5$ are considered in the \mindphijmet\ calculation. 
-In the \gj\ process, rare pathological mismeasurement of \ETg\ can also lead to large \met. 
-For this reason, the candidate photon \ptvec\ and \ptvecmiss\ must be separated by more than 0.5 radians. 
-Another SM process to be rejected is \wlng, for which events are vetoed if they contain an electron or a muon with $\pt > 10\GeV$ that is separated from the photon by $\dR > 0.5$.
-Furthermore, using features described in Section~\ref{sec:halo_estimate}, the signal region is split into two parts according to $\phi$ to constrain the beam halo normalization. 
-The region defined by $\abs{\sin(\phi)} < \sin(0.5)$ is called the horizontal region, and its complement in $\phi$ is called the vertical region.
+One such SM process is \gj, where an apparently large \met\ is often the result of mismeasuring the energy of a jet.
+In contrast to signal-like processes, the \met is typically smaller than \ETg\ in these events, so requiring the ratio of \ETg\ to \met to be less than 1.4 rejects this background effectively with little effect on signal efficiency. %% gotta add a plot 
+Events are also rejected if the minimum opening angle between \ptvecmiss\ and the directions of the four highest \pt\ jets, \mindphijmet, is less than 0.5. % gotta add a plot 
+Only jets with $\pt > 30\GeV$ and $\abs{\eta} < 5$ are considered in the \mindphijmet\ calculation.
+In the \gj\ process, rare pathological mismeasurements of \ETg\ also lead to large \met. 
+For this reason, the candidate photon \ptvec\ and \ptvecmiss\ must be separated by more than 0.5 radians. %% gotta add a plot
 
-The residual contributions from the \wlng\ process, where the lepton could not be identified or was out of the detector acceptance, are modeled by fitting to observed data, as described in Section~\ref{sec:irreducible}. 
-The same method is employed to model the contribution from the \zinvg\ process to the signal region. 
-This method utilizes control regions where one or two leptons (electrons or muons) are identified in addition to the photon, as defined in the following.
+\begin{table}[htbp]
+  \begin{center}
+    \begin{tabular}{l | l | r}
+      Variable & Selection & Motivation \\
+      \hline
+      $\ETg$ & $ > 175\GeV$ & high-\pt\ photon passing trigger \\
+      $\abs{\eta}$ & $ < 1.44$ & region with best background estimates \\
+      $\met $ & $ > 170\GeV$ & characteristic signature of dark matter \\
+      $\ETg / \met  $ & $ < 1.4$ & reduce jet mismeasurement backgrounds \\
+      $\mindphijmet  $ & $ < 0.5$ & reduce jet mismeasurement backgrounds \\
+      $\Delta\Phi(\ptvec^\Pgg, \ptvecmiss)  $ & $ > 0.5$ & reduce photon mismeasurement backgrounds \\
+    \end{tabular}
+    \caption{Baseline selections for all events considered in the analysis.}
+    \label{tab:baseline}
+  \end{center}
+\end{table}
 
-The single-electron (single-muon) control region is defined by a requirement of exactly one electron (muon) with $\pt > 30\GeV$ and $\abs{\eta} < 2.5\,(2.4)$ in addition to a photon requirement that is identical to the one for the signal region. 
+The above selections, summarized in Table~\ref{tab:baseline}, constitute the baseline selections common to all regions.
+To improve the purity of the signal region, we require a more stringent photon identification as well as additional object vetos.
+The contributions from the \zinvg\ and \wlng\ processes to the signal region are modeled by fitting to observed data in control regions where one or two leptons (electrons or muons) are identified in addition to the photon candidate while the contributions from misidentified electrons and hadrons are modeled by proxy regions where some of the selections in the photon identification have been inverted.
+The additional requirements for the various signal, control, and proxy regions used in the analysis are described in the following sections.
+
+\subsection{Signal Regions}
+\label{sec:signal_regions}
+
+The defining feature of the signal region is the application of both the $\egamma$ and \Pgg-specific portions of the photon ID, given in Tables~\ref{tab:egid} and~\ref{tab:gsid} respectively.
+The former reduces the hadron misidentification rate with a collection of isolation and shower shape selections while the latter reduces the electron misidentification rate with the pixel seed veto and rejects non-collisions backgrounds with specifically tailored selections.
+
+In the signal region, events are vetoed if they contain an electron or a muon with $\pt > 10\GeV$ that is separated from the photon by $\dR > 0.5$. This lepton veto rejects SM processes that produce a high-\pt\ photon, \met, and leptons such as \wlng, \ttg, and $VV\Pgg$. %% add a plot ???
+
+Furthermore, to constrain the beam halo normalization, the signal region is split into two parts according to the variable $\phi'$ introduced in Equation~\ref{eqn:phi}. 
+The region defined by $\abs{\phi'} < 0.5$ is called the horizontal region, its complement in $\phi'$ is called the vertical region, and the two together are referred to as the combined signal regions.
+
+\subsection{Control Regions}
+\label{sec:control_regions}
+
+The single-electron (single-muon) control region is defined by requiring exactly one tight electron (muon) with $\pt > 30\GeV$ and $\abs{\eta} < 2.5\,(2.4)$ in addition to requiring the same photon ID as in the signal regions.
 To suppress the contributions from large-\met\ processes other than \wlng, the transverse mass $\mt = \sqrt{\smash[b]{2\met\pt^{\ell}[1-\cos\Delta\phi(\ptvecmiss,\ptvec^{\ell})]}}$ must be less than $160\GeV$.
-Additionally, for the single-electron control region, \met\ must be greater than 50\GeV\ to limit the contribution from the \gj\ process, where a jet is misidentified as an electron. 
-Finally, the recoil vector $\vec{U} = \ptvecmiss + \ptvec^{\ell}$, which serves as this region's analogue for \ptvecmiss\ in the signal region, must satisfy identical requirements to those for the \ptvecmiss\ in the signal region.
+Additionally, for the single-electron control region, \met\ must be greater than 50\GeV\ to limit the contribution from the \gj\ process, where a jet is misidentified as an electron. %% add a plot
 
-The dielectron (dimuon) control region is defined by exactly two electrons (muons) in addition to the photon, with $60 < m_{\ell\ell} < 120\GeV$, where $m_{\ell\ell}$ is the invariant mass of the dilepton system. 
-The recoil vector of this region is $\vec{U} = \ptvecmiss + \sum\ptvec^{\ell}$ and must satisfy identical requirements to those for the \ptvecmiss\ in the signal region.
+The dielectron (dimuon) control region is defined by exactly two electrons (muons) in addition to the photon, with $60 < m_{\ell\ell} < 120\GeV$, where $m_{\ell\ell}$ is the mass of the dilepton system.
+The leading lepton must pass the tight ID requirements, while the trailing lepton only needs to pass the loose ID requirements. 
+
+Finally, in the control regions, the recoil vector $\vec{U} = \ptvecmiss + \sum\limits_\ell\ptvec^{\ell}$ serves as an analogue for the \ptvecmiss\ in the signal region.
+In the signal region, the \ptvecmiss\ is a proxy for the vector boson \pt\ while in the control regions, the recoil vector is used instead. 
+Thus, the recoil $\vec{U}$ must satisty identical requirements to those for the \ptvecmiss\ in the signal region to keep the control region kinematics as similar as possible to the signal region kinematics.
+%% maybe explain more
+
+\subsection{Proxy Samples}
+\label{sec:proxy_samples}
+
+To estimate the background due to misidentified electrons, an electron proxy sample is used.
+This proxy sample is obtained by identical event selection as that of the signal region but with the pixel-seed veto inverted on the photon candidate object.
+Such a photon candidate is referred to as a electron proxy object.
+This yields a sample of events with similar kinematics to the signal region and well-identified electron candidates, differing only from the misidentified electron events in that a pixel hit was associated with the photon object.
+Thus, these exact events are used to estimate the misidentified electron background after scaling them by the electron-to-photon misidentification rate.
+
+To estimate the background due to misidentified hadrons, a hadron proxy sample is used.
+This proxy sample is obtained by identical event selection as that of the signal region but where the photon candidate passes the \egamma\ and \Pgg-specific IDs with except for at least one of the following cuts: $\sieie < 0.01022$ and $\ICH < 0.441\GeV$.
+Such a photon candidate is referred to as a hadron proxy object.
+This yields a sample of events with similar kinematics to the signal region and well-identified proxies for misidentified hadrons.
+Thus, these exact events are used to estimate the misidentified hadron background after scaling them by the hadron-to-photon misidentification rate.
+
+Additional tight and loose hadron proxy objects and samples are made by tightening and loosening the constant term in the \INH\ and \Ig\ requirements on the proxy object.
+The specific values for each proxy object are shown in Table~\ref{tab:hadron_proxy}. 
+
+%% double check these values
+\begin{table}[htbp]
+  \begin{center}
+    \begin{tabular}{l | r | r}
+      & \INH\ (\GeVns)& \Ig\ (\GeVns) \\
+      \hline
+      Nominal & 2.792 & 2.176 \\ 
+      Loose & 10.910 & 3.630 \\
+      Tight & 0.264 & 2.362 
+    \end{tabular}
+    \caption{Constant terms in the \INH\ and \Ig\ selections for the hadron proxy objects.}
+    \label{tab:hadron_proxy}
+  \end{center}
+\end{table}
+
+\subsection{Measurement Samples}
+\label{sec:measurement_samples}
+
+To measure the photon purity and part of the photon efficiency, an EM object+jet measurement sample is formed by requiring an EM object with $\ET > 175\GeV$ and $\abs\eta < 1.44$ plus at least one jet with $\pt > 100\GeV$ and $\abs\eta < 2.5$ which passes the loose jet ID. 
+An EM object is a photon candidate that passes the \egamma\ ID with the execption of the following relaxed cuts: $\sieie < 0.015$ and $\ICH < 11.0\GeV$.
+Additionally, we apply a $\met < 60\GeV$ cut to make this region orthogonal to the signal region.
+
+To measure the hadron misidentification rate, a hadron proxy+jet measurement sample is formed by replacing the the EM object in the EM object+jet sample with a hadron proxy object, one for each type of hadron proxy.
+These are exactly the same as the hadron proxy samples, except that a high-\pt\ jet has replaced the high-\met, minizing the kinematic differences between the two.
 
 \section{Irreducible backgrounds}
 \label{sec:irreducible}
@@ -385,8 +459,6 @@ Figure~\ref{fig:efake_fits} shows the six fits performed on \Pe\Pe\ and \Pe\Pgg\
   \end{center}
 \end{figure}
 
-The proxy sample for the background estimation is obtained by identical event selection as that described in Sec.~\ref{sec:event_selection}, but with the pixel-seed veto inverted on the photon candidate object.
-
 %%% Systematic uncertainties in this method to estimate the electron misidentification background can be categorized to those related to the TP fit (described in Section~\ref{sec:idsf}) and those related to the applicability of the $R_{\Pe}$ factor.
 
 Figure~\ref{fig:efake_frate} shows the derived $R_{\Pe}$ factor as a function of \ETg. 
@@ -407,7 +479,7 @@ The electron proxy sample is reweighted by $R_{\Pe}$ depending on the \pt\ of th
 \label{sec:hfake}
 
 The estimation of hadron misidentification background proceeds in multiple steps. 
-First, the fraction of hadronic objects within a pool of photon candidate objects in the photon plus jet control region is measured. 
+First, we measure the fraction of hadronic objects within a pool of photon candidate objects in the EM object+jet measurement sample. 
 This measurement is described in detail in Section~\ref{sec:pvsf}.
 Figure~\ref{fig:impurity-compsb} and Table~\ref{tab:hfake-impurity-systs} show the final impurity and associated uncertainties as a function of \pt. 
 
@@ -437,16 +509,9 @@ Figure~\ref{fig:impurity-compsb} and Table~\ref{tab:hfake-impurity-systs} show t
   }
   \label{fig:impurity-compsb}
 \end{figure}
-
-Following this measurement, another control sample is formed where the photon in the photon plus jet sample is replaced by a hadronic proxy object. 
-The hadronic proxy object is a reconstructed photon object which pass the photon ID described in Section~\ref{sec:pf_photons} with the execption of failing at least one of the following cuts: 
-\begin{itemize}
-\item $\sieie < 0.01022$
-\item PF Charged Hadron isolation $< 0.441$ GeV .
-\end{itemize}
-Additionally, we apply a $\met < 60$ GeV cut to make this region orthogonal to the signal region of the analysis.
   
-The hadronic transfer factor $R_{h}$, which measures the rate at which hadronic proxy objects result in hadrons that are misidentified as candidate photons, is obtained by dividing the estimated number of misidentified hadrons in the photon plus jet sample by the number of events in the hadron proxy + jet control region as a function of \pt. 
+The hadronic transfer factor $R_{h}$ measures the rate at which hadronic proxy objects result in hadrons that are misidentified as candidate photons.
+The factor $R_h$ is obtained by dividing the estimated number of misidentified hadrons in the EM object+jet measurement sample by the number of events in the hadron proxy+jet measurement sample as a function of \pt. 
 Figure~\ref{fig:hadronTFactor} shows the transfer factor $R_{h}$ along with the various distributions used for its derivation.
 
 \begin{figure}[htbp]
@@ -468,22 +533,9 @@ Figure~\ref{fig:hadronTFactor} shows the transfer factor $R_{h}$ along with the 
   \end{center}
 \end{figure}
 
-Finally, a third control sample of events with a hadronic proxy object and $\met > 170$ GeV is prepared. 
-Under the assumption that the $R_{h}$ stays constant regardless of whether the event has a high-\pt\ jet or \met, this proxy plus \met\ sample is then weighted by $R_{h}$ to arrive at an estimate of the misidentified hadron plus \met\ background of this analysis.
+Under the assumption that the $R_{h}$ stays constant regardless of whether the event has a high-\pt\ jet or \met, the hadron proxy sample is weighted by $R_{h}$ to arrive at an estimate of the misidentified hadron plus \met\ background of this analysis.
 
-%%% need to update these numbers
-To estimate the uncertainty on this background, we repeat the above method using tighter and looser definitions of the hadron proxy object.
-The tighter definition differs from the nominal by the following cuts:
-\begin{itemize}
-\item $\rho$-corrected PF Neutral Hadron isolation $< 0.264 + 0.014 \times \pt^\gamma + 0.000019 \times \left( \pt^\gamma \right)^2$. 
-\item $\rho$-corrected PF Photon isolation $< 2.362 + 0.0053 \times \pt^\gamma$,
-\end{itemize}
-and the looser definition differs from the nominal by the following cuts:
-\begin{itemize}
-\item $\rho$-corrected PF Neutral Hadron isolation $< 10.910 + 0.014 \times \pt^\gamma + 0.000019 \times \left( \pt^\gamma \right)^2$. 
-\item $\rho$-corrected PF Photon isolation $< 3.630 + 0.0053 \times \pt^\gamma$.
-\end{itemize}
-
+To estimate the uncertainty on this background, we repeat the above method using additional proxy and measurement samples with tighter and looser definitions of the hadron proxy object.
 The different distributions from the nominal, tight, and loose selections are shown in Figure~\ref{fig:hadronFakeShapes}. 
 The tight and loose shapes are taken as the one sigma band around the nominal estimate. 
 Additionally, there is an uncertainty coming from the estimation of the photon purity. 
@@ -577,7 +629,7 @@ We then take twice the discrepancy between the nominal D and the D value from th
 \section{Minor SM Backgrounds}
 \label{sec:minorsm}
 
-After the full selection described in Section~\ref{sec:event_selection}, the SM \gj, \ttg, VV\Pgg, \zllg, and $\PW\to\ell\Pgn$ processes are minor ($\sim$10\%) background processes in the signal region. 
+After the full selection described in Section~\ref{sec:event_selection}, the SM \gj, \ttg, $VV\Pgg$, \zllg, and $\PW\to\ell\Pgn$ processes are minor ($\sim$10\%) background processes in the signal region. 
 These processes, collectively denoted as minor SM backgrounds, contribute in the signal region when the jet energy is severely mismeasured or the leptons fail to be reconstructed resulting in large \met in the signal region. 
 However, the \met is typically aligned with the photon or one of the jets in such cases, and therefore various selections on the kinematic relations between the \met, photons, and jets are used to reduce these backgrounds to a manageable rate. 
 The estimates for all five processes are taken from \MGvATNLO~\cite{} simulations at LO in QCD and are listed in Tables~\ref{tab:yield_mask_horizontal} and~\ref{tab:yield_mask_vertical}.
