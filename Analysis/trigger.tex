@@ -11,7 +11,7 @@ It can be seen that the trigger is fully efficient for $\ET > 175\GeV$.
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.48\linewidth]{Calibration/Figures/photon_elmu_sph165abs_ptzoom.pdf}
+  \includegraphics[width=0.48\textwidth]{Calibration/Figures/photon_elmu_sph165abs_ptzoom.pdf}
   \caption{
     The efficiency turn-on of the \texttt{HLT\_Photon165\_HE10} trigger for photons passing the candidate selection, measured using \Pgm\ + \egamma\ events from the SingleMuon data set. 
     Red vertical line corresponds to $\ET = 175\GeV.$
@@ -30,8 +30,10 @@ Therefore we deem the slight discrepancy of the trigger efficiency from unity as
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.48\linewidth]{Calibration/Figures/photon_elmuBCD_l1eg40_ptwide.pdf}
-  \includegraphics[width=0.48\linewidth]{Calibration/Figures/photon_elmu_l1all_ptwide.pdf}
+  \resizebox{\textwidth}{!}{
+    \includegraphics[]{Calibration/Figures/photon_elmuBCD_l1eg40_ptwide.pdf}
+    \includegraphics[]{Calibration/Figures/photon_elmu_l1all_ptwide.pdf}
+  }
   \caption{
     The efficiency of the L1 seed for the signal trigger in periods B and C (left) and the full data set (right). The drop in efficiency at high-\ET\ in the earlier period is fixed by the addition of \texttt{SingleJet} L1 seeds during the remainder of data-taking. 
   }

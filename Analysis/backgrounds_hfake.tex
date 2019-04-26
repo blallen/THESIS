@@ -3,8 +3,8 @@ The production of \zj\ where the \PZ\ boson decays to neutrinos is a high-rate p
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.49\textwidth]{Analysis/Figures/hfake/plot_impurity_barrel_medium.pdf}
-    \caption{
+  \includegraphics[width=0.5\textwidth]{Analysis/Figures/hfake/plot_impurity_barrel_medium.pdf}
+  \caption{
     The percent impurity for photons as a function of \pt. 
     The different bands show the effects of adding different stages of the full ID, starting with the \egamma\ portion of the ID and successively adding the pixel seed veto followed by the rest of the \Pgg-specific portion of the ID.
     These last two curves overlap, as the non-collision rejection cuts do not effect the rate at which hadrons are misidentified as photons.
@@ -38,37 +38,41 @@ The factor $R_h$ is obtained by dividing the estimated number of misidentified h
 Figure~\ref{fig:hadronTFactor} shows the transfer factor $R_{h}$ along with the various distributions used for its derivation.
 
 \begin{figure}[htbp]
-  \begin{center}
-    \includegraphics[width=0.45\textwidth]{Analysis/Figures/hfake/distributionsNom.pdf}
-    \includegraphics[width=0.45\textwidth]{Analysis/Figures/hfake/tfactorNom.pdf}
-    \includegraphics[width=0.45\textwidth]{Analysis/Figures/hfake/distributionsTight.pdf}
-    \includegraphics[width=0.45\textwidth]{Analysis/Figures/hfake/tfactorTight.pdf}
-    \includegraphics[width=0.45\textwidth]{Analysis/Figures/hfake/distributionsLoose.pdf}
-    \includegraphics[width=0.45\textwidth]{Analysis/Figures/hfake/tfactorLoose.pdf}
-    \caption{
-      Left: The \pt\ distribution of the candidate photon object in the photon + jet control sample (black), the result of scaling it with the impurity (red), and the \pt\ distribution of the hadronic proxy object in the proxy + jet control sample (blue).
-      Right: Hadronic transfer factor $R_{h}$, which is the ratio of the red and blue distributions in the left plot. 
-      Top: Nominal hadron proxy object. 
-      Middle: Tighter hadron proxy object. 
-      Bottom: Looser hadron proxy object.
-    }
-    \label{fig:hadronTFactor}
-  \end{center}
+  \centering
+  \resizebox{0.91\textwidth}{!}{
+    \includegraphics[]{Analysis/Figures/hfake/distributionsNom.pdf}
+    \includegraphics[]{Analysis/Figures/hfake/tfactorNom.pdf}
+  }
+  \resizebox{0.91\textwidth}{!}{
+    \includegraphics[]{Analysis/Figures/hfake/distributionsTight.pdf}
+    \includegraphics[]{Analysis/Figures/hfake/tfactorTight.pdf}
+  }
+  \resizebox{0.91\textwidth}{!}{
+    \includegraphics[]{Analysis/Figures/hfake/distributionsLoose.pdf}
+    \includegraphics[]{Analysis/Figures/hfake/tfactorLoose.pdf}
+  }
+  \caption{
+    Left: The \pt\ distribution of the candidate photon object in the photon + jet control sample (black), the result of scaling it with the impurity (red), and the \pt\ distribution of the hadronic proxy object in the proxy + jet control sample (blue).
+    Right: Hadronic transfer factor $R_{h}$, which is the ratio of the red and blue distributions in the left plot. 
+    Top: Nominal hadron proxy object. 
+    Middle: Tighter hadron proxy object. 
+    Bottom: Looser hadron proxy object.
+  }
+  \label{fig:hadronTFactor}
 \end{figure}
 
 
 Under the assumption that the $R_{h}$ stays constant regardless of whether the event has a high-\pt\ jet or \met, the hadron proxy sample is weighted by $R_{h}$ to determine the number of events due to misidentified hadrons in the signal region.
 
 \begin{figure}[htbp]
-  \begin{center}
-    \includegraphics[width=0.49\textwidth]{Analysis/Figures/hfake/shape_sample.pdf}
-    \caption{
-      The \pt\ distribution of the estimated contribution from hadronic fakes in the signal region. 
-      The distribution labeled Up (Down) comes from the tighter (looser) selection. 
-      The systematic uncertainty resulting from this variation is around 5\% at the low end of our \pt\ range and increases to 15\% after $\pt > 400$ GeV.
-    }
-    \label{fig:hadronFakeShapes}
-  \end{center}
+  \centering
+  \includegraphics[width=0.5\textwidth]{Analysis/Figures/hfake/shape_sample.pdf}
+  \caption{
+    The \pt\ distribution of the estimated contribution from hadronic fakes in the signal region. 
+    The distribution labeled Up (Down) comes from the tighter (looser) selection. 
+    The systematic uncertainty resulting from this variation is around 5\% at the low end of our \pt\ range and increases to 15\% after $\pt > 400$ GeV.
+  }
+  \label{fig:hadronFakeShapes}
 \end{figure}
 
 \iffalse

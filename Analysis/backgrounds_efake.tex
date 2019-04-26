@@ -14,19 +14,24 @@ Denoting the area of the peak in each category  $N_{\Pe\Pe}$ and $N_{\Pe\Pgg}$, 
 
 %%% these fils have charged PF veto included, need to swap out
 \begin{figure}[htbp]
-  \begin{center}
-    \includegraphics[width=0.47\textwidth]{Analysis/Figures/fit_data_ee_pt_175_200.pdf}
-    \includegraphics[width=0.47\textwidth]{Analysis/Figures/fit_data_eg_pt_175_200.pdf}
-    \includegraphics[width=0.47\textwidth]{Analysis/Figures/fit_data_ee_pt_200_250.pdf}
-    \includegraphics[width=0.47\textwidth]{Analysis/Figures/fit_data_eg_pt_200_250.pdf}
-    \includegraphics[width=0.47\textwidth]{Analysis/Figures/fit_data_ee_pt_250_6500.pdf}
-    \includegraphics[width=0.47\textwidth]{Analysis/Figures/fit_data_eg_pt_250_6500.pdf}
-    \caption{
+  \centering
+  \resizebox{0.95\textwidth}{!}{
+    \includegraphics[]{Analysis/Figures/fit_data_ee_pt_175_200.pdf}
+    \includegraphics[]{Analysis/Figures/fit_data_eg_pt_175_200.pdf}
+  }
+  \resizebox{0.95\textwidth}{!}{
+    \includegraphics[]{Analysis/Figures/fit_data_ee_pt_200_250.pdf}
+    \includegraphics[]{Analysis/Figures/fit_data_eg_pt_200_250.pdf}
+  }
+  \resizebox{0.95\textwidth}{!}{
+    \includegraphics[]{Analysis/Figures/fit_data_ee_pt_250_6500.pdf}
+    \includegraphics[]{Analysis/Figures/fit_data_eg_pt_250_6500.pdf}
+  }
+  \caption{
       Fits to the mass distributions for \Pe\Pe\ (left) and \Pe\Pgg\ (right) selections, in bins of probe $\pt$: $175 < \pt < 200\GeV$ (top), $200 < \pt < 250\GeV$ (middle), $\pt > 250\GeV$ (bottom). 
       The blue solid line represents the full fit model, and the green dashed line its background component.
     }
     \label{fig:efake_fits}
-  \end{center}
 \end{figure}
 
 Additionally, the backgrounds to the \Pe\Pgg\ fit consist of processes with an electron and an actual photon in the final state, such as \PW\Pgg\ and \Zee\ with a hard radiation off one of the electrons.
@@ -35,13 +40,12 @@ As an alternative template to assess the systematic effect introduced by the cho
 
 %%% this file has charged PF veto included, need to swap out
 \begin{figure}[htbp]
-  \begin{center}
-    \includegraphics[width=0.49\textwidth]{Analysis/Figures/frate_data_ptalt.pdf} 
+\centering
+    \includegraphics[width=0.5\textwidth]{Analysis/Figures/frate_data_ptalt.pdf} 
     \caption{
       Electron to photon fake rate $R_{\Pe}$.
     }
     \label{fig:efake_frate}
-  \end{center}
 \end{figure}
 
 

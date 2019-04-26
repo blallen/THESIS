@@ -51,7 +51,7 @@ Each simulation event has its weight multiplied by the value of the ratio evalua
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.48\linewidth]{Calibration/Figures/PUMoriond17.pdf}
+  \includegraphics[width=0.48\textwidth]{Calibration/Figures/PUMoriond17.pdf}
   \caption{
     The pileup distributions in data and MC.
   }
@@ -72,7 +72,8 @@ In the \gj\ process, rare pathological mismeasurements of \ETg\ also lead to lar
 For this reason, the candidate photon \ptvec\ and \ptvecmiss\ must be separated by more than 0.5 radians. %% gotta add a plot
 
 \begin{table}[htbp]
-  \begin{center}
+  \centering
+  \resizebox{\textwidth}{!}{
     \begin{tabular}{l | l | r}
       Variable & Selection & Motivation \\
       \hline
@@ -83,9 +84,9 @@ For this reason, the candidate photon \ptvec\ and \ptvecmiss\ must be separated 
       $\mindphijmet  $ & $ < 0.5$ & reduce jet mismeasurement backgrounds \\
       $\Delta\Phi(\ptvec^\Pgg, \ptvecmiss)  $ & $ > 0.5$ & reduce photon mismeasurement backgrounds \\
     \end{tabular}
-    \caption{Baseline selections for all events considered in the analysis.}
-    \label{tab:baseline}
-  \end{center}
+    }
+  \caption{Baseline selections for all events considered in the analysis.}
+  \label{tab:baseline}
 \end{table}
 
 The above selections, summarized in Table~\ref{tab:baseline}, constitute the baseline selections common to all regions.
@@ -139,7 +140,7 @@ The specific values for each proxy object are shown in Table~\ref{tab:hadron_pro
 
 %% double check these values
 \begin{table}[htbp]
-  \begin{center}
+  \centering
     \begin{tabular}{l | r | r}
       & \INH\ (\GeVns)& \Ig\ (\GeVns) \\
       \hline
@@ -147,9 +148,8 @@ The specific values for each proxy object are shown in Table~\ref{tab:hadron_pro
       Loose & 10.910 & 3.630 \\
       Tight & 0.264 & 2.362 
     \end{tabular}
-    \caption{Constant terms in the \INH\ and \Ig\ selections for the hadron proxy objects.}
-    \label{tab:hadron_proxy}
-  \end{center}
+  \caption{Constant terms in the \INH\ and \Ig\ selections for the hadron proxy objects.}
+  \label{tab:hadron_proxy}
 \end{table}
 
 \subsection{Measurement Samples}
@@ -235,20 +235,22 @@ Bin-by-bin yields of \wlng\ and \zllg\ samples in all regions are related to the
 The transfer factors are allowed to shift within the aforementioned theoretical and experimental uncertainties.
 The background-only likelihood that is maximized in the fit is
 \begin{equation}
-\begin{aligned}
-  \mathcal{L} & = \prod_{i} \Bigg\{ \mathcal{L_{\text{signal}}} \times \mathcal{L_{\text{single-lepton}}} \times \mathcal{L_{\text{dilepton}}} \Bigg\} \times \mathcal{L_{\text{nuisances}}} \\
-  & = \prod_{i} \left\{
-    \prod_{K=H,V} \mathcal{P}\left( d_{K, i} \left| \TK[,i] (\vec{\theta} \right.) \right) \times \prod_{\ell=\Pe,\Pgm} \mathcal{P}\left( d_{\ell\Pgg, i} \left| \Tl[,i] (\vec{\theta}) \right. \right)
-    \times \prod_{\ell=\Pe,\Pgm} \mathcal{P}\left( d_{\ell\ell\Pgg, i} \left| \Tll[,i] (\vec{\theta}) \right. \right)
-    \right\}  \times \prod_{j} \mathcal{N}(\theta_j) \\
-  & = \prod_{i} \left\{
-  \begin{gathered}
-    \prod\limits_{K=H,V} \mathcal{P}\biggl( d_{K, i} \biggl| C_{K} \left( \left[1 + \left(\fZW[,i](\vec{\theta})\right)^{-1}\right] \NZg[i] + b_{K, i}(\vec{\theta}) \right) + h \nhalo[,i](\vec{\theta}) \biggr. \biggr) \\
-    \times \prod\limits_{\ell=\Pe,\Pgm} \mathcal{P}\biggl( d_{\ell\Pgg, i} \biggl| \frac{\NZg[i]}{\RWl[,i](\vec{\theta}) \fZW[,i] (\vec{\theta})} + b_{\ell\Pgg, i}(\vec{\theta}) \biggr. \biggr) \\
-    \times \prod\limits_{\ell=\Pe,\Pgm} \mathcal{P}\biggl( d_{\ell\ell\Pgg, i} \biggl| \frac{\NZg[i]}{\RZll[,i](\vec{\theta})} + b_{\ell\ell\Pgg, i}(\vec{\theta}) \biggr. \biggr)
-  \end{gathered} \right\}
-  \times \prod_{j} \mathcal{N}(\theta_j),
-\end{aligned}
+  \resizebox{\textwidth}{!}{$
+    \begin{aligned}
+      \mathcal{L} & = \prod_{i} \Bigg\{ \mathcal{L_{\text{signal}}} \times \mathcal{L_{\text{single-lepton}}} \times \mathcal{L_{\text{dilepton}}} \Bigg\} \times \mathcal{L_{\text{nuisances}}} \\
+      & = \prod_{i} \left\{
+      \prod_{K=H,V} \mathcal{P}\left( d_{K, i} \left| \TK[,i] (\vec{\theta} \right.) \right) \times \prod_{\ell=\Pe,\Pgm} \mathcal{P}\left( d_{\ell\Pgg, i} \left| \Tl[,i] (\vec{\theta}) \right. \right)
+      \times \prod_{\ell=\Pe,\Pgm} \mathcal{P}\left( d_{\ell\ell\Pgg, i} \left| \Tll[,i] (\vec{\theta}) \right. \right)
+      \right\}  \times \prod_{j} \mathcal{N}(\theta_j) \\
+      & = \prod_{i} \left\{
+      \begin{gathered}
+        \prod\limits_{K=H,V} \mathcal{P}\biggl( d_{K, i} \biggl| C_{K} \left( \left[1 + \left(\fZW[,i](\vec{\theta})\right)^{-1}\right] \NZg[i] + b_{K, i}(\vec{\theta}) \right) + h \nhalo[,i](\vec{\theta}) \biggr. \biggr) \\
+        \times \prod\limits_{\ell=\Pe,\Pgm} \mathcal{P}\biggl( d_{\ell\Pgg, i} \biggl| \frac{\NZg[i]}{\RWl[,i](\vec{\theta}) \fZW[,i] (\vec{\theta})} + b_{\ell\Pgg, i}(\vec{\theta}) \biggr. \biggr) \\
+        \times \prod\limits_{\ell=\Pe,\Pgm} \mathcal{P}\biggl( d_{\ell\ell\Pgg, i} \biggl| \frac{\NZg[i]}{\RZll[,i](\vec{\theta})} + b_{\ell\ell\Pgg, i}(\vec{\theta}) \biggr. \biggr)
+      \end{gathered} \right\}
+      \times \prod_{j} \mathcal{N}(\theta_j),
+    \end{aligned}
+  $}
 \end{equation}
 following the notation introduced in Section~\ref{sec:irreducible}, and where $\mathcal{P}(n\vert\lambda)$ is the Poisson probability of $n$ for mean $\lambda$, $\mathcal{N}$ denotes the unit normal distribution, and $d_{K,i}$ is the observed number of events in bin $i$ of region $K$.
 Systematic uncertainties on $R_e$, $R_h$, \kqcd, \ksudakov, \kphoton, and the various scale factors $\rho$ are treated as nuisance parameters in the fit and are represented by $\vec{\theta}$. 
@@ -257,15 +259,21 @@ Quantities such as \RZll, \RWl, \fZW, \nhalo, and $b_{K}$ appear in the likeliho
 \section{Results}
 \label{sec:results}
 
+No significant excess of events beyond the SM expectation is observed. 
+
 \subsection{Pre-fit and post-fit distributions}
 \label{sec:distributions}
 
 \begin{figure}[htbp]
   \centering
-    \includegraphics[width=0.49\textwidth]{Analysis/Figures/bonly_diel.pdf}
-    \includegraphics[width=0.49\textwidth]{Analysis/Figures/bonly_dimu.pdf}
-    \includegraphics[width=0.49\textwidth]{Analysis/Figures/bonly_monoel.pdf}
-    \includegraphics[width=0.49\textwidth]{Analysis/Figures/bonly_monomu.pdf}
+  \resizebox{\textwidth}{!}{
+    \includegraphics[]{Analysis/Figures/bonly_diel.pdf}
+    \includegraphics[]{Analysis/Figures/bonly_dimu.pdf}
+  }
+  \resizebox{\textwidth}{!}{
+    \includegraphics[]{Analysis/Figures/bonly_monoel.pdf}
+    \includegraphics[]{Analysis/Figures/bonly_monomu.pdf}
+  }
     \caption{
       Comparison between data and MC simulation in the four control regions: 
       \Pe\Pe\Pgg\ (upper left), 
@@ -282,8 +290,10 @@ Quantities such as \RZll, \RWl, \fZW, \nhalo, and $b_{K}$ appear in the likeliho
 
 \begin{figure}[htbp]
   \centering
-    \includegraphics[width=0.49\textwidth]{Analysis/Figures/bonly_horizontal.pdf}
-    \includegraphics[width=0.49\textwidth]{Analysis/Figures/bonly_vertical.pdf}
+  \resizebox{\textwidth}{!}{
+    \includegraphics[]{Analysis/Figures/bonly_horizontal.pdf}
+    \includegraphics[]{Analysis/Figures/bonly_vertical.pdf}
+  }
     \caption{
       Observed \ETg\ distributions in the horizontal (left) and vertical (right) signal regions compared with the post-fit background expectations for various SM processes.
       The last bin of the distribution includes all events with $\ETg > 1000\GeV$. 
@@ -295,12 +305,13 @@ Quantities such as \RZll, \RWl, \fZW, \nhalo, and $b_{K}$ appear in the likeliho
     \label{fig:postfitSR}
 \end{figure}
 
-Figure~\ref{fig:postfitCR} shows the observed \ETg\ distributionsin the four control regions compared with the results from simulations before and after performing the simultaneous fit across all the control samples and signal region, and assuming absence of any signal.
+Figure~\ref{fig:postfitCR} shows the observed \ETg\ distributions in the four control regions compared with the results from simulations before and after performing the simultaneous fit across all the control samples and signal region, and assuming absence of any signal.
 Figure~\ref{fig:postfitSR} shows the observed \ETg\ distributions in the horizontal and vertical signal regions compared with the results from simulations before and after performing a combined fit to the data in all the control samples and the signal region. 
-The observed distributions are in agreement with the prediction from SM and noncollision backgrounds.
+The observed distributions are in agreement with the prediction from SM and non-collision backgrounds.
 
 \begin{table}[htbp]
-\centering
+  \centering
+  \resizebox{\textwidth}{!}{
 \begin{tabular}{ l|cccccc }
 \rule[-1.2ex]{0pt}{3.8ex}\ETg~[\GeVns{}]      &         [175,  200] &         [200,  250] &         [250,  300] &         [300,  400] &         [400,  600] &         [600, 1000] \\
 \hline
@@ -314,7 +325,8 @@ Total prediction & $ 154.6 \pm   8.3 $ & $ 175.4 \pm   8.8 $ & $  78.2 \pm   5.3
 \hline
 Observed         & $ 150   \pm  12   $ & $ 166   \pm    13 $ & $  76.0 \pm   8.7 $ & $  44.0 \pm   6.6 $ & $  19.0 \pm   4.4 $ & $   4.0 \pm   2.0 $ \\
 \end{tabular}
-\caption{Expected event yields in each \ETg\ bin for various background processes in the horizontal signal region.
+}
+\caption{Expected event yields in each \ETg\ bin for the various background processes in \underline{\textbf{the horizontal signal region}}.
          The background yields and the corresponding uncertainties are obtained after performing a combined fit to data in all the control samples, excluding data in the signal region.
          The observed event yields in the horizontal signal region are also reported.}
 \label{tab:yield_mask_horizontal}
@@ -322,7 +334,8 @@ Observed         & $ 150   \pm  12   $ & $ 166   \pm    13 $ & $  76.0 \pm   8.7
 \end{table}
 
 \begin{table}[htbp]
-\centering
+  \centering
+  \resizebox{\textwidth}{!}{
 \begin{tabular}{ l|cccccc }
 \rule[-1.2ex]{0pt}{3.8ex}\ETg~[\GeVns{}]      &         [175,  200] &         [200,  250] &         [250,  300] &         [300,  400] &         [400,  600] &         [600, 1000] \\
 \hline
@@ -336,7 +349,8 @@ Total prediction & $ 339   \pm  18  $ & $ 366   \pm  19   $ & $ 150   \pm  11   
 \hline
 Observed         & $ 301   \pm  17   $ & $ 342   \pm  19   $ & $ 161 \pm  13   $ & $ 107   \pm  10   $ & $  41.0 \pm   6.4 $ & $  12.0 \pm   3.5 $ \\
 \end{tabular}
-\caption{Expected event yields in each \ETg\ bin for various background processes in the vertical signal region.
+}
+\caption{Expected event yields in each \ETg\ bin for the various background processes in  \underline{\textbf{the vertical signal region}}.
          The background yields and the corresponding uncertainties are obtained after performing a combined fit to data in all the control samples, excluding data in the signal regions.
          The observed event yields in the vertical signal region are also reported.}
 \label{tab:yield_mask_vertical}
@@ -349,7 +363,9 @@ approach detailed in Ref.~\cite{CMS-NOTE-2017-001} to reinterpret the results fo
 
 \begin{figure}[hbtp]
   \centering
-  \includegraphics[width=0.9\textwidth]{Analysis/Figures/correlation_matrix.pdf}
+  \resizebox{\textwidth}{!}{
+    \includegraphics[]{Analysis/Figures/correlation_matrix.pdf}
+  }
   \caption{
     Covariances between the predicted background yields in all the \ETg\ bins of the horizontal and vertical signal regions.
     The bin labels specify which signal region the bin belongs to and what number bin it is for that region.}
@@ -359,20 +375,19 @@ approach detailed in Ref.~\cite{CMS-NOTE-2017-001} to reinterpret the results fo
 \subsection{Limits}
 \label{sec:limits}
 
-No significant excess of events beyond the SM expectation is observed. 
 Upper limits are determined for the production cross section of the new-physics processes mentioned in Section~\ref{sec:dmsimp}. 
 For each model, a 95\% confidence level (\CL) upper limit is obtained utilizing the asymptotic \CLs\ criterion~\cite{Junk:1999kv,Read:2002hq,Cowan:2010js}, using a test statistic based on the negative logarithm of the likelihood in Section~\ref{sec:interpretation}.
 
 \begin{figure}[htbp]
   \centering
-    \includegraphics[width=0.45\textheight]{Analysis/Figures/limits_vector.pdf}
-    \includegraphics[width=0.45\textheight]{Analysis/Figures/limits_axial.pdf}
-    \caption{
-      The ratio of 95\% \CL\ upper cross section limits to the theoretical cross section ($\mu_{95}$), for DM simplified models with vector (top) and axial-vector (bottom) mediators, assuming $\gq=0.25$ and $\gdm=1$.
-      Expected $\mu_{95} = 1$ contours are overlaid in red. 
-      The region under the observed contour is excluded. For DM simplified model parameters in the region below the lower violet dot--dash contour, and also above the corresponding upper contour in the right hand plot, cosmological DM abundance exceeds the density observed by the Planck satellite experiment.
-    }
-    \label{fig:limits}
+  \includegraphics[height=0.42\textheight]{Analysis/Figures/limits_vector.pdf}
+  \includegraphics[height=0.42\textheight]{Analysis/Figures/limits_axial.pdf}
+  \caption{
+    The ratio of 95\% \CL\ upper cross section limits to the theoretical cross section ($\mu_{95}$), for DM simplified models with vector (top) and axial-vector (bottom) mediators, assuming $\gq=0.25$ and $\gdm=1$.
+    Expected $\mu_{95} = 1$ contours are overlaid in red. 
+    The region under the observed contour is excluded. For DM simplified model parameters in the region below the lower violet dot--dash contour, and also above the corresponding upper contour in the right hand plot, cosmological DM abundance exceeds the density observed by the Planck satellite experiment.
+  }
+  \label{fig:limits}
 \end{figure}
 
 Figure~\ref{fig:limits} shows the 95\% \CL\ upper cross section limits with respect to the corresponding theoretical cross section ($\mu_{95}= \sigma_{95\%}/\sigma_{\text{theory}}$) for the  vector and axial-vector mediator scenarios, in the \mmed--\mdm\ plane. 
@@ -387,8 +402,8 @@ The expected DM abundance is estimated, separately for each model, using the the
 
 \begin{figure}[htbp]
   \centering
-    \includegraphics[width=0.45\textheight]{Impact/Figures/limits_direct.pdf}
-    \includegraphics[width=0.45\textheight]{Impact/Figures/limits_indirect.pdf}
+    \includegraphics[height=0.41\textheight]{Impact/Figures/limits_direct.pdf}
+    \includegraphics[height=0.41\textheight]{Impact/Figures/limits_indirect.pdf}
     \caption{
       The 90\% \CL\ exclusion limits on the $\chi$--nucleon spin-independent scattering cross sections involving the vector operator (top) and the $\chi$--nucleon spin-dependent scattering cross sections involving the axial-vector operator (bottom) as a function of the \mdm.
       Simplified model DM parameters of $\gq=0.25$ and $\gdm=1$ are assumed.

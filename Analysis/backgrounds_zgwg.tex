@@ -9,9 +9,11 @@ Figures~\ref{fig:zg_nlo_lo} and \ref{fig:wg_nlo_lo} show the comparisons of the 
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.32\textwidth]{Analysis/Figures/kfactor/ZG_ptg.pdf}
-  \includegraphics[width=0.32\textwidth]{Analysis/Figures/kfactor/ZG_etag.pdf}
-  \includegraphics[width=0.32\textwidth]{Analysis/Figures/kfactor/ZG_met.pdf}
+  \resizebox{\textwidth}{!}{
+    \includegraphics[]{Analysis/Figures/kfactor/ZG_ptg.pdf}
+    \includegraphics[]{Analysis/Figures/kfactor/ZG_etag.pdf}
+    \includegraphics[]{Analysis/Figures/kfactor/ZG_met.pdf}
+  }
   \caption{
     Distributions of \ETg\ (left), $\eta^{\Pgg}$ (middle), and $\pt^{\PZ}$ (right) in \zinvg\ process from the private aMC@NLO sample (blue) and the LO sample used for background prediction (red) along with the NLO / LO ratios.
   }
@@ -19,9 +21,11 @@ Figures~\ref{fig:zg_nlo_lo} and \ref{fig:wg_nlo_lo} show the comparisons of the 
 \end{figure}
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.32\textwidth]{Analysis/Figures/kfactor/WG_ptg.pdf}
-  \includegraphics[width=0.32\textwidth]{Analysis/Figures/kfactor/WG_etag.pdf}
-  \includegraphics[width=0.32\textwidth]{Analysis/Figures/kfactor/WG_met.pdf}
+  \resizebox{\textwidth}{!}{
+    \includegraphics[]{Analysis/Figures/kfactor/WG_ptg.pdf}
+    \includegraphics[]{Analysis/Figures/kfactor/WG_etag.pdf}
+    \includegraphics[]{Analysis/Figures/kfactor/WG_met.pdf}
+  }
   \caption{
     Distributions of \ETg\ (top left), $\eta^{\Pgg}$ (top right), and $\pt^{\PW}$ (bottom left) in \wlng\ process from the private aMC@NLO sample (blue) and the LO sample used for background prediction (red) along with the NLO / LO ratios.
   }
@@ -32,20 +36,19 @@ To approximate the QCD higher-order effects, \zinvg\ and \wlng\ events are rewei
 These factors are the ratios of QCD next-to-next-to leading order (NNLO) differential cross sections calculated by Grazzini et al.~\cite{Bozzi:2010xn} to the LO cross sections given in the centrally produced samples. 
 Note that the denominator cross section includes contributions from processes with up to two additional partons, and is therefore not a LO cross section in the strict sense of the word. V\Pgg\ k-factors found in literature are $\gg 1$ at high \ETg, if the denominator only accounts for the cross section of $\Pq\Paq\rightarrow\mathrm{V}\Pgg$ process.
 
-\begin{table}
-  \begin{center}
-    \begin{tabular}{ l | r | r }
-      \ETg range (GeV) & \zinvg & \wlng \\
-      \hline
-      $[175, 190]$ & 1.44 & 1.40 \\
-      $[190, 250]$ & 1.41 & 1.37 \\
-      $[250, 400]$ & 1.35 & 1.31 \\
-      $[400, 700]$ & 1.29 & 1.26 \\
-      $[700, \infty)$ & 1.15 & 1.15 \\
-    \end{tabular}
-    \caption{Correction factors \kqcd\ for \zinvg\ and \wlng\ samples.}
-    \label{tab:zg_kfactors}
-  \end{center}
+\begin{table}[hbtp]
+  \centering
+  \begin{tabular}{ l | r | r }
+    \ETg range (GeV) & \zinvg & \wlng \\
+    \hline
+    $[175, 190]$ & 1.44 & 1.40 \\
+    $[190, 250]$ & 1.41 & 1.37 \\
+    $[250, 400]$ & 1.35 & 1.31 \\
+    $[400, 700]$ & 1.29 & 1.26 \\
+    $[700, \infty)$ & 1.15 & 1.15 \\
+  \end{tabular}
+  \caption{Correction factors \kqcd\ for \zinvg\ and \wlng\ samples.}
+  \label{tab:zg_kfactors}
 \end{table}
 
 Higher-order electroweak correction factors are also applied as a function of \ETg. 
@@ -55,9 +58,11 @@ We apply the correction factors shown in Figure~\ref{fig:ewk_correction}, which 
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.32\textwidth]{Analysis/Figures/ewkcorr/zg.pdf}
-  \includegraphics[width=0.32\textwidth]{Analysis/Figures/ewkcorr/wgplus.pdf}
-  \includegraphics[width=0.32\textwidth]{Analysis/Figures/ewkcorr/wgminus.pdf}
+  \resizebox{\textwidth}{!}{
+    \includegraphics[]{Analysis/Figures/ewkcorr/zg.pdf}
+    \includegraphics[]{Analysis/Figures/ewkcorr/wgplus.pdf}
+    \includegraphics[]{Analysis/Figures/ewkcorr/wgminus.pdf}
+  }
   \caption{
     Electroweak NLO cross section corrections as a function of photon \pt\ for \zinvg\ (left), $\PW^{+}+\Pgg$ (middle), and $\PW^{-}+\Pgg$ (right) processes, overlaid with uncertainty bands. 
     See text for descriptions of the individual components of the uncertainty.
@@ -95,8 +100,10 @@ Following this prescription, we let the Sudakov suppression vary in overall scal
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[height=0.3\textwidth]{Analysis/Figures/ewkcorr/scale.pdf}
-  \includegraphics[height=0.3\textwidth]{Analysis/Figures/ewkcorr/shape.pdf}
+  \resizebox{\textwidth}{!}{
+    \includegraphics[]{Analysis/Figures/ewkcorr/scale.pdf}
+    \includegraphics[]{Analysis/Figures/ewkcorr/shape.pdf}
+    }
   \caption{
     Electroweak correction variation scheme to cover the scale (left) and shape (right) uncertainties.
   }
@@ -126,15 +133,17 @@ Figure~\ref{fig:tf_z} shows the transfer factor \RZee\ (\RZmm) between the diele
 
 \begin{figure}[htbp]
   \centering
-    \includegraphics[width=0.49\textwidth]{Analysis/Figures/RZee.pdf}
-    \includegraphics[width=0.49\textwidth]{Analysis/Figures/RZmm.pdf}
-    \caption{
-      Transfer factors \RZee\ (left) and \RZmm\ (right).
-      The numerator is the expected \zinvg\ yield in the combined signal regions and the denominator is the expected \zllg\ yield in the dielectron (left) or dimuon (right) control region.
-      The uncertainty bands in green (inner) and orange (outer) show the systematic uncertainty, and the combination of systematic and statistical uncertainty arising from limited MC sample size, respectively. 
-      The systematic uncertainties considered are the uncertainties in the data-to-simulation correction factors $\rho$ for the lepton identification efficiencies.
+  \resizebox{\textwidth}{!}{
+    \includegraphics[]{Analysis/Figures/RZee.pdf}
+    \includegraphics[]{Analysis/Figures/RZmm.pdf}
     }
-    \label{fig:tf_z}
+  \caption{
+    Transfer factors \RZee\ (left) and \RZmm\ (right).
+    The numerator is the expected \zinvg\ yield in the combined signal regions and the denominator is the expected \zllg\ yield in the dielectron (left) or dimuon (right) control region.
+    The uncertainty bands in green (inner) and orange (outer) show the systematic uncertainty, and the combination of systematic and statistical uncertainty arising from limited MC sample size, respectively. 
+    The systematic uncertainties considered are the uncertainties in the data-to-simulation correction factors $\rho$ for the lepton identification efficiencies.
+    }
+  \label{fig:tf_z}
 \end{figure}
 
 For increasing \ETg, the \PZ\ boson in a \zllg\ event tends to emerge with lower rapidity, and hence so do its decay products. 
@@ -163,29 +172,28 @@ The requirement for large \met\ removes events with out-of-acceptance electrons 
 The overall result is a larger background contribution from events with out-of-acceptance muons than from events with out-of-acceptance electrons. 
 % Conversely, by requiring large \met, the muon $\eta$ distribution is highly skewed towards the edge of acceptance, driving the overall muon reconstruction efficiency in the sample lower and thereby making the background contributions from electrons and muons closer to each other. 
 
-\begin{table}[tbp]
-  \begin{center}
-    \begin{tabular}{ l r | r r }
-      \multicolumn{2}{ c |}{Subprocess} & \multicolumn{2}{| c }{$A\times\epsilon \times 10^{3}$} \\
-      \hline
-      \multicolumn{2}{ l |}{$\PW\rightarrow\Pe\Pgn + \Pgg$} & 1.68 & \\
-      & $|\eta^{\Pe}| < 2.5$ & & 1.35 \\
-      & $|\eta^{\Pe}| > 2.5$ & & 0.32 \\
-      \hline
-      \multicolumn{2}{ l |}{$\PW\rightarrow\Pgm\Pgn + \Pgg$} & 1.83 & \\
-      & $|\eta^{\Pgm} < 2.5$ & & 0.74 \\
-      & $|\eta^{\Pgm} > 2.5$ & & 1.08 \\
-      \hline
-      \multicolumn{2}{ l |}{$\PW\rightarrow\Pgt\Pgn + \Pgg$} & 5.03 & \\
-    \end{tabular}
-    \caption{
-      The breakdown of simulated $\PW+\Pgg$ events passing the full event selection. 
-      Events are categorized in the \PW\ decay mode. 
-      Events with \Pe\Pgn\ and \Pgm\Pgn\ final states are further divided into those where the lepton is roughly within acceptance ($|\eta| < 2.5$) but failed the lepton veto, and those where the lepton is out of acceptance ($|\eta| > 2.5$). 
-      For each \PW\ decay mode, the fraction out of total generated ($A\times\epsilon$) is shown.
-    }
-    \label{tab:wg_breakdown}
-  \end{center}
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{ l r | r r }
+    \multicolumn{2}{ c |}{Subprocess} & \multicolumn{2}{| c }{$A\times\epsilon \times 10^{3}$} \\
+    \hline
+    \multicolumn{2}{ l |}{$\PW\rightarrow\Pe\Pgn + \Pgg$} & 1.68 & \\
+    & $|\eta^{\Pe}| < 2.5$ & & 1.35 \\
+    & $|\eta^{\Pe}| > 2.5$ & & 0.32 \\
+    \hline
+    \multicolumn{2}{ l |}{$\PW\rightarrow\Pgm\Pgn + \Pgg$} & 1.83 & \\
+    & $|\eta^{\Pgm} < 2.5$ & & 0.74 \\
+    & $|\eta^{\Pgm} > 2.5$ & & 1.08 \\
+    \hline
+    \multicolumn{2}{ l |}{$\PW\rightarrow\Pgt\Pgn + \Pgg$} & 5.03 & \\
+  \end{tabular}
+  \caption{
+    The breakdown of simulated $\PW+\Pgg$ events passing the full event selection. 
+    Events are categorized in the \PW\ decay mode. 
+    Events with \Pe\Pgn\ and \Pgm\Pgn\ final states are further divided into those where the lepton is roughly within acceptance ($|\eta| < 2.5$) but failed the lepton veto, and those where the lepton is out of acceptance ($|\eta| > 2.5$). 
+    For each \PW\ decay mode, the fraction out of total generated ($A\times\epsilon$) is shown.
+  }
+  \label{tab:wg_breakdown}
 \end{table}
 
 Figure~\ref{fig:tf_w} shows the transfer factor \RWe\ (\RWm) between the single-electron (single-muon) control region and the combined signal regions, for which the numerator is the estimated \wlng\ yield in the combined signal regions, and the denominator is the estimated \wlng\ yield in the relevant control region. 
@@ -194,15 +202,17 @@ The underlying logic is the same; e.g., that the signal region selection efficie
 
 \begin{figure}[htbp]
   \centering
-    \includegraphics[width=0.49\textwidth]{Analysis/Figures/RWe.pdf}
-    \includegraphics[width=0.49\textwidth]{Analysis/Figures/RWm.pdf}
-    \caption{
-      Transfer factors \RWe\ (left) and \RWm\ (right).
-      The numerator is the expected \zinvg\ yield in the combined signal regions and the denominator is the expected \wlng\ yield in the mono-electron (left) or mono-muon (right) control region.
-      The uncertainty bands in green (inner) and orange (outer) show the systematic uncertainty, and the combination of systematic and statistical uncertainty arising from limited MC sample size, respectively. 
-      The systematic uncertainties considered are the uncertainties in the data-to-simulation correction factors $\rho$ for the lepton identification efficiencies.
-    }
-    \label{fig:tf_w}
+  \resizebox{\textwidth}{!}{
+    \includegraphics[]{Analysis/Figures/RWe.pdf}
+    \includegraphics[]{Analysis/Figures/RWm.pdf}
+  }
+  \caption{
+    Transfer factors \RWe\ (left) and \RWm\ (right).
+    The numerator is the expected \zinvg\ yield in the combined signal regions and the denominator is the expected \wlng\ yield in the mono-electron (left) or mono-muon (right) control region.
+    The uncertainty bands in green (inner) and orange (outer) show the systematic uncertainty, and the combination of systematic and statistical uncertainty arising from limited MC sample size, respectively. 
+    The systematic uncertainties considered are the uncertainties in the data-to-simulation correction factors $\rho$ for the lepton identification efficiencies.
+  }
+  \label{fig:tf_w}
 \end{figure}
 
 Finally, to benefit further from the larger statistical power that the single-lepton control samples provides, an additional transfer factor $\fZW = \NZg / \NWg$ is defined to connect the \zinvg\ and \wlng\ background yields in the signal regions, where the quantity $\NWg$ is the number of \wlng\ events in the combined signal regions. 
@@ -212,12 +222,14 @@ Figure~\ref{fig:tf_syst} shows the effect of each systematic uncertainty in \fZW
 
 \begin{figure}[htbp]
   \centering
-    \includegraphics[width=0.49\textwidth]{Analysis/Figures/tf_syst_zg.pdf}
-    \includegraphics[width=0.49\textwidth]{Analysis/Figures/tf_syst_wg.pdf}
-    \caption{
-      Systematic uncertainty in the transfer factors for \zinvg\ (left) and \wlng\ (right). The last bin includes all events with $\ETg > 1000\GeV$.
-    }
-    \label{fig:tf_syst}
+  \resizebox{\textwidth}{!}{
+    \includegraphics[]{Analysis/Figures/tf_syst_zg.pdf}
+    \includegraphics[]{Analysis/Figures/tf_syst_wg.pdf}
+  }
+  \caption{
+    Systematic uncertainty in the transfer factors for \zinvg\ (left) and \wlng\ (right). The last bin includes all events with $\ETg > 1000\GeV$.
+  }
+  \label{fig:tf_syst}
 \end{figure}
 
 The ratio \fZW\ rises rather than falls with increasing \ETg\ because \wlng\ events have a lower signal region selection efficiency when the charged lepton falls within the tracker acceptance due to the lepton veto while the \zinvg\ efficiency is independent of \ETg.
@@ -226,14 +238,16 @@ Figure~\ref{fig:tf_wz} shows the transfer factor \fZW\ between the \zinvg\ and \
 
 \begin{figure}[htbp]
   \centering
-    \includegraphics[width=0.49\textwidth]{Analysis/Figures/fZW.pdf}
-    \caption{
-      Transfer factor \fZW in the combined signal regions.
-      The numerator is the expected \zinvg\ yield and the denominator is the expected \wlng\ yield.
-      The uncertainty bands in green (inner) and orange (outer) show the systematic uncertainty, and the combination of systematic and statistical uncertainty arising from limited MC sample size, respectively. 
-      The systematic uncertainties considered are the uncertainties from higher-order theoretical corrections.
-    }
-    \label{fig:tf_wz}
+  \resizebox{0.5\textwidth}{!}{
+    \includegraphics[]{Analysis/Figures/fZW.pdf}
+  }
+  \caption{
+    Transfer factor \fZW in the combined signal regions.
+    The numerator is the expected \zinvg\ yield and the denominator is the expected \wlng\ yield.
+    The uncertainty bands in green (inner) and orange (outer) show the systematic uncertainty, and the combination of systematic and statistical uncertainty arising from limited MC sample size, respectively. 
+    The systematic uncertainties considered are the uncertainties from higher-order theoretical corrections.
+  }
+  \label{fig:tf_wz}
 \end{figure}
 
 Using \RWl\ and \fZW, the total estimated event yield \Tl\ in each single-lepton control region in the $i^\mathrm{th}$ bin of the \ETg\ distribution is given by

@@ -20,22 +20,27 @@ We are able to use the analytic Breit-Wigner distribution instead of a template 
 This makes the selection rather inclusive in terms of the tag-probe invariant mass and ensures that the Breit-Wigner distribution accurately models the mass distribution even through the tag and probe are under kinematically exclusive selections.
 
 \begin{figure}[htbp]
-  \begin{center}
-    \includegraphics[width=0.48\textwidth]{Calibration/Figures/idsf/fit_data_pass_pt_175_200.pdf}
-    \includegraphics[width=0.48\textwidth]{Calibration/Figures/idsf/fit_data_fail_pt_175_200.pdf}
-    \includegraphics[width=0.48\textwidth]{Calibration/Figures/idsf/fit_data_pass_pt_300_350.pdf}
-    \includegraphics[width=0.48\textwidth]{Calibration/Figures/idsf/fit_data_fail_pt_300_350.pdf}
-    \includegraphics[width=0.48\textwidth]{Calibration/Figures/idsf/fit_data_pass_pt_400_6500.pdf}
-    \includegraphics[width=0.48\textwidth]{Calibration/Figures/idsf/fit_data_fail_pt_400_6500.pdf}
-    \caption{
-      Fits to the mass distributions for pass (left) and fail (right) selections, in bins of probe \pt: 
-      $175 < \pt < 200\GeV$ (top), 
-      $300 < \pt < 350\GeV$ (middle), 
-      $\pt > 400\GeV$ (bottom). 
-      The blue solid line represents the full fit model, and the green dashed line its background component.
-    }
-    \label{fig:idsf_fits}
-  \end{center}
+  \centering
+  \resizebox{0.95\textwidth}{!}{
+    \includegraphics[]{Calibration/Figures/idsf/fit_data_pass_pt_175_200.pdf}
+    \includegraphics[]{Calibration/Figures/idsf/fit_data_fail_pt_175_200.pdf}
+  }
+  \resizebox{0.95\textwidth}{!}{
+    \includegraphics[]{Calibration/Figures/idsf/fit_data_pass_pt_300_350.pdf}
+    \includegraphics[]{Calibration/Figures/idsf/fit_data_fail_pt_300_350.pdf}
+  }
+  \resizebox{0.95\textwidth}{!}{
+    \includegraphics[]{Calibration/Figures/idsf/fit_data_pass_pt_400_6500.pdf}
+    \includegraphics[]{Calibration/Figures/idsf/fit_data_fail_pt_400_6500.pdf}
+  }
+  \caption{
+    Fits to the mass distributions for pass (left) and fail (right) selections, in bins of probe \pt: 
+    $175 < \pt < 200\GeV$ (top), 
+    $300 < \pt < 350\GeV$ (middle), 
+    $\pt > 400\GeV$ (bottom). 
+    The blue solid line represents the full fit model, and the green dashed line its background component.
+  }
+  \label{fig:idsf_fits}
 \end{figure}
 
 The background template is taken from events collected by the single photon trigger where an additional muon object is present, making use of the fact that the most of the background processes in both fits are symmetric in lepton flavor. 
@@ -57,15 +62,18 @@ The average shift of the fit result from the nominal value is then taken as the 
 The relative uncertainty on the efficiency varies from 2 to 4\% depending on the probe \pt\ bin. %%% double check these numbers
 
 \begin{figure}[htbp]
-  \begin{center}
-    \includegraphics[width=0.48\textwidth]{Calibration/Figures/idsf/eff_data_ptalt.pdf}
-    \includegraphics[width=0.48\textwidth]{Calibration/Figures/idsf/eff_mc_ptalt.pdf}
-    \includegraphics[width=0.48\textwidth]{Calibration/Figures/idsf/scaleFactor_ptalt.pdf}
-    \caption{
-      \egamma\ component of the photon identification efficiency for data (top-left) and MC (top-right) and correspending scale factor (bottom) as a function of photon \pt.
-    }
-    \label{fig:idsf_results}
-  \end{center}
+  \centering
+  \resizebox{\textwidth}{!}{
+    \includegraphics[]{Calibration/Figures/idsf/eff_data_ptalt.pdf}
+    \includegraphics[]{Calibration/Figures/idsf/eff_mc_ptalt.pdf}
+  }
+  \resizebox{0.5\textwidth}{!}{
+    \includegraphics[]{Calibration/Figures/idsf/scaleFactor_ptalt.pdf}
+  }
+  \caption{
+    \egamma\ component of the photon identification efficiency for data (top-left) and MC (top-right) and correspending scale factor (bottom) as a function of photon \pt.
+  }
+  \label{fig:idsf_results}
 \end{figure}
 
 The MC efficiency is taken from counting the number truth-matched electrons passing and failing the \egamma\ part of the ID from a \Zee\ sample. 
@@ -73,19 +81,18 @@ Additionally, the MC efficiency is computed using the same procedure as in data 
 The efficiencies obtained from these two methods are consistent within their uncertainties. 
 
 \begin{table}[htbp]
-  \begin{center}
-    \begin{tabular}{ c|c|c }
-      $\pt^{\mathrm{probe}}$ (GeV) & MC Fit & Truth \\\hline
-      (175, 200)  & $1.014 \pm 0.008$ & $1.009 \pm 0.016$ \\
-      (200, 250)  & $1.003 \pm 0.008$ & $0.999 \pm 0.014$ \\
-      (250, 300)  & $1.014 \pm 0.010$ & $1.016 \pm 0.019$ \\
-      (300, 350)  & $1.002 \pm 0.014$ & $0.997 \pm 0.022$ \\
-      (350, 400)  & $0.986 \pm 0.012$ & $0.987 \pm 0.022$ \\
-      (400, 6500)  & $0.988 \pm 0.011$ & $0.999 \pm 0.016$ \\
-    \end{tabular}
-    \caption{\egamma\ scale factors as a function of photon \pt.}
-    \label{tab:idsf_results}
-  \end{center}
+  \centering
+  \begin{tabular}{ c|c|c }
+    $\pt^{\mathrm{probe}}$ (GeV) & MC Fit & Truth \\\hline
+    (175, 200)  & $1.014 \pm 0.008$ & $1.009 \pm 0.016$ \\
+    (200, 250)  & $1.003 \pm 0.008$ & $0.999 \pm 0.014$ \\
+    (250, 300)  & $1.014 \pm 0.010$ & $1.016 \pm 0.019$ \\
+    (300, 350)  & $1.002 \pm 0.014$ & $0.997 \pm 0.022$ \\
+    (350, 400)  & $0.986 \pm 0.012$ & $0.987 \pm 0.022$ \\
+    (400, 6500)  & $0.988 \pm 0.011$ & $0.999 \pm 0.016$ \\
+  \end{tabular}
+  \caption{\egamma\ scale factors as a function of photon \pt.}
+  \label{tab:idsf_results}
 \end{table}
 
 The data efficiencies, MC efficiencies, and resulting scale factors as a function of \pt\ are shown in Figure~\ref{fig:idsf_results}. 

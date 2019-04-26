@@ -18,9 +18,11 @@ Both the target template and the fit function are normalized to unity, removing 
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.32\textwidth]{Calibration/Figures/pvsf/sbcontam_near.pdf}
-  \includegraphics[width=0.32\textwidth]{Calibration/Figures/pvsf/sbcontam_nominal.pdf}
-  \includegraphics[width=0.32\textwidth]{Calibration/Figures/pvsf/sbcontam_far.pdf}
+  \resizebox{\textwidth}{!}{
+    \includegraphics[]{Calibration/Figures/pvsf/sbcontam_near.pdf}
+    \includegraphics[]{Calibration/Figures/pvsf/sbcontam_nominal.pdf}
+    \includegraphics[]{Calibration/Figures/pvsf/sbcontam_far.pdf}
+    }
   \caption{
     Signal contamination in the [3.5,5.0] (left), [5.0,7.5] (middle), and [7.5,9.0] (right) isolation sidebands.
   }
@@ -55,17 +57,23 @@ Note that $f$ is still the only free parameter for this new function as $S'$ onl
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.45\textwidth]{Calibration/Figures/pvsf/ssfit_175_medium_near_logy.pdf}
-  \includegraphics[width=0.45\textwidth]{Calibration/Figures/pvsf/ssfit_400_medium_near_logy.pdf}
-  \includegraphics[width=0.45\textwidth]{Calibration/Figures/pvsf/ssfit_175_medium_nominal_logy.pdf}
-  \includegraphics[width=0.45\textwidth]{Calibration/Figures/pvsf/ssfit_400_medium_nominal_logy.pdf}
-  \includegraphics[width=0.45\textwidth]{Calibration/Figures/pvsf/ssfit_175_medium_far_logy.pdf}
-  \includegraphics[width=0.45\textwidth]{Calibration/Figures/pvsf/ssfit_400_medium_far_logy.pdf}
+  \resizebox{0.95\textwidth}{!}{
+    \includegraphics[]{Calibration/Figures/pvsf/ssfit_175_medium_near_logy.pdf}
+    \includegraphics[]{Calibration/Figures/pvsf/ssfit_400_medium_near_logy.pdf}
+  }
+  \resizebox{0.95\textwidth}{!}{
+    \includegraphics[]{Calibration/Figures/pvsf/ssfit_175_medium_nominal_logy.pdf}
+    \includegraphics[]{Calibration/Figures/pvsf/ssfit_400_medium_nominal_logy.pdf}
+  }
+  \resizebox{0.95\textwidth}{!}{
+    \includegraphics[]{Calibration/Figures/pvsf/ssfit_175_medium_far_logy.pdf}
+    \includegraphics[]{Calibration/Figures/pvsf/ssfit_400_medium_far_logy.pdf}
+  }
   \caption{
     Fits to the \sieie\ distributions for the [175, 200] (left) and [400,$\infty$) (right) \pt\ bins using the [3.5,5.0] (top), [5.0,7.5] (middle), and [7.5,9.0] (bottom) isolation sidebands.
       The blue solid line represents the full fit model, the red dashed line its signal component, and the green dashed line its background component.
     }
-  \label{fig:impurity-sideband}
+    \label{fig:impurity-sideband}
 \end{figure}
 
 There are four main sources of systematic uncertainty for this measurement. 
@@ -138,21 +146,20 @@ The values obtained for each systematic uncertainty on the true photon count of 
 The relative uncertainties on the numerator are similar, and in the efficiency, each uncertainty source is considered as fully correlated.
 
 \begin{table}[htbp]
-  \begin{center}
-    \begin{tabular}{ c|c c c c }
+  \centering
+  \begin{tabular}{ c|c c c c }
     \pt\ Range & \multicolumn{4}{ |c }{Sources of Systematic Uncertainty} \\
-     (GeV) & Sideband & \ICH\ Shape & Signal Shape & Bgkd. Stats \\
+    (GeV) & Sideband & \ICH\ Shape & Signal Shape & Bgkd. Stats \\
     \hline
-     (175, 200)  & 0.09 & 0.18 & 0.05 & 0.04 \\
-     (200, 250)  & 0.01 & 0.16 & 0.06 & 0.03 \\
-     (250, 300)  & 0.14 & 0.16 & 0.06 & 0.05 \\
-     (300, 350)  & 0.12 & 0.16 & 0.07 & 0.08 \\
-     (350, 400)  & 0.23 & 0.11 & 0.05 & 0.10 \\
-     (400, $\infty$)  & 0.27 & 0.09 & 0.05 & 0.05
-    \end{tabular}
-    \caption{Relative uncertainties on the estimated number of true photons in the denominator sample.}
-    \label{tab:impurity-systs}
-  \end{center}
+    (175, 200)  & 0.09 & 0.18 & 0.05 & 0.04 \\
+    (200, 250)  & 0.01 & 0.16 & 0.06 & 0.03 \\
+    (250, 300)  & 0.14 & 0.16 & 0.06 & 0.05 \\
+    (300, 350)  & 0.12 & 0.16 & 0.07 & 0.08 \\
+    (350, 400)  & 0.23 & 0.11 & 0.05 & 0.10 \\
+    (400, $\infty$)  & 0.27 & 0.09 & 0.05 & 0.05
+  \end{tabular}
+  \caption{Relative uncertainties on the estimated number of true photons in the denominator sample.}
+  \label{tab:impurity-systs}
 \end{table}
 
 The MC efficiency of the \Pgg-specific ID is determined by counting the number of truth-matched photons passing the \egamma\ part of the ID and the full ID. 
@@ -162,26 +169,28 @@ Additionally, to account for the NLO cross-section ratio uncertainties with resp
 This uncertainty is uncorrelated between the numerator and denominator as a negligible amount of electron events survive the pixel veto.
 
 \begin{figure}[htbp]
-  \begin{center}
-    \includegraphics[width=0.48\textwidth]{Calibration/Figures/pvsf/gjets_sieie.pdf}
-    \includegraphics[width=0.48\textwidth]{Calibration/Figures/pvsf/gjets_sieiePixelVeto.pdf}
-    \caption{
-      Electron contamination in \gj\ region before (left) and after (right) applying the pixel seed veto.
-    }
-    \label{fig:pvsf_contam}
-  \end{center}
+  \centering
+  \resizebox{\textwidth}{!}{
+    \includegraphics[]{Calibration/Figures/pvsf/gjets_sieie.pdf}
+    \includegraphics[]{Calibration/Figures/pvsf/gjets_sieiePixelVeto.pdf}
+  }
+  \caption{
+    Electron contamination in \gj\ region before (left) and after (right) applying the pixel seed veto.
+  }
+  \label{fig:pvsf_contam}
 \end{figure}
  
 The data efficiency, MC efficiency, and the scale factor for the \Pgg-specific ID as a function of \pt\ are shown in Figure~\ref{fig:pvsf_results}. 
 As there is no significant trend in the scale factor as a function of \pt, we apply a flat scale factor of $0.9840 \pm 0.0090$ for all of the MC-based background and signal models in the analysis.
 
 \begin{figure}[htbp]
-  \begin{center}
-    \includegraphics[width=0.48\textwidth]{Calibration/Figures/pvsf/efficiency_barrel_medium.pdf}
-    \includegraphics[width=0.48\textwidth]{Calibration/Figures/pvsf/scalefactor_barrel_medium.pdf}
-    \caption{
-      Photon pixel veto efficiencies (left) and correspending scale factor (right) as a function of photon \pt.
-    }
-    \label{fig:pvsf_results}
-  \end{center}
+  \centering
+  \resizebox{\textwidth}{!}{
+    \includegraphics[]{Calibration/Figures/pvsf/efficiency_barrel_medium.pdf}
+    \includegraphics[]{Calibration/Figures/pvsf/scalefactor_barrel_medium.pdf}
+  }
+  \caption{
+    Photon pixel veto efficiencies (left) and correspending scale factor (right) as a function of photon \pt.
+  }
+  \label{fig:pvsf_results}
 \end{figure}
