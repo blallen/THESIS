@@ -102,7 +102,7 @@ The former reduces the hadron misidentification rate with a collection of isolat
 In the signal region, events are vetoed if they contain an electron or a muon with $\pt > 10\GeV$ that is separated from the photon by $\dR > 0.5$. This lepton veto rejects SM processes that produce a high-\pt\ photon, \met, and leptons such as \wlng, \ttg, and $VV\Pgg$. %% add a plot ???
 
 Furthermore, to constrain the beam halo normalization, the signal region is split into two parts according to the variable $\phi'$ introduced in Equation~\ref{eqn:phi}. 
-The region defined by $\abs{\phi'} < 0.5$ is called the horizontal region, its complement in $\phi'$ is called the vertical region, and the two together are referred to as the combined signal regions.
+The region defined by $\abs{\phi'} < 0.5$ is called the horizontal region, its complement $0.5 < \abs{\phi'} < \pi/2$ is called the vertical region, and the two together are referred to as the combined signal regions.
 
 \subsection{Control Regions}
 \label{sec:control_regions}
@@ -206,22 +206,7 @@ This binning was chosen based on the number of available events in data for the 
 \section{Beam halo}
 \label{sec:halo_estimate}
 
-Based on the beam halo features discussed in Section~\ref{sec:halo}, a two-template fit to the $\phi'$ distribution of the photons in the candidate sample, where the templates are that of the halo shower and a uniform distribution, accurately estimates the amount of beam halo background present in the signal region. 
-For this analysis, the splitting of the signal region functions in a similar manner, enabling us to determine the beam halo contribution during the signal extraction procedure.
-
-In the horizontal ($H$) and vertical ($V$) signal regions, collision processes occupy the relative fractions of phase space $C_{H} = 1/\pi$ and $C_{V} = (\pi-1)/\pi$, respectively. 
-The corresponding fractions for beam halo events are determined by selecting a halo-enriched sample where the halo identification is inverted. 
-Thus, a fit of the two signal regions provides an estimate of the overall normalization of the beam halo background, denoted $h$.
- 
-The \ETg\ dependence of the halo background is encoded in \nhalo[,i], the unit-normalized beam halo prediction in the $i^\mathrm{th}$ bin of the signal region $K \in \{H,V\}$.
-Using the notation introduced in Section~\ref{sec:irreducible}, the total estimated background \TK\ in the two signal regions are
-\begin{equation}
-\begin{aligned}
-  \TK[,i] & = C_{K} (\NZg[i] + \NWg[i]) + h \nhalo[,i] + C_{K} b_{K,i} \\
-          & = C_{K} (1 + {\fZW[i]}^{-1}) \NZg[i] + h \nhalo[,i] + C_{K} b_{K,i},
-\end{aligned}
-\end{equation}
-where $b_{K,i}$ is the total contribution to bin $i$ of region $K$ from electron and hadron misidentification, ECAL spikes, and other minor SM background processes.
+\input{Analysis/backgrounds_halo}
 
 \section{Spikes}
 \label{sec:spike_estimate}
