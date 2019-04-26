@@ -4,32 +4,6 @@
 The differences between data and MC efficiencies for various object selections have to be corrected to achieve accurate signal and background predictions.
 The efficiencies of individual object selections are measured in data and applied to the MC.
 
-\section{Lepton Efficiency}
-\label{sec:lepton_eff}
-
-The electron and muon efficiencies are measured using a similar method to the ``tag-and-probe'' method described in Section~\ref{sec:idsf}.
-For these measurements, the tag object is an electron (muon) object passing the tight ID described in Section~\ref{sec:pf_electrons} (Section~\ref{sec:pf_muons}) and matched to a SingleElectron (SingleMuon) trigger while the probe object is an PF electron (muon) without any ID applied.
-The passing (failing) categories are defined by events with probes passing (failing) the ID definition in question (see Sections~\ref{sec:pf_electrons} and~\ref{sec:pf_muons} for details).
-The electron (muon) scale factors are approximately unity with a flat 2\% (1\%) systematic uncertainty.
-
-
-\section{Pileup Reweighting}
-\label{sec:puweight}
-
-The distribution of the number of pileup interactions inserted into MC events differ from the true pileup distribution, estimated from the measurement of instantaneous luminosity, beam intensity of each proton bunch, and the total cross section of proton inelastic scattering (69.2 $\textrm{mb}^{-1}$).
-
-Figure~\ref{fig:pudist} shows the pileup distributions in data and MC and their ratio. 
-Each simulation event has its weight multiplied by the value of the ratio evaluated at the number of true pileup interaction injected into the event.
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.48\linewidth]{Calibration/Figures/PUMoriond17.pdf}
-  \caption{
-    The pileup distributions in data and MC.
-  }
-  \label{fig:pudist}
-\end{figure}
-
 \section{Lepton Veto Efficiency (Events with ``Fake Leptons'')}
 \label{sec:fake_lepton_veto}
 The lepton veto requirement in the signal region has a non-unity efficiency over events that do not have genuine leptons, because particles such as pions and protons can mimic leptons (become ``fake leptons'') and cause the event to be rejected. 

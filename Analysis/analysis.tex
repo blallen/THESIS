@@ -41,6 +41,23 @@ The trigger efficiency is measured to be about 98\% for events passing the analy
 
 \input{Analysis/trigger}
 
+\subsection{Pileup Reweighting}
+\label{sec:puweight}
+
+The distribution of the number of pileup interactions inserted into MC events differ from the true pileup distribution, estimated from the measurement of instantaneous luminosity, beam intensity of each proton bunch, and the total cross section of proton inelastic scattering (69.2 $\textrm{mb}^{-1}$).
+
+Figure~\ref{fig:pudist} shows the pileup distributions in data and MC and their ratio. 
+Each simulation event has its weight multiplied by the value of the ratio evaluated at the number of true pileup interaction injected into the event.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.48\linewidth]{Calibration/Figures/PUMoriond17.pdf}
+  \caption{
+    The pileup distributions in data and MC.
+  }
+  \label{fig:pudist}
+\end{figure}
+
 \section{Event Selection}
 \label{sec:event_selection}
 
