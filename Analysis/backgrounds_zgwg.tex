@@ -43,7 +43,7 @@ Note that the denominator cross section includes contributions from processes wi
       $[400, 700]$ & 1.29 & 1.26 \\
       $[700, \infty)$ & 1.15 & 1.15 \\
     \end{tabular}
-    \caption{Correction factors $k^{\text{NNLO}}_{\text{QCD}}$ for \zinvg\ and \wlng\ samples.}
+    \caption{Correction factors \kqcd\ for \zinvg\ and \wlng\ samples.}
     \label{tab:zg_kfactors}
   \end{center}
 \end{table}
@@ -69,9 +69,9 @@ We apply the correction factors shown in Figure~\ref{fig:ewk_correction}, which 
 The differential cross section after the full higher-order corrections is
 \begin{equation}
   % d\sigma^{\text{NNLO, NLO}}_{\text{QCD, EW}} =
-  d\sigma^{\text{LO}}_{\text{QCD}} \cdot k^{\text{NNLO}}_{\text{QCD}} \cdot \left(1 + k_{\text{EW}}^{\text{Sudakov}} + k_{\text{EW}}^{\Pq\Pgg} \right),
+  d\sigma^{\text{LO}}_{\text{QCD}} \cdot \kqcd \cdot \left(1 + \ksudakov + \kphoton \right),
 \end{equation}
-where $k^{\text{NNLO}}_{\text{QCD}} = d\sigma^{\text{NNLO}}_{\text{QCD}} / d\sigma^{\text{LO}}_{\text{QCD}}$, and the two $k_{\text{EW}}$ terms are the Sudakov suppression and photon-induced enhancement components of the electroweak correction, respectively.
+where $\kqcd = d\sigma^{\text{NNLO}}_{\text{QCD}} / d\sigma^{\text{LO}}_{\text{QCD}}$, and the two $k_{\text{EW}}$ terms are the Sudakov suppression and photon-induced enhancement components of the electroweak correction, respectively.
 
 Furthermore, subtle differences between simulation and observation in the reconstruction and identification efficiencies for various particle candidates are accounted for with the set of selection efficiency correction factors $\rho$. 
 The value of an individual $\rho$ typically lies within a few percent of unity. 
@@ -84,8 +84,8 @@ The higher-order QCD renormalization and factorization scale uncertainties on th
 The uncertainties vary between 7-8\% across the bins and are considered uncorrelated in the ratio between the \zinvg\ and \wlng\ processes.
 
 Theoretical uncertainties on the electroweak corrections are not well understood to date.  
-We estimate the magnitude of the uncertainty on $k_{\text{EW}}^{\text{Sudakov}}$ and $k_{\text{EW}}^{\Pq\Pgg}$ to be $\left(k_{\text{EW}}^{\text{Sudakov}}\right)^2$ and $k_{\text{EW}}^{\Pq\Pgg}$, \ie, square of the correction for Sudakov suppression and the 100\% of the correction itself for the photon-induced enhancement. 
-The choice of using the square of $k_{\text{EW}}^{\text{Sudakov}}$ is motivated by the fact that fully resummed leading-log Sudakov suppression is an exponential of $k_{\text{EW}}^{\text{Sudakov}}$.
+We estimate the magnitude of the uncertainty on \ksudakov\ and \kphoton\ to be $\left(\ksudakov\right)^2$ and \kphoton, \ie, square of the correction for Sudakov suppression and the 100\% of the correction itself for the photon-induced enhancement. 
+The choice of using the square of \ksudakov\ is motivated by the fact that fully resummed leading-log Sudakov suppression is an exponential of \ksudakov.
 This prescription is motivated by discussions with J. Lindert based on the paper~\cite{}.
 
 For the Sudakov suppression, which is the dominant term in the electroweak correction, we further consider two types of systematic variations, inspired by ref.~\cite{Lindert:2017olm}, which provides a prescription for electroweak correction uncertainties for $\mathrm{V}+\text{jets}$ processes. 

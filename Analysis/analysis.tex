@@ -233,29 +233,26 @@ Beam halo is not a major background, but the extraction of its rate requires a f
 Free parameters of the fit are the yield of \zinvg\ background in each bin of the signal regions (\NZg[i]) and the overall normalization of the beam halo background ($h$). 
 Bin-by-bin yields of \wlng\ and \zllg\ samples in all regions are related to the yield of \zinvg\ through the MC prediction through the transfer factors defined in Section~\ref{sec:irreducible}. 
 The transfer factors are allowed to shift within the aforementioned theoretical and experimental uncertainties.
-
 The background-only likelihood that is maximized in the fit is
 \begin{equation}
 \begin{aligned}
-  \mathcal{L} & = \prod_{i} \left\{ \mathcal{L_{\text{signal}}} \times \mathcal{L_{\text{single-lepton}}} \times \mathcal{L_{\text{dilepton}}} \right\} \times \mathcal{L_{\text{nuisances}}} \\
+  \mathcal{L} & = \prod_{i} \Bigg\{ \mathcal{L_{\text{signal}}} \times \mathcal{L_{\text{single-lepton}}} \times \mathcal{L_{\text{dilepton}}} \Bigg\} \times \mathcal{L_{\text{nuisances}}} \\
   & = \prod_{i} \left\{
     \prod_{K=H,V} \mathcal{P}\left( d_{K, i} \left| \TK[,i] (\vec{\theta} \right.) \right) \times \prod_{\ell=\Pe,\Pgm} \mathcal{P}\left( d_{\ell\Pgg, i} \left| \Tl[,i] (\vec{\theta}) \right. \right)
     \times \prod_{\ell=\Pe,\Pgm} \mathcal{P}\left( d_{\ell\ell\Pgg, i} \left| \Tll[,i] (\vec{\theta}) \right. \right)
     \right\}  \times \prod_{j} \mathcal{N}(\theta_j) \\
   & = \prod_{i} \left\{
   \begin{gathered}
-    \prod\limits_{K=H,V} \mathcal{P}\biggl( d_{K, i} \biggl| \left(1 + {\fZW[,i]}^{-1}(\vec{\theta})\right) C_{K} \NZg[i] + h \nhalo[,i](\vec{\theta}) + C_{K} b_{K, i}(\vec{\theta}) \biggr. \biggr) \\
+    \prod\limits_{K=H,V} \mathcal{P}\biggl( d_{K, i} \biggl| C_{K} \left( \left[1 + \left(\fZW[,i](\vec{\theta})\right)^{-1}\right] \NZg[i] + b_{K, i}(\vec{\theta}) \right) + h \nhalo[,i](\vec{\theta}) \biggr. \biggr) \\
     \times \prod\limits_{\ell=\Pe,\Pgm} \mathcal{P}\biggl( d_{\ell\Pgg, i} \biggl| \frac{\NZg[i]}{\RWl[,i](\vec{\theta}) \fZW[,i] (\vec{\theta})} + b_{\ell\Pgg, i}(\vec{\theta}) \biggr. \biggr) \\
     \times \prod\limits_{\ell=\Pe,\Pgm} \mathcal{P}\biggl( d_{\ell\ell\Pgg, i} \biggl| \frac{\NZg[i]}{\RZll[,i](\vec{\theta})} + b_{\ell\ell\Pgg, i}(\vec{\theta}) \biggr. \biggr)
   \end{gathered} \right\}
   \times \prod_{j} \mathcal{N}(\theta_j),
 \end{aligned}
 \end{equation}
-following the notation introduced in Section~\ref{sec:irreducible}, and where $\mathcal{P}
-(n\vert\lambda)$ is the Poisson probability of $n$ for mean $\lambda$, $\mathcal{N}$ denotes the unit normal distribution, and $d_{X,i}$ is the observed number of events in bin i of region X.
-Systematic uncertainties are treated as nuisance parameters in the fit and are represented by
-$\vec{\theta}$.
-Each quantity $Q_{j}$ with a nominal value $\overline{Q}_{j}$ and a standard deviation of the systematic uncertainty $\sigma_{j}$ appears in the likelihood function as $\overline{Q}_{j}\exp(\sigma_{j}\theta_{j})$.
+following the notation introduced in Section~\ref{sec:irreducible}, and where $\mathcal{P}(n\vert\lambda)$ is the Poisson probability of $n$ for mean $\lambda$, $\mathcal{N}$ denotes the unit normal distribution, and $d_{K,i}$ is the observed number of events in bin $i$ of region $K$.
+Systematic uncertainties on $R_e$, $R_h$, \kqcd, \ksudakov, \kphoton, and the various scale factors $\rho$ are treated as nuisance parameters in the fit and are represented by $\vec{\theta}$. 
+Quantities such as \RZll, \RWl, \fZW, \nhalo, and $b_{K}$ appear in the likelihood function as $Q(\vec \theta) = \overline{Q} \sum\limits_{j}\exp(\sigma_{j}\theta_{j})$, where $\overline{Q}$ is the nominal value of the quantity and $\sigma_{j}$ is standard deviation of each systematic uncertainty $\theta_{j}$ on the quantity.
 
 \section{Results}
 \label{sec:results}
