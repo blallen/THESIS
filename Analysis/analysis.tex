@@ -162,14 +162,14 @@ Additionally, we apply an $\met < 60\GeV$ cut to make this region orthogonal to 
 To measure the hadron misidentification rate, a hadron proxy+jet measurement sample is formed by replacing the the EM object in the EM object+jet sample with a hadron proxy object, one for each type of hadron proxy.
 These are exactly the same as the hadron proxy samples, except that a high-\pt\ jet has replaced the high-\met, minizing the kinematic differences between the two.
 
-\section{Photon ID Efficiency Scalefactor}
+\section{Efficiencies and Scale Factors}
 \label{sec:photoneff}
 
-While we try to model the CMS detector as accurately as possible with our MC simulations, there are still differences between the behavior of photons within the simulations and those from data taken with the detector.
-Most importantly, this results in different efficiencies for photons in data dn MC, which we must measure.
-To improve our MC, we reweight it by the ratio of the efficiency in data to that in MC, known as the photon efficiency scalefactor.
+While we try to model the CMS detector as accurately as possible with our MC simulations, there are still differences between the behavior of physics objects within the simulations and those from data taken with the detector.
+Most importantly, this results in different efficiencies for photons and leptons in data and MC, which we must measure.
+To improve our MC, we reweight it by the ratio of the efficiency in data to that in MC, known as the scale factor.
 
-When measuring the photon efficiency scale factor, we factorize the photon IDinto the \egamma\ portion and the \Pgg-specific portion. 
+When measuring the scale factor for photons, we factorize the photon ID into the \egamma\ portion and the \Pgg-specific portion. 
 The \egamma\ portion of the ID consists of a collection of isolation and shower shape selections designed to reduce the hadron misidentification rate.
 We measure the efficiency of the \egamma\ portion  using the ``tag-and-probe'' (TP) method with \Zee\ events as these variables have similar efficiencies for physical electrons and photons. 
 The \Pgg-specific portion of the ID consists of the pixel seed veto and non-collision rejection cuts.
@@ -187,6 +187,45 @@ This binning was chosen based on the number of available events in data for the 
 \label{sec:pvsf}
 
 \input{Analysis/pvsf}
+
+\subsection{Lepton Veto Efficiency}
+\label{sec:lepton_veto}
+
+The lepton veto requirement in the signal region has a non-unity efficiency over events that do not have genuine leptons, because particles such as pions and protons can mimic leptons to become ``fake leptons'' and cause the event to be rejected. 
+To measure the possible difference between data and MC of this lepton veto efficiency, we compare dimuon events in data and MC. 
+In a high-purity \Zmm\  sample with the dimuon mass close to $M_{\PZ}$, events with a genuine third lepton is negligibly rare, and therefore the efficiency loss from rejecting events with a third lepton is dominantly due to fake leptons.
+
+For this measurement, collision events are taken from the SingleMuon data set and the MC events from a mixture of Drell-Yan, \ttbar, \PW\PW, \PW\PZ, and \PZ\PZ\ samples. 
+We require two muons passing the ``tight'' identification working point defined  with the mass between 61 and 121\GeV. 
+The failing category consists of events containing an additional electron or muon object that passes the loose selection criteria while the passing category consists of those without an additional lepton. 
+The efficiency is inspected as a function of number of vertices, number of jets, and $H_{\mathrm{T}}$ in the event, and in all cases data and MC are consistent as shown in Figure~\ref{fig:leptonveto_efficiencies}.
+
+\begin{figure}[tbph]
+ \centering
+  \includegraphics[width=7.5cm,height=7cm]{Calibration/Figures/leptonveto_eff_npv.pdf}
+  \includegraphics[width=7.5cm,height=7cm]{Calibration/Figures/leptonveto_eff_njet.pdf}
+  \includegraphics[width=7.5cm,height=7cm]{Calibration/Figures/leptonveto_eff_ht.pdf}
+  \includegraphics[width=7.5cm,height=7cm]{Calibration/Figures/leptonveto_eff_incl.pdf}
+  \caption{
+    Lepton veto efficiencies and data/MC scale factors as functions of $N_{\text{vtx}}$, $N_{\text{jet}}$, and $H_{\mathrm{T}}$, and the corresponding inclusive values. 
+    While dimuon and \zinvg\ samples have significantly different efficiencies, data and MC agree well within dimuon samples, giving scale factors consisten with 1 almost everywhere. 
+    This is true even when additionally requiring a high-\pt\ jet in the event, as seen in the inclusive efficiency plot. 
+    Thus, the difference between \zinvg\ and dimuon efficiencies itself is taken as the uncertainty.
+  }
+ \label{fig:leptonveto_efficiencies}
+\end{figure}
+
+It should be noted, however, that the absolute lepton veto efficiency in MC dimuon sample is significantly different from that of the \zinvg\ sample, which more closely features the properties of the signal candidate sample. 
+The full difference in the efficiencies between the dimuon and \zinvg\ samples is taken as the systematic uncertainty in the lepton veto scale factor, which is therefore $1.00 \pm 0.02$.
+
+Additionally, a small fraction of events with real leptons pass the lepton veto due to the leptons failing the loose ID requirements. 
+This effect is most relevant for \wlng\ events in the signal region and for \zllg\ events in the single lepton control regions. 
+We compute a scale factor $\text{SF}_{\text{veto}} = (1. - \epsilon_{\text{data}}) / (1. - \epsilon_{\text{MC}})$ using the data and MC efficiencies for the loose lepton IDs with a flat 1\% uncertainty for the efficiencies.
+All scale factors are consistent with unity within the uncertainties. 
+
+This veto scale factor is applied to MC events with a reconstructed lepton that fails the loose ID. 
+If there are multiple such leptons in an event, we apply the scale factor only for the hardest muon and electron. 
+After applying the scale factors, the final MC yields for \wlng\ in the signal  region and \zllg\ in the single lepton control regions change by less than 0.5\%.
 
 \section{Misidentified electrons}
 \label{sec:efake}
