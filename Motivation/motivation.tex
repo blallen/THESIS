@@ -27,7 +27,7 @@ Conversely, all fermions in non-singlet representations of \suthree\ and \sutwo\
   Right-handed down-type quark & $d_R$ & $\sfrac{-1}{3}$ & \textbf{1} & \textbf{3} \\
   \hline
   Left-handed lepton & $\ell_L$ & $\sfrac{-1}{2}$ & \textbf{2} & \textbf{1} \\
-  Right-handed charged lepton & $e_R$ & -1 & \textbf{1} & \textbf{1} \\
+  Right-handed charged lepton & $e_R$ & $-1$ & \textbf{1} & \textbf{1} \\
   Right-handed neutrino & $\nu_R$ & $\sfrac{1}{6}$ & \textbf{1} & \textbf{1} \\
 \end{tabular}
 \caption{
@@ -66,12 +66,12 @@ The strong interactions of quarks and gluons are described by quantum chromodyna
   \mathcal{L}_{\text{QCD}} = i \bar q_f^a \slashed D^{ab} q_f^b + m_f \bar q_f^a q_f^a - \frac{1}{4} G_{\mu\nu}^a G^{a,\mu\nu} + \theta \frac{g_s^2}{72\pi^2} \epsilon_{\mu\nu\rho\sigma} G^{c,\mu\nu} G^{c, \rho\sigma},
 \end{equation}
 where repeated indices are contracted.
-The $q_f^a$ are the quark-field Dirac spinors of flavor $f \in \{u,d,c,s,t,b\}$, color $a \in \{r,g,b\}$ (the basis elements of the triplet representation), and mass $m_f$.
+The $q_f^a$ are the quark-field Dirac spinors of flavor $f \in \{u,d,c,s,t,b\}$, color $a \in \{r,g,b\}$ the basis elements of the triplet representation of \suthree, and mass $m_f$.
 The first term in Equation~\ref{eqn:lqcd} contains the QCD covariant derivative
 \begin{equation}
   D_{\mu}^{ab} = \delta^{ab} \partial_\mu - i g_s \sum_{c} t_c^{ab} G_{c,\mu},
 \end{equation}
-where $g_s$ is the strong interaction coupling strength, $t_c$ are the eight $3\times3$ Hermitian traceless matrices that serve as the generators of the triplet representation of \suthree, and $G_c$ are the corresponding eight gluon fields.
+where $g_s$ is the strong interaction coupling strength with associated coupling constant $\alpha_s = \sfrac{g_s^2}{4\pi}$, $t_c$ are the eight $3\times3$ Hermitian traceless matrices that serve as the generators of the triplet representation of \suthree, and $G_c$ are the corresponding eight gluon fields.
 The third term in Equation~\ref{eqn:lqcd} contains the gluon field strength tensors
 \begin{equation}
   G_{\mu\nu}^a = \partial_\mu G_\nu^a - \partial_\nu G_\mu^a - g_s f^{abc} G_\mu^b G_\nu^C,
@@ -84,23 +84,14 @@ Experimental limits on the neutron EDM constrain the observed QCD vaccum angle $
 The Peccei-Quinn theory provides a possible explanation for this contradiction by introducing the hypothetical axion particle $a$ with the following Lagrangian % https://arxiv.org/pdf/hep-ph/0607268.pdf
 \begin{equation}
   \label{eqn:laxion}
-  \mathcal{L}_a = \frac{1}{2} \partial_\mu a \partial^\mu a + \frac{g_s^2}{72 \pi^2} \frac{a}{f_a} \epsilon_{\mu\nu\rho\sigma} G^{c,\mu\nu} G^{c, \rho\sigma}
-\end{equation},
+  \mathcal{L}_a = \frac{1}{2} \partial_\mu a \partial^\mu a + \frac{g_s^2}{72 \pi^2} \frac{a}{f_a} \epsilon_{\mu\nu\rho\sigma} G^{c,\mu\nu} G^{c, \rho\sigma},
+\end{equation}
 where $f_a$ is axion decay constant that determines its characteristic scale.
 The second term in Equation~\ref{eqn:laxion} cancels the last term in Equation~\ref{eqn:lqcd} when the axion field dynamically assumes its vacuum expectation value $\langle a \rangle = - f_a \theta$.
-The axion is a potential dark matter candidate and will be discussed further in Section~\ref{sec:dm_axion}.
+The axion is a potential dark matter candidate.
 
-\section{Hadrons}
+\section{Hadrons and Renormalization}
 \label{sec:hadrons}
-
-Free quarks and gluons are not observed in nature, only in bound states called hadrons.
-This is a consequence of two factors: color confinement and aysmptotic freedom.
-
-Color confinement is the hypothesis that colored objects are always confined to color singlet states and that no objects with non-zero color charge can propagate as free particles.
-Thus, quarks can only exist in bound states of a quark-antiquark pair or three quarks, called mesons and baryons, respectively. 
-Since gluons carry a color charge, they are confined to hadrons as well.
-Confinement is a low-energy non-pertubative phenomenon, occuring only below the QCD confinement scale \lqcd. 
-An analytic proof of color confinement does not exist currently; however, the running of the strong coupling constant $\alpha_s = \sfrac{g_s^2}{4\pi}$ provides a mechanism for it.
 
 Due to higher-order corrections to propagators in a QFT, physical quantities such as coupling constants and masses acquire a scale-dependence, where the value of the quantity changes as a function of the probed energy scale $q^2$.
 The process of recovering scale-invariance is called renormalization and ensures that any divergent terms from the higher-order corrections cancel out in the physical values.
@@ -112,29 +103,35 @@ Given the value of an arbitrary coupling constant $\alpha$ at some known scale $
 where $\Pi(q^2)$ and $\Pi(\mu^2)$ are the self-energy correction of the propagator at scales $q^2$ and $\mu^2$.
 While these individual terms are separately divergent, their difference is finite and calculable. 
 
-For values of $q^2$ and $\mu^2$ larger than the confinement scale \lqcd, the difference between the gluon self-energy corrections to one-loop order is given by 
+For values of $q^2$ and $\mu^2$ larger than the QCD confinement scale $\lqcd = 218\MeV$, the difference between the gluon self-energy corrections to one-loop order is given by 
 \begin{equation}
   \label{eqn:beta_qcd}
-  \Pi_s(q^2) - \Pi_s(\mu^2) \approx - \frac{\beta}{4\pi} \ln \left( \dfrac{q^2}{\mu^2} \right)
+  \Pi_s(q^2) - \Pi_s(\mu^2) \approx - \frac{\bqcd}{4\pi} \ln \left( \dfrac{q^2}{\mu^2} \right)
 \end{equation}
-where $\beta$ depends on the number of quark and gluon loops.
+where $\bqcd$ depends on the number of quark and gluon loops.
 For $N_c$ colors and $N_f$ quark flavors with mass below $\abs q$,
 \begin{equation}
-  \beta = \frac{11 N_c - 2 N_f}{12 \pi}. 
+  \bqcd = \frac{11 N_c - 2 N_f}{12 \pi}. 
 \end{equation}
-In the Standard Model, $N_c = 3$ and $N_f \le 6$ regardless of energy, thus $\beta$ is always positive.
+In the Standard Model, $N_c = 3$ and $N_f \le 6$ regardless of energy, thus \bqcd\ is always positive.
 Combining Equations~\ref{eqn:rge} and~\ref{eqn:beta_qcd}, the evolution of $\alpha_s$ is given by
 \begin{equation}
   \label{eqn:alpha_s}
-  \alpha_s (q^2) = \frac{\alpha_s(\mu^2)}{1 + \beta \alpha_s (\mu^2) \ln \left( \dfrac{q^2}{\mu^2} \right)} \approx \frac{1}{\beta \ln \left( \dfrac{q^2}{\lqcd^2} \right)}
+  \alpha_s (q^2) = \frac{\alpha_s(\mu^2)}{1 + \bqcd \alpha_s (\mu^2) \ln \left( \dfrac{q^2}{\mu^2} \right)} \approx \frac{1}{\beta \ln \left( \dfrac{q^2}{\lqcd^2} \right)}
 \end{equation}
 for a sufficiently large energy scale $q^2 \gg \lqcd^2$.
-Through electron-positron collisions, the value of $\alpha_s$ at the $Z$-pole has been measured to be $\alpha_s (m_Z^2) = 0.1181 \pm 0.0011$ with a corresponding confinement scale of $\lqcd = 218\MeV$.  
+Through electron-positron collisions, the value of $\alpha_s$ at the $Z$-pole has been measured to be $\alpha_s (m_Z^2) = 0.1181 \pm 0.0011$.
 
 From Equation~\ref{eqn:alpha_s}, we see that $\alpha_s$ decreases with increasing $q^2$.
 At $\abs q \sim 1\GeV$, the value of $\alpha_s$ is of $\mathcal{O}(1)$ confining quarks and gluons to hadrons in a strongly-bound non-perturbative state.
-However, $\abs q \gtrsim 100\GeV$, we have $\alpha_s \approx 0.1$ which is small eneough that perturbation theory can be used and quarks can be treated as quasi-free particles.
+However, $\abs q \gtrsim 100\GeV$, we have $\alpha_s \approx 0.1$ which is small enough that perturbation theory can be used and quarks can be treated as quasi-free particles.
 This property of QCD is known as asymptotic freedom.
+
+Below the confinement scale \lqcd, colored objects are always confined to color singlet states and no objects with non-zero color charge propagate as free particles.
+This low-energy non-pertubative phenomenon is known as color confinement.
+Thus, free quarks and gluons are not observed in nature, only in colorless bound states called hadrons.
+The most common states consist of a quark-antiquark pair or three quarks, called mesons and baryons, respectively.
+Rarer pentaquark states have recently been found by the LHCb collaboration.
 
 \section{Electroweak Interactions}
 \label{sec:ewk}
@@ -157,17 +154,8 @@ The first term in Equation~\ref{eqn:lewk} contains the EWK covariant derivative
 where $g'$ is the coupling strength for \uone,
 $Y$ is the \uone\ hypercharge of the fermion field,
 and $\vec T$ are the generators of the doublet representation of \sutwo.
-The generators can be written in terms of the Pauli spin matrices $\vec T = \vec \sigma / 2$ and only have non-zero action on left-handed particles. %  and right-handed antiparticles.
-% and $\delta_L$ is 1 if the fermion field is left-handed and 0 if it is right-handed.
+The generators can be written in terms of the Pauli spin matrices $\vec T = \vec \sigma / 2$ and only have non-zero action on left-handed particles. 
 The values of the hypercharge $Y$ shown in Table~\ref{tab:fermions} are chosen such that the physical electric charge of each fermion is given by $Q =  T_3 + Y$.
-
-Notice that Equation~\ref{eqn:lewk} does not contain a Dirac mass term like that found in Equation~\ref{eqn:lqcd}.
-This is because the term
-\begin{equation}
-  m \bar \psi \psi = m \left( \bar \psi_L \psi_R + \bar \psi_R \psi_L \right)
-\end{equation}
-mixes the left-handed and right-handed fermions leading to a Lagrangian that is no longer invariant under \sutwo.
-As the observed fermions are not massless, the Lagrangian given in Equation~\ref{eqn:lewk} is incomplete and an additional mechanism needs to be introduced to produce non-zero fermion masses.
 
 \section{Electroweak Symmetry Breaking}
 \label{sec:ewsb}
@@ -223,12 +211,19 @@ We can also expand Equation~\ref{eqn:ewsb} about the vev giving us the following
 \end{align}
 where $m_H = \mu \sqrt{2} $.
 Thus, we see that the real Higgs field $H$ has trilinear and quartic couplings to itself and the weak gauge bosons with coupling strengths proportional to the mass squared of the appropriate boson.
-This suggests a way to introduce fermion masses through the Higgs field.
 
 \section{Fermion Masses}
 \label{sec:yukawa}
 
-Introducing Yukawa couplings between the complex Higgs field $\phi$ and the SM fermion fields enables us to add mass terms for the fermions.
+Notice that Equation~\ref{eqn:lewk} does not contain a Dirac mass term like that found in Equation~\ref{eqn:lqcd}.
+This is because the term
+\begin{equation}
+  m \bar \psi \psi = m \left( \bar \psi_L \psi_R + \bar \psi_R \psi_L \right)
+\end{equation}
+mixes the left-handed and right-handed fermions leading to a Lagrangian that is no longer invariant under \sutwo.
+As the observed fermions are not massless, the Lagrangian given in Equation~\ref{eqn:lewk} is incomplete.
+Thankfully, introducing Yukawa couplings between the complex Higgs field $\phi$ and the SM fermion fields provides an economical way to add mass terms for the fermions.
+
 First, we start with the terms for charged leptons,
 \begin{equation}
   \label{eqn:lyuk}
@@ -269,7 +264,7 @@ Writing this in terms of the mass eigenstates we have
   & = - \frac{g}{2\sqrt{2}} \left( \bar{u}_L  T^+ \slashed W^+ \vckm \tilde{d}_L + \bar{\tilde{d}}_L T^- \slashed W^- \vckm^\dagger u_L \right),
 \end{align}
 where $\vckm = U^{u\dagger}_L U^d_L$ is the Cabibbo-Kaboyshi-Maskawa matrix and $u_L = \tilde{u}_L$ by construction.
-The CKM matrix is unitary with four free parameters, the mixing angles between quark generations $\phi_{12} = 13.1$, $\phi_{23}$, and $\phi_{13}$ as well as a CP-violating phase $\delta$.
+The CKM matrix is unitary with four free parameters, the mixing angles between quark generations $\phi_{12}$, $\phi_{23}$, and $\phi_{13}$ as well as a CP-violating phase $\delta$.
 In terms of these parameters, the CKM matrix is
 \begin{equation}
   \vckm = \begin{pmatrix} c_{12} & s_{12} & 0 \\ - s_{12} & c_{12} & 0 \\ 0 & 0 & 1 \end{pmatrix}
