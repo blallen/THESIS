@@ -125,7 +125,17 @@ Combining Equations~\ref{eqn:rge} and~\ref{eqn:beta_qcd}, the evolution of $\alp
 for a sufficiently large energy scale $q^2 \gg \lqcd^2$.
 Through electron-positron collisions, the value of $\alpha_s$ at the $Z$-pole has been measured to be $\alpha_s (m_Z^2) = 0.1181 \pm 0.0011$~\cite{PDG2018}.
 
-From Equation~\ref{eqn:alpha_s}, we see that $\alpha_s$ decreases with increasing $q^2$.
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.5\textwidth]{Motivation/Figures/asq-2015.eps}
+  \caption{
+    Running of $\alpha_s$ as a function of energy.
+    Reprinted from Reference~\cite{PDG2018}.
+  }
+  \label{fig:aqcd}
+\end{figure}
+
+From Equation~\ref{eqn:alpha_s}, we see that $\alpha_s$ decreases with increasing $q^2$ as shown in Figure~\ref{fig:aqcd}.
 At $\abs q \sim 1\GeV$, the value of $\alpha_s$ is of $\mathcal{O}(1)$ confining quarks and gluons to hadrons in a strongly-bound non-perturbative state.
 However, $\abs q \gtrsim 100\GeV$, we have $\alpha_s \approx 0.1$ which is small enough that perturbation theory can be used and quarks can be treated as quasi-free particles.
 This property of QCD is known as asymptotic freedom~\cite{Wilczek1973}.
@@ -161,19 +171,18 @@ The generators can be written in terms of the Pauli spin matrices $\vec T = \vec
 The values of the hypercharge $Y$ shown in Table~\ref{tab:fermions} are chosen such that the physical electric charge of each fermion is given by $Q =  T_3 + Y$.
 
 However, this theory of the electroweak interactions is not sufficient to explain the observed behavior of the weak force.
-Equation~\ref{eqn:lewk} contains three massless gauge bosons for the weak charge and one massless gauge boson for hypercharge, but experimentally three massive weak gauge bosons and one massless photon have been observed. 
-Introducing explicit mass terms of the form $-m_W^2 W_\mu W^\mu$ to the Lagrangian breaks the \sutwo\ gauge invariance as well as making the theory non-renormalizable. 
-Spontaneous breaking of the \sutwo\ gauge invariance provides the mechanism we need to provide mass to the weak gauge bosons while maintaining the underlying symmetries and gauge invariance of Equation~\ref{eqn:lewk}.
+Equation~\ref{eqn:lewk} contains three massless gauge bosons for weak isopsin and one massless gauge boson for hypercharge, but experimentally three massive weak gauge bosons and one massless photon have been observed. 
+Introducing explicit mass terms of the form $-m_W^2 W_\mu W^\mu$ to the Lagrangian breaks the \sutwo\ gauge invariance and makes the theory non-renormalizable. 
+Spontaneous breaking of the \sutwo\ gauge invariance provides the mechanism we need to provide mass to the weak gauge bosons without breaking gauge invariance.
 
 \section{Electroweak Symmetry Breaking}
 \label{sec:ewsb}
 
 The development of a dynamical photon mass in the Bardeen-Cooper-Schrieffer theory of superconductivity~\cite{Bardeen1957} provided the template for spontaneous symmetry breaking in the electroweak sector.
-Such spontaneous symmetry breaking occurs when the vacuum is degenerate with none of the possible ground states exhibiting the symmetry of the underlying theory~\cite{Nambu1960, Anderson1963}.
+Spontaneous symmetry breaking occurs when the vacuum is degenerate with none of the possible ground states exhibiting the symmetry of the underlying theory~\cite{Nambu1960, Anderson1963}.
 However, as a consequence of the Nambu-Goldstone theorem~\cite{Goldstone1961, Goldstone1962}, massless spin-0 bosons appear after spontaneous symmetry breaking but no such particles are observed in nature.
-Fortunately, Brout, Englert, and Higgs as well as Guralnik, Hagen, and Kibble discovered that when an additional field is used to break a gauge symmetry, the gauge bosons acquire a nonzero mass by absorbing the Nambu-Goldstone bosons~\cite{Brout1964, Higgs1964a, Higgs1964b, Higgs1966, Guralnik1964, Kibble1967}. 
-Building upon these ideas, Glashow, Weinberg, and Salam developed a theory of electroweak unification~\cite{Glashow1961, Weinberg1967, Salam1968} that explained the observed massive weak bosons in terms of the massless bosons from Equation~\ref{eqn:lewk}.
-Finally, t'Hooft and Veltman proved that this model is renormalizable~\cite{tHooft1972}.
+Fortunately, Brout, Englert, and Higgs as well as Guralnik, Hagen, and Kibble discovered that when an additional field is used to break a gauge symmetry, the gauge bosons acquire a nonzero mass by absorbing the Nambu-Goldstone bosons~\cite{Brout1964, Higgs1964a, Higgs1964b, Higgs1966, Guralnik1964, Kibble1967}.
+Building upon these ideas, Glashow, Weinberg, and Salam developed a theory of electroweak unification~\cite{Glashow1961, Weinberg1967, Salam1968} that explained the observed massive weak bosons and t'Hooft and Veltman proved it was renormalizable~\cite{tHooft1972}.
 We shall walk through the key points of these developments now.
 
 The \sutwo\ symmetry is broken by introducing a left-handed complex scalar doublet $\phi$ with $Y_\phi = \sfrac{1}{2}$ to the Lagrangian in the following manner
