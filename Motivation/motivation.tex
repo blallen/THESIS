@@ -22,13 +22,13 @@ Conversely, all fermions in non-singlet representations of \suthree\ and \sutwo\
 \begin{tabular}{ l|c|c|c|c }
   Name & Symbol & $Y$ & \sutwo\ rep. & \suthree\ rep. \\
   \hline
-  Left-handed quark & $q_L$ & $\sfrac{1}{6}$ & \textbf{2} & \textbf{3} \\
-  Right-handed up-type quark & $u_R$ & $\sfrac{2}{3}$ & \textbf{1} & \textbf{3} \\
-  Right-handed down-type quark & $d_R$ & $\sfrac{-1}{3}$ & \textbf{1} & \textbf{3} \\
+  Left-handed quark & $q_L$ & \sfrac{1}{6} & \textbf{2} & \textbf{3} \\
+  Right-handed up-type quark & $u_R$ & \sfrac{2}{3} & \textbf{1} & \textbf{3} \\
+  Right-handed down-type quark & $d_R$ & \sfrac{-1}{3} & \textbf{1} & \textbf{3} \\
   \hline
-  Left-handed lepton & $\ell_L$ & $\sfrac{-1}{2}$ & \textbf{2} & \textbf{1} \\
+  Left-handed lepton & $\ell_L$ & \sfrac{-1}{2} & \textbf{2} & \textbf{1} \\
   Right-handed charged lepton & $e_R$ & $-1$ & \textbf{1} & \textbf{1} \\
-  Right-handed neutrino & $\nu_R$ & $\sfrac{1}{6}$ & \textbf{1} & \textbf{1} \\
+  Right-handed neutrino & $\nu_R$ & \sfrac{1}{6} & \textbf{1} & \textbf{1} \\
 \end{tabular}
 \caption{
   The categories of SM fermions and the action of the SM local gauge symmetry group $G_{\text{SM}}$.
@@ -71,7 +71,7 @@ The first term in Equation~\ref{eqn:lqcd} contains the QCD covariant derivative
 \begin{equation}
   D_{\mu}^{ab} = \delta^{ab} \partial_\mu - i g_s \sum_{c} t_c^{ab} G_{c,\mu},
 \end{equation}
-where $g_s$ is the strong interaction coupling strength with associated coupling constant $\alpha_s = \sfrac{g_s^2}{4\pi}$, $t_c$ are the eight $3\times3$ Hermitian traceless matrices that serve as the generators of the triplet representation of \suthree, and $G_c$ are the corresponding eight gluon fields.
+where $g_s$ is the strong interaction coupling strength with associated coupling constant $\alpha_s = g_s^2/(4\pi)$, the $t_c$ are the eight $3\times3$ Hermitian traceless matrices that serve as the generators of the triplet representation of \suthree, and the $G_c$ are the corresponding eight gluon fields.
 The third term in Equation~\ref{eqn:lqcd} contains the gluon field strength tensors
 \begin{equation}
   G_{\mu\nu}^a = \partial_\mu G_\nu^a - \partial_\nu G_\mu^a - g_s f^{abc} G_\mu^b G_\nu^C,
@@ -157,10 +157,23 @@ and $\vec T$ are the generators of the doublet representation of \sutwo.
 The generators can be written in terms of the Pauli spin matrices $\vec T = \vec \sigma / 2$ and only have non-zero action on left-handed particles. 
 The values of the hypercharge $Y$ shown in Table~\ref{tab:fermions} are chosen such that the physical electric charge of each fermion is given by $Q =  T_3 + Y$.
 
+However, this theory of the electroweak interactions is not sufficient to explain the observed behavior of the weak force.
+Equation~\ref{eqn:lewk} contains three massless gauge bosons for the weak charge and one massless gauge boson for hypercharge, but experimentally three massive weak gauge bosons and one massless photon have been observed. 
+Introducing explicit mass terms of the form $-m_W^2 W_\mu W^\mu$ to the Lagrangian breaks the \sutwo\ gauge invariance as well as making the theory non-renormalizable. 
+Spontaneous breaking of the \sutwo\ gauge invariance provides the mechanism we need to provide mass to the weak gauge bosons while maintaining the underlying symmetries and gauge invariance of Equation~\ref{eqn:lewk}.
+
 \section{Electroweak Symmetry Breaking}
 \label{sec:ewsb}
 
-Spontaneous electroweak symmetry breaking provides the mechanism we need, as well as providing masses to the weak gauge bosons. The \sutwo\ symmetry is broken by introducing a left-handed complex scalar doublet $\phi$ with $Y_\phi = \sfrac{1}{2}$ to the Lagrangian in the following manner
+The development of a dynamical photon mass in the Bardeen-Cooper-Schrieffer theory of superconductivity~\cite{} provided the template for spontaneous symmetry breaking in the electroweak sector.
+Such spontaneous symmetry breaking occurs when the vacuum is degenerate with none of the possible ground states exhibiting the symmetry of the underlying theory.
+However, as a consequence of the Goldstone theorem~\cite{}, massless spin-0 Nambu-Goldstone bosons appear after spontaneous symmetry breaking but no such particles are observed in nature.
+Fortunately, Brout, Englert, and Higgs as well as Guralnik, Hagen, and Kibble discovered that when an additional field is used to break a gauge symmetry, the gauge bosons acquire a nonzero mass by absorbing the Nambu-Goldstone bosons. 
+Building upon these ideas, Glashow, Weinberg, and Salam developed a theory of electroweak unification~\cite{} that explained the observed massive weak bosons in terms of the massless bosons from Equation~\ref{eqn:lewk}.
+Finally, t'Hooft and Veltman proved that this model is renormalizable~\cite{}.
+We shall walk through the key points of these developments in the remainder of this section.
+
+The \sutwo\ symmetry is broken by introducing a left-handed complex scalar doublet $\phi$ with $Y_\phi = \sfrac{1}{2}$ to the Lagrangian in the following manner
 \begin{equation}
   \label{eqn:ewsb}
   \mathcal{L}_{\text{EWK}} \mapsto \mathcal{L}_{\text{EWK}} + \left|D_\mu \phi \right|^2 + \mu^2 \phi^2 - \lambda \left| \phi \right|^4 .
@@ -173,14 +186,13 @@ Fortunately, the two self-interaction terms create a Higgs potential with a dege
 \begin{equation}
   v \equiv \langle | \phi | \rangle = \sqrt{ \frac{\mu^2}{\lambda}},
 \end{equation}
-and through gauge rotations we set $\langle \phi_{1,2,4} \rangle = 0$, removing three degrees of freedom and producing three massless Nambu-Goldstone bosons.
+and through gauge rotations we set $\langle \phi_{1,2,4} \rangle = 0$, removing three degrees of freedom and producing the three massless Nambu-Goldstone bosons.
 The remaining degree of freedom is the real Higgs field $H$ which expresses small peturbations around the vev in the third component of the complex Higgs field $\phi_3 = v + H$.
 
 The kinetic term in Equation~\ref{eqn:ewsb} couples the complex Higgs field to the EWK gauge bosons as follows at the vev
 \begin{equation}
   \left| D_\mu \phi \right|^2 = \frac{v^2}{8} \left[ \left(g W_\mu^1 \right)^2 + \left(g W_\mu^2 \right)^2 + \left(g' B_\mu - g W_\mu^3 \right)^2 \right].
 \end{equation}
-
 Diagonalizing this term gives rise to the three massive weak bosons and the massless photon that we observe in nature:
 \begin{equation}
   \begin{matrix}[l | l]
@@ -192,8 +204,8 @@ Diagonalizing this term gives rise to the three massive weak bosons and the mass
     & m_A = 0,
   \end{matrix}
 \end{equation}
-where $\tan \thetaw = g'/g$.
-With this, we rewrite Equation~\ref{eqn:lewk} in terms of the observed electromagnetic, charged weaked, and neutral weak currents as follows:
+where $\tan \thetaw = g'/g$ and $\cos \thetaw = m_W / m_Z$.
+With this, we rewrite Equation~\ref{eqn:lewk} in terms of the observed electromagnetic (EM), charged weaked (CC), and neutral weak (NC) currents as follows:
 \begin{align}
   \label{eqn:lewsb}
   \mathcal{L}_{\text{EWK}} % &= \mathcal{L}_{\text{EM}} + \mathcal{L}_{\text{CC}} + \mathcal{L}_{\text{NC}} \nonumber \\
@@ -201,8 +213,7 @@ With this, we rewrite Equation~\ref{eqn:lewk} in terms of the observed electroma
   & - \frac{g}{2\sqrt{2}} \bar \psi_i \left( T^+ \slashed W^+ + T^- \slashed W^- \right) \psi_i - \frac{1}{2} m_W^2 W_\mu^+ W^{-\mu} \nonumber \\
    & - \frac{g}{2 \cos \thetaw} \bar \psi_i (g_V - g_A \gamma^5) \slashed Z \psi_i - \frac{1}{2} m_Z^2 Z_\mu Z^\mu, 
 \end{align}
-where $e = g' \cos \thetaw$ is the charge of the electron, $T^\pm = (T_1 \mp i T_2)/\sqrt{2}$ are the weak isospin raising and lowering operators, and $g_V = T_3$ and $g_A = T_3 - 2 Q \sin^2 \thetaw$ are the vector and axial-vector couplings for the neutral weak current.
-
+where $e = g' \cos \thetaw$ is the charge of the electron with associated coupling constant $\alpha = e^2/(4\pi)$, $T^\pm = (T_1 \mp i T_2)/\sqrt{2}$ are the weak isospin raising and lowering operators, and $g_V = T_3$ and $g_A = T_3 - 2 Q \sin^2 \thetaw$ are the vector and axial-vector couplings for the neutral weak current.
 We can also expand Equation~\ref{eqn:ewsb} about the vev giving us the following Higgs Lagrangian
 \begin{align}
   \mathcal{L}_H = \frac{1}{2} \partial_\mu H \partial^\mu H - \frac{1}{2} m_H^2 H^2
@@ -215,7 +226,7 @@ Thus, we see that the real Higgs field $H$ has trilinear and quartic couplings t
 \section{Fermion Masses}
 \label{sec:yukawa}
 
-Notice that Equation~\ref{eqn:lewk} does not contain a Dirac mass term like that found in Equation~\ref{eqn:lqcd}.
+Notice that Equation~\ref{eqn:lewsb} does not contain a Dirac mass term like that found in Equation~\ref{eqn:lqcd}.
 This is because the term
 \begin{equation}
   m \bar \psi \psi = m \left( \bar \psi_L \psi_R + \bar \psi_R \psi_L \right)
@@ -297,10 +308,12 @@ it is known that the sum of the neutrino masses is less than one eV.
   $\sin^2 \theta_{13}$ & PMNS 13-mixing angle    & 0.0214 \\
   $\delta'$            & PMNS CP-violating phase & 1.35 \\
   \hline
-  $g_s$ & \suthree\ coupling constant    & 1.221 \\
-  $g$   & \sutwo\ coupling constant      & 0.652 \\
-  $g'$  & \uone\ coupling constant       & 0.357 \\
-  $v$   & Higgs vacuum expectation value & 246\GeV \\
+  $\alpha_s$ & QCD coupling constant & 0.1181 \\
+  $\alpha$ & EM coupling constant & 1/137.036 \\
+  % $g_s$ & \suthree\ coupling constant    & 1.221 \\
+  % $g$   & \sutwo\ coupling constant      & 0.652 \\
+  % $g'$  & \uone\ coupling constant       & 0.357 \\
+  % $v$   & Higgs vacuum expectation value & 246\GeV \\
   \hline
   $\theta$ & QCD vacuum angle & $< 10^{-10}$ 
 \end{tabular}
@@ -309,13 +322,15 @@ it is known that the sum of the neutrino masses is less than one eV.
 \end{table}
 
 The Standard Model has a total of 26 free parameters and 17 physical particles.
-The parameters are  
+The parameters are
 the twelve Yukawa couplings for the fermions,
 the four parameters of the CKM matrix,
 the four parameters of the PMNS matrix,
-the three coupling constants $g_s$, $g$, and $g'$,
-the Higgs vacuum expectation value $v$,
-the Higgs mass $m_H$,
+% the three coupling constants $g_s$, $g$, and $g'$,
+% the Higgs vacuum expectation value $v$,
+the two coupling constants $\alpha_s$ and $\alpha$,
+the masses of the weak gauge bosons $m_W$ and $m_Z$,
+the mass of the Higgs boson $m_H$,
 and the QCD vacuum angle $\theta$.
 The best fit values of the SM parameters, excluding masses, are summarized in Table~\ref{tab:sm_params}.
 
@@ -332,11 +347,11 @@ The best fit values of the SM parameters, excluding masses, are summarized in Ta
   bottom quark & $b$ & \sfrac{1}{2} & \sfrac{-1}{3} & 4.18\GeV \\
   \hline
   electron neutrino & $\nu_e$ & \sfrac{1}{2} & 0 & - \\
-  electron & $e$ & \sfrac{1}{2} & -1 & 511\keV \\
+  electron & $e$ & \sfrac{1}{2} & $-1$ & 511\keV \\
   muon neutrino & $\nu_\mu$ & \sfrac{1}{2} & 0 & - \\
-  muon & $\mu$ & \sfrac{1}{2} & -1 & 105\MeV \\
+  muon & $\mu$ & \sfrac{1}{2} & $-1$ & 105\MeV \\
   tau neutrino & $\nu_\tau$ & \sfrac{1}{2} & 0 & - \\
-  tau & $\tau$ & \sfrac{1}{2} & -1 & 1.78\GeV \\
+  tau & $\tau$ & \sfrac{1}{2} & $-1$ & 1.78\GeV \\
   \hline
   gluon & g & 1 & 0 & 0 \\
   photon & $\gamma$ & 1 & 0 & 0 \\
