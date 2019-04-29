@@ -2,6 +2,9 @@
 \label{sec:sm}
 
 The Standard Model (SM) of particle physics describes the physical properties and dynamics of fermions, the fundamental constituents of matter, and their interactions in the language of a Lorentz-invariant quantum field theory (QFT).
+The discussion of the SM in this chapter is heavily indebted to the book \textit{Modern Particle Physics} by Mark Thomson~\cite{thomson}, in both organization and content.
+Additional references are included where necessary.
+
 The Standard Model consists of a set of fermion fields, shown in Table~\ref{tab:fermions}, and the local gauge symmetry group that acts on them
 \begin{equation}
   G_{\text{SM}} = \suthree \times \sutwo \times \uone,
@@ -60,7 +63,7 @@ Quarks also exist in a strong triplet, which will be denoted with a superscript 
 \section{Strong Interactions}
 \label{sec:qcd}
 
-The strong interactions of quarks and gluons are described by quantum chromodynamics (QCD), with the Lagrangian
+The strong interactions of quarks and gluons are described by quantum chromodynamics (QCD)~\cite{Gross1973, Politzer1973}, with the Lagrangian
 \begin{equation}
   \label{eqn:lqcd}
   \mathcal{L}_{\text{QCD}} = i \bar q_f^a \slashed D^{ab} q_f^b + m_f \bar q_f^a q_f^a - \frac{1}{4} G_{\mu\nu}^a G^{a,\mu\nu} + \theta \frac{g_s^2}{72\pi^2} \epsilon_{\mu\nu\rho\sigma} G^{c,\mu\nu} G^{c, \rho\sigma},
@@ -80,17 +83,17 @@ where $f^{abc}$ are the structure constants of \suthree.
 The non-Abelian structure of the \suthree\ group allows for 3-gluon and 4-gluon interactions in addition to the quark-antiquark-gluon interactions.
 
 The last term in Equation~\ref{eqn:lqcd} violates CP conservation and produces a non-zero electric dipole moment (EDM) for the neutron.
-Experimental limits on the neutron EDM constrain the observed QCD vaccum angle $\theta$ to be smaller than $10^{-10}$.
-The Peccei-Quinn theory provides a possible explanation for this contradiction by introducing the hypothetical axion particle $a$ with the following Lagrangian % https://arxiv.org/pdf/hep-ph/0607268.pdf
+Experimental limits on the neutron EDM constrain the observed QCD vaccum angle $\theta$ to be smaller than $10^{-10}$~\cite{PDG2018}.
+The Peccei-Quinn theory~\cite{Quinn1977, Peccei2008} provides a possible explanation for this contradiction by introducing the hypothetical axion particle $a$ with the following Lagrangian
 \begin{equation}
   \label{eqn:laxion}
-  \mathcal{L}_a = \frac{1}{2} \partial_\mu a \partial^\mu a + \frac{g_s^2}{72 \pi^2} \frac{a}{f_a} \epsilon_{\mu\nu\rho\sigma} G^{c,\mu\nu} G^{c, \rho\sigma},
+  \mathcal{L}_a = \frac{1}{2} \partial_\mu a \partial^\mu a + \frac{a}{f_a} \frac{g_s^2}{72 \pi^2} \epsilon_{\mu\nu\rho\sigma} G^{c,\mu\nu} G^{c, \rho\sigma},
 \end{equation}
 where $f_a$ is axion decay constant that determines its characteristic scale.
 The second term in Equation~\ref{eqn:laxion} cancels the last term in Equation~\ref{eqn:lqcd} when the axion field dynamically assumes its vacuum expectation value $\langle a \rangle = - f_a \theta$.
 The axion is a potential dark matter candidate.
 
-\section{Hadrons and Renormalization}
+\section{Renormalization and Hadrons}
 \label{sec:hadrons}
 
 Due to higher-order corrections to propagators in a QFT, physical quantities such as coupling constants and masses acquire a scale-dependence, where the value of the quantity changes as a function of the probed energy scale $q^2$.
@@ -120,23 +123,23 @@ Combining Equations~\ref{eqn:rge} and~\ref{eqn:beta_qcd}, the evolution of $\alp
   \alpha_s (q^2) = \frac{\alpha_s(\mu^2)}{1 + \bqcd \alpha_s (\mu^2) \ln \left( \dfrac{q^2}{\mu^2} \right)} \approx \frac{1}{\beta \ln \left( \dfrac{q^2}{\lqcd^2} \right)}
 \end{equation}
 for a sufficiently large energy scale $q^2 \gg \lqcd^2$.
-Through electron-positron collisions, the value of $\alpha_s$ at the $Z$-pole has been measured to be $\alpha_s (m_Z^2) = 0.1181 \pm 0.0011$.
+Through electron-positron collisions, the value of $\alpha_s$ at the $Z$-pole has been measured to be $\alpha_s (m_Z^2) = 0.1181 \pm 0.0011$~\cite{PDG2018}.
 
 From Equation~\ref{eqn:alpha_s}, we see that $\alpha_s$ decreases with increasing $q^2$.
 At $\abs q \sim 1\GeV$, the value of $\alpha_s$ is of $\mathcal{O}(1)$ confining quarks and gluons to hadrons in a strongly-bound non-perturbative state.
 However, $\abs q \gtrsim 100\GeV$, we have $\alpha_s \approx 0.1$ which is small enough that perturbation theory can be used and quarks can be treated as quasi-free particles.
-This property of QCD is known as asymptotic freedom.
+This property of QCD is known as asymptotic freedom~\cite{Wilczek1973}.
 
 Below the confinement scale \lqcd, colored objects are always confined to color singlet states and no objects with non-zero color charge propagate as free particles.
 This low-energy non-pertubative phenomenon is known as color confinement.
-Thus, free quarks and gluons are not observed in nature, only in colorless bound states called hadrons.
+Thus, free quarks and gluons are not observed in nature, only in colorless bound states called hadrons~\cite{Gellmann1964}.
 The most common states consist of a quark-antiquark pair or three quarks, called mesons and baryons, respectively.
-Rarer pentaquark states have recently been found by the LHCb collaboration.
+Rarer pentaquark states have recently been found by the LHCb collaboration~\cite{LHCb2015}.
 
 \section{Electroweak Interactions}
 \label{sec:ewk}
 
-The electroweak interactions of fermions are described by $\sutwo \times \uone$ gauge group, with the Lagrangian
+The electroweak interactions of fermions are described by the $\sutwo \times \uone$ gauge group~\cite{Glashow1961, Weinberg1967, Salam1968}, with the Lagrangian
 \begin{equation}
   \label{eqn:lewk}
   \mathcal{L}_{\text{EWK}} = i \bar \psi_i \slashed D \psi_i - \frac{1}{4} \vec W_{\mu\nu} \cdot \vec W^{\mu\nu} - \frac{1}{4} B_{\mu\nu} B^{\mu\nu}
@@ -165,13 +168,13 @@ Spontaneous breaking of the \sutwo\ gauge invariance provides the mechanism we n
 \section{Electroweak Symmetry Breaking}
 \label{sec:ewsb}
 
-The development of a dynamical photon mass in the Bardeen-Cooper-Schrieffer theory of superconductivity~\cite{} provided the template for spontaneous symmetry breaking in the electroweak sector.
-Such spontaneous symmetry breaking occurs when the vacuum is degenerate with none of the possible ground states exhibiting the symmetry of the underlying theory.
-However, as a consequence of the Goldstone theorem~\cite{}, massless spin-0 Nambu-Goldstone bosons appear after spontaneous symmetry breaking but no such particles are observed in nature.
-Fortunately, Brout, Englert, and Higgs as well as Guralnik, Hagen, and Kibble discovered that when an additional field is used to break a gauge symmetry, the gauge bosons acquire a nonzero mass by absorbing the Nambu-Goldstone bosons. 
-Building upon these ideas, Glashow, Weinberg, and Salam developed a theory of electroweak unification~\cite{} that explained the observed massive weak bosons in terms of the massless bosons from Equation~\ref{eqn:lewk}.
-Finally, t'Hooft and Veltman proved that this model is renormalizable~\cite{}.
-We shall walk through the key points of these developments in the remainder of this section.
+The development of a dynamical photon mass in the Bardeen-Cooper-Schrieffer theory of superconductivity~\cite{Bardeen1957} provided the template for spontaneous symmetry breaking in the electroweak sector.
+Such spontaneous symmetry breaking occurs when the vacuum is degenerate with none of the possible ground states exhibiting the symmetry of the underlying theory~\cite{Nambu1960, Anderson1963}.
+However, as a consequence of the Nambu-Goldstone theorem~\cite{Goldstone1961, Goldstone1962}, massless spin-0 bosons appear after spontaneous symmetry breaking but no such particles are observed in nature.
+Fortunately, Brout, Englert, and Higgs as well as Guralnik, Hagen, and Kibble discovered that when an additional field is used to break a gauge symmetry, the gauge bosons acquire a nonzero mass by absorbing the Nambu-Goldstone bosons~\cite{Brout1964, Higgs1964a, Higgs1964b, Higgs1966, Guralnik1964, Kibble1967}. 
+Building upon these ideas, Glashow, Weinberg, and Salam developed a theory of electroweak unification~\cite{Glashow1961, Weinberg1967, Salam1968} that explained the observed massive weak bosons in terms of the massless bosons from Equation~\ref{eqn:lewk}.
+Finally, t'Hooft and Veltman proved that this model is renormalizable~\cite{tHooft1972}.
+We shall walk through the key points of these developments now.
 
 The \sutwo\ symmetry is broken by introducing a left-handed complex scalar doublet $\phi$ with $Y_\phi = \sfrac{1}{2}$ to the Lagrangian in the following manner
 \begin{equation}
@@ -186,7 +189,7 @@ Fortunately, the two self-interaction terms create a Higgs potential with a dege
 \begin{equation}
   v \equiv \langle | \phi | \rangle = \sqrt{ \frac{\mu^2}{\lambda}},
 \end{equation}
-and through gauge rotations we set $\langle \phi_{1,2,4} \rangle = 0$, removing three degrees of freedom and producing the three massless Nambu-Goldstone bosons.
+and through gauge rotations we set $\langle \phi_{1,2,4} \rangle = 0$, removing three degrees of freedom and producing three massless Nambu-Goldstone bosons.
 The remaining degree of freedom is the real Higgs field $H$ which expresses small peturbations around the vev in the third component of the complex Higgs field $\phi_3 = v + H$.
 
 The kinetic term in Equation~\ref{eqn:ewsb} couples the complex Higgs field to the EWK gauge bosons as follows at the vev
@@ -274,7 +277,7 @@ Writing this in terms of the mass eigenstates we have
   % & = - \frac{g}{2\sqrt{2}} \left( \bar{\tilde{u}}_L U^{u\dagger}_L T^+ \slashed W^+ U^d_L \tilde{d}_L + \bar{\tilde{d}}_L U^{d\dagger}_L T^- \slashed W^- U^u_L \tilde{u}_L \right) \nonumber \\
   & = - \frac{g}{2\sqrt{2}} \left( \bar{u}_L  T^+ \slashed W^+ \vckm \tilde{d}_L + \bar{\tilde{d}}_L T^- \slashed W^- \vckm^\dagger u_L \right),
 \end{align}
-where $\vckm = U^{u\dagger}_L U^d_L$ is the Cabibbo-Kaboyshi-Maskawa matrix and $u_L = \tilde{u}_L$ by construction.
+where $\vckm = U^{u\dagger}_L U^d_L$ is the Cabibbo-Kaboyshi-Maskawa matrix~\cite{Cabibbo1963, Maskawa1973} and $u_L = \tilde{u}_L$ by construction.
 The CKM matrix is unitary with four free parameters, the mixing angles between quark generations $\phi_{12}$, $\phi_{23}$, and $\phi_{13}$ as well as a CP-violating phase $\delta$.
 In terms of these parameters, the CKM matrix is
 \begin{equation}
@@ -285,10 +288,10 @@ In terms of these parameters, the CKM matrix is
 where $s_{ij} = \sin \phi_{ij}$ and $c_{ij} = \cos \phi_{ij}$.
 It has been experimentally determined that the CKM is mostly diagonal with $s_{13} \ll s_{23} \ll s_{12} \ll 1$. 
 
-The equivalent mixing matrix for the neutrinos is the Pontecorvo-Maki-Nakagawa-Sakata matrix \upmns, which  converts from the mass eigenstates $\nu_1$, $\nu_2$, and $\nu_3$ to the electroweak eigenstates $\nu_e$, $\nu_\mu$, $\nu_\tau$.
-Unlike the CKM matrix, the PMNS is non-diagonal resulting in stronger mixing in the neutrino sector.
+The equivalent mixing matrix for the neutrinos is the Pontecorvo-Maki-Nakagawa-Sakata matrix \upmns~\cite{Pontecorvo1957, Pontecorvo1967, Maki1962}, which  converts from the mass eigenstates $\nu_1$, $\nu_2$, and $\nu_3$ to the electroweak eigenstates $\nu_e$, $\nu_\mu$, $\nu_\tau$.
+Unlike the CKM matrix, the PMNS matrix is non-diagonal resulting in stronger mixing in the neutrino sector.
 The values of the mixing angles $\theta_{12}$, $\theta_{23}$, and $\theta_{13}$ have been measured in neutrino oscillation experiments while the CP-violating phase $\delta'$ has not yet been directly measured.
-From cosmological measurements, % of the large-scale structure of the universe,
+From cosmological measurements of the large-scale structure of the universe,
 it is known that the sum of the neutrino masses is less than one eV. 
 
 \section{Summary}
@@ -317,7 +320,7 @@ it is known that the sum of the neutrino masses is less than one eV.
   \hline
   $\theta$ & QCD vacuum angle & $< 10^{-10}$ 
 \end{tabular}
-\caption{ The free parameters of the Standard Model, not including masses.}
+\caption{ The free parameters of the Standard Model, not including masses~\cite{PDG2018}}.
 \label{tab:sm_params}
 \end{table}
 
@@ -359,12 +362,12 @@ The best fit values of the SM parameters, excluding masses, are summarized in Ta
   W boson & $W^\pm$ & 1 & $\pm 1$ & 80.4\GeV \\
   Higgs boson & $H$ & 0 & 0 & 125 GeV
 \end{tabular}
-\caption{ The physical particles of the Standard Model.}
+\caption{ The physical particles of the Standard Model~\cite{PDG2018}.}
 \label{tab:sm_particles}
 \end{table}
 
 The physical particles are the single-particle states of the various mass eigenfields and their properties are summarized in Table~\ref{tab:sm_particles}.
 Each of the fermion fields has a corresponding anti-particle with the electromagnetic and color charges inverted.
 Most of these single-particle states have finite lifetimes and decay to lower energy configurations.
-The only particles whose decays have not been observed are the photon, the electron, the neutrinos, and the proton (a baryon of flavor content uud).
-Additionally, stable bound states of protons and neutrons (a baryon of flavor content udd) exist in the form of atomic nuclei.
+The only particles whose decays have not been observed are the photon, the electron, the neutrinos, and the proton (a baryon of flavor content $uud$).
+Additionally, stable bound states of protons and neutrons (a baryon of flavor content $udd$) exist in the form of atomic nuclei.

@@ -3,10 +3,16 @@
 ## LaTeX Stuff ##
 #################
 *.aux
+*.bbl
+*.bcf
+*.blg
+*.run.xml
 *.lof
 *.log
 *.lot
+*.out
 *.toc
+
 
 ## Emacs stuff ##
 #################

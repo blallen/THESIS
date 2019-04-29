@@ -38,7 +38,9 @@
 \usepackage{hyperref}
 \usepackage{xfrac}
 \usepackage{slashed}
-\pagestyle{plain}
+
+\usepackage[style=phys,sorting=none]{biblatex}
+\addbibresource{main.bib}
 
 %% make matrixes work like tables
 \makeatletter
@@ -230,5 +232,6 @@
 \appendix
 %% \include{appa}
 %% \include{appb}
-\include{biblio}
+\printbibliography
+
 \end{document}
