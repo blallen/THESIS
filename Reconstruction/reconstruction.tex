@@ -1,25 +1,23 @@
 \chapter{Global Event Reconstruction}
 
-% https://doi.org/10.1088/1748-0221/12/10/P10003
-
 In the previous chapter, we discussed the interactions of particles with the individual subdetectors and how these generate electrical signals.
 Now, we shall discuss the reverse process, namely reconstructing the individual particles or physics objects from the electrical signals recorded by the subdetectors.
 
 Traditionally, each class of physics object ia reconstructed using information from a single subdetector: muons from the muon chambers, isolated photons and electrons from the ECAL, jets and missing transverse energy from the HCAL, and secondary vertices from $\tau$ lepton and $b$ hadron decays from the tracker.
 However, as depicted in Figure~\ref{fig:cms_slice}, each type of particle interacts with multiple different subdetectors and this information is lost unless the information from all the subdetectors is combined into a single global event description.
 
-The particle flow (PF) algorithm leverages the fine angular granularity of the calorimeters and the excellent momentum resolution of the inner tracker and muon chambers to greatly improve the reconstruction of physics objects and include soft particles that would otherwise be ignored.
+The particle flow (PF) algorithm~\cite{PF2017} leverages the fine angular granularity of the calorimeters and the excellent momentum resolution of the inner tracker and muon chambers to greatly improve the reconstruction of physics objects and include soft particles that would otherwise be ignored.
 This is especially advantageous for jet energy measurements as roughly 62\% of the jet energy is carried by charged hadrons, approximately 27\% by photons, around 10\% by neutral hadrons, and about 1.5\% by neutrinos.
 
 \begin{figure}[htbp]
   \begin{center}
-    \includegraphics[width=0.875\textwidth]{Reconstruction/Figures/cms_slice.png}
+    \includegraphics[width=0.75\textwidth]{Reconstruction/Figures/cms_slice.png}
     \caption{
       A sketch of a transverse slice of the CMS detector showing particle interactions from the interaction point to the muon detector.
       % Charge particles tracks are shown with solid lines while the paths of neutral particles are shown with dotted lines. 
       % The muon and charged pion are positively charged and the electron is negatively charged.
       % Neutrinos do not interact with the detector at an appreciably rate.
-      Reprinted from Reference~\cite{}. % https://iopscience.iop.org/article/10.1088/1748-0221/12/10/P10003/meta
+      Reprinted from Reference~\cite{PF2017}.
     }
     \label{fig:cms_slice}
   \end{center}
@@ -41,9 +39,7 @@ After all PF candidates are identified, they can be combined into event-wide var
 \subsection{Tracks}
 \label{sec:pf_tracks}
 
-% doi:10.1088/1748-0221/9/10/P10009
-
-The Combinatorial Track Finder software is used to reconstruct tracks in an iterative inside-out process.
+The Combinatorial Track Finder software~\cite{Tracker2014} is used to reconstruct tracks in an iterative inside-out process.
 Initial interations search for tracks that are easy to find, e.g. those with high \pt, and hits associated with these tracks are removed for later iterations, reducing the combinatorial complexity and simplifying the search for more difficult tracks, e.g. greatly displaced ones.
 
 The first step is to form seeds based on pixel hits, double strip hits containing 3D information, and an estimate of the beam spot.
@@ -56,18 +52,14 @@ The five parameters used for the helical trajectory evolution are the curvature 
 After propagating the track through all layers of the detector and finding all associated hits, a Kalman fitter and smoother is used to refit the overall trajectory while a fourth-order Runge-Kutta method is used to extrapolate the trajectory between successive hits.
 To reduce the fraction of fake tracks, various quality requirements concerning the number of missing hits, the reduced $\chi^2$ of the fit, and compatibility with a primary vertex are applied before proceeding to the next iteration.
 
-% https://doi.org/10.1088/1748-0221/12/10/P10003
-
-Track reconstruction for electrons is more complicated as the Kalman filter is not a good description because of the high rate of non-Gaussian energy loss due to brehmsstrahlung these tracks experience within the tracker.
-To improve the electron reconstruction efficiency, the electron seed collection is filled both by looking outside-in for ECAL superclusters (see Section~\ref{sec:pf_sc}) consistant with track seeds and inside-out track seeds consistent with superclusters.
+Track reconstruction for electrons is more complicated as the Kalman filter is not a good description because of the high rate of non-Gaussian energy loss due to brehmsstrahlung these tracks experience within the tracker~\cite{PF2017}.
+To improve the electron reconstruction efficiency, the electron seed collection is filled both by looking outside-in for ECAL superclusters consistant with track seeds and inside-out track seeds consistent with superclusters.
 A Gaussian Sum Filter (GSF) defined to approximate the Bethe-Heitler energy-loss distribution is used to fit the trajectory of electron tracks. 
 
 \subsection{Primary Vertexing}
 \label{sec:pf_pv}
 
-% doi:10.1088/1748-0221/9/10/P10009
-
-A deterministic annealing (DA) algorithm is used to associate tracks to primary vertices.
+A deterministic annealing (DA) algorithm is used to associate tracks to primary vertices~\cite{Tracker2014}.
 Tracks must pass additional requirements on the transverse impact parameter $d_0$, the number of strip and pixel hits, and the reduced $\chi$ of the trajectory fit to be considered when finding primary vertices.
 The most probable vertex positions at an artifical temperature $T$ are determined by the minimization of the ``free energy''
 \begin{equation}
@@ -90,10 +82,8 @@ where $\pt^i$ is the transverse momentum of a track assigned to the vertex and \
 \subsection{Secondary Vertexing}
 \label{sec:pf_csv}
 
-% https://arxiv.org/pdf/1712.07158.pdf
-
 Long-lived particles such as $b$ hadrons and $\tau$ leptons often produce charged particles in their decays.
-These charged particles are traced to a secondary vertex at the location of the decay, which is identified by the inclusive vertex fitter (IVF) algorithm.
+These charged particles are traced to a secondary vertex at the location of the decay, which is identified by the inclusive vertex fitter (IVF) algorithm~\cite{Vertex2018}.
 
 The IVF procedure begins by selecting seed tracks with a 2D impact parameter significance $\sigma_{d_0} \ge 1.2$ and a 3D impact parameter $\sqrt{d_0^2 + z_0^2} \ge  50\mum$.
 Tracks are assigned to a secondary vertex based on their opening angle with the seed track and distance at closest approach, with the additional stipulation that this distance be smaller for the secondary vertex than for the primary vertex.
@@ -109,14 +99,10 @@ The last stage of cleaning removes a secondary vertex if it shares at least 20\%
 
 Due to the large amount of material in the tracker, electrons often emit bremsstrahlung photons, photons often convert to electron-positron pairs, and the brehmsstrahlung photons and converted electrons often undergo further conversion and brehmsstrahlung before reaching the ECAL.
 Because of the bending of electron trajectories in the magnetic field, the resulting electromagnetic (EM) shower is significantly spread in the $\phi$-direction and collimated in the $\eta$-direction.
-The ECAL reconstruction algorithm combines the basic cluster from each showered particle into a supercluster representing the initial electron or photon from the hard scattering. 
-
-% https://iopscience.iop.org/article/10.1088/1748-0221/10/06/P06005/pdf
+The ECAL reconstruction algorithm~\cite{Electrons2015, Photons2015} combines the basic cluster from each showered particle into a supercluster representing the initial electron or photon from the hard scattering. 
 
 The first step is the identification of a seed crystal with greater transverse energy than its immediate neighbors and above a predefined minimum threshold.
 The energy of each crystal is determined from calibration constants combined with the amplitude and peak time obtained by fitting the pulse shape of the ten time samples surrounding the triggering bunch crossing.
-
-% https://iopscience.iop.org/article/10.1088/1748-0221/10/08/P08010/pdf
 
 In the barrel, a supercluster starts with a $5\times1$ array of crystals in the $\eta$-$\phi$ plane centred on the seed crystal.
 The array is extended around the seed crystal in the $\phi$-direction up to $\abs{\Delta\phi} \le 0.3$ if the energy of the additional crystals exceeds a certain threshold. 
@@ -129,9 +115,7 @@ For uncoverted photons, both methods produce superclusters that are simple $5\ti
 \subsection{HCAL Clusters}
 \label{sec:pf_clusters}
 
-% pf paper
-
-The purpose of clustering in the HCAL is to measure the energy and direction of neutral hadrons, disentangle neutral hadrons from charged hadron energy deposits, and improve the energy measurement for charged hadrons with poorly reconstructed tracks.
+The purpose of clustering in the HCAL is to measure the energy and direction of neutral hadrons, disentangle neutral hadrons from charged hadron energy deposits, and improve the energy measurement for charged hadrons with poorly reconstructed tracks~\cite{PF2017}.
 Similar to the supercluster algorithm, a cluster in the HCAL is first identified by a seed cell with greater transverse energy than its immediate neighbors and above a predefined minimum threshold.
 This seed is then grown into a topological cluster by adding cells with at least a corner in common with a cell already in the cluster and energy above twice the noise threshold.
 
@@ -156,12 +140,12 @@ The process of calculating energy fractions $f_{ji}$ and fitting for the amplitu
 \label{sec:pf_segments}
 
 Muon segments are reconstructed from the hits in the muon chambers using a Kalman filter in a similar manner to that described for the inner tracker in Section~\ref{sec:pf_tracks}.
-A full track constructed in this way is referred to as a standalone muon.
+A full track constructed in this way is referred to as a standalone muon~\cite{PF2017}.
 
 \subsection{Isolation}
 \label{sec:pf_iso}
 
-While not a physics object persay, isolation is a key concept of the PF algorithm that  distinguishes prompt leptons and photons originating in the hard scattering from those originating in the decays of hardrons during the parton shower.
+While not a physics object persay, isolation is a key concept of the PF algorithm that distinguishes prompt leptons and photons originating in the hard scattering from those originating in the decays of hardrons during the parton shower.
 The latter are surrounded by a large amount of additional hadrons while the former have little hadronic activity in their vicinity, originating mainly from the pileup vertices.
 
 The isolation of a prompt object is the total amount of energy due to additional particles within an annulus of radius $0.01 < \dR < 0.4$ around the prompt object, where the lower bound avoids including the prompt object and its radiation in the sum.
@@ -204,7 +188,7 @@ is used when selecting prompt leptons.
 \subsection{Muons}
 \label{sec:pf_muons}
 
-The first step of the PF algorithm reconstructs three types of muon candidates: the standalone muons described in Section~\ref{sec:pf_segments}, outside-in global muons, and inside-out tracker muons.
+The first step of the PF algorithm reconstructs three types of muon candidates: standalone muons, outside-in global muons, and inside-out tracker muons.
 To construct a global muon, the algorithm identifies an inner track consistent with the trajectory of a standalone muon evolved inwards using a Kalman filter similar to those discussed in Section~\ref{sec:pf_tracks}. 
 After finding a match, a global muon candidate is created by combining the inner track with the standalone track with a second Kalman filter. 
 Conversely, to construct a tracker muon, the algorithm identifies a muon segment consistent with the trajectory of a inner track with $\pt > 0.5\GeV$.
