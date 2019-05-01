@@ -190,7 +190,7 @@ Assuming that \sigmav\ is independent of energy, an order-of-magnitude estimate 
 \end{equation}
 where $h = H_0/(100 \text{ km s}^{-1}\text{ Mpc}^{-1})$ is the reduced Hubble constant and $\rho_c = 3H^2/(8\pi G)$ is the critical density of the universe~\cite{Jungman1996}.
 Thus, to first order the DM relic density depends only on two things: the total DM annihilation cross section $\sigma_A$ and the mass $m_\chi$ of the DM candidate, as after freeze-out $T \ll m_\chi$ and the velocity $v$ is stricly proportional to $m_\chi$. 
-The latest Planck results measure that $\dmrelic = 0.1200 \pm 0.0012$, providing strong constraints on the possible values of $\sigma_A$ and $m_\chi$.
+The latest Planck results measure that $\dmrelic = 0.1200 \pm 0.0012$~\cite{Planck2018}, providing strong constraints on the possible values of $\sigma_A$ and $m_\chi$.
 
 \section{Dark Matter Candidates}
 \label{sec:dm_cand}
@@ -287,9 +287,10 @@ Astrophysical detection, accelerator production, and neutrinoless double $\beta$
 \section{Simplified Models for LHC}
 \label{sec:dm_simp}
 
-Without loss of generality, we assume that dark matter consists of a single Dirac fermion WIMP species $\chi$ with mass \mdm. 
-In order to observe DM at a hadron collider, there must exist a new mediator particle with mass \mmed\ that couples to both SM quarks and $\chi$ with couplings \gq\ and \gdm, respectively.
-In general, this mediator can have any spin structure; for purposes of simplicity, we limit ourselves to the observed mediators in the SM: a spin-0 scalar $S$, a spin-0 pseudoscalar $P$, a spin-1 vector $V_\mu$, and a spin-1 axial-vector $A_\mu$ (not to be confused with SM photon). % https://arxiv.org/pdf/1411.0535.pdf
+Without loss of generality, we assume that dark matter consists of a single Dirac fermion WIMP species $\chi$ with mass \mdm~\cite{DMF2015}.
+We are able to do this because collider searches are only minimally sensitive to the details of the dark matter candidate.
+Instead, collider searches are mainly sensitive to a new mediator particle with mass \mmed\ that connects the dark sector to the Standard Model through couplings \gq\ and \gdm to the SM quarks and $\chi$, respectively.
+In general, this mediator can have any spin structure; for purposes of simplicity, we limit ourselves to the observed mediators in the SM: a spin-0 scalar $S$, a spin-0 pseudoscalar $P$, a spin-1 vector $V_\mu$, and a spin-1 axial-vector $A_\mu$ (not to be confused with SM photon)~\cite{Harris2015}.
 The Lagrangians for these possible mediators are
 \begin{align}
   \mathcal{L}_{S} & = \frac{1}{2} \mmed^2 S^2 + \gdm \bar \chi S \chi + \gq \sum\limits_q \bar q Y_q S q \\
@@ -300,8 +301,8 @@ The Lagrangians for these possible mediators are
 where $\{q\}$ and $\{Y_q\}$ are the SM quarks and their associated Yukawa couplings and we have assumed that the coupling \gq\ is universal to all quarks without any loss of generality.
 The width of the mediators is determined by the coupling constants and mass of the mediator.
 Thus, these four models are described by only four parameters in addition to the spin structure of their couplings: $\{\gq, \gdm, \mdm, \mmed\}$.
-For the results shown in this thesis, we fix $\gq = 0.25$ and $\gdm = 1$ to satisfy the narrow width approximation and provide complimentarity to dijet and dilepton searches for new mediators.
-Meanwhile, we scan the mass parameters \mdm\ and \mmed\ between 1-1000\GeV and 10-2000\GeV, respectively. % https://arxiv.org/pdf/1507.00966.pdf
+For the results shown in this thesis, we fix $\gq = 0.25$ and $\gdm = 1$ to satisfy the narrow width approximation, provide complimentarity to dijet and dilepton searches for new mediators, and enable easy comparison between other dark matter searches from ATLAS and CMS. 
+Meanwhile, we scan the mass parameters \mdm\ and \mmed\ between 1-1000\GeV and 10-2000\GeV, respectively~\cite{DMF2015}.
 
 \begin{figure}[htbp]
   \centering
@@ -310,12 +311,12 @@ Meanwhile, we scan the mass parameters \mdm\ and \mmed\ between 1-1000\GeV and 1
     Feymann diagrams for possible dark matter production modes at the LHC, with X denoting the mediator and $\chi$ the dark matter particle.
     The left diagram is most common for scalar and pseudoscalar mediators, while the right diagram is most common for vector and axial mediators.
     For the right diagram, the gluon can be replaced with any of the EWK gauge boson whereas for the left diagram, other production modes dominate for the EWK gauge bosons.
-    Reprinted from Reference~\cite{}. % https://arxiv.org/pdf/1507.00966.pdf
+    Reprinted from Reference~\cite{Harris2015}.
   }
   \label{fig:dm_diagram}
 \end{figure}
 
-As the CMS detector is focused on observing particles through electromagnetic and strong interactions (see Chapter~\ref{sec:cms}), the production of DM particles alone does not result in an observable signature in the detector.
+As the CMS detector is focused on observing particles through electromagnetic and strong interactions, the production of DM particles alone does not result in an observable signature in the detector.
 Instead, we look for events where they are produced in association with a visible SM particle with the resulting signature of the SM particle recoiling against an invisible state. 
 The standard mechanism for producing this final state is for one of the incoming partons to radiate the visible SM particle, usually a quark or a gauge boson, as shown in Figure~\ref{fig:dm_diagram}.
 The possible final states split into the categories shown in Table~\ref{tab:monox} with unique final states and interaction strengths.
@@ -338,8 +339,7 @@ The possible final states split into the categories shown in Table~\ref{tab:mono
 The monojet final state has the highest production rate but also the largest amount of background from SM processes.
 The Mono-$Z$ final state is the cleanest signature but also ahs a substantially surpressed production rate due to the mass of the $Z$ boson and the small branching ratio to leptons.
 The monophoton final state lands in the middle on both metrics: the production rate is $\sim 1/10$ that of the monojet final state but also has fewer backgrounds from SM processes.
-Additionally, the monophoton state has the ``advantage'' of being able to distinguish between the spin-0 and spin-1 mediators by the ``virtue'' of the $gg \rightarrow S \gamma$ and $gg \rightarrow P \gamma$ processes being forbidden by Furry's theorem.
-For the bulk of this thesis, we focus on the monophoton final state, saving comparisons against the monojet and mono-$Z$ states for Chapter~\ref{sec:conclusion}. 
+Additionally, the monophoton state has the ``advantage'' of being able to distinguish between the spin-0 and spin-1 mediators by the ``virtue'' of the $gg \rightarrow S \gamma$ and $gg \rightarrow P \gamma$ processes being forbidden by Furry's theorem~\cite{Gabrielli2016}.
 
 \section{Non-collider Searches}
 \label{sec:dm_search}
@@ -349,7 +349,7 @@ For the bulk of this thesis, we focus on the monophoton final state, saving comp
   \includegraphics[width=0.625\textwidth]{DarkMatter/Figures/dm_box.png}
   \caption{
     Possible dark matter detection channels.
-    Reprinted from Reference~\cite{}. % https://arxiv.org/pdf/1509.08767.pdf
+    Reprinted from Reference~\cite{Undagoitia2015}.
   }
   \label{fig:dm_box}
 \end{figure}
@@ -363,21 +363,22 @@ In this section, we shall give a brief overview of the leading experiments for t
 \subsection{Direct Detection}
 \label{sec:dm_direct}
 
+Direct detection experiments aim to observe a collision between a DM particle $\chi$ and an atomic nucleus $N$.
+Current experiments target nuclear recoils in the $1-100\keV$ range and there are various different techonologies that are used to identify the recoiling nucleus, as shown in Figure~\ref{fig:direct_triangle}.
+The three main signals are light from a scintillating material, charge from an ionization reaction, and phonons from thermal excitations~\cite{Undagoitia2015}.
+Many detectors utilize multiple signals in order to enhance background rejection.
+
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.875\textwidth]{DarkMatter/Figures/direct_triangle.png}
   \caption{
     Possible signals measured and techonologies used in direct detection experiments.
-    Reprinted from Reference~\cite{}. % https://arxiv.org/pdf/1509.08767.pdf
+    Reprinted from Reference~\cite{Undagoitia2015}.
   }
   \label{fig:direct_triangle}
 \end{figure}
 
-Direct detection experiments aim to observe a collision between a DM particle $\chi$ and an atomic nucleus $N$.
-The typical nuclear recoil for such a collision is in the $1-100\keV$ range and there are various different techonologies that are used to identify the recoiling nucleus, as shown in Figure~\ref{fig:direct_triangle}.
-The three main signals are light from a scintillating material, charge from an ionization reaction, and phonons from thermal excitations.
-Many detectors utilize multiple signals in order to enhance background rejection.
-A final consideration is whether the interaction is spin-independent (SI) or spin-dependent (SD), corresponding to a vector/scalar or axial/pseudoscalar mediator, respectively. 
+Another consideration is whether the interaction is spin-independent (SI) or spin-dependent (SD), corresponding to a vector/scalar or axial/pseudoscalar mediator, respectively. 
 The SI DM-nucleus cross-section scales as the number of nucleons squared and thus experiments focusing on SI interactions use materials with a large atomic number.
 Conversely, the spin-dependent DM-nucleus cross-section depends on the total nuclear spin and experiments focusing on SD interactions use materials with an odd number of nucleons, particularly those with unpaired protons and neutrons.
 The remainder of this section will discuss three proto-typical direct detection experiments.
@@ -387,27 +388,27 @@ The remainder of this section will discuss three proto-typical direct detection 
   \includegraphics[width=0.625\textwidth]{DarkMatter/Figures/lux.png}
   \caption{
     Latest SI independent results from the LUX experiment (brazilian flag bands).
-    Reprinted from Reference~\cite{}. % https://arxiv.org/pdf/1608.07648.pdf
+    Reprinted from Reference~\cite{LUX2017}. 
   }
   \label{fig:dm_lux}
 \end{figure}
 
-The Large Underground Xenon (LUX) experiment is a  dual-phase xenon time projection chamber that utilizes both scintillation light and free electrons from ionization to detect nuclear recoils.
+The Large Underground Xenon (LUX) experiment~\cite{LUX2017} is a  dual-phase xenon time projection chamber that utilizes both scintillation light and free electrons from ionization to detect nuclear recoils.
 The active detector volume has 250 kg of ultrapure liquid xenon, a large enough volume that the detector is self-shielding.
-Odd isotopes make up 47\% of naturally occuring xenon, enabling measurements of spin-dependent interactions with approximately half the active detector volume.
+Measurements of spin-dependent interactions are possible with an effective volume of approximately half the active detector because odd isotopes make up 47\% of naturally occuring xenon, 
 The latest LUX results are shown in Figure~\ref{fig:dm_lux}.
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.625\textwidth]{DarkMatter/Figures/cdms.png}
   \caption{
-    Latest SI independent results from the CDMSlite experiment (black line with salmon band).
-    Reprinted from Reference~\cite{}. % https://arxiv.org/pdf/1509.02448.pdf
+    Latest SI independent results from the CDMSlite experiment (black line with salmon-colored band).
+    Reprinted from Reference~\cite{CDMS2016}.
   }
   \label{fig:dm_cdms}
 \end{figure}
 
-The CDMSlite experiment uses a cryogenic germanium bolometer that detects phonons and ionization from nuclear recoils.
+The CDMSlite experiment~\cite{CDMS2016} uses a cryogenic germanium bolometer that detects phonons and ionization from nuclear recoils.
 The presence of both signals allows for particle identification, but the most sensitive results only use the phonon signals.
 CDMSlite is most sensitive to dark matter with masses between 1-10\GeV as shown in Figure~\ref{fig:dm_cdms}.
 
@@ -416,53 +417,51 @@ CDMSlite is most sensitive to dark matter with masses between 1-10\GeV as shown 
   \includegraphics[width=0.625\textwidth]{DarkMatter/Figures/pico.png}
   \caption{
     Latest SD independent results from the PICO-60 experiment (thick blue line).
-    Reprinted from Reference~\cite{}. % https://arxiv.org/pdf/1702.07666.pdf
+    Reprinted from Reference~\cite{PICO2017}.
   }
   \label{fig:dm_pico}
 \end{figure}
 
-The PICO-60 experiment uses a bubble chamber filled with C$_3$F$_8$ to observe nuclear recoils with a threshold of 13.6\keV.
-This threshold is high enough to reject backgrounds from minimum ionizing particles while still having sufficienct signal efficiency.
-Furthermore, flourine has exactly one unpaired proton and no unpaired neutrons, greatly enhancing the sensitivity to the proton-coupling SD interactions.
+The PICO-60 experiment~\cite{PICO2017} uses a bubble chamber filled with C$_3$F$_8$ to observe nuclear recoils with a threshold of 13.6\keV.
+This threshold is high enough to reject backgrounds from minimum ionizing particles while still having sufficient signal efficiency.
+Flourine has exactly one unpaired proton and no unpaired neutrons which greatly enhances the sensitivity to the proton-coupling SD interactions.
 The latest results from PICO-60 are shown in Figure~\ref{fig:dm_pico}. 
-
 
 \subsection{Indirect Detection}
 \label{sec:dm_indirect}
 
-In Section~\ref{sec:dm_relic}, we discussed the process of dark matter annihilation in the early universe and found that the relic density $\dmrelic$ depended on the average annihilation cross section \sigmav.
-In Section~\ref{sec:dm_wimp}, we found that a 100\GeV WIMP particle must have $\sigmav \sim 10^{-26} \cm^{3}\text{ s}^{-1}$ in order to produce the observed relic density.
-While our calculation in Section~\ref{sec:dm_relic} assumed that the DM number density didn't change appreciably after freezeout, there is still a non-zero annihilation rate of $n_\chi^2 \sigmav / 2$ for dark matter to SM particles.
-With this decay rate and the observed relic density, there should be $\mathcal{O}(10)$ particles from DM annilation reaching Earth per year per square meter. % https://arxiv.org/pdf/1710.05137.pdf
+We discussed the process of dark matter annihilation in the early universe and found that the relic density $\dmrelic$ depended on the average annihilation cross section \sigmav.
+We found that a 100\GeV WIMP particle must have $\sigmav \sim 10^{-26} \cm^{3}\text{ s}^{-1}$ in order to produce the observed relic density.
+While our calculation assumed that the DM number density did not change appreciably after freezeout, there is still a non-zero annihilation rate of $n_\chi^2 \sigmav / 2$ for dark matter to SM particles.
+With this decay rate and the observed relic density, there should be $\mathcal{O}(10)$ particles from DM annilation reaching Earth per year per square meter~\cite{Slatyer2017}.
 Thus, it is possible to learn about dark matter by observing the particle flux near Earth.
 
 While dark matter can decay to a pair of any SM particles, the only ones that live long enough to reach Earth are photons, neutrinos, electrons, positrons, protons, and anti-protons, whether produced directly or from decays of short-lived particles.
-While it is possible to measure the flux of all of these particles, it is only possible to observe the energy spectrum and source locations of photons and neutrinos as galactic magnetic fields obscure these for the charge particles.
-Thus, experiments such as the Alpha Magnetic Spectrometer (AMS-02) look for a rise in the positron and anti-proton fractions of the cosmic ray flux to find signs of WIMP annihilation. % https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.113.121101
-Similarly, gamma ray telescopes such as the Fermi Large Area Telescope (Fermi-LAT) search for high-energy photons originating from dwarf spheroidal galaxies as they have especially high ratios of dark matter to luminous matter. % https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.115.231301
+While it is possible to measure the flux of all of these particles, it is only possible to observe the energy spectrum and source locations of photons and neutrinos because galactic magnetic fields obscure these for the charge particles.
+Thus, experiments such as the Alpha Magnetic Spectrometer (AMS-02)~\cite{AMS2014} look for a rise in the positron and anti-proton fractions of the cosmic ray flux to find signs of WIMP annihilation.
+Similarly, gamma ray telescopes such as the Fermi Large Area Telescope (Fermi-LAT)~\cite{Fermi2015} search for high-energy photons originating from dwarf spheroidal galaxies as they have especially high ratios of dark matter to luminous matter.
 Both experiments have tentative signals that are yet to be confirmed.
+
+The neutrino channel differs from the other two because it is the only channel sensitive to the annihilation of WIMPs that have been gravitationally captured by the sun because only neutrinos escape the sun with their original energy spectrum intact~\cite{Gaskins2016}.
+Since solar WIMPs are in equilibrium, the annihilation flux depends only on the DM-nucleon cross-section instead of the annilihation cross-section, and since the sun consists primarily of hydrogen, observations of neutrinos from solar WIMPs are especially sensitive to spin-dependent processes.
+Thus, because astrophysical uncertainties are very small for neutrinos originating from the sun versus galactic sources, results from solar neutrino observatories are competitive with those from direct detection experiments.
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.625\textwidth]{DarkMatter/Figures/icecube.png}
   \caption{
     Latest SD independent results from the IceCube experiment.
-    Reprinted from Reference~\cite{}. % https://iopscience.iop.org/article/10.1088/1475-7516/2016/04/022/pdf
+    Reprinted from Reference~\cite{IceCube2016}.
   }
   \label{fig:dm_icecube}
 \end{figure}
 
-The neutrino channel differs from the other two because it is sensitive to the annihilation of WIMPs that have been gravitationally captured by the sun. % % https://arxiv.org/pdf/1604.00014.pdf
-While solar WIMPs can decay to any SM particle, only neutrinos are capable of escaping the sun.
-Furthermore, astrophysical uncertainties are very small for neutrinos originating from the sun versus galactic sources.
-Additionally, solar WIMPs are in equilibrium, so the annihilation flux depends on the DM-nucleon cross-section instead of the annilihation cross-section allowing for easy comparison with direct detection experiments.
-Since the sun consists primarily of hydrogen, observations of solar WIMPs are especially sensitive to spin-dependent processes.
-The IceCube neutrino observatory is a Cherenkov light detector consisting of a cubic kilometer of Antartic ice instrumented with 79 strings of photomultiplier tubes.
-Figure~\ref{fig:dm_icecube} shows the latest results from IceCube, with each curves assuming annihilation into a different SM particle pair. % https://iopscience.iop.org/article/10.1088/1475-7516/2016/04/022/pdf
+The IceCube neutrino observatory~\cite{IceCube2016} is a Cherenkov light detector consisting of a cubic kilometer of Antartic ice instrumented with 79 strings of photomultiplier tubes.
+Figure~\ref{fig:dm_icecube} shows the latest results from IceCube, with each curves assuming annihilation into a different SM particle pair.
 
 \section{Summary}
-Copious astrophysical evidence exists for a non-relativistic non-baryonic type of matter referred to as dark matter that constititues $\sim27$ of the energy of the universe.
-The favored source for dark matter is a new beyond the Standard Model particle that has weak interactions with photons, baryons, and itself and a relic density of $\dmrelic = 0.1200 \pm 0.0012$.
+Copious astrophysical evidence exists for a non-relativistic non-baryonic type of matter referred to as dark matter that constititues $\sim27\%$ of the energy of the universe.
+An attractive candidate for dark matter is a new beyond the Standard Model particle that has weak interactions with photons, baryons, and itself and a relic density of $\dmrelic = 0.1200 \pm 0.0012$.
 While other candidates exist, a new weakly-interacting massive particle is a dark matter candidate found in many theories of new physics.
-Collider, direct detection, and indirect detection searches can all be interpretted in the context of simplified models, which posit a new Dirac fermion DM particle and a massive mediator.
+Collider, direct detection, and indirect detection searches can all be interpreted in the context of simplified models, which feature a new Dirac fermion DM particle and a massive mediator.
 The remainder of this thesis focuses on a search for dark matter produced in conjunction with a single photon at the Large Hadron Collider using the Compact Muon Solenoid detector.
