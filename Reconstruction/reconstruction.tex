@@ -1,13 +1,13 @@
 \chapter{Global Event Reconstruction}
 
 In the previous chapter, we discussed the interactions of particles with the individual subdetectors and how these generate electrical signals.
-Now, we shall discuss the reverse process, namely reconstructing the individual particles or physics objects from the electrical signals recorded by the subdetectors.
+Now, we shall the reconstruction of individual particles or physics objects from the electrical signals recorded by the subdetectors.
 
-Traditionally, each class of physics object ia reconstructed using information from a single subdetector: muons from the muon chambers, isolated photons and electrons from the ECAL, jets and missing transverse energy from the HCAL, and secondary vertices from $\tau$ lepton and $b$ hadron decays from the tracker.
-However, as depicted in Figure~\ref{fig:cms_slice}, each type of particle interacts with multiple different subdetectors and this information is lost unless the information from all the subdetectors is combined into a single global event description.
+Traditionally, each class of physics object is reconstructed using information from a single subdetector: muons from the muon chambers, isolated photons and electrons from the ECAL, jets and missing transverse energy from the HCAL, and secondary vertices from $\tau$ lepton and $b$ hadron decays from the tracker.
+However, as depicted in Figure~\ref{fig:cms_slice}, each type of particle interacts with multiple different subdetectors and the best reconstruction is achieved by combining the information from all subdetectors into a single global event description.
 
-The particle flow (PF) algorithm~\cite{PF2017} leverages the fine angular granularity of the calorimeters and the excellent momentum resolution of the inner tracker and muon chambers to greatly improve the reconstruction of physics objects and include soft particles that would otherwise be ignored.
-This is especially advantageous for jet energy measurements as roughly 62\% of the jet energy is carried by charged hadrons, approximately 27\% by photons, around 10\% by neutral hadrons, and about 1.5\% by neutrinos.
+The Particle Flow (PF) algorithm~\cite{PF2017} leverages the fine angular granularity of the calorimeters and the excellent momentum resolution of the inner tracker and muon chambers to greatly improve the reconstruction of physics objects and include soft particles that would otherwise be ignored.
+This is especially advantageous for jet energy measurements because roughly 62\% of the jet energy is carried by charged hadrons, approximately 27\% by photons, around 10\% by neutral hadrons, and about 1.5\% by neutrinos.
 
 \begin{figure}[htbp]
   \begin{center}
@@ -23,13 +23,13 @@ This is especially advantageous for jet energy measurements as roughly 62\% of t
   \end{center}
 \end{figure}
 
-The distinguishing feature of the PF algorithm is to combine multiple detector signals together into a single PF candidate.
+The distinguishing feature of the PF algorithm is to combine multiple detector signals together into a single PF candidate, to achieve the most accurate measurement of a single particle and avoid double counting.
 The input detector signals are the tracks, vertices, calorimeter clusters, and muon segments described in Section~\ref{sec:pf_elements}.
 Based on their proximity in the $\eta$-$\phi$, these PF elements are combined into muons, electrons, photons, and hadrons.
 Muon segments are combined with inner tracks to produce muons, inner tracks are combined with calorimeter clusters to produce electrons and charged hadrons, and calorimeter clusters are correlated to produce photons and neutral hadrons.
 
 The PF algorithm reconstructs particles in regions of the detectors called blocks following the steps described in Section~\ref{sec:pf_cands}.
-After each step any PF elements associated to a PF candidate are removed from the block.
+After each step, all PF elements associated to a PF candidate are removed from the block.
 For example, clusters associated with photons will not be used when reconstructing neutral hadrons.
 After all PF candidates are identified, they can be combined into event-wide variables such as jets and the missing transverse energy as described in Sections~\ref{sec:pf_jets} and~\ref{sec:pf_met}, respectively. 
 
@@ -39,8 +39,8 @@ After all PF candidates are identified, they can be combined into event-wide var
 \subsection{Tracks}
 \label{sec:pf_tracks}
 
-The Combinatorial Track Finder software~\cite{Tracker2014} is used to reconstruct tracks in an iterative inside-out process.
-Initial interations search for tracks that are easy to find, e.g. those with high \pt, and hits associated with these tracks are removed for later iterations, reducing the combinatorial complexity and simplifying the search for more difficult tracks, e.g. greatly displaced ones.
+The combinatorial track finder software~\cite{Tracker2014} is used to reconstruct tracks in an iterative inside-out process.
+Initial interactions search for tracks that are easy to find, e.g. those with high \pt, and hits associated with these tracks are removed for later iterations, reducing the combinatorial complexity and simplifying the search for more difficult tracks, e.g. greatly displaced ones.
 
 The first step is to form seeds based on pixel hits, double strip hits containing 3D information, and an estimate of the beam spot.
 Earlier iterations require three pixel hits while later iterations gradually loosen the requirements. %  to reconstruct displaced tracks.
@@ -52,7 +52,7 @@ The five parameters used for the helical trajectory evolution are the curvature 
 After propagating the track through all layers of the detector and finding all associated hits, a Kalman fitter and smoother is used to refit the overall trajectory while a fourth-order Runge-Kutta method is used to extrapolate the trajectory between successive hits.
 To reduce the fraction of fake tracks, various quality requirements concerning the number of missing hits, the reduced $\chi^2$ of the fit, and compatibility with a primary vertex are applied before proceeding to the next iteration.
 
-Track reconstruction for electrons is more complicated as the Kalman filter is not a good description because of the high rate of non-Gaussian energy loss due to brehmsstrahlung these tracks experience within the tracker~\cite{PF2017}.
+Track reconstruction for electrons is more complicated as the Kalman filter is not a good description because of the high rate of non-Gaussian energy loss due to Brehmsstrahlung that electrons experience within the tracker~\cite{PF2017}.
 To improve the electron reconstruction efficiency, the electron seed collection is filled both by looking outside-in for ECAL superclusters consistant with track seeds and inside-out track seeds consistent with superclusters.
 A Gaussian Sum Filter (GSF) defined to approximate the Bethe-Heitler energy-loss distribution is used to fit the trajectory of electron tracks. 
 
@@ -63,9 +63,9 @@ A deterministic annealing (DA) algorithm is used to associate tracks to primary 
 Tracks must pass additional requirements on the transverse impact parameter $d_0$, the number of strip and pixel hits, and the reduced $\chi$ of the trajectory fit to be considered when finding primary vertices.
 The most probable vertex positions at an artifical temperature $T$ are determined by the minimization of the ``free energy''
 \begin{equation}
-  F = -T \sum_i^{N_T} \ln \sum_j^{N_V} p_{ij} \rho_j \exp \left[ - \frac{1}{T} \left(\frac{z_i^T - z_j^V}{\sigma^z_i}\right)^2 \right]
+  F = -T \sum_i^{N_T} \ln \sum_j^{N_V} p_{ij} \rho_j \exp \left[ - \frac{1}{T} \left(\frac{z_i^T - z_j^V}{\sigma^z_i}\right)^2 \right],
 \end{equation}
-where the $z_j^V$ are the vertex positions with weights $\rho_j$, the $z_i^T$ and $\sigma_i^z$  are the longitudinal impact parameters and the corresponding uncertainties of the tracks, and the $p_{ij}$ are the probabilities of assigning the track $i$ of $N_T$ to the vertex $j$ of $N_V$.
+where the $z_j^V$ are the vertex positions with weights $\rho_j$, the $z_i^T$ and $\sigma_i^z$  are the longitudinal impact parameters and the corresponding uncertainties of the tracks, and the $p_{ij}$ are the probabilities of assigning the track $i$ of $N_T$ total tracks to the vertex $j$ of $N_V$ total vertices.
 
 The DA algorithm starts with a single vertex at a very high temperature that is gradually decreased.
 The free energy $F$ is minimized with respects to $z_j^K$ at each new temperature and a vertex is split in two whenever $T$ falls below its criticial temperature
@@ -82,26 +82,26 @@ where $\pt^i$ is the transverse momentum of a track assigned to the vertex and \
 \subsection{Secondary Vertexing}
 \label{sec:pf_csv}
 
-Long-lived particles such as $b$ hadrons and $\tau$ leptons often produce charged particles in their decays.
+Somewhat longer-lived particles such as $b$ hadrons and $\tau$ leptons often produce charged particles in their decays.
 These charged particles are traced to a secondary vertex at the location of the decay, which is identified by the inclusive vertex fitter (IVF) algorithm~\cite{Vertex2018}.
 
-The IVF procedure begins by selecting seed tracks with a 2D impact parameter significance $\sigma_{d_0} \ge 1.2$ and a 3D impact parameter $\sqrt{d_0^2 + z_0^2} \ge  50\mum$.
-Tracks are assigned to a secondary vertex based on their opening angle with the seed track and distance at closest approach, with the additional stipulation that this distance be smaller for the secondary vertex than for the primary vertex.
+The IVF procedure begins by selecting seed tracks with a 2D impact parameter significance $\sigma_{d_0} \ge 1.2$ and a 3D impact parameter $\sqrt{d_0^2 + z_0^2} \ge  50\mum$ to the primary vertex.
+Tracks are assigned to a secondary vertex based on their opening angle with the seed track and distance of closest approach, with the additional stipulation that this distance be smaller for the secondary vertex than for the primary vertex.
 
 To determine the precise position of the secondary vertices, the associated tracks are fitted with the adaptive vertex fitter and any vertices with a flight distance significance less than a certain threshold are discarded.
-At this point, a track is unassociated from a secondary vertex if the angular distance between the track and the secondary vertex flight direction is greater than 0.4 and if the track's distance at closest approach is larger than the magnitude of its impact parameter.
+At this point, a track is unassociated from a secondary vertex if the angular distance between the track and the secondary vertex flight direction is greater than 0.4 and if the track's distance of closest approach is larger than the magnitude of its impact parameter.
 
-The secondary vertex position is refitted after track cleaning if there are still at least two tracks associated with the vertex.
+The secondary vertex position is refitted after track cleaning if there are still at least two tracks associated with the vertex and any vertices with only one track are removed.
 The last stage of cleaning removes a secondary vertex if it shares at least 20\% of its tracks with another and the flight distance significance between the two is less than ten.
 
 \subsection{ECAL Superclusters}
 \label{sec:pf_sc}
 
 Due to the large amount of material in the tracker, electrons often emit bremsstrahlung photons, photons often convert to electron-positron pairs, and the brehmsstrahlung photons and converted electrons often undergo further conversion and brehmsstrahlung before reaching the ECAL.
-Because of the bending of electron trajectories in the magnetic field, the resulting electromagnetic (EM) shower is significantly spread in the $\phi$-direction and collimated in the $\eta$-direction.
+Electron trajectories bend in the magnetic field which leads to the resulting electromagnetic (EM) shower being significantly spread in the $\phi$-direction and collimated in the $\eta$-direction.
 The ECAL reconstruction algorithm~\cite{Electrons2015, Photons2015} combines the basic cluster from each showered particle into a supercluster representing the initial electron or photon from the hard scattering. 
 
-The first step is the identification of a seed crystal with greater transverse energy than its immediate neighbors and above a predefined minimum threshold.
+At the start of the clustering process, seed crystals are identified as those with a greater transverse energy than their immediate neighbors and above a predefined minimum threshold.
 The energy of each crystal is determined from calibration constants combined with the amplitude and peak time obtained by fitting the pulse shape of the ten time samples surrounding the triggering bunch crossing.
 
 In the barrel, a supercluster starts with a $5\times1$ array of crystals in the $\eta$-$\phi$ plane centred on the seed crystal.
@@ -110,16 +110,17 @@ The contiguous array is grouped into distinct basic clusters each containing a s
 The supercluster is the collection of basic threshold found in the $\eta$-$\phi$ region centered on the initial seed crystal.
 Since the crystals in the endcaps are arranged in an $x$-$y$ grid, clustering here uses fixed $5\times5$ matrices of crystals. 
 After a seed cluster is identified, additional, partially overlapping $5\times5$ matrices are added if their centroid lies within $\abs{\Delta\eta} \le 0.07$ and $\abs{\Delta\phi} \le 0.3$.
-For uncoverted photons, both methods produce superclusters that are simple $5\times5$ matrices.
+For unconverted photons, both methods produce superclusters that are simple $5\times5$ matrices.
 
 \subsection{HCAL Clusters}
 \label{sec:pf_clusters}
 
 The purpose of clustering in the HCAL is to measure the energy and direction of neutral hadrons, disentangle neutral hadrons from charged hadron energy deposits, and improve the energy measurement for charged hadrons with poorly reconstructed tracks~\cite{PF2017}.
-Similar to the supercluster algorithm, a cluster in the HCAL is first identified by a seed cell with greater transverse energy than its immediate neighbors and above a predefined minimum threshold.
+Similar to the supercluster algorithm, seed cells in the HCAL are identified as those with a greater transverse energy than their immediate neighbors and above a predefined minimum threshold.
 This seed is then grown into a topological cluster by adding cells with at least a corner in common with a cell already in the cluster and energy above twice the noise threshold.
 
-An iterative Gaussian mixture model is used to break each topological cluster of M individual cells is broken into N energy deposits corresponding to individual particles, where N is the number of seeds.
+A single topological cluster can result from several particles leaving overlapping energy deposits close to each other.
+To disentangle the separate contributions, an iterative Gaussian mixture model is used to break each topological cluster of M individual cells into N energy deposits corresponding to individual particles, where N is the number of seeds.
 Each energy deposit is modeled as a Gaussian distribution $\mathcal{N}$ with amplitude $A_i$, mean $\vec \mu_i$ in the $\eta$-$\phi$ plane, and width $\sigma$ fixed by the calorimeter resolution.
 The expected fraction $f_{ji}$ of the energy $E_j$ measured in the cell at position $\vec c_j$ from the $i$th energy deposit is
 \begin{equation}
@@ -130,7 +131,7 @@ The amplitude and position of each energy deposit are determined by an analytica
 \begin{equation}
   \begin{matrix}[l | r]
     A_i = \sum\limits_j^M f_{ji} E_j &
-    \vec \mu_i = \sum\limits_j^M f_{ji} E_j \vec c_j
+    \vec \mu_i = \sum\limits_j^M f_{ji} E_j \vec c_j,
   \end{matrix}
 \end{equation}
 where the initial values are the energy and position of the seeds.
@@ -145,7 +146,7 @@ A full track constructed in this way is referred to as a standalone muon~\cite{P
 \subsection{Isolation}
 \label{sec:pf_iso}
 
-While not a physics object persay, isolation is a key concept of the PF algorithm that distinguishes prompt leptons and photons originating in the hard scattering from those originating in the decays of hardrons during the parton shower.
+While not a physics object persay, isolation is a powerful variable used in the PF algorithm to distinguish prompt leptons and photons originating in the hard scattering from those originating in the decays of hardrons during the parton shower.
 The latter are surrounded by a large amount of additional hadrons while the former have little hadronic activity in their vicinity, originating mainly from the pileup vertices.
 
 The isolation of a prompt object is the total amount of energy due to additional particles within an annulus of radius $0.01 < \dR < 0.4$ around the prompt object, where the lower bound avoids including the prompt object and its radiation in the sum.
@@ -195,7 +196,7 @@ Conversely, to construct a tracker muon, the algorithm identifies a muon segment
 Global and tracker muons sharing the same inner track are merged into a single candidate.
 For muons with $\pt < 200\GeV$, the muon momentum is that of the inner track, while the momentum is determined from a global fit of the muon chambers and inner tracker for muons with momentum above this threshold. 
 
-Hadrons misidentified muons are rejected through two separate mechanisms. First, the isolation with respects to inner tracks and calorimeter deposits within $\dR < 0.3$ is required to be less than 10\% of the muon \pt.
+Hadrons misidentified as muons are rejected through two separate mechanisms. First, the isolation with respects to inner tracks and calorimeter deposits within $\dR < 0.3$ is required to be less than 10\% of the muon \pt.
 Non-isolated muons are kept only if certain selections on the reduced $\chi^2$ of the track fit and the two impact parameters $d_0$ and $d_z$ are satisfied.
 Finally, misidentified or misreconstructed muons can lead to a spurious imbalance in the transverse momentum.
 The procedure used to identify and remove these muon candidates is described in Section~\ref{sec:pf_met}.
@@ -204,7 +205,6 @@ The total efficiency of muon reconstruction is 99\%.
 The work described in this thesis only considers global muons with $\pt > 10\GeV$ and $\abs\eta < 2.5$.
 This minimum requirement is only used to reject events containing a muon and is referred to as the veto muon ID. 
 The loose muon ID adds the requirement that the relative combined PF Isolation $\IPF$ must be less than 0.25.
- must be less than 0.25.
 In order for a muon to pass the tight ID, it must have $\pt\ > 30\GeV$ and $\IPF\ < 0.15$ as well as satisfying the additional requirements in Table~\ref{tab:muid}.
 
 \begin{table}[htbp]
@@ -229,16 +229,15 @@ In order for a muon to pass the tight ID, it must have $\pt\ > 30\GeV$ and $\IPF
 \label{sec:pf_electrons}
 
 Electron candidates are seeded from the GSF tracks described in Section~\ref{sec:pf_tracks} as long as the corresponding ECAL clusters are not linked to three or more additional tracks.
-In each block, all ECAL clusters linked to either the supercluster (SC) or one of the GSF track tangents are associated with the candidate to ensure optimal energy containment.
-Additional tracks linked to these clusters are associated if the track momenta and energies of any linked HCAL clusters are compatible with the electron hypothesis.
+In each PF block, all ECAL clusters linked to either the supercluster (SC) or one of the GSF track tangents are associated with the candidate to ensure optimal energy containment.
+Additional tracks linked to these clusters are associated if the track momenta and energies of any linked ECAL clusters are compatible with the electron hypothesis.
 Any tracks and clusters belonging to identified photon conversions linked to the GSF track tangents are associated as well.  
 
 To recover any energy lost during the association process, the total energy of the collected clusters is corrected with analytical functions of $E$ and $\eta$. 
 For ECAL-based candidates, the sum of the energies measured in the HCAL cells within $\dR < 0.15$ of the supercluster must be less than 10\% of the supercluster energy.
 The final energy of an electron candidate is a weighted average of the corrected ECAL energy and the momentum of the GSF track and the electron direction is that of its GSF track.
 
-The work described in this thesis only considers electrons with $\pt > 10\GeV$ and $\abs\eta < 2.5$.
-Additionally, electrons must pass further cuts on the observables listed in Table~\ref{tab:eleid}.
+The work described in this thesis only considers electrons with $\pt > 10\GeV$ and $\abs\eta < 2.5$ that pass cuts on the observables listed in Table~\ref{tab:eleid}.
 The exact values of the cuts are tuned based on whether the electron is in the barrel or the endcap and to give desired signal efficiencies and background acceptance.
 The loose ID is tuned to 90\% signal efficiency and 0.5\% background acceptance, while the tight ID is tuned to 70\% signal efficiency and 0.1\% background acceptance.
 
@@ -334,10 +333,10 @@ The lower bounds on \sieie\ and \sipip\ as well as the requirement on the cluste
 \subsection{Hadrons}
 \label{sec:pf_hadrons}
 
-The last candidates reconstructed in a given block are the charged and neutral hadrons from fragmentation and hadronization, as well as the non-isolated muons and photons produced from their respective decays.
+The last candidates reconstructed in a given PF block are the charged and neutral hadrons from fragmentation and hadronization, as well as the non-isolated muons and photons produced from their respective decays.
 
 Inside the tracker acceptance of $\abs\eta < 2.5$, all trackless HCAL clusters are reconstructed as neutral hadrons while all trackless ECAL clusters are reconstructed as photons.
-The preference towards photons is motivated because photons carry 25\% of the jet energy and neutral hadrons do not interact strongly with the ECAL.
+The preference towards photons is justified because they carry 25\% of the jet energy and neutral hadrons do not interact strongly with the ECAL.
 Conversely, outside of the tracker acceptance, it is no longer possible to distinguish charged and neutral hadrons, so any ECAL clusters linked to HCAL clusters are assumed to arise from unidentified charged hadrons.
 Thus, only unlinked ECAL clusters are reconstructed as photons and linked ECAL and HCAL clusters are reconstructed as neutral hadrons.
 
@@ -346,11 +345,11 @@ A single charged hadron is constructed for each remaining HCAL cluster, with ene
 
 If the energy of the charged hadron exceeds its momentum by an amount larger than the calometric energy resolution, neutral hadrons and photons are added.
 For excesses greater than 500\MeV, a photon with energy equal to the excess is created.
-If this photon cannont explain the entire excess, e.g. the excess is larger than the ECAL energy by at least 1\GeV, the remainder is indentified as a neutral hadron. 
+If this photon cannot explain the entire excess, e.g. the excess is larger than the ECAL energy by at least 1\GeV, the remainder is indentified as a neutral hadron. 
 After photons and neutral hadrons consume the excess calometric energy, charged hadrons are constructed from the linked tracks with their energy and momentum determined by the track momenta under the charged-pion hypothesis. 
 
 If energy and momentum of the charged hadron are compatible, no neutral particles are identified. A charged hadron candidate is created for each track linked to the HCAL cluster, with momenta determined by a $\chi^2$ fit of the tracker and calorimeter measurements.
-This combintation ensures a smooth transition between the tracker-dominated low-enrgy regime and the calorimeter-dominated high-energy regime while always improving the final energy resolution. 
+This combintation ensures a smooth transition between the tracker-dominated low-energy regime and the calorimeter-dominated high-energy regime while always improving the final energy resolution. 
 
 If the momentum of the charged hadron exceeds its energy by three standard deviations, new PF muons are made from any non-isolated global muons failing the cleaning described in Section~\ref{sec:pf_muons} with momentum resolution better than 25\%.
 If, after masking the tracks from these muons, the track momentum sum still greatly exceeds the calorimeter energy, all remaining tracks with a \pt\ uncertainty greater than 1\GeV are identified, sorted in decreasing order of this uncertainty, and sequentially masked until no such tracks remain or the momentum excess disappears, whichever comes first. 
@@ -379,7 +378,7 @@ Jets clustered with $q = -1$ are referred to as anti-\kt\ jets, those with $q = 
 Negative values of $q$ force the clustering of circular jets around hard seeds ensuring that the resulting jet boundaries are resilient with respect to soft radiation.
 Within CMS, anti-\kt\ jets with $R = 0.4$ are used to cluster the parton shower from single partons.
 
-The implementation in the FastJet library reduces the computational complexity of clustering from $\mathcal{O}(N^2)$ to $\mathcal{O}(N \log N)$ for jets with hundreds or thousands of constituent particles.
+The implementation in the FastJet library~\cite{Cacciari2012} reduces the computational complexity of clustering from $\mathcal{O}(N^2)$ to $\mathcal{O}(N \log N)$ for jets with hundreds or thousands of constituent particles.
 First, the two objects $i$ and $j$ with the smallest distance $d_{ij}$ between them are found. 
 If $d_{ij}$ is less than both $d_{iB}$ and $d_{jB}$, they are removed from $E$ and a single object $k$ with four-momentum $p_\mu^k = p_\mu^i + p_\mu^j$ which is added in their place. 
 Otherwise if $d_{iB} < d_{jB}$, object $i$ is removed from $E$ and added to the set of jet candidates $J$ while object $j$ is kept, and vice versa if $d_{jB} < d_{iB}$.
@@ -420,7 +419,9 @@ Applying these filters removes essentially all remaining events with fake \met\ 
   \label{fig:eventdisplay_gsfix}
 \end{figure}
 
-The ``multi-fit'' algorithm for ECAL hit reconstruction was found to have an unexpected behavior when there is a large energy deposit onto a single ECAL crystal, such that the electronic signal converted at the frontend electronics is sourced partially from channels of the preamplifier with lower gains (6 or 1) than the default (12) channel. 
+The ``multi-fit'' algorithm for ECAL hit reconstruction was found to have an unexpected behavior when there is a large energy deposit into a single ECAL crystal.
+The electronic signal converted at the frontend electronics is partially subject to the default 12 gain amplification and partially subject to the lower gain amplification of 6 or 1. 
+The ``multi-fit'' algorithm does not account for the switch in amplification and misrecontructs the pulse as a result.
 In the most dramatic cases, pulse misreconstruction would result in underestimation by hundreds of \GeV of photon \pt. 
 This effect is mitigated in the reprocessed data set used for this analysis by identifying ECAL clusters whose seed crystal hit had a switch of gains, and performing an alternative pulse reconstruction when possible.
 
@@ -429,7 +430,7 @@ This effect is mitigated in the reprocessed data set used for this analysis by i
   \includegraphics[width=0.6\linewidth]{Reconstruction/Figures/gsfix/movements.pdf}
   \caption{
     The change in reconstructed photon \pt\ and \met\ for events in the bin $\dphigmet < 0.05$ of the distribution in Figure~\ref{fig:dphigmet_beforegsfix}. 
-    Each arrow represents a single event, the the tail (head) of the arrow corresponding to (\ETg, \met) coordinates in the datasets without (with) the fix for the gain-switch problem.
+    Each arrow represents a single event, the tail (head) of the arrow corresponding to (\ETg, \met) coordinates in the datasets without (with) the fix for the gain-switch problem.
   }
   \label{fig:ptshift_gsfix}
 \end{figure}
