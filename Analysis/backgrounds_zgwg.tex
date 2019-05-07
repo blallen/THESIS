@@ -50,6 +50,7 @@ Note that the denominator cross section includes contributions from processes wi
   \caption{Correction factors \kqcd\ for \zinvg\ and \wlng\ samples.}
   \label{tab:zg_kfactors}
 \end{table}
+\PH{Minor point. How was PS and merging dealt with in these samples. Strictly speaking MG is 2 parton but merged, so its slightly different}
 
 Higher-order electroweak correction factors are also applied as a function of \ETg. 
 Out of various electroweak higher-order effects, ones that can give sizeable
@@ -70,6 +71,7 @@ We apply the correction factors shown in Figure~\ref{fig:ewk_correction}, which 
   }
   \label{fig:ewk_correction}
 \end{figure}
+\PH{Its not completely obvious which unceratiny in the plot maps to the uncertainty in the text, please fix lables or add more to caption}
 
 The differential cross section after the full higher-order corrections is
 \begin{equation}
@@ -97,7 +99,7 @@ For the Sudakov suppression, which is the dominant term in the electroweak corre
 In this paper, electroweak correction as a function of the boson \pt\ is varied in overall scale and in slope. 
 The slope variation is realized by selecting a point in the boson \pt\ spectrum and letting the shift in correction cross over at the point (see Figure~\ref{fig:ewk_correction_cartoon}). 
 Following this prescription, we let the Sudakov suppression vary in overall scale and in slope, where we choose our crossover point for the slope variation to be at $\ETg=590\GeV$.
-
+\PH{Please motivate the chioce of 590}
 \begin{figure}[htbp]
   \centering
   \resizebox{\textwidth}{!}{
@@ -121,6 +123,7 @@ The electron (muon) scale factors $\rho$ are approximately unity with a flat 2\%
 \subsection{Data-driven Control Regions}
 \label{sec:control_regions}
 
+
 Contributions from the \zinvg\ and \wlng\ processes are estimated using observed data in four mutually exclusive single-electron, single-muon, dielectron, and dimuon control regions.
 The various ratios between the expected \zinvg\ yield in the combined signal regions and the expected \wlng\ and \zllg\ yields in the control region are constrained by MC simulations.
 When a ratio is calculated using MC samples as a function of \ETg, it is referred to as the ``transfer factor'' between the two processes.
@@ -128,8 +131,10 @@ This background estimation method exploits the cancellation of some of the syste
  
 For the transfer factor \RZll, the numerator is the expected \zinvg\ yield in the combined signal regions and the denominator is the expected \zllg\ yield in the relevant dilepton control region.
 The uncertainties due to photon energy calibration, jet energy resolution, and higher-order QCD effects are significantly reduced on \RZll\ compared to when such effects are considered for individual processes. 
-The only uncertainties in the transfer factor \RZll\ that do not largely cancel are those on lepton identification efficiency, the statistical uncertainty due to the limited MC sample size, and a minor uncertainty due to the different acceptances between the \zinvg\ and \zllg\ proccesses. 
+The only uncertainties in the transfer factor \RZll\ that do not largely cancel are those on lepton identification efficiency, the statistical uncertainty due to the limited MC sample size, and a minor uncertainty due to the different acceptances between the \zinvg\ and \zllg\ proccesses. \PH{spelling:proccesses} 
 Figure~\ref{fig:tf_z} shows the transfer factor \RZee\ (\RZmm) between the dielectron (dimuon) control region and the combined signal regions.
+
+\PH{It would be nice to discuss the statistical limiations of htis process. How much would you gain if you had gamma events}
 
 \begin{figure}[htbp]
   \centering
@@ -167,9 +172,9 @@ Table~\ref{tab:wg_breakdown} gives the breakdown of the \wlng\ background passin
 From this breakdown, one sees that events where the \PW\ boson decays to a \Pgt\ and a neutrino constitute approximately 60\% of the \wlng\ background. 
 The remaining 40\% of the \wlng\ background comes from events where the \PW\ boson decays to a \Pgm\ or \Pe\ and a neutrino.
 Events containing an electron are more likely to be within the detector acceptance, while those with a muon are more likely to be out of acceptance.
-For the in-acceptance background ($|\eta| < 2.5$), the identification efficiency, which is lower for electrons than for muons, which translates to a larger background contribution from the electrons. 
+For the in-acceptance background ($|\eta| < 2.5$), the identification efficiency, which is lower for electrons than for muons, which translates to a larger background contribution from the electrons. \PH{To many whichs}
 The requirement for large \met\ removes events with out-of-acceptance electrons because the energy from these electrons is captured by the calorimeters and retains events with out-of-acceptance muons because they contribute directly to the missing momentum.
-The overall result is a larger background contribution from events with out-of-acceptance muons than from events with out-of-acceptance electrons. 
+The overall result is a larger background contribution from events with out-of-acceptance muons than from events with out-of-acceptance electrons.  \PH{This discussion is lacking. You should probably discuss how hte MET calcualtion changes for muon in and out of acceptance when compared to electrons}
 % Conversely, by requiring large \met, the muon $\eta$ distribution is highly skewed towards the edge of acceptance, driving the overall muon reconstruction efficiency in the sample lower and thereby making the background contributions from electrons and muons closer to each other. 
 
 \begin{table}[htbp]
@@ -199,6 +204,7 @@ The overall result is a larger background contribution from events with out-of-a
 Figure~\ref{fig:tf_w} shows the transfer factor \RWe\ (\RWm) between the single-electron (single-muon) control region and the combined signal regions, for which the numerator is the estimated \wlng\ yield in the combined signal regions, and the denominator is the estimated \wlng\ yield in the relevant control region. 
 The ratio \RWl\ decreases with increasing \ETg\ in a similar manner to \RZll.
 The underlying logic is the same; e.g., that the signal region selection efficiency is unaffected by \ETg\ while the control region acceptances increase with increasing \ETg\ due to increased lepton efficiency resulting from lower \PW\ rapidity. 
+\PH{the logi is there, but this seems a little wonky. Its really the likelihood of a lepton to be out of acceptance varies with pT, so the failure rate grows with low pT.}
 
 \begin{figure}[htbp]
   \centering
@@ -214,6 +220,7 @@ The underlying logic is the same; e.g., that the signal region selection efficie
   }
   \label{fig:tf_w}
 \end{figure}
+\PH{The aption is inconsistent with the text}
 
 Finally, to benefit further from the larger statistical power that the single-lepton control samples provides, an additional transfer factor $\fZW = \NZg / \NWg$ is defined to connect the \zinvg\ and \wlng\ background yields in the signal regions, where the quantity $\NWg$ is the number of \wlng\ events in the combined signal regions. 
 When calculating the ratio \fZW, all experimental uncertainties associated with the data-to-simulation correction factors $\rho$ cancel since both processes result in very similar event configurations. 
@@ -231,6 +238,7 @@ Figure~\ref{fig:tf_syst} shows the effect of each systematic uncertainty in \fZW
   }
   \label{fig:tf_syst}
 \end{figure}
+\PH{Why are there two sets of uncertainties, there is just one going from W=>Z, the other direction is 100\% correlated, is this just that one set but applied in each sample?. Reading further the labels and text I think are wrong since you show the Z=>W ratio later}
 
 The ratio \fZW\ rises rather than falls with increasing \ETg\ because \wlng\ events have a lower signal region selection efficiency when the charged lepton falls within the tracker acceptance due to the lepton veto while the \zinvg\ efficiency is independent of \ETg.
 Figure~\ref{fig:tf_wz} shows the transfer factor \fZW\ between the \zinvg\ and \wlng\ processes in the combined signal region.
