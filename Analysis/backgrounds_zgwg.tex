@@ -50,11 +50,9 @@ Note that the denominator cross section includes contributions from processes wi
   \caption{Correction factors \kqcd\ for \zinvg\ and \wlng\ samples.}
   \label{tab:zg_kfactors}
 \end{table}
-\PH{Minor point. How was PS and merging dealt with in these samples. Strictly speaking MG is 2 parton but merged, so its slightly different}
 
 Higher-order electroweak correction factors are also applied as a function of \ETg. 
-Out of various electroweak higher-order effects, ones that can give sizeable
-($\gg\mathcal{O}(\alpha)$) corrections to the cross section are the Sudakov suppression at high boson \pt\ and potentially the addition of photon-induced scattering processes~\cite{Denner:2014bna,Denner:2015fca}. 
+Out of various electroweak higher-order effects, ones that can give sizeable ($\gg\mathcal{O}(\alpha)$) corrections to the cross section are the Sudakov suppression at high boson \pt\ and potentially the addition of photon-induced scattering processes~\cite{Denner:2014bna,Denner:2015fca}. 
 We apply the correction factors shown in Figure~\ref{fig:ewk_correction}, which are the combinations of Sudakov suppression factors and photon-induced enhancements, and are provided by the authors of Reference~\cite{Denner:2015fca} in addition to the NNLO QCD correction.
 
 \begin{figure}[htbp]
@@ -66,7 +64,7 @@ We apply the correction factors shown in Figure~\ref{fig:ewk_correction}, which 
   }
   \caption{
     Electroweak NLO cross section corrections as a function of photon \pt\ for \zinvg\ (left), $\PW^{+}+\Pgg$ (middle), and $\PW^{-}+\Pgg$ (right) processes, overlaid with uncertainty bands. 
-    See text for descriptions of the individual components of the uncertainty.
+    The scale and slope bands show the behavior of the two Sudakov uncertainties described in the text.
     The uncertainty due to \Pgg-induced production is negligible in \zinvg\ production.
   }
   \label{fig:ewk_correction}
@@ -75,14 +73,12 @@ We apply the correction factors shown in Figure~\ref{fig:ewk_correction}, which 
 
 The differential cross section after the full higher-order corrections is
 \begin{equation}
-  % d\sigma^{\text{NNLO, NLO}}_{\text{QCD, EW}} =
   d\sigma^{\text{LO}}_{\text{QCD}} \cdot \kqcd \cdot \left(1 + \ksudakov + \kphoton \right),
 \end{equation}
 where $\kqcd = d\sigma^{\text{NNLO}}_{\text{QCD}} / d\sigma^{\text{LO}}_{\text{QCD}}$, and the two $k_{\text{EW}}$ terms are the Sudakov suppression and photon-induced enhancement components of the electroweak correction, respectively.
 
 Furthermore, subtle differences between simulation and observation in the reconstruction and identification efficiencies for various particle candidates are accounted for with the set of selection efficiency correction factors $\rho$. 
 The value of an individual $\rho$ typically lies within a few percent of unity. 
-% Further details on the measurement and values of various $\rho$ are found in Chapter~\ref{chap:calibration}. %% gonna need to change
 
 Four sources of systematic uncertainties considered for \ETg\ distribution ratios of the \vg\ processes are higher-order QCD corrections, higher-order EWK corrections, choice of PDF set, and data-to-simulation correction factors $\rho$. 
 The four uncertainties are evaluated for each \ETg\ bin and fully correlated between the different bins.. 
@@ -98,8 +94,7 @@ The choice of using the square of \ksudakov\ is motivated by the fact that fully
 For the Sudakov suppression, which is the dominant term in the electroweak correction, we further consider two types of systematic variations.
 In this paper, electroweak correction as a function of the boson \pt\ is varied in overall scale and in slope. 
 The slope variation is realized by selecting a point in the boson \pt\ spectrum and letting the shift in correction cross over at the point (see Figure~\ref{fig:ewk_correction_cartoon}). 
-Following this prescription, we let the Sudakov suppression vary in overall scale and in slope, where we choose our crossover point for the slope variation to be at $\ETg=590\GeV$.
-\PH{Please motivate the chioce of 590}
+Following this prescription, we let the Sudakov suppression vary in overall scale and in slope, where we choose our crossover point for the slope variation to be at $\ETg=600\GeV$, to prevent the low \ETg\ bins from overconstraining the EWK uncertainties in the last bin.  
 \begin{figure}[htbp]
   \centering
   \resizebox{\textwidth}{!}{
@@ -113,7 +108,7 @@ Following this prescription, we let the Sudakov suppression vary in overall scal
 \end{figure}
 
 The PDF uncertainty is evaluated by varying the weight of each event using the weights provided in the NNPDF set, and taking the standard deviation of the resulting \ETg\ distributions. 
-This uncertainty is considered fully correlated in the ratio between the \zinvg\ and \wlng\ processes, \ie, the variation of the ratio is bounded by the ratios formed by the simultaneous upward and downward variations of the numerator and denominator. .
+This uncertainty is considered fully correlated in the ratio between the \zinvg\ and \wlng\ processes, \ie, the variation of the ratio is bounded by the ratios formed by the simultaneous upward and downward variations of the numerator and denominator.
 
 Finally, data-to-simulation correction factors $\rho$ for the lepton identification efficiencies have associated uncertainties that do not cancel when taking ratios between regions defined by different lepton selection requirements.
 The lepton efficiencies are measured using the ``tag-and-probe'' method where the tag object is an electron (muon) object passing the tight ID  and matched to a SingleElectron (SingleMuon) trigger and the probe object is a PF electron (muon) without any ID applied.
@@ -122,7 +117,6 @@ The electron (muon) scale factors $\rho$ are approximately unity with a flat 2\%
 
 \subsection{Data-driven Control Regions}
 \label{sec:control_regions}
-
 
 Contributions from the \zinvg\ and \wlng\ processes are estimated using observed data in four mutually exclusive single-electron, single-muon, dielectron, and dimuon control regions.
 The various ratios between the expected \zinvg\ yield in the combined signal regions and the expected \wlng\ and \zllg\ yields in the control region are constrained by MC simulations.

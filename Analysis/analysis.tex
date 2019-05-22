@@ -22,11 +22,12 @@ Therefore, the contributions from these background processes are estimated by em
 
 Finally, apparent large energy deposits in ECAL from non-collision processes mimic \gmet\ events and therefore need to be controlled. 
 Known sources of such background include bremsstrahlung of beam halo or cosmic ray muons and anomalous ECAL energy deposits resulting from the interaction of particles in the ECAL photodetectors referred to as ``ECAL spikes''. 
-These methods used to estimate contributes from these processes are described in detail in Sections~\ref{sec:halo_estimate} and~\ref{sec:spike_estimate}, respectively. \PH{estimate contributes?=>rephrase}
+These methods used to estimate the contributions from these processes are described in detail in Sections~\ref{sec:halo_estimate} and~\ref{sec:spike_estimate}, respectively.
 
 The estimates of the contributions from \zinvg, \wlng, and beam halo processes are allowed to float in the fits to data performed to extract the potential signal contribution and set limits on new physics models. %  described in Section~\ref{sec:interpretation}.
 Meanwhile, for all other background processes, the yields in the fits are fixed to the estimates from data-driven methods or MC cross section calculation. 
 \PH{The above paragraph doesn't fit. You bring up fit out of nowhere and floating is jargon. I would just remove this and outline this when you do the signal extraction}
+
 \section{Dataset}
 \label{sec:dataset}
 
@@ -48,29 +49,28 @@ The trigger efficiency is measured to be about 98\% for events passing the analy
 
 The distribution of the number of pileup interactions inserted into MC events differ from the true pileup distribution, estimated from the measurement of instantaneous luminosity, beam intensity of each proton bunch, and the total cross section of proton inelastic scattering (69.2 $\textrm{mb}^{-1}$). \PH{we should know htis calculation each proton bunch multiplied by the total cross...}
 
-Figure~\ref{fig:pudist} shows the pileup distributions in data and MC and their ratio. 
-Each simulation event has its weight multiplied by the value of the ratio evaluated at the number of true pileup interaction injected into the event. \PH{What is a simulation event}
+Figure~\ref{fig:pudist} shows the pileup distributions in data and MC and the ratio of the two. 
+Each simulated MC event has its weight multiplied by the value of the ratio evaluated at the number of true pileup interaction injected into the event in order to reproduce the observed pileup distribution in the MC samples. 
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.48\textwidth]{Analysis/Figures/PUMoriond17.pdf}
   \caption{
     The pileup distributions in data and MC.
+    The ratio of the two is used to reweight the MC samples.
   }
   \label{fig:pudist}
 \end{figure}
-\PH{This setion is completely nebulous, you don't actually expalin that you are deriving a weight. This needs a rewrite}
 
 \section{Event Selection}
 \label{sec:event_selection}
 
-From the recorded data, events are selected by requiring $\met > 170\GeV$ and at least one photon with $\ETg > 175\GeV$ in the fiducial region of the ECAL barrel ($\abs{\eta} < 1.44$). Events with photons in the endcaps are not considered because the estimate of backgrounds due to beam halo and misidentified hadron are greatly complicated due to the $x$-$y$ grid of the crystals in the endcaps. \PH{This is very hard to follow can you put $x$-$y$ grid in layman's terms}
+From the recorded data, events are selected by requiring $\met > 170\GeV$ and at least one photon with $\ETg > 175\GeV$ in the fiducial region of the ECAL barrel ($\abs{\eta} < 1.44$). Events with photons in the endcaps are not considered because the estimation of backgrounds due to beam halo and misidentified hadron is greatly complicated because the crystals in the ECAL endcaps do not form a grid in $\eta$ and $\phi$. 
 
 Events with a high-\pt\ photon and large \met\ are subjected to further requirements to suppress SM background processes that feature a genuine high-energy photon, but not a significant amount of \met.
 One such SM process is \gj, where an apparently large \met\ is often the result of mismeasuring the energy of a jet.
 In contrast to signal-like processes, the \met is typically smaller than \ETg\ in these events, so requiring the ratio of \ETg\ to \met to be less than 1.4 rejects this background effectively with little effect on signal efficiency. %% gotta add a plot 
-Events are also rejected if the minimum opening angle between \ptvecmiss\ and the directions of the four highest \pt\ jets, \mindphijmet, is less than 0.5. % gotta add a plot 
-\PH{Only => ;only} Only jets with $\pt > 30\GeV$ and $\abs{\eta} < 5$ are considered in the \mindphijmet\ calculation.
+Events are also rejected if the minimum opening angle between \ptvecmiss\ and the directions of the four highest \pt\ jets, \mindphijmet, is less than 0.5; only jets with $\pt > 30\GeV$ and $\abs{\eta} < 5$ are considered in the \mindphijmet\ calculation. % gotta add a plot 
 In the \gj\ process, rare pathological mismeasurements of \ETg\ also lead to large \met. 
 For this reason, the candidate photon \ptvec\ and \ptvecmiss\ must be separated by more than 0.5 radians. %% gotta add a plot
 
@@ -94,7 +94,8 @@ For this reason, the candidate photon \ptvec\ and \ptvecmiss\ must be separated 
 
 The above selections, summarized in Table~\ref{tab:baseline}, constitute the baseline selections common to all regions.
 To improve the purity of the signal region, we require a more stringent photon identification as well as additional object vetos.
-The contributions from the \zinvg\ and \wlng\ processes to the signal region are modeled by fitting to observed data in control regions where one or two leptons (electrons or muons) are identified in addition to the photon candidate while the contributions from misidentified electrons and hadrons are modeled by proxy regions where some of the selections in the photon identification have been inverted. \PH{Can you split into two sentences}
+The contributions from the \zinvg\ and \wlng\ processes to the signal region are modeled by fitting to observed data in control regions where one or two leptons (electrons or muons) are identified in addition to the photon candidate.
+Meanwhile, the contributions from misidentified electrons and hadrons are modeled by proxy regions where some of the selections in the photon identification have been inverted. 
 The additional requirements for the various signal, control, and proxy regions used in the analysis are described in the following sections. 
 
 \PH{The selection motivation could really benefit from plots so that we undestand the features.}
@@ -169,8 +170,7 @@ An EM object is a photon candidate that passes the \egamma\ ID with the execptio
 Additionally, we apply an $\met < 60\GeV$ cut to make this region orthogonal to the signal region.
 
 To measure the hadron misidentification rate, a hadron proxy+jet measurement sample is formed by replacing the the EM object in the EM object+jet sample with a hadron proxy object, one for each type of hadron proxy.
-These are exactly the same as the hadron proxy samples, except that a high-\pt\ jet has replaced the high-\met, minizing the kinematic differences between the two.
-\PH{I don't understand this exactlytthe same comment. spelling : minizing }
+The hadron proxy+jet samples have the exact same selection as the hadron proxy samples, except that a high-\pt\ jet is required instead of high-\met, minimizing the kinematic differences between the two.
 
 \section{Efficiencies and Scale Factors} 
 \label{sec:photoneff}
@@ -269,7 +269,6 @@ After the full selection described in Section~\ref{sec:event_selection}, the SM 
 These processes, collectively denoted as minor SM backgrounds, contribute in the signal region when the jet energy is severely mismeasured or the leptons fail to be reconstructed resulting in large \met in the signal region. 
 However, the \met is typically aligned with the photon or one of the jets in such cases, and therefore various selections on the kinematic relations between the \met, photons, and jets are used to reduce these backgrounds to a manageable rate. 
 The estimates for all five processes are taken from \MGvATNLO simulations at LO in QCD and are listed in Tables~\ref{tab:yield_mask_horizontal} and~\ref{tab:yield_mask_vertical}.
-\PH{What did you do for the MET cut uncertainty in the g+Jets. I honestly think you should at least split this MC out and quote a large unc. on it. }
 
 \section{Statistical Interpretation}
 \label{sec:interpretation}
