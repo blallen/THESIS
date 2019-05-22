@@ -1,5 +1,10 @@
+\PH{I have to say I don't remember all these control regions well and
+  the fact that the definitions are somewhere else really confuses
+  me. I really think it would be good to put a reminder or table or
+  discussion in each section.}
 Bremsstrahlung photons emitted by beam halo muons in the ECAL volume generate a physical EM shower in the ECAL crystals~\cite{Halo2015}. 
-Large deposits energy are rare, but the rate of beam halo penetration during the 2016 run was substantial. 
+Large deposits energy are rare, but the rate of beam halo penetration
+during the 2016 run was substantial. \PH{deposits energy => energy deposits}
 The characteristic features of a shower caused by a halo particle include coincident hits in the barrel muon system and a ``trail'' of low-energy clusters in ECAL along the particle trajectory. 
 The beam halo MET filter described in Section~\ref{sec:pf_met} exploits the former, while the \emip\ variable described in Section~\ref{sec:pf_photons} captures the latter.
 
@@ -22,7 +27,9 @@ The beam halo MET filter described in Section~\ref{sec:pf_met} exploits the form
 Because beam halo particles are produced through complex LHC machine effects, the observed distribution of the halo showers is not
 symmetric in the azimuthal angle in the detector coordinates.
 The right side of Figure~\ref{fig:halophi} is a \phig\ distribution of the halo showers obtained from the SinglePhoton dataset, requiring $\met > 140\GeV$. 
-Halo showers are defined as those that fail the MIP-tagging and in the event tagged by the CSC beam halo tagger. 
+Halo showers are defined as those that fail the MIP-tagging and in the
+event tagged by the CSC beam halo tagger. \PH{in the event tagged by
+  ==> tagged by?}
 On the other hand, reconstructed showers from all other sources are symmetric in \phig\, as shown on the left side of Figure~\ref{fig:halophi}. 
 
 \begin{figure}[htbp]
@@ -35,13 +42,20 @@ On the other hand, reconstructed showers from all other sources are symmetric in
   \caption{
     Left: $\eta$ distribution of the halo-like showers with $|\phi| < \pi/2$ and $|\phi| > \pi/2$.
     Middle and right: shift in the $\eta$ distribution of the halo-like showers with respect to the requirement on \sieie.
+    \PH{Please put selection. Label as data. I also don't see the
+      point of the two right plots. will read on}
   }
   \label{fig:halo_eta}
 \end{figure}
 
 For the distribution of Fig.~\ref{fig:halophi} to be a valid template for halo showers, it must be first confirmed that its shape is invariant under photon selection requirements. 
 However, further study of the \phig\ distribution of the halo showers indicates that the relative strength of the two prominent peaks in the distribution may change under the \sieie\ selection requirement.  
-To explain this phenomenon, one needs to look at the the \etag\ distribution of the shower populations near $\phig \sim 0$ and $\phig \sim \pi$, shown in the top portion of Figure~\ref{fig:halo_eta}. 
+To explain this phenomenon, one needs to look at the the \etag\
+distribution of the shower populations near $\phig \sim 0$ and $\phig
+\sim \pi$, shown in the top portion of
+Figure~\ref{fig:halo_eta}. \PH{Please add a sentence explaining the
+  effect now I understand why its in the plot. One needs to look make
+  me the reader draw the conclusion thats not a good idea here} 
 Meanwhile, halo showers tend to have narrower shape in the $\eta$ direction when occurring at high $\eta$, due to the projective geometry of the ECAL crystals, visible in the bottom portion of Figure~\ref{fig:halo_eta} bottom). 
 Combining the two observations, the conclusion is that the stringent requirement on the narrowness of the shower in the photon selection will preferentially reduce the $\phi \sim 0$ population.
 
@@ -98,6 +112,7 @@ From these two observations, we can see that there are is only a negligible numb
   }
   \label{fig:sieie_mip_corr}
 \end{figure}
+\PH{Not sure what the point of the right plot is}
 
 While the peaking behavior is a robust feature of the halo showers, their rate is not easily predictable. 
 Therefore,  a two-template fit to the $\phi'$ distribution of the photons in the candidate sample, where the templates are a uniform distribution (Figure~\ref{fig:halophi} left) and that of the halo shower (Figure~\ref{fig:halo_template}), accurately estimates the amount of beam halo background present in the signal region. 
@@ -116,3 +131,5 @@ Using the notation introduced in Section~\ref{sec:irreducible}, the total estima
 \end{aligned}
 \end{equation}
 where $b_{K,i}$ is the total contribution to bin $i$ of region $K$ from electron and hadron misidentification, ECAL spikes, and other minor SM background processes.
+\PH{The parens are wrong in this formula. Alos, partly because of that
+  I can't really follow.}
