@@ -1,14 +1,22 @@
-An electron can be misidentified as a photon if the association of tracks or track seeds to the ECAL supercluster fails in the reconstruction step. 
+An electron can be misidentified as a photon if the association of
+tracks or track seeds to the ECAL supercluster fails in the
+reconstruction step. \PH{Grammar: fail}
 The production of a single \PW\ boson decaying to an electron and a neutrino is a high-rate process, and it mimicks the photon plus \met\ signature if the electron is misidentified.
 
 The rate  at which this misidentification occurs is $R_{\Pe} = (1 - \epsilon_{\Pe}^{\text{track}}) / \epsilon_{\Pe}^{\text{track}}$, where $\epsilon_{\Pe}^{\text{track}}$ is the tracking efficiency of electrons passing the photon identification criteria except for the electron veto.
-After making the reasonable assumption that the kinematic and other critical properties of the electron plus \met\ events are unaffected by the electron misidentification, we model the electron misidentification background by taking the electron proxy sample and scaling it by $R_{\Pe}$.
+After making the reasonable assumption that the kinematic and other
+critical properties of the electron plus \met\ events are unaffected
+by the electron misidentification, we model the electron
+misidentification background by taking the electron proxy sample and
+scaling it by $R_{\Pe}$.
+\PH{Move this paragraph to the end of this section. Here it is a bit disjoint}
 
 % This partial identification is denoted as \Pe\Pgg\ ID in the following.
 % The first such change is that the sample is split into \Pe\Pgg\ and \Pe\Pe\ categories depending on whether the probe passes or fails the electron veto requirement. 
 
 We measure the factor $R_{\Pe}$ in data using the TP method described in Section~\ref{sec:idsf} with changed definitions for passing and failing probes and an adjustment to the background model.
-The \Pe\Pe\ category contains passing probes with a pixel seed while the \Pe\Pgg\ category contrains failing probes without a pixel seed.
+The \Pe\Pe\ category contains passing probes with a pixel seed while
+the \Pe\Pgg\ category contrains failing probes without a pixel seed. \PH{contrains}
 Probes in both categories must pass the remainder of the \egamma\ and \Pgg-specific IDs.
 Denoting the area of the peak in each category  $N_{\Pe\Pe}$ and $N_{\Pe\Pgg}$, respectively, the ratio $N_{\Pe\Pgg} / N_{\Pe\Pe}$ is equal to $R_{\Pe}$ up to minor systematic corrections.
 
