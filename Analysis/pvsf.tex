@@ -75,7 +75,6 @@ Note that $f$ is still the only free parameter for this new function as $S'$ onl
     }
     \label{fig:impurity-sideband}
 \end{figure}
-\PH{plots need labels inside}
 
 There are four main sources of systematic uncertainty for this measurement. 
 The first comes from the sideband choice, as the relative rates of different types of fake photons varies with \ICH. 
@@ -90,64 +89,15 @@ Figure~\ref{fig:impurity-sideband} shows fits using the three sidebands for the 
 
 To measure the uncertainty due to the \ICH\ shape, we look at the \ICH\ for electrons in \Zee\ events in both data and MC. 
 Using these distributions, we obtain a data/MC scale factor which we apply to the MC true photon \ICH\ distribution to obtain a scaled MC distribution. 
-% This process is shown in Figure~\ref{fig:impurity-chiso}. 
 Then, we recount the photons using this new distribution and take the difference in the values obtained using the raw MC and scaled MC distributions as a systematic uncertainty.
-
-\iffalse
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.45\textwidth]{Analysis/Figures/pvsf/chiso_electrons_logy.pdf}
-  \includegraphics[width=0.45\textwidth]{Analysis/Figures/pvsf/chiso_scale.pdf}
-  \includegraphics[width=0.45\textwidth]{Analysis/Figures/pvsf/chiso_photons_logy.pdf}
-  \caption{
-    Top left: \ICH\ distributions of electrons in data and MC in \Zee\ events.
-    Top right: data/MC scale factor obtained from the electron \ICH\ distributions.
-    Bottom: \ICH\ distributions of the MC photon objects used to estimate the amount of photon contamination in the background template, before and after applying the data/MC scale factor.
-  }
-  \label{fig:impurity-chiso}
-\end{figure}
-\fi
 
 To measure the uncertainty due to the signal template \sieie\ shape, we look at the \sieie\ distributions for electrons from \Zee\ events in both data and MC.
 Using these distributions, we obtain a data/MC scale factor which we apply to the MC true photon \sieie\ distribution to obtain a scaled MC distribution.
 Then, we recount the photons using this new distribution and take the difference in the values obtained using the raw MC and scaled MC distributions as a systematic uncertainty. 
-% The difference between fits with and without the \sieie\ scaling are shown in Figure~\ref{fig:impurity-sieie}.
-
-\iffalse
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.45\textwidth]{Analysis/Figures/pvsf/sieie_ratio.pdf}
-  \includegraphics[width=0.45\textwidth]{Analysis/Figures/pvsf/ssfit_400_medium_shape_logy.pdf}
-  \caption{
-    Left: Comparison of \sieie\ distributions between data and MC in \Zee\ events. 
-    Lower panel shows the data/MC \sieie\ scale factor.
-    Right: Result of the fit with true-photon template with the data/MC \sieie\ scale factor applied to the true-photon template.
-  }
-  \label{fig:impurity-sieie}
-\end{figure}
-\fi
 
 To estimate the uncertainty due to statistical fluctuations in our background templates, we generate toys from the background template from data. 
 We then repeat the fit with each of these toys and plot the distribution of the difference between the purity value obtained from the toy templates versus the nominal template. 
-We take the standard deviation of this distribution as a systematic uncertainty. % , shown in Figure~\ref{fig:impurity-toys},
-
-\iffalse
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.45\textwidth]{Analysis/Figures/pvsf/ssfit_175_medium-pixel-monoph_toyyield_dist.pdf}
-  \caption{
-    Shift in true-photon yields, extracted from alternative fits varying the background template within its statistical uncertainty. 
-    Nominal photon count in this specific \ETg\ bin is $6.64\times 10^{5}$.
-  }
-  \label{fig:impurity-toys}
-\end{figure}
-\fi
-
-The values obtained for each systematic uncertainty on the true photon count of the denominator are shown in Table~\ref{tab:impurity-systs} in bins of \pt. 
-The relative uncertainties on the numerator are similar, and in the
-efficiency, each uncertainty source is considered as fully correlated.
-\PH{Saying something is similar is not approporatie for a thesis. This
-  All this information should be here}
+We take the standard deviation of this distribution as a systematic uncertainty.
 
 \begin{table}[htbp]
   \centering
@@ -162,18 +112,34 @@ efficiency, each uncertainty source is considered as fully correlated.
     (350, 400)  & 0.23 & 0.11 & 0.05 & 0.10 \\
     (400, $\infty$)  & 0.27 & 0.09 & 0.05 & 0.05
   \end{tabular}
+  \caption{Relative uncertainties on the estimated number of true photons in the numerator sample.}
+  \label{tab:impurity-systs-numerator}
+\end{table}
+
+The values obtained for each systematic uncertainty on the true photon count of the numerator (denominator) are shown in Table~\ref{tab:impurity-systs-numerator} (Table~\ref{tab:impurity-systs-denominator})in bins of \pt. 
+In the efficiency, each uncertainty source is considered as fully correlated.
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{ c|c c c c }
+    \pt\ Range & \multicolumn{4}{ |c }{Sources of Systematic Uncertainty} \\
+    (GeV) & Sideband & \ICH\ Shape & Signal Shape & Bgkd. Stats \\
+    \hline
+    (175, 200)  & 0.21 & 0.15 & 0.06 & 0.04 \\
+    (200, 250)  & 0.09 & 0.14 & 0.07 & 0.04 \\
+    (250, 300)  & 0.12 & 0.14 & 0.07 & 0.06 \\
+    (300, 350)  & 0.07 & 0.13 & 0.08 & 0.09 \\
+    (350, 400)  & 0.33 & 0.12 & 0.07 & 0.13 \\
+    (400, $\infty$)  & 0.25 & 0.10 & 0.12 & 0.09 \\
+  \end{tabular}
   \caption{Relative uncertainties on the estimated number of true photons in the denominator sample.}
-  \label{tab:impurity-systs}
+  \label{tab:impurity-systs-denominator}
 \end{table}
 
 The MC efficiency of the \Pgg-specific ID is determined by counting the number of truth-matched photons passing the \egamma\ part of the ID and the full ID. 
 However, there is a complication, the \gj\ region in data has approximately 5\% contamination from electrons before applying the pixel veto, as shown in Figure~\ref{fig:pvsf_contam}. 
 To replicate this effect in the MC, we combine appropriately cross-section weighted \gj, \wj, and \ttbar\ samples and truth match to both electrons and photons. 
-Additionally, to account for the NLO cross-section ratio uncertainties
-with respect to \gj\ at this \pt\ range, we apply a 14\% uncertainty
-on the \wj\ and \ttbar\ yields, where the specific value comes from
-the uncertainty on the \gj\ to \wj\ ratio in the monojet
-analysis~\cite{}. \PH{Missing citation}
+Additionally, to account for the NLO cross-section ratio uncertainties with respect to \gj\ at this \pt\ range, we apply a 14\% uncertainty on the \wj\ and \ttbar\ yields, where the specific value comes from the uncertainty on the \gj\ to \wj\ ratio in the monojet analysis~\cite{Monojet2016}.
 This uncertainty is uncorrelated between the numerator and denominator as a negligible amount of electron events survive the pixel veto.
 
 \begin{figure}[htbp]
