@@ -65,16 +65,8 @@ Each simulated MC event has its weight multiplied by the value of the ratio eval
 \section{Event Selection}
 \label{sec:event_selection}
 
-From the recorded data, events are selected by requiring $\met > 170\GeV$ and at least one photon with $\ETg > 175\GeV$ in the fiducial region of the ECAL barrel ($\abs{\eta} < 1.44$).
-Events with photons in the endcaps are not considered because the estimation of backgrounds due to beam halo and misidentified hadron is greatly complicated because the crystals in the ECAL endcaps do not form a grid in $\eta$ and $\phi$. 
-
-Events with a high-\pt\ photon and large \met\ are subjected to further requirements to suppress SM background processes that feature a genuine high-energy photon, but not a significant amount of \met.
-One such SM process is \gj, where an apparently large \met\ is often the result of mismeasuring the energy of a jet.
-In contrast to signal-like processes, the \met is typically smaller than \ETg\ in these events, so requiring the ratio of \ETg\ to \met to be less than 1.4 rejects this background effectively with little effect on signal efficiency. 
-Events are also rejected if the minimum opening angle between \ptvecmiss\ and the directions of the four highest \pt\ jets, \mindphijmet, is less than 0.5; only jets with $\pt > 30\GeV$ and $\abs{\eta} < 5$ are considered in the \mindphijmet\ calculation. 
-In the \gj\ process, rare pathological mismeasurements of \ETg\ also lead to large \met. 
-For this reason, the candidate photon \ptvec\ and \ptvecmiss\ must be separated by more than 0.5 radians.
-Figure~\ref{fig:n-1} shows the N-1 plots for various selections in the signal region.
+From the recorded data, events are selected by requiring at least one photon with $\ETg > 175\GeV$ in the fiducial region of the ECAL barrel ($\abs{\eta} < 1.44$).
+Events with photons in the endcaps are not considered because the estimation of backgrounds due to beam halo and misidentified hadron is greatly complicated because the crystals in the ECAL endcaps do not form a grid in $\eta$ and $\phi$.
 
 \begin{figure}[htbp]
   \centering
@@ -82,16 +74,44 @@ Figure~\ref{fig:n-1} shows the N-1 plots for various selections in the signal re
     \includegraphics[]{Analysis/Figures/selection/recoilScan.pdf}
     \includegraphics[]{Analysis/Figures/selection/phoPtOverMet.pdf}
   }
+  \caption{
+    Left: The \met\ distribution in the signal region before applying any selection on \met. 
+    The \gj\ background dominates below 150\GeV, while the DM signal and irreducible backgrounds dominate in the tails.
+    Right: The ratio of \ETg\ to \met\ after requiring $\met > 170\GeV$.
+    Signal-like events are clustered near 1 while \gj\ events dominate at values above 1.4.  
+  }
+  \label{fig:metcuts}
+\end{figure}
+
+Events with a high-\pt\ photon are subjected to further requirements to suppress SM background processes that feature a genuine high-energy photon, but not a significant amount of \met.
+As shown on the left of Figure~\ref{fig:metcuts}, the main SM process is \gj, mismeasuring the energy of a jet results in a sizeable amount of artificial \met.
+To reject the vast majority of the \gj\ background, we require $\met > 170\GeV$.
+Looking at the right of Figure~\ref{fig:metcuts}, we see that the \met is typically smaller than \ETg in the remaining \gj\ events while the \met\ and \ETg\ are approximately equal for signal-like processes.
+Thus, we require the ratio of \ETg\ to \met to be less than 1.4 to reject this remainder of this background effectively with little effect on signal efficiency.
+
+Events are also rejected if the minimum opening angle between \ptvecmiss\ and the directions of the four highest \pt\ jets, \mindphijmet, is less than 0.5; only jets with $\pt > 30\GeV$ and $\abs{\eta} < 5$ are considered in the \mindphijmet\ calculation. 
+Additionally, rare pathological mismeasurements of \ETg\ also lead to large \met. 
+For this reason, the candidate photon \ptvec\ and \ptvecmiss\ must be separated by more than 0.5 radians.
+Figure~\ref{fig:n-1} shows the N-1 plots in the signal region for these two angular selections.
+
+\begin{figure}[htbp]
+  \centering
   \resizebox{\textwidth}{!}{
     \includegraphics[]{Analysis/Figures/selection/dPhiJetMetMin.pdf}
     \includegraphics[]{Analysis/Figures/selection/dPhiPhoMet.pdf}
   }
   \caption{
-    Signal region N-1 plots for the \met\ (top-left), $\ETg / \met$ (top-right), \mindphijmet\ (bottom-left), and \dphigmet\ (bottom-right) selections.
-    The final selections are chosen to reduce the rate of reducible SM backgrounds, particularly from the \gj\ process.
+    Signal region N-1 plots for the \mindphijmet\ (left), and \dphigmet\ (right) selections.
+    The final selections are chosen to reduce the rate of events with artificial \met\ from energy mismeasurement of jets and photons.
   }
   \label{fig:n-1}
 \end{figure}
+
+The above selections, summarized in Table~\ref{tab:baseline}, constitute the baseline selections common to all regions.
+To improve the purity of the signal region, we require a more stringent photon identification as well as additional object vetos.
+The contributions from the \zinvg\ and \wlng\ processes to the signal region are modeled by fitting to observed data in control regions where one or two leptons (electrons or muons) are identified in addition to the photon candidate.
+Meanwhile, the contributions from misidentified electrons and hadrons are modeled by proxy regions where some of the selections in the photon identification have been inverted. 
+The additional requirements for the signal and various control regions used in the analysis are described in the following sections.
 
 \begin{table}[htbp]
   \centering
@@ -103,19 +123,13 @@ Figure~\ref{fig:n-1} shows the N-1 plots for various selections in the signal re
       $\abs{\eta}$ & $ < 1.44$ & region with best background estimates \\
       $\met $ & $ > 170\GeV$ & characteristic signature of dark matter \\
       $\ETg / \met  $ & $ < 1.4$ & reduce jet mismeasurement backgrounds \\
-      $\mindphijmet  $ & $ < 0.5$ & reduce jet mismeasurement backgrounds \\
+      $\mindphijmet  $ & $ > 0.5$ & reduce jet mismeasurement backgrounds \\
       $\dphigmet  $ & $ > 0.5$ & reduce photon mismeasurement backgrounds \\
     \end{tabular}
     }
   \caption{Baseline selections for all events considered in the analysis.}
   \label{tab:baseline}
 \end{table}
-
-The above selections, summarized in Table~\ref{tab:baseline}, constitute the baseline selections common to all regions.
-To improve the purity of the signal region, we require a more stringent photon identification as well as additional object vetos.
-The contributions from the \zinvg\ and \wlng\ processes to the signal region are modeled by fitting to observed data in control regions where one or two leptons (electrons or muons) are identified in addition to the photon candidate.
-Meanwhile, the contributions from misidentified electrons and hadrons are modeled by proxy regions where some of the selections in the photon identification have been inverted. 
-The additional requirements for the signal and various control regions used in the analysis are described in the following sections. 
 
 \subsection{Signal Regions}
 \label{sec:signal_regions}
