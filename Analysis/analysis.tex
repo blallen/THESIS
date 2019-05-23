@@ -65,14 +65,33 @@ Each simulated MC event has its weight multiplied by the value of the ratio eval
 \section{Event Selection}
 \label{sec:event_selection}
 
-From the recorded data, events are selected by requiring $\met > 170\GeV$ and at least one photon with $\ETg > 175\GeV$ in the fiducial region of the ECAL barrel ($\abs{\eta} < 1.44$). Events with photons in the endcaps are not considered because the estimation of backgrounds due to beam halo and misidentified hadron is greatly complicated because the crystals in the ECAL endcaps do not form a grid in $\eta$ and $\phi$. 
+From the recorded data, events are selected by requiring $\met > 170\GeV$ and at least one photon with $\ETg > 175\GeV$ in the fiducial region of the ECAL barrel ($\abs{\eta} < 1.44$).
+Events with photons in the endcaps are not considered because the estimation of backgrounds due to beam halo and misidentified hadron is greatly complicated because the crystals in the ECAL endcaps do not form a grid in $\eta$ and $\phi$. 
 
 Events with a high-\pt\ photon and large \met\ are subjected to further requirements to suppress SM background processes that feature a genuine high-energy photon, but not a significant amount of \met.
 One such SM process is \gj, where an apparently large \met\ is often the result of mismeasuring the energy of a jet.
-In contrast to signal-like processes, the \met is typically smaller than \ETg\ in these events, so requiring the ratio of \ETg\ to \met to be less than 1.4 rejects this background effectively with little effect on signal efficiency. %% gotta add a plot 
-Events are also rejected if the minimum opening angle between \ptvecmiss\ and the directions of the four highest \pt\ jets, \mindphijmet, is less than 0.5; only jets with $\pt > 30\GeV$ and $\abs{\eta} < 5$ are considered in the \mindphijmet\ calculation. % gotta add a plot 
+In contrast to signal-like processes, the \met is typically smaller than \ETg\ in these events, so requiring the ratio of \ETg\ to \met to be less than 1.4 rejects this background effectively with little effect on signal efficiency. 
+Events are also rejected if the minimum opening angle between \ptvecmiss\ and the directions of the four highest \pt\ jets, \mindphijmet, is less than 0.5; only jets with $\pt > 30\GeV$ and $\abs{\eta} < 5$ are considered in the \mindphijmet\ calculation. 
 In the \gj\ process, rare pathological mismeasurements of \ETg\ also lead to large \met. 
-For this reason, the candidate photon \ptvec\ and \ptvecmiss\ must be separated by more than 0.5 radians. %% gotta add a plot
+For this reason, the candidate photon \ptvec\ and \ptvecmiss\ must be separated by more than 0.5 radians.
+Figure~\ref{fig:n-1} shows the N-1 plots for various selections in the signal region.
+
+\begin{figure}[htbp]
+  \centering
+  \resizebox{\textwidth}{!}{
+    \includegraphics[]{Analysis/Figures/selection/recoilScan.pdf}
+    \includegraphics[]{Analysis/Figures/selection/phoPtOverMet.pdf}
+  }
+  \resizebox{\textwidth}{!}{
+    \includegraphics[]{Analysis/Figures/selection/dPhiJetMetMin.pdf}
+    \includegraphics[]{Analysis/Figures/selection/dPhiPhoMet.pdf}
+  }
+  \caption{
+    Signal region N-1 plots for the \met\ (top-left), $\ETg / \met$ (top-right), \mindphijmet\ (bottom-left), and \dphigmet\ (bottom-right) selections.
+    The final selections are chosen to reduce the rate of reducible SM backgrounds, particularly from the \gj\ process.
+  }
+  \label{fig:n-1}
+\end{figure}
 
 \begin{table}[htbp]
   \centering
@@ -85,7 +104,7 @@ For this reason, the candidate photon \ptvec\ and \ptvecmiss\ must be separated 
       $\met $ & $ > 170\GeV$ & characteristic signature of dark matter \\
       $\ETg / \met  $ & $ < 1.4$ & reduce jet mismeasurement backgrounds \\
       $\mindphijmet  $ & $ < 0.5$ & reduce jet mismeasurement backgrounds \\
-      $\Delta\Phi(\ptvec^\Pgg, \ptvecmiss)  $ & $ > 0.5$ & reduce photon mismeasurement backgrounds \\
+      $\dphigmet  $ & $ > 0.5$ & reduce photon mismeasurement backgrounds \\
     \end{tabular}
     }
   \caption{Baseline selections for all events considered in the analysis.}
@@ -96,9 +115,8 @@ The above selections, summarized in Table~\ref{tab:baseline}, constitute the bas
 To improve the purity of the signal region, we require a more stringent photon identification as well as additional object vetos.
 The contributions from the \zinvg\ and \wlng\ processes to the signal region are modeled by fitting to observed data in control regions where one or two leptons (electrons or muons) are identified in addition to the photon candidate.
 Meanwhile, the contributions from misidentified electrons and hadrons are modeled by proxy regions where some of the selections in the photon identification have been inverted. 
-The additional requirements for the various signal, control, and proxy regions used in the analysis are described in the following sections. 
+The additional requirements for the signal and various control regions used in the analysis are described in the following sections. 
 
-\PH{The selection motivation could really benefit from plots so that we undestand the features.}
 \subsection{Signal Regions}
 \label{sec:signal_regions}
 
