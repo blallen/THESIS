@@ -28,6 +28,7 @@ The estimates of the contributions from \zinvg, \wlng, and beam halo processes a
 Meanwhile, for all other background processes, the yields in the fits are fixed to the estimates from data-driven methods or MC cross section calculation. 
 \PH{The above paragraph doesn't fit. You bring up fit out of nowhere and floating is jargon. I would just remove this and outline this when you do the signal extraction}
 
+
 \section{Dataset}
 \label{sec:dataset}
 
@@ -66,7 +67,10 @@ Each simulated MC event has its weight multiplied by the value of the ratio eval
 \label{sec:event_selection}
 
 From the recorded data, events are selected by requiring at least one photon with $\ETg > 175\GeV$ in the fiducial region of the ECAL barrel ($\abs{\eta} < 1.44$).
-Events with photons in the endcaps are not considered because the estimation of backgrounds due to beam halo and misidentified hadron is greatly complicated because the crystals in the ECAL endcaps do not form a grid in $\eta$ and $\phi$.
+Events with photons in the endcaps are not considered because the estimation of backgrounds from beam halo and misidentified hadrons is greatly complicated because the crystals in the ECAL endcaps do not form a grid in $\eta$ and $\phi$.
+
+To reduce the hadron misidentification rate, we require the leading photon to pass the the \egamma\ ID, a collection of isolation and shower shape selections given in Table~\ref{tab:egid}.
+Furthermore, to reduce the electron misidentification rate and reject non-collision backgrounds, we require the leading photon to pass the \Pgg-specific ID, which consists of the pixel seed veto and additional selections given Table~\ref{tab:gsid}.
 
 \begin{figure}[htbp]
   \centering
@@ -86,13 +90,8 @@ Events with photons in the endcaps are not considered because the estimation of 
 Events with a high-\pt\ photon are subjected to further requirements to suppress SM background processes that feature a genuine high-energy photon, but not a significant amount of \met.
 As shown on the left of Figure~\ref{fig:metcuts}, the main SM process is \gj, mismeasuring the energy of a jet results in a sizeable amount of artificial \met.
 To reject the vast majority of the \gj\ background, we require $\met > 170\GeV$.
-Looking at the right of Figure~\ref{fig:metcuts}, we see that the \met is typically smaller than \ETg in the remaining \gj\ events while the \met\ and \ETg\ are approximately equal for signal-like processes.
+Looking at the right of Figure~\ref{fig:metcuts}, we see that the \met is typically smaller than \ETg for the remaining \gj\ events while the \met\ and \ETg\ are approximately equal for signal-like processes.
 Thus, we require the ratio of \ETg\ to \met to be less than 1.4 to reject this remainder of this background effectively with little effect on signal efficiency.
-
-Events are also rejected if the minimum opening angle between \ptvecmiss\ and the directions of the four highest \pt\ jets, \mindphijmet, is less than 0.5; only jets with $\pt > 30\GeV$ and $\abs{\eta} < 5$ are considered in the \mindphijmet\ calculation. 
-Additionally, rare pathological mismeasurements of \ETg\ also lead to large \met. 
-For this reason, the candidate photon \ptvec\ and \ptvecmiss\ must be separated by more than 0.5 radians.
-Figure~\ref{fig:n-1} shows the N-1 plots in the signal region for these two angular selections.
 
 \begin{figure}[htbp]
   \centering
@@ -102,64 +101,49 @@ Figure~\ref{fig:n-1} shows the N-1 plots in the signal region for these two angu
   }
   \caption{
     Signal region N-1 plots for the \mindphijmet\ (left), and \dphigmet\ (right) selections.
-    The final selections are chosen to reduce the rate of events with artificial \met\ from energy mismeasurement of jets and photons.
+    The requirement that the angular separations exceed 0.5 radians was chosen to reduce the rate of events with artificial \met\ from energy mismeasurement of jets and photons, respectively.
   }
   \label{fig:n-1}
 \end{figure}
 
-The above selections, summarized in Table~\ref{tab:baseline}, constitute the baseline selections common to all regions.
-To improve the purity of the signal region, we require a more stringent photon identification as well as additional object vetos.
-The contributions from the \zinvg\ and \wlng\ processes to the signal region are modeled by fitting to observed data in control regions where one or two leptons (electrons or muons) are identified in addition to the photon candidate.
-Meanwhile, the contributions from misidentified electrons and hadrons are modeled by proxy regions where some of the selections in the photon identification have been inverted. 
-The additional requirements for the signal and various control regions used in the analysis are described in the following sections.
+To protect against artificial \met\ from jet mismeasurement, events are rejected if the minimum opening angle between \ptvecmiss\ and the directions of the four highest \pt\ jets, \mindphijmet, is less than 0.5; only jets with $\pt > 30\GeV$ and $\abs{\eta} < 5$ are considered in the \mindphijmet\ calculation. 
+Rare pathological mismeasurements of \ETg\ also lead to large \met. 
+For this reason, the candidate photon \ptvec\ and \ptvecmiss\ must be separated by more than 0.5 radians.
+Figure~\ref{fig:n-1} shows the N-1 plots in the signal region for these two angular selections.
+
+Additionally, events are vetoed if they contain an electron or a muon with $\pt > 10\GeV$ that is separated from the photon by $\dR > 0.5$. This lepton veto rejects SM processes that produce a high-\pt\ photon, \met, and leptons such as \wlng, \ttg, and $VV\Pgg$.
 
 \begin{table}[htbp]
   \centering
-  \resizebox{\textwidth}{!}{
     \begin{tabular}{l | l | r}
       Variable & Selection & Motivation \\
       \hline
       $\ETg$ & $ > 175\GeV$ & high-\pt\ photon passing trigger \\
       $\abs{\eta}$ & $ < 1.44$ & region with best background estimates \\
+      \egamma\ ID & Pass & reject hadronic background \\
+      \Pgg-specific ID & Pass & reject electron and non-collision backgrounds \\ 
       $\met $ & $ > 170\GeV$ & characteristic signature of dark matter \\
       $\ETg / \met  $ & $ < 1.4$ & reduce jet mismeasurement backgrounds \\
       $\mindphijmet  $ & $ > 0.5$ & reduce jet mismeasurement backgrounds \\
       $\dphigmet  $ & $ > 0.5$ & reduce photon mismeasurement backgrounds \\
+      Lepton Veto & Pass & reject backgrounds with real leptons \\
     \end{tabular}
-    }
-  \caption{Baseline selections for all events considered in the analysis.}
-  \label{tab:baseline}
+  \caption{Selections for the signal region.}
+  \label{tab:signal_region}
 \end{table}
+
+The above selections, summarized in Table~\ref{tab:signal_region}, constitute the signal selection for the analysis. 
+
+The contributions from the \zinvg\ and \wlng\ processes to the signal region are modeled by fitting to observed data in control regions where one or two leptons (electrons or muons) are identified in addition to the photon candidate.
+Meanwhile, the contributions from misidentified electrons and hadrons are modeled by proxy regions where some of the selections in the photon identification have been inverted. 
+The additional requirements for the signal and various control regions used in the analysis are described in the following sections.
 
 \subsection{Signal Regions}
 \label{sec:signal_regions}
 
-The defining feature of the signal region is the application of both the $\egamma$ and \Pgg-specific portions of the photon ID, given in Tables~\ref{tab:egid} and~\ref{tab:gsid} respectively.
-The former reduces the hadron misidentification rate with a collection of isolation and shower shape selections while the latter reduces the electron misidentification rate with the pixel seed veto and rejects non-collisions backgrounds with specifically tailored selections.
-
-In the signal region, events are vetoed if they contain an electron or a muon with $\pt > 10\GeV$ that is separated from the photon by $\dR > 0.5$. This lepton veto rejects SM processes that produce a high-\pt\ photon, \met, and leptons such as \wlng, \ttg, and $VV\Pgg$. %% add a plot ???
-
 Furthermore, to constrain the beam halo normalization, the signal region is split into two parts according to the variable $\phi'$ introduced in Equation~\ref{eqn:phi}. 
 The region defined by $\abs{\phi'} < 0.5$ is called the horizontal region, its complement $0.5 < \abs{\phi'} < \pi/2$ is called the vertical region, and the two together are referred to as the combined signal regions.
 \PH{I think its fine to discuss the splitting of the signal region into categories later. Here, it just makes it hard to follow}
-
-\subsection{Control Regions}
-\label{sec:control_regions}
-\PH{Can you make a table of control regions and what they are used for and variables you are fitting, you can add the signal too. A diagram would also suffice. }
-
-The single-electron (single-muon) control region is defined by requiring exactly one tight electron (muon) with $\pt > 30\GeV$ and $\abs{\eta} < 2.5\,(2.4)$ in addition to requiring the same photon ID as in the signal regions.
-To suppress the contributions from large-\met\ processes other than \wlng, the transverse mass $\mt = \sqrt{\smash[b]{2\met\pt^{\ell}[1-\cos\Delta\phi(\ptvecmiss,\ptvec^{\ell})]}}$ must be less than $160\GeV$.
-Additionally, for the single-electron control region, \met\ must be greater than 50\GeV\ to limit the contribution from the \gj\ process, where a jet is misidentified as an electron. %% add a plot
-\PH{I do this too, there are a number of sentences where teh explanation is at the end like in German. It makes it hard to read. Instead Additionaly to limit....\met must be greater}
-
-
-The dielectron (dimuon) control region is defined by exactly two electrons (muons) in addition to the photon, with $60 < m_{\ell\ell} < 120\GeV$, where $m_{\ell\ell}$ is the mass of the dilepton system.
-The leading lepton must pass the tight ID requirements, while the trailing lepton only needs to pass the loose ID requirements. 
-
-Finally, in the control regions, the recoil vector $\vec{U} = \ptvecmiss + \sum\limits_\ell\ptvec^{\ell}$ serves as an analogue for the \ptvecmiss\ in the signal region.
-In the signal region, the \ptvecmiss\ is a proxy for the vector boson \pt\ while in the control regions, the recoil vector is used instead. 
-Thus, the recoil $\vec{U}$ must satisty identical requirements to those for the \ptvecmiss\ in the signal region to keep the control region kinematics as similar as possible to the signal region kinematics.
-%% maybe explain more
 
 \subsection{Proxy Samples}
 \label{sec:proxy_samples}

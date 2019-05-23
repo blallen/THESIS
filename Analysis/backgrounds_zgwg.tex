@@ -114,11 +114,103 @@ The lepton efficiencies are measured using the ``tag-and-probe'' method where th
 The passing (failing) categories are defined by events with probes passing (failing) the ID definition in question.
 The electron (muon) scale factors $\rho$ are approximately unity with a flat 2\% (1\%) systematic uncertainty.
 
-\subsection{Data-driven Control Regions}
+\subsection{Lepton Control Regions}
 \label{sec:control_regions}
 
 Contributions from the \zinvg\ and \wlng\ processes are estimated using observed data in four mutually exclusive single-electron, single-muon, dielectron, and dimuon control regions.
-The various ratios between the expected \zinvg\ yield in the combined signal regions and the expected \wlng\ and \zllg\ yields in the control region are constrained by MC simulations.
+
+In all of these regions, the recoil vector $\vec{\mathbf{U}} = \ptvecmiss + \sum\limits_\ell\ptvec^{\ell}$ serves as an analogue for the \ptvecmiss\ in the signal region.
+In the signal region, the \ptvecmiss\ is a proxy for the vector boson \pt\ while in the control regions, the recoil vector is used instead. 
+Thus, the recoil $\vec{\mathbf{U}}$ must satisty identical requirements to those for the \ptvecmiss\ in the signal region to keep the control region kinematics as similar as possible to the signal region kinematics.
+This forms the baseline selection for the lepton control regions, as shown in Table~\ref{tab:baseline}.
+The lepton veto is understood to apply for any leptons beyond those specifically required for each region.
+
+\begin{table}[htbp]
+  \centering
+    \begin{tabular}{l | l | r}
+      Variable & Selection & Motivation \\
+      \hline
+      $\ETg$ & $ > 175\GeV$ & high-\pt\ photon passing trigger \\
+      $\abs{\eta}$ & $ < 1.44$ & region with best background estimates \\
+      \egamma\ ID & Pass & reject hadronic background \\
+      \Pgg-specific ID & Pass & reject electron and non-collision backgrounds \\       
+      $\mathbf{U} $ & $ > 170\GeV$ & characteristic signature of dark matter \\
+      $\ETg / \mathbf{U}  $ & $ < 1.4$ & reduce jet mismeasurement backgrounds \\
+      $\mindphiju  $ & $ > 0.5$ & reduce jet mismeasurement backgrounds \\
+      $\dphigu  $ & $ > 0.5$ & reduce photon mismeasurement backgrounds \\
+      Lepton Veto & Pass & reject backgrounds with additional real leptons \\
+    \end{tabular}
+  \caption{
+    Baseline selections for the lepton control regions.
+    The lepton veto is understood to apply for any leptons beyond those specifically required for each region.
+  }
+  \label{tab:baseline}
+\end{table}
+
+The single-electron (single-muon) control region is defined by requiring exactly one tight electron (muon).
+To suppress the contributions from large-\met\ processes other than \wlng, the transverse mass $\mt = \sqrt{\smash[b]{2\met\pt^{\ell}[1-\cos\Delta\phi(\ptvecmiss,\ptvec^{\ell})]}}$ must be less than $160\GeV$.
+Additionally, for the single-electron control region, to limit the contribution from the \gj\ process where a jet is misidentified as an electron, the \met\ must be greater than 50\GeV.
+Tables~\ref{tab:single-electron} and~\ref{tab:single-muon} summarize the additional selection for the single-electron and single-muon control regions, respectively.
+
+\begin{table}[htbp]
+  \centering
+    \begin{tabular}{l | l | r}
+      Variable & Selection & Motivation \\
+      \hline
+      Leading $\Pe$ & Tight ID & well-identified electron \\
+      \mt\ & $ < 160\GeV$ & suppress other large-\met\ processes \\
+      \met\ & $ > 50\GeV$ & reject jets misidentified as electrons \\
+    \end{tabular}
+  \caption{Additional selections for the single-electron control region.} 
+  \label{tab:single-electron}
+\end{table}
+
+\begin{table}[htbp]
+  \centering
+    \begin{tabular}{l | l | r}
+      Variable & Selection & Motivation \\
+      \hline
+      Leading $\mu$ & Tight ID & well-identified muon \\
+      \mt\ & $ < 160\GeV$ & suppress other large-\met\ processes \\
+    \end{tabular}
+  \caption{Additional selections for the single-muon control region.} 
+  \label{tab:single-muon}
+\end{table}
+
+The dielectron (dimuon) control region is defined by requiring exactly two electrons (muons), with $60 < m_{\ell\ell} < 120\GeV$, where $m_{\ell\ell}$ is the mass of the dilepton system.
+The leading lepton must pass the tight ID requirements, while the trailing lepton only needs to pass the loose ID requirements.
+Tables~\ref{tab:dielectron} and~\ref{tab:dimuon} summarize the additional selection for the dielectron and dimuon control regions, respectively.
+
+\begin{table}[htbp]
+  \centering
+    \begin{tabular}{l | l | r}
+      Variable & Selection & Motivation \\
+      \hline
+      Leading $\Pe$ & Tight ID & well-identified electron \\
+      Trailing $\Pe$ & Loose ID & well-identified electron \\
+      $m_{\Pe\Pe}$ & $> 60\GeV, < 120\GeV$ & originate from $Z$-boson
+    \end{tabular}
+  \caption{Additional selections for the dielectron control region.} 
+  \label{tab:dielectron}
+\end{table}
+
+\begin{table}[htbp]
+  \centering
+    \begin{tabular}{l | l | r}
+      Variable & Selection & Motivation \\
+      \hline
+      Leading $\mu$ & Tight ID & well-identified muon \\
+      Trailing $\mu$ & Loose ID & well-identified muon \\
+      $m_{\mu\mu}$ & $> 60\GeV, < 120\GeV$ & originate from $Z$-boson
+    \end{tabular}
+  \caption{Additional selections for the dimuon control region.} 
+  \label{tab:dimuon}
+\end{table}
+
+\subsection{Data-driven Estimation}
+\label{sec:transfer_factors}
+
+The various ratios between the expected \zinvg\ yield in the combined signal regions and the expected \wlng\ and \zllg\ yields in the control regions are constrained by MC simulations.
 When a ratio is calculated using MC samples as a function of \ETg, it is referred to as the ``transfer factor'' between the two processes.
 This background estimation method exploits the cancellation of some of the systematic uncertainties, both experimental and theoretical, in the transfer factors between the different  \vg\ processes.
  
@@ -127,7 +219,7 @@ The uncertainties due to photon energy calibration, jet energy resolution, and h
 The only uncertainties in the transfer factor \RZll\ that do not largely cancel are those on lepton identification efficiency, the statistical uncertainty due to the limited MC sample size, and a minor uncertainty due to the different acceptances between the \zinvg\ and \zllg\ processes.
 Figure~\ref{fig:tf_z} shows the transfer factor \RZee\ (\RZmm) between the dielectron (dimuon) control region and the combined signal regions.
 
-\PH{It would be nice to discuss the statistical limiations of htis process. How much would you gain if you had gamma events}
+\PH{mention that the postfit uncertainties are governed by the statistical uncertainty of the signal region.}
 
 \begin{figure}[htbp]
   \centering
@@ -226,7 +318,7 @@ Figure~\ref{fig:tf_syst} shows the effect of each systematic uncertainty in \fZW
     \includegraphics[]{Analysis/Figures/zgwg/tf_syst_wg.pdf}
   }
   \caption{
-    Systematic uncertainties on the transfer factor \fWZ\ due to higher-order corrections on the \zinvg\ process (left) and the \wlng\ process (right).
+    Systematic uncertainties on the transfer factor \fZW\ due to higher-order corrections on the \zinvg\ process (left) and the \wlng\ process (right).
     The last bin includes all events with $\ETg > 1000\GeV$.
   }
   \label{fig:tf_syst}
