@@ -11,20 +11,14 @@ All possible tag-probe combinations are considered; if the tag object can also s
 
 The tag-probe mass distributions are then fit to extract \npass\ and \nfail. 
 The fit model is composed of two templates, where one template describes a pure \Zee\ line shape and the other describes the background contributions. 
-The backgrounds to the fits include \wj, diboson, and \ttbar\ productions, which are all negligible and estimated to contribute by less than 1\%. 
-Minor contributions from processes that do not involve true electrons,
-such as diphoton production with a strongly asymmetric conversion on
-one of the photons and misidentification of a QCD jet as an electron,
-are predicted to be negligible from MC studies. \PH{I am confused,
-  they are negligable yet you fit them. Also 1\% is of the same order as your quoted uncetainties}
+The main backgrounds to the fits are those with real electrons such as \wj, diboson, and \ttbar\ productions.
+Minor contributions from processes that do not involve true electrons, such as diphoton production with a strongly asymmetric conversion on
+one of the photons and misidentification of a QCD jet as an electron, are predicted to be negligible from MC studies. 
  
 The \Zee\ template shape is an analytic convolution of the Breit-Wigner distribution and the Crystal Ball function. 
 The mass and width parameters of the Breit-Wigner distribution are fixed to PDG values while the Crystal Ball parameters are allowed to float in the fit.
 We are able to use the analytic Breit-Wigner distribution instead of a template taken from MC because at this high probe \pt\ scale the selected events are mostly of the \zj\ topology with a boosted \PZ\ boson.
-This makes the selection rather inclusive in terms of the tag-probe
-invariant mass and ensures that the Breit-Wigner distribution
-accurately models the mass distribution even through the tag and probe
-are under kinematically exclusive selections. \PH{ even through? }
+This makes the selection rather inclusive in terms of the tag-probe invariant mass and ensures that the Breit-Wigner distribution accurately models the mass distribution even though the tag and probe are under kinematically exclusive selections.
 
 \begin{figure}[htbp]
   \centering
@@ -59,9 +53,7 @@ Selected example fits are shown in Figure~\ref{fig:idsf_fits}.
 The statistical uncertainty of the fits is estimated by generating toy data from the nominal fit result with the same number of entries as the fit target distribution. 
 The mass distribution of the toy data is then fit with the same model with the parameters floating. 
 This procedure is repeated 100 times to obtain a distribution of the \Zee\ event yields, and its standard deviation is taken as the statistical uncertainty of the fit. 
-Relative statistical uncertainty on the efficiency is 10\%. %%% double check this number
-\PH{10\% of what? Also did you use the toys to validate gaussian pulls
-with width 1?}
+The relative statistical uncertainty on the yields is at most 10\% for the fits in the high-\pt\ bins and decreases to the sub-percent level for the lowest \pt\ bins. %%% double check this number
 
 To estimate the effect of potential mismodeling in the fits, alternative fits varying the background and signal templates are performed first. 
 In the alternative-background fit, a simple linear function is tested.
@@ -104,9 +96,6 @@ The efficiencies obtained from these two methods are consistent within their unc
   \caption{\egamma\ scale factors as a function of photon \pt.}
   \label{tab:idsf_results}
 \end{table}
-\PH{Maybe I misse this earlier, but I had to think for a sec why the
-  MC is not 1. It might be good to explicitly explain there are two
-  SFs e to $\gamma$ and Data to MC}
 
 The data efficiencies, MC efficiencies, and resulting scale factors as a function of \pt\ are shown in Figure~\ref{fig:idsf_results}. 
 The scalefactors are consistent with unity within the uncertainties. 
