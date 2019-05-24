@@ -60,7 +60,7 @@ The second peak is understood to come from the next bunch crossing.
   \centering
   \includegraphics[width=0.45\textwidth]{Reconstruction/Figures/spikes/sieie_mc.pdf}
   \caption{
-    \sieie distribution of uncleaned clusters from \gj\ MC simulation.
+    \sieie\ distribution of uncleaned clusters from \gj\ MC simulation.
   }
   \label{fig:sieie_mc}
 \end{figure}
@@ -137,6 +137,23 @@ where
   \item B = Number of clusters with both \sieie\ and \sipip\ greather than 0.001 and seed time $-15\ns < t < -10\ns$, counted in the special-reconstruction sample, 
   \item C = Number of clusters with \sieie\ or \sipip\ less than 0.001 but an in-time seed, counted in the standard-reconstruction sample passing all other signal event selection.
 \end{itemize}
+Figure~\ref{fig:spike_diagram} shows a schematic representation of the A, B, C, and D samples.
+
+\begin{figure}[htbp]
+  \centering
+    \resizebox{\textwidth}{!}{
+  \includegraphics[]{Analysis/Figures/spike_diagram.pdf}
+  }
+  \caption{
+  Schematic diagram of the samples used for the spike estimate.
+  Sample A is out-of-time with a trivial shower shape.
+  Sample B is out-of-time with a physical shower shape.
+  Sample C is in-time with a trivial shower shape.
+  Sample D is in-time with a physical shower shape, e.g. the signal region.
+  Samples A and B are from the special-reconstruction samples.
+  }
+  \label{fig:spike_diagram}
+\end{figure}
 
 The special-reconstruction samples for A and B are from the SinglePhoton datasets, with only the timing cleaning removed from the offline reconstruction.
 In this way, the selection bias over spikes from the L1T, HLT, and offline reconstruction is equally applied to samples A, B, and C. Plugging in the observed numbers, we have

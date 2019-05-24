@@ -325,7 +325,6 @@ Figure~\ref{fig:tf_syst} shows the effect of each systematic uncertainty in \fZW
 The ratio \fZW\ rises rather than falls with increasing \ETg\ because \wlng\ events have a lower signal region selection efficiency when the charged lepton falls within the tracker acceptance due to the lepton veto while the \zinvg\ efficiency is independent of \ETg.
 Figure~\ref{fig:tf_wz} shows the transfer factor \fZW\ between the \zinvg\ and \wlng\ processes in the combined signal region.
 
-
 \begin{figure}[htbp]
   \centering
   \resizebox{0.5\textwidth}{!}{
@@ -345,3 +344,20 @@ Using \RWl\ and \fZW, the total estimated event yield \Tl\ in each single-lepton
   \Tl[,i] = \frac{\NZg[i]}{\RWl[,i]\fZW[,i]} + b_{\ell\Pgg,i},
 \end{equation}
 where $b_{\ell\Pgg}$ is the predicted contribution from other background sources in the single-lepton regions, namely misidentified electrons and hadrons and other minor SM processes.
+
+\begin{figure}[htbp]
+  \centering
+  \resizebox{\textwidth}{!}{
+    \includegraphics[]{Analysis/Figures/zgwg/zgwg_diagram.pdf}
+  }
+  \caption{
+    Schematic showing the relationship between the \PZ\Pgg\ and \PW\Pgg\ yields in the various regions and all the transfer factors.
+    SR denotes signal region and CR denotes control region.
+    The green (blue) dashed lines show the $R^{\PZ\Pgg}$ ($R^{\PW\Pgg}$) transfer factors between various \PZ\Pgg\ (\PW\Pgg) final states.
+    The solid black line shows the \fZW\ transfer factor between the \zinvg\ and \wlng\ yields in the signal region.
+    All the control regions are linked together with the addition of \fZW.
+    }
+    \label{fig:transfer_factors}
+\end{figure}
+
+Figure~\ref{fig:transfer_factors} shows the relationship between the \zinvg\ and \wlng\ yields in the various regions and all the transfer factors.

@@ -1,5 +1,19 @@
 An electron can be misidentified as a photon if the association of tracks or track seeds to the ECAL supercluster fails in the reconstruction step.
 The production of a single \PW\ boson decaying to an electron and a neutrino is a high-rate process, and it mimicks the photon plus \met\ signature if the electron is misidentified.
+We estimate the rate of misidentified electrons in the signal region by reweighting an electon proxy control sample by the ratio of the probability of an electron missing a pixel seed to the probability of an electron having a pixel seed. 
+This procedure is shown in Figure~\ref{fig:efake_diagram}.
+
+\begin{figure}[htbp]
+  \centering
+  \resizebox{\textwidth}{!}{
+    \includegraphics[]{Analysis/Figures/efake/efake_diagram.pdf}
+  }
+  \caption{
+       Events where a single \PW\ boson decays to an electron and a neutrino mimic the photon plus \met\ signature if the electron is missing a pixel seed.
+       The rate of misidentified electrons in the signal region is estimated by reweighting an electon proxy control sample by the ratio of the probability of an electron missing a pixel seed to the probability of an electron having a pixel seed.
+    }
+    \label{fig:efake_diagram}
+\end{figure}
 
 The electron-to-photon misidentification rate $R_{\Pe}$ is equal to $(1 - \epsilon_{\Pe}^{\text{track}}) / \epsilon_{\Pe}^{\text{track}}$, where $\epsilon_{\Pe}^{\text{track}}$ is the tracking efficiency of electrons passing the photon identification criteria except for the electron veto.
 We measure the factor $R_{\Pe}$ in data using the TP method described in Section~\ref{sec:idsf} with changed definitions for passing and failing probes and an adjustment to the background model.

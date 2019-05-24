@@ -1,9 +1,3 @@
-\PH{I have to say I don't remember all these control regions well and
-  the fact that the definitions are somewhere else really confuses
-  me. I really think it would be good to put a reminder or table or
-  discussion in each section.}
-
-
 Bremsstrahlung photons emitted by beam halo muons in the ECAL volume generate a physical EM shower in the ECAL crystals~\cite{Halo2015}. 
 Large energy deposits are rare, but the rate of beam halo penetration during the 2016 run was substantial.
 The characteristic features of a shower caused by a halo particle include coincident hits in the barrel muon system and a ``trail'' of low-energy clusters in ECAL along the particle trajectory. 
@@ -88,7 +82,20 @@ Therefore,  a two-template fit to the $\phi'$ distribution of the photons in the
 For this analysis, the two-template fit is replicated by splitting the signal region into two parts according to the variable $\phi'$ introduced in Equation~\ref{eqn:phi}.
 This enables us to determine the beam halo contribution during the signal extraction procedure.
 The region defined by $\abs{\phi'} < 0.5$ is called the horizontal ($H$) region, its complement $0.5 < \abs{\phi'} < \pi/2$ is called the vertical ($V$) region.
-% and the two together are referred to as the combined signal regions.
+A schematic of these regions is shown in Figure~\ref{fig:split_diagram}.
+
+\begin{figure}[htbp]
+  \centering
+  \resizebox{0.75\textwidth}{!}{
+    \includegraphics[]{Analysis/Figures/split_diagram.pdf}
+  }
+  \caption{
+        Schematic of splitting the signal region into horizontal and vertical regions.
+        The red lines are a rough demarcation of the split; they do not represent the exact line $\abs{\phi'} = 0.5$.
+        A sample beam halo event with a photon and \met\ is shown for reference.
+      }
+    \label{fig:split_diagram}
+\end{figure}
 
 In the horizontal and vertical signal regions, collision processes occupy the relative fractions of phase space $C_{H} = 1/\pi$ and $C_{V} = (\pi-1)/\pi$, respesctively. 
 % corresponding to $\abs{\phi'} < 0.5$ and $0.5 < \abs{\phi'} < \pi/2$

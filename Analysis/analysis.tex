@@ -3,16 +3,27 @@
 
 In this chapter, we discuss the search for dark matter produced in association with a single high-\pt photon.
 Our benchmark signal models are the vector and axial dark matter mediators discussed previously. 
-However, many Standard Model (SM) processes are also capable of producing events with a single high-\pt\ photon and large \met, whether with real photons, other particles misidentified as photons, or unphysical photon signatures from various  machine and detector processes. \PH{However, many doesn't read well. I think this first paragraph deserves an actual introduction to the analysis and not an immediate dive into the details}
+<many Standard Model (SM) processes are also capable of producing events with a single high-\pt\ photon and large \met, whether with real photons, other particles misidentified as photons, or unphysical photon signatures from various  machine and detector processes. \PH{However, many doesn't read well. I think this first paragraph deserves an actual introduction to the analysis and not an immediate dive into the details}
 \PH{You immediately start talkinga bout the backgrounds. Would be better to put some diagrams and discussion about the final state. This you can tie in with the above comment.}
 
-%%% maybe thrown in comparison diagrams here
+\begin{figure}[htbp]
+  \centering
+  \resizebox{\textwidth}{!}{
+    \includegraphics[]{Analysis/Figures/zinvg.pdf}
+    \includegraphics[]{Analysis/Figures/wlng.pdf}
+    \includegraphics[]{Analysis/Figures/dmg.pdf}
+  }
+  \caption{
+    The associated production of a high-energy \Pgg\ with either a \PZ\ boson that subsequently decays to a pair of neutrinos (left) or a \PW\ boson that decays to a charged lepton and a neutrino (center), with the charged lepton outside of the detector acceptance, produce the exact same photon plus \met\ signature as the vector and axial dark matter mediators (right).
+    }
+    \label{fig:zgwg_diagram}
+\end{figure}
 
 The most significant are the irreducible backgrounds, where the underlying physics process produces the exact same signature as the signal with only real and properly identified physics objects.
 In this case, the irreducible backgrounds are the associated production of a high-energy \Pgg\ with either a \PZ\ boson that subsequently decays to a pair of neutrinos or a \PW\ boson that decays to a charged lepton and a neutrino, with the charged lepton outside of the detector acceptance.
+Figure~\ref{fig:zgwg_diagram} shows the comparison of the different final states.
 These two processes are denoted as \zinvg\ and \wlng, respectively, and together they account for approximately 70\% of the SM background, with 50\% from the former and 20\% from the latter.
 The modeling of the irreducible backgrounds is explained in Section~\ref{sec:irreducible}.
-% The total irreducible background rate is estimated using simultaneous fits to the signal and control regions defined in Section~\ref{sec:event_selection} and 
 
 Additional backgrounds arise from events where the candidate photon object is a misidentified electron (Section~\ref{sec:efake}) or an electromagnetic shower caused by hadrons (Section~\ref{sec:hfake}). 
 The background events from electron misidentification are mostly \PW\ boson production ($\PW\rightarrow \Pe\Pgn$), whereas those from hadron misidentification are due to multiple sources such as $\PZ(\rightarrow\Pgn\Pgn)+\text{jets}$ and QCD multijets with grossly mismeasured jet energy. 
@@ -23,11 +34,6 @@ Therefore, the contributions from these background processes are estimated by em
 Finally, apparent large energy deposits in ECAL from non-collision processes mimic \gmet\ events and therefore need to be controlled. 
 Known sources of such background include bremsstrahlung of beam halo or cosmic ray muons and anomalous ECAL energy deposits resulting from the interaction of particles in the ECAL photodetectors referred to as ``ECAL spikes''. 
 These methods used to estimate the contributions from these processes are described in detail in Sections~\ref{sec:halo_estimate} and~\ref{sec:spike_estimate}, respectively.
-
-The estimates of the contributions from \zinvg, \wlng, and beam halo processes are allowed to float in the fits to data performed to extract the potential signal contribution and set limits on new physics models. %  described in Section~\ref{sec:interpretation}.
-Meanwhile, for all other background processes, the yields in the fits are fixed to the estimates from data-driven methods or MC cross section calculation. 
-\PH{The above paragraph doesn't fit. You bring up fit out of nowhere and floating is jargon. I would just remove this and outline this when you do the signal extraction}
-
 
 \section{Dataset}
 \label{sec:dataset}
@@ -48,7 +54,7 @@ The trigger efficiency is measured to be about 98\% for events passing the analy
 \subsection{Pileup Reweighting}
 \label{sec:puweight}
 
-The distribution of the number of pileup interactions inserted into MC events differ from the true pileup distribution, estimated from the measurement of instantaneous luminosity, beam intensity of each proton bunch, and the total cross section of proton inelastic scattering (69.2 $\textrm{mb}^{-1}$). \PH{we should know htis calculation each proton bunch multiplied by the total cross...}
+The distribution of the number of pileup interactions inserted into MC events differ from the true pileup distribution, estimated from the measurement of instantaneous luminosity, beam intensity of each proton bunch, and the total cross section of proton inelastic scattering (69.2 $\textrm{mb}^{-1}$).
 
 Figure~\ref{fig:pudist} shows the pileup distributions in data and MC and the ratio of the two. 
 Each simulated MC event has its weight multiplied by the value of the ratio evaluated at the number of true pileup interaction injected into the event in order to reproduce the observed pileup distribution in the MC samples. 
@@ -239,6 +245,7 @@ The potential signal contribution is extracted from the data via simultaneous fi
 Uncertainties in various quantities are represented by nuisance parameters in the fit. 
 Predictions for \zinvg, \wlng, and the beam halo backgrounds are varied in the fit. 
 Beam halo is not a major background, but the extraction of its rate requires a fit to the observed distributions in the signal region.
+Meanwhile, for all other background processes, the yields in the fits are fixed to the estimates from data-driven methods or MC cross section calculation. 
 
 Free parameters of the fit are the yield of \zinvg\ background in each bin of the signal regions (\NZg[i]) and the overall normalization of the beam halo background ($h$). 
 Bin-by-bin yields of \wlng\ and \zllg\ samples in all regions are related to the yield of \zinvg\ through the MC prediction through the transfer factors defined in Section~\ref{sec:irreducible}. 
