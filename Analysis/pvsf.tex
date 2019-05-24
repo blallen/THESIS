@@ -1,7 +1,31 @@
 To measure the efficiency of the \Pgg-specific component of the photon ID, we use a \sieie\ template fit to extract the number of true photons from a pool of photon objects passing the \egamma\ ID.
 
-The measurement is performed using the EM object+jet measurement sample. 
-We fit the \sieie\ distribution of the EM object with a template describing the \sieie\ shape of true photons and another describing the hadronic background. 
+The measurement is performed using an EM object+jet sample formed by requiring an EM object with $\ET > 175\GeV$ and $\abs\eta < 1.44$ plus at least one jet with $\pt > 100\GeV$ and $\abs\eta < 2.5$ which passes the loose jet ID. 
+An EM object is a photon candidate that passes the \egamma\ ID with the execption of the following relaxed cuts: $\sieie < 0.015$ and $\ICH < 11.0\GeV$.
+We use \ICH\ instead of \ICHmax\ since the presence of a high-\pt\ jet guarantees we have chosen the correct primary vertex.
+Additionally, we apply an $\met < 60\GeV$ cut to make this region orthogonal to the signal region.
+Table~\ref{tab:emjet} summarizes the selections for the EM object+jet sample. 
+
+\begin{table}[htbp]
+  \centering
+    \begin{tabular}{l | l | r}
+      Variable & Selection & Motivation \\
+      \hline
+      $\ET$ & $ > 175\GeV$ & high-\pt\ EM object passing trigger \\
+      $\abs{\eta}$ & $ < 1.44$ & match signal region kinematics \\
+      \egamma\ ID & Pass $H/E$, \INH, and \Ig\ cuts & must be photon-like \\
+      \sieie & $ < 0.015$ & relaxed for measurement \\ 
+      \ICH\ &  $ < 11.0\GeV$ & relaxed for measurement \\
+      $\pt^j$ & $> 100\GeV$ & high-\pt\ jet \\
+      $\abs{\eta^j}$ & $ < 2.5$ & within tracker acceptance \\
+      Loose Jet ID & Pass & reject jets from pileup \\
+      $\met $ & $ < 60\GeV$ & orthogonal to signal region \\
+    \end{tabular}
+  \caption{Selections for the EM object+jet sample.}
+  \label{tab:emjet}
+\end{table}
+
+We fit the \sieie\ distribution of the EM object with a template describing the \sieie\ shape of true photons and another describing the hadronic background.
 The real photon template is taken from \gj\ MC requiring the photon to pass the \egamma\ ID except for the \sieie\ requirement.
 The fake photon template is taken from the same data control sample, requiring $5\GeV < \ICH < 7\GeV$.
 The number of true photons in the target sample is the integral of the post-fit real photon template below $\sieie = 0.0104$, the same value as in our photon ID. 

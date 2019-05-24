@@ -2,6 +2,8 @@
   the fact that the definitions are somewhere else really confuses
   me. I really think it would be good to put a reminder or table or
   discussion in each section.}
+
+
 Bremsstrahlung photons emitted by beam halo muons in the ECAL volume generate a physical EM shower in the ECAL crystals~\cite{Halo2015}. 
 Large energy deposits are rare, but the rate of beam halo penetration during the 2016 run was substantial.
 The characteristic features of a shower caused by a halo particle include coincident hits in the barrel muon system and a ``trail'' of low-energy clusters in ECAL along the particle trajectory. 
@@ -15,7 +17,7 @@ The beam halo MET filter described in Section~\ref{sec:pf_met} exploits the form
   }
   \caption{
     Left: The \phig\ distribution from \zinvg\ MC simulation. \qquad \qquad
-    Right: The \phig\ distribution of the halo-like showers, tagged in multiple ways. 
+    Right: The \phig\ distribution of the halo-like showers, tagged either by the CSC halo filter or that fail the MIP-tagging.
     Histograms are normalized to unity.
     The cyan histogram is the \phig\ distribution after applying photon identification selections except for the shower shape. 
     It can be seen that the \phig\ distribution is highly stable against the listed identification selections.
@@ -26,8 +28,17 @@ The beam halo MET filter described in Section~\ref{sec:pf_met} exploits the form
 Because beam halo particles are produced through complex LHC machine effects, the observed distribution of the halo showers is not
 symmetric in the azimuthal angle in the detector coordinates.
 The right side of Figure~\ref{fig:halophi} is a \phig\ distribution of the halo showers obtained from the SinglePhoton dataset, requiring $\met > 140\GeV$. 
-Halo showers are defined as those that fail the MIP-tagging and those in events tagged by the CSC beam halo tagger.
+Halo showers are defined as those that fail the MIP-tagging of $\emip < 4.9$ and those in events tagged by the CSC beam halo tagger.
 On the other hand, reconstructed showers from all other sources are symmetric in \phig\, as shown on the left side of Figure~\ref{fig:halophi}. 
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.5\textwidth]{Reconstruction/Figures/halo/haloPhiFolded.pdf}
+  \caption{
+    Folded $\phi'$ distribution of the halo sample.
+  }
+  \label{fig:halo_template}
+\end{figure}
 
 To ensure that the the distribution of Fig.~\ref{fig:halophi} is a valid template for halo showers and invariant under photon selection requirements, the \phig\ distribution is folded such that the two peaks of the halo showers coincide.
 To match the positions of the peaks in the halo template, the distribution is shifted by 0.005 and then folded along 0. 
@@ -72,10 +83,15 @@ From these two observations, we can see that there are is only a negligible numb
 \end{figure}
 
 While the peaking behavior is a robust feature of the halo showers, their rate is not easily predictable. 
-Therefore,  a two-template fit to the $\phi'$ distribution of the photons in the candidate sample, where the templates are a uniform distribution (Figure~\ref{fig:halophi} left) and that of the halo shower (Figure~\ref{fig:halo_template}), accurately estimates the amount of beam halo background present in the signal region. 
-For this analysis, the splitting of the signal region functions in a similar manner, enabling us to determine the beam halo contribution during the signal extraction procedure.
+Therefore,  a two-template fit to the $\phi'$ distribution of the photons in the candidate sample, where the templates are a uniform distribution (Figure~\ref{fig:halophi} left) and that of the halo shower (Figure~\ref{fig:halo_template}), accurately estimates the amount of beam halo background present in the signal region.
 
-In the horizontal ($H$) and vertical ($V$) signal regions, collision processes occupy the relative fractions of phase space $C_{H} = 1/\pi$ and $C_{V} = (\pi-1)/\pi$ corresponding to $\abs{\phi'} < 0.5$ and $0.5 < \abs{\phi'} < \pi/2$, respesctively. 
+For this analysis, the two-template fit is replicated by splitting the signal region into two parts according to the variable $\phi'$ introduced in Equation~\ref{eqn:phi}.
+This enables us to determine the beam halo contribution during the signal extraction procedure.
+The region defined by $\abs{\phi'} < 0.5$ is called the horizontal ($H$) region, its complement $0.5 < \abs{\phi'} < \pi/2$ is called the vertical ($V$) region.
+% and the two together are referred to as the combined signal regions.
+
+In the horizontal and vertical signal regions, collision processes occupy the relative fractions of phase space $C_{H} = 1/\pi$ and $C_{V} = (\pi-1)/\pi$, respesctively. 
+% corresponding to $\abs{\phi'} < 0.5$ and $0.5 < \abs{\phi'} < \pi/2$
 The corresponding fractions for beam halo events are determined by selecting a halo-enriched sample where the halo veto is inverted. 
 Thus, a fit of the two signal regions provides an estimate of the overall normalization of the beam halo background, denoted $h$.
  
