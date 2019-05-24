@@ -27,10 +27,7 @@ The two beams intersect in eight places along the LHC with detector experiments 
 
 The LHC is a synchrotron containing 1232 superconducting NbTi dipole magnets measuring 15\unit{m} in length, each with a peak dipole field of 8.33\unit{T}. 
 There are an additional 492 quadrupole magnets measuring 5-7\unit{m} in length which focus the beams in between the dipole magnets.
-Due to space limitations in the tunnels, the beam pipes are
-magnetically coupled and the magnets share the same superfluid liquid
-helium cryostatic system required to achieve the 1.9\unit{K}
-temperature \PH{Too much required to achieve} required to achieve the desired magnetic field strength and cool sufficient amount of power out of the system.
+Due to space limitations in the tunnels, the beam pipes are magnetically coupled and the magnets share the same superfluid liquid helium cryostatic system needed to reach the 1.9\unit{K} temperature  required to achieve the desired magnetic field strength and cool sufficient amount of power out of the system.
 
 The number of events produced at the LHC is given by
 \begin{equation}
@@ -99,14 +96,7 @@ Including the effects from PDFs and parton showering (PS), the general cross sec
 \end{align}
 where the sum is over the initial state partons and $D$ is the
 fragmentation function that describes parton shower process resulting
-in the observed final state. \PH{ This formalism, while abstract,
-  doesn't seem correct. I think its better to write this in terms of
-  an expansion of the fragmentation functions
-  \sigma=fab\sigma+facDcb\sigma+fdcDdaDcb\sigma+....) take a look at
-  https://hep.pa.msu.edu/resum/theory_overview.html or
-  http://www.int.washington.edu/talks/WorkShops/int_10_3/People/Laenen_E/Laenen.pdf
-  . Or more
-  genericlly you can exponetiate D =>1+D+D2+...= e^D }
+in the observed final state.
 
 The following sections discuss the simulation of the three main elements of Equation~\ref{eqn:ppx}: the parton distribution functions $f_a$, the hard scattering cross section $\text{d}\sigma$, and the parton shower and hadronization processes that contribute to the fragmentation function $D$.
 
@@ -182,10 +172,6 @@ These cross sections diverge as $\theta \rightarrow 0$ and $z \rightarrow 1$, me
 Then, these gluons further split to $gg$ and $q\bar q$ pairs, which in turn emit even more soft and collinear gluons and photons.
 This process continues until the energy of the outgoing partons reaches $\lqcd$ at which point hadronization occurs.
 The final state particles from the shower of a single parton are often collimated into a narrow cone that is reconstructed as a single physics object called a jet.
-\PH{Its nice to see you discuss parton shower, but there are some
-  things that you don't really explain, like why the infrared
-  divergences are not an issue and how the origin of the sudakov
-  appears. I would suggest adding this; it shouldn't take too much time}
 
 \subsection{Hadronization}
 
