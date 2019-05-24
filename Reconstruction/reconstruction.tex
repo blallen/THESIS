@@ -1,7 +1,7 @@
 \chapter{Global Event Reconstruction}
 
 In the previous chapter, we discussed the interactions of particles with the individual subdetectors and how these generate electrical signals.
-Now, we shall \PH{Missing Verb} the reconstruction of individual particles or physics objects from the electrical signals recorded by the subdetectors.
+Now, we shall discuss the reconstruction of individual particles or physics objects from the electrical signals recorded by the subdetectors.
 
 Traditionally, each class of physics object is reconstructed using information from a single subdetector: muons from the muon chambers, isolated photons and electrons from the ECAL, jets and missing transverse energy from the HCAL, and secondary vertices from $\tau$ lepton and $b$ hadron decays from the tracker.
 However, as depicted in Figure~\ref{fig:cms_slice}, each type of particle interacts with multiple different subdetectors and the best reconstruction is achieved by combining the information from all subdetectors into a single global event description.
@@ -104,14 +104,14 @@ The ECAL reconstruction algorithm~\cite{Electrons2015, Photons2015} combines the
 At the start of the clustering process, seed crystals are identified as those with a greater transverse energy than their immediate neighbors and above a predefined minimum threshold.
 The energy of each crystal is determined from calibration constants combined with the amplitude and peak time obtained by fitting the pulse shape of the ten time samples surrounding the triggering bunch crossing.
 
-In the barrel, a supercluster starts with a $5\times1$ array of crystals in the $\eta$-$\phi$ plane centred on the seed crystal.
-The array is extended around the seed crystal in the $\phi$-direction up to $\abs{\Delta\phi} \le 0.3$ if the energy of the additional crystals exceeds a certain threshold. 
-The contiguous array is grouped into distinct basic clusters each containing a seed array with energy greater than another threshold.
-The supercluster is the collection of basic threshold found in the $\eta$-$\phi$ region centered on the initial seed crystal.
+In the barrel, a supercluster starts with a strip of five crystals in the $\eta$-direction centered on the seed crystal.
+This strip is extended into a $5\times N$ matrix around the seed crystal in the $\phi$-direction up to $\abs{\Delta\phi} \le 0.3$ by adding the adjacent strips of five crystals in $\eta$ if the energy of the crystals in the strip exceeds a certain threshold. 
+This contiguous $5\times N$ matrix is grouped into distinct basic clusters each containing a seed strip with energy greater than another threshold.
+The supercluster is the collection of basic clusters found in the $5\times N$ matrix centered on the initial seed crystal.
 Since the crystals in the endcaps are arranged in an $x$-$y$ grid, clustering here uses fixed $5\times5$ matrices of crystals. 
 After a seed cluster is identified, additional, partially overlapping $5\times5$ matrices are added if their centroid lies within $\abs{\Delta\eta} \le 0.07$ and $\abs{\Delta\phi} \le 0.3$.
 For unconverted photons, both methods produce superclusters that are simple $5\times5$ matrices.
-\PH{The above paragraph is quite cryptic. I struggled to figure out of the 5x1 is in $\eta$ or $\phi$. Also, how the iterative choice of the seeding works.  Given that this is an important part of your analysis can you rewrite.}
+
 \subsection{HCAL Clusters}
 \label{sec:pf_clusters}
 
@@ -146,7 +146,7 @@ A full track constructed in this way is referred to as a standalone muon~\cite{P
 \subsection{Isolation}
 \label{sec:pf_iso}
 
-While not a physics object persay, isolation is a powerful variable used in the PF algorithm to distinguish prompt leptons and photons originating in the hard scattering from those originating in the decays of hardrons during the parton shower. \PH{persay is mispelled and also a colloquiusm, I don't think this should be in a thesis}
+While not a physics object in the traditional sense of representing a fundamental particle from the hard scattering, isolation is a powerful variable used in the PF algorithm to distinguish prompt leptons and photons originating in the hard scattering from those originating in the decays of hardrons during the parton shower.
 The latter are surrounded by a large amount of additional hadrons while the former have little hadronic activity in their vicinity, originating mainly from the pileup vertices.
 
 The isolation of a prompt object is the total amount of energy due to additional particles within an annulus of radius $0.01 < \dR < 0.4$ around the prompt object, where the lower bound avoids including the prompt object and its radiation in the sum.
@@ -259,7 +259,6 @@ Additionally, a tight electron must have $\pt\ > 30\GeV$.
     \label{tab:eleid}
   \end{center}
 \end{table}
-\PH{All cut parameters on the electron id nee to be included. The point is that the thesis should allow me to reproduce the analysis completely}
 
 \subsection{Isolated Photons}
 \label{sec:pf_photons}
@@ -332,7 +331,7 @@ The lower bounds on \sieie\ and \sipip\ as well as the requirement on the cluste
   \end{center}
 \end{table}
 
-\subsection{Hadrons} \PH{I would move this earlier, since the object ids occur after PF. Also you might want to label this PF or something closer to that. }
+\subsection{PF Hadrons} 
 \label{sec:pf_hadrons}
 
 The last candidates reconstructed in a given PF block are the charged and neutral hadrons from fragmentation and hadronization, as well as the non-isolated muons and photons produced from their respective decays.
@@ -344,14 +343,17 @@ Thus, only unlinked ECAL clusters are reconstructed as photons and linked ECAL a
 
 Afterwards, the only remaining PF elements are HCAL clusters linked to one or more tracks and ECAL clusters linked to one of these tracks.
 A single charged hadron is constructed for each remaining HCAL cluster, with energy equal to the sum of the ECAL and HCAL clusters and momentum equal to the sum of the individual track momenta.
+The energy of this hadron can exceed its momentum due to the presence of neutral particles.
+Conversely, the momentum can exceed the energy due to the presence muons from heavy flavor decays or because of mismeasured tracks.
+The next few paragraphs describe how reconstruction is handled in each of the three cases.
 
-If the energy of the charged hadron exceeds its momentum by an amount larger than the calometric energy resolution, neutral hadrons and photons are added. \PH{This paragraph starts out of nowhere, was hard to follow reading it, perhaps merge with previous paragraph and rephrase a little}
+If energy and momentum of the charged hadron are compatible, no neutral particles or muons are identified. A charged hadron candidate is created for each track linked to the HCAL cluster, with momenta determined by a $\chi^2$ fit of the tracker and calorimeter measurements.
+This combintation ensures a smooth transition between the tracker-dominated low-energy regime and the calorimeter-dominated high-energy regime while always improving the final energy resolution. 
+
+If the energy of the charged hadron exceeds its momentum by an amount larger than the calometric energy resolution, neutral hadrons and photons are added.
 For excesses greater than 500\MeV, a photon with energy equal to the excess is created.
 If this photon cannot explain the entire excess, e.g. the excess is larger than the ECAL energy by at least 1\GeV, the remainder is indentified as a neutral hadron. 
 After photons and neutral hadrons consume the excess calometric energy, charged hadrons are constructed from the linked tracks with their energy and momentum determined by the track momenta under the charged-pion hypothesis. 
-
-If energy and momentum of the charged hadron are compatible, no neutral particles are identified. A charged hadron candidate is created for each track linked to the HCAL cluster, with momenta determined by a $\chi^2$ fit of the tracker and calorimeter measurements.
-This combintation ensures a smooth transition between the tracker-dominated low-energy regime and the calorimeter-dominated high-energy regime while always improving the final energy resolution. 
 
 If the momentum of the charged hadron exceeds its energy by three standard deviations, new PF muons are made from any non-isolated global muons failing the cleaning described in Section~\ref{sec:pf_muons} with momentum resolution better than 25\%.
 If, after masking the tracks from these muons, the track momentum sum still greatly exceeds the calorimeter energy, all remaining tracks with a \pt\ uncertainty greater than 1\GeV are identified, sorted in decreasing order of this uncertainty, and sequentially masked until no such tracks remain or the momentum excess disappears, whichever comes first. 
@@ -374,8 +376,8 @@ Given an object $i$ in the event $E$, we define the distance to the beam and the
     d_{ij} = \min \left\{\left(\pt^i\right)^{2q}, \left(\pt^j\right)^{2q} \right\} \dfrac{\left(\dR_{ij}\right)^2}{R^2} ,
   \end{matrix}
 \end{equation}
-respectively, where $q$ and $R$ are tunable parameters and $\dR_{ij}$ is the angular distance between the two particles. \PH{I do not recall a definition of $R$}
-The distance parameter $R$ is an appromixate measure of the cone size \dR\ of the jet, while the power of the energy scale $q$ defines the relationship between the relationship between the momentum and angular factors. \PH{rephrase relationship between the...}
+respectively, where $q$ and $R$ are tunable parameters and $\dR_{ij}$ is the angular distance between the two particles. 
+The distance parameter $R$ is an appromixate measure of the cone size \dR\ of the jet, while the power of the energy scale $q$ determines the relative importance of the momentum and angular factors. 
 Jets clustered with $q = -1$ are referred to as anti-\kt\ jets, those with $q = 0$ as Cambridge-Aachen jets, and those with $q = 1$ as \kt\ jets.  
 Negative values of $q$ force the clustering of circular jets around hard seeds ensuring that the resulting jet boundaries are resilient with respect to soft radiation.
 Within CMS, anti-\kt\ jets with $R = 0.4$ are used to cluster the parton shower from single partons.
@@ -398,8 +400,8 @@ and its magnitude is the missing transverse energy $\met = \abs\ptvecmiss$.
 In a perfectly reconstructed event, non-zero \met\ implies the presence of neutrinos or DM candidates; however, the failure to properly reconstruct energy deposits or the reconstruction of PF candidates with incorrect energy results in events with large amount of fake \met.
 
 One last cleaning of the PF candidates is conducted in an attempt to fix these events.
-To remove muons from cosmic rays, muon candidates with trajectories more than 1\cm away from the beam axis are removed if the measured \met\ is consequently reduced by half. \PH{I don't think consequently is needed}
-For muons with $\pt > 20\GeV$, the choice of subdetector used to estimate momemtum is reviewed and the smallest available estimate used if it reduces the measured \met\ by half. \PH{rephrase: the if it reduces confuseds me}
+To remove muons from cosmic rays, muon candidates with trajectories more than 1\cm away from the beam axis are removed if the measured \met\ is reduced by half.
+For muons with $\pt > 20\GeV$, the choice of subdetector used to estimate momemtum is reviewed and the smallest available estimate used if the measured \met is reduced by half. 
 Additionally, the assignment of charged hadrons and neutral hadrons is reconsidered to ensure a charged hadron is not reconstructed as a muon and neutral hadron and vice versa.
 
 Fake \met\ can persist in an event even after the final cleaning of PF candidates.
@@ -431,11 +433,11 @@ This effect is mitigated in the reprocessed data set used for this analysis by i
   \centering
   \includegraphics[width=0.6\linewidth]{Reconstruction/Figures/gsfix/movements.pdf}
   \caption{
-    The change in reconstructed photon \pt\ and \met\ for events in the bin $\dphigmet < 0.05$ of the distribution in Figure~\ref{fig:dphigmet_beforegsfix}. 
+    The change in reconstructed photon \pt\ and \met\ for events in the bin $\dphigmet < 0.05$ of the distribution on the right of Figure~\ref{fig:n-1}. 
     Each arrow represents a single event, the tail (head) of the arrow corresponding to (\ETg, \met) coordinates in the datasets without (with) the fix for the gain-switch problem.
   }
   \label{fig:ptshift_gsfix}
 \end{figure}
 
-The gain-switch problem affected the analyses documented in this thesis, since large underestimation of the energy of a photon in an otherwise typical \gj\ event would introduce large missing transverse momentum to the event, typical collinear to the affected photon. \PH{grammar: typical collinear}
+The gain-switch problem affected the analyses documented in this thesis, since large underestimation of the energy of a photon in an otherwise typical \gj\ event would introduce large missing transverse momentum to the event, typically collinear to the affected photon.
 Figures~\ref{fig:eventdisplay_gsfix} and~\ref{fig:ptshift_gsfix} are the visualization of how the new dataset changes the reconstructed photon energy and \met.
